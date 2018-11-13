@@ -7,4 +7,17 @@
 <script>
 var au = new AjaxUtil();
 
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+<script src="${resPath}/js/AjaxUtil.js"></script>
+<script>
+var au = new AjaxUtil();
+
+>>>>>>> branch 'master' of https://github.com/Jeondanin/prj-gmj.git
 </script>
