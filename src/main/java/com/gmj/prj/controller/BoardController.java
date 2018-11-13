@@ -1,3 +1,4 @@
+
 package com.gmj.prj.controller;
 
 import java.util.List;
@@ -34,3 +35,4 @@ public class BoardController {
 	}
 		
 }
+

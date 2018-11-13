@@ -20,3 +20,4 @@ public class GmjFavoriteDAOImpl implements GmjFavoriteDAO {
 	}
 
 }
+

@@ -1,3 +1,4 @@
+
 package com.gmj.prj.dao.impl;
 
 import java.util.List;
@@ -27,3 +28,4 @@ public class GmjArchitectInfoDAOImpl implements GmjArchitectInfoDAO {
 	}
 
 }
+

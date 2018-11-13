@@ -17,6 +17,7 @@ public class URIController {
 
 	@RequestMapping(value="/uri/**",method=RequestMethod.GET)
 	public String goPage(HttpServletRequest req) {
+		
 		String rootPath = req.getContextPath(); 
 
 		String uri = req.getRequestURI();
