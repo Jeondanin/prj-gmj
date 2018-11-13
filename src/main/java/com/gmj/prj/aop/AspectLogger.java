@@ -115,7 +115,7 @@ public class AspectLogger {
 		System.out.println("애프터");
 		logger.debug("@After => {}", jp);
 	}
-	/*@After("execution(* com.gmj.prj.dao.impl.GmjClientDAOImpl*.*(..))")
+	@After("execution(* com.gmj.prj.dao.impl.GmjClientDAOImpl*.*(..))")
 	public void afterupdateClient(JoinPoint jp) {
 		System.out.println("dao결과를 로그로 남깁니다. ");
 		HttpServletRequest req = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes())
@@ -127,5 +127,5 @@ public class AspectLogger {
 		logMap.put("gmjlogarea", jp.toString());
 		gld.gmjInsertLog(logMap);
 		logger.debug("@After => {}", jp);
-	}*/
+	}
 }

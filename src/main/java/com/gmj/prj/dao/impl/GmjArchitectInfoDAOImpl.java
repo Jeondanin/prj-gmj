@@ -5,12 +5,13 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import com.gmj.prj.dao.GmjArchitectInfoDAO;
 import com.gmj.prj.vo.GmjArchitectInfo;
 
 
-@Component
+@Repository
 public class GmjArchitectInfoDAOImpl implements GmjArchitectInfoDAO {
 	@Autowired
 	public SqlSession ss;
