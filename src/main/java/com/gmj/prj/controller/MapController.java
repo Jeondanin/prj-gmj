@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.gmj.prj.service.impl.GmjArchitectInfoServiceImpl;
 import com.gmj.prj.service.impl.GmjFavoriteServiceImpl;
@@ -33,6 +35,9 @@ public class MapController {
 	
 	@GetMapping(value="/gmjArchitectName/{gmjArchitectName}")
 	public @ResponseBody List<GmjArchitectInfo> userprList(@PathVariable String gmjArchitectName) {
+		HttpServletRequest req = ((ServletRequestAttributes)RequestContextHolder.currentRequestAttributes()).getRequest();
+		
+		System.out.println(req.getRemoteAddr());
 		return gaisi.getList(gmjArchitectName);
 	}
 	@GetMapping(value="/gmjArchitectBAddress/{gmjArchitectBAddress}")

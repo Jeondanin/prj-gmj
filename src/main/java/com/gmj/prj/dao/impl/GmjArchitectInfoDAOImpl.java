@@ -17,12 +17,12 @@ public class GmjArchitectInfoDAOImpl implements GmjArchitectInfoDAO {
 	@Override
 	public List<GmjArchitectInfo> getList(String gmjarchitectname) {
 		
-		return ss.selectList("com.bdi.sp.vo.GmjArchitectInfo.selectList",gmjarchitectname);
+		return ss.selectList("com.gmj.prj.vo.GmjArchitectInfo.selectList",gmjarchitectname);
 	}
 	@Override
 	public GmjArchitectInfo checkAddress(String gmjArchitectBAddress) {
 		// TODO Auto-generated method stub
-		return ss.selectOne("com.bdi.sp.vo.GmjArchitectInfo.checkAddress",gmjArchitectBAddress);
+		return ss.selectOne("com..gmj.prj.GmjArchitectInfo.checkAddress",gmjArchitectBAddress);
 	}
 
 }

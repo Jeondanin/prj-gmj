@@ -15,7 +15,7 @@ public class GmjFavoriteDAOImpl implements GmjFavoriteDAO {
 	@Override
 	public int insertFavorite(GmjFavorite gf) {
 		
-		return ss.insert("com.bdi.sp.vo.GmjFavorite.insertFavorite",gf);
+		return ss.insert("com.gmj.prj.vo.GmjFavorite.insertFavorite",gf);
 	}
 
 }

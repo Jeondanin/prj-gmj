@@ -1,0 +1,144 @@
+body{margin:0;}
+.header{
+    background-color:lightblue;
+    height:20vh;
+    
+}
+.header #logo a{
+    margin:1vw;
+    float:left;
+    text-decoration:none;
+    font-size:5vh;
+    
+}
+.header #searchSection{
+    
+    padding-top: 4vh;
+    padding-left: 30vw;
+      
+}
+.header #searchSection #searchMap{
+    float:left;
+}
+.header #navi{
+    margin-top:11.9vh;
+}
+.header #navi ul{
+list-style-type: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+background-color: #333;
+}
+.header #navi li{
+    float:left;
+    padding:1vh;
+    text-align:center;
+}
+.header #navi li a{
+    color:white;
+    text-align:center;
+    margin:1vw;
+    padding:5vw;
+    text-decoration:none;
+}
+
+.section1{
+    height:60vh;
+    background-color:#FDE8E5;
+}
+.section1 #section1img{
+    padding-top:5vh;
+    margin-left:10vw;
+}
+#section1img img{
+    height:50vh;
+    width:70vw;
+}
+.section2{
+    height:40vh;
+}
+.rect{
+    float:left;
+    height:30%;
+    width:20%;
+   margin-top:1vh;
+    margin-left:5vw;
+    
+}
+.section3{
+    width:100%;
+    height:40vh;;
+}
+
+
+
+
+
+.section4{
+    height:40vh;
+}
+.section4 ul{
+    list-style-type: none;
+}
+.section4 ul li{
+    float:left;
+    padding-top:1vh;
+    margin-left:10vw;
+}
+.section5{background-color:#FDE8E5;
+    height:40vh;
+}
+.section5 .arcontainer #artitle{
+    background-color:black;
+    font:20px;
+    color:white;
+    margin:1vh 10vw 0 10vw;
+}
+.arcontainer #arimgbox{
+    border:1px solid grey;
+    margin:0 10vw;
+    height:30vh;
+    display:flex;
+    flex-wrap:wrap;
+    
+}
+#arimgbox .arimgrect{
+    margin:1% 2% 1% 7%;
+    
+    border:1px solid grey;
+    width:100px;
+    height:100px;
+}
+.arimgrect img{
+    width:100px;
+    height:100px;
+}
+.section6{
+    height:40vh;
+}
+.section6 #bcimgbox{
+    background-color: rgb(223, 233, 223);
+    margin:0vh 10vw;
+    padding:5vh 10vw 0 10vw;
+    height:28vh;
+    display:flex;
+    flex-wrap:wrap;
+}
+#bcimgbox .bcimgrect{
+    margin:1% 10% 1% 5%;
+    border:1px solid grey;
+    width:150px;
+    height:200px;
+}
+.bcimgrect img{
+    width:150px;
+    height:200px;
+}
+.section7{background-color:#FDE8E5;
+    height:40vh;
+}
+.footer{
+    background-color:#333;
+    height:20vh;
+}

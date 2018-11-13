@@ -15,7 +15,7 @@ public class BoardInfoDAOImpl implements BoardInfoDAO {
 	private SqlSession ss;
 	@Override
 	public BoardInfo gettotalcnt() {
-		int totalCnt =ss.selectOne("com.bdi.sp.vo.BoardInfo.gettotalcnt");
+		int totalCnt =ss.selectOne("com.gmj.prj.vo.BoardInfo.gettotalcnt");
 		BoardInfo bi = new BoardInfo();
 		bi.setTotalBoard(totalCnt);
 		bi.setCurrentpage(3);//리퀘스트 uri를 읽어서 세팅해주면됨.
@@ -23,7 +23,7 @@ public class BoardInfoDAOImpl implements BoardInfoDAO {
 	}
 	@Override
 	public Map<String,Object> getBoardInfo(int num) {
-		Map<String,Object> getBoard = ss.selectOne("com.bdi.sp.vo.BoardInfo.getBoardInfo",num);
+		Map<String,Object> getBoard = ss.selectOne("com.gmj.prj.vo.BoardInfo.getBoardInfo",num);
 		return getBoard;
 	}
 
