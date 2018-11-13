@@ -40,6 +40,7 @@ public class AspectLogger {
 		gld.gmjInsertLog(logMap);
 
 	}
+	
 
 	@Before("execution(* com.gmj.prj.controller.*.*(..))")
 	public void beforeControllerLog(JoinPoint jp) {
@@ -114,4 +115,17 @@ public class AspectLogger {
 		System.out.println("애프터");
 		logger.debug("@After => {}", jp);
 	}
+	/*@After("execution(* com.gmj.prj.dao.impl.GmjClientDAOImpl*.*(..))")
+	public void afterupdateClient(JoinPoint jp) {
+		System.out.println("dao결과를 로그로 남깁니다. ");
+		HttpServletRequest req = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes())
+				.getRequest();
+		String ip = req.getRemoteAddr();
+		System.out.println(ip);
+		Map<String, String> logMap = new HashMap<String, String>();
+		logMap.put("gmjlogip", ip);
+		logMap.put("gmjlogarea", jp.toString());
+		gld.gmjInsertLog(logMap);
+		logger.debug("@After => {}", jp);
+	}*/
 }

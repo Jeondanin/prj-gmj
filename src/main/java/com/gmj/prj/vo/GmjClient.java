@@ -1,5 +1,8 @@
 package com.gmj.prj.vo;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+
 public class GmjClient {
 	private int gmjuserno;
 	private String gmjuseremail;
@@ -9,6 +12,21 @@ public class GmjClient {
 	private String gmjuserbirth;
 	private String gmjusersex;
 	private String gmjuseraddress;
+	private String credat;
+	private String moddat;
+	
+	public String getCredat() {
+		return credat;
+	}
+	public void setCredat(String credat) {
+		this.credat = credat;
+	}
+	public String getModdat() {
+		return moddat;
+	}
+	public void setModdat(String moddat) {
+		this.moddat = moddat;
+	}
 	public int getGmjuserno() {
 		return gmjuserno;
 	}
@@ -61,13 +79,10 @@ public class GmjClient {
 	public String toString() {
 		return "GmjClient [gmjuserno=" + gmjuserno + ", gmjuseremail=" + gmjuseremail + ", gmjuserpwd=" + gmjuserpwd
 				+ ", gmjusername=" + gmjusername + ", gmjuserphone=" + gmjuserphone + ", gmjuserbirth=" + gmjuserbirth
-				+ ", gmjusersex=" + gmjusersex + ", gmjuseraddress=" + gmjuseraddress + ", getGmjuserno()="
-				+ getGmjuserno() + ", getGmjuseremail()=" + getGmjuseremail() + ", getGmjuserpwd()=" + getGmjuserpwd()
-				+ ", getGmjusername()=" + getGmjusername() + ", getGmjuserphone()=" + getGmjuserphone()
-				+ ", getGmjuserbirth()=" + getGmjuserbirth() + ", getGmjusersex()=" + getGmjusersex()
-				+ ", getGmjuseraddress()=" + getGmjuseraddress() + ", getClass()=" + getClass() + ", hashCode()="
-				+ hashCode() + ", toString()=" + super.toString() + "]";
+				+ ", gmjusersex=" + gmjusersex + ", gmjuseraddress=" + gmjuseraddress + ", credat=" + credat
+				+ ", moddat=" + moddat + "]";
 	}
+	
 	
 	
 }

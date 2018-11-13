@@ -1,5 +1,7 @@
 package com.gmj.prj.dao.impl;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -15,6 +17,16 @@ public class GmjClientDAOImpl implements GmjClientDAO {
 		String tmp =gc.getGmjuserbirth();
 		gc.setGmjuserbirth(tmp.substring(0, 10));
 		return ss.insert("com.gmj.prj.vo.GmjClient.insertClient",gc);
+	}
+	@Override
+	public List<GmjClient> getClientList() {
+		// TODO Auto-generated method stub
+		return ss.selectList("com.gmj.prj.vo.GmjClient.selectClientList");
+	}
+	@Override
+	public int updateClient(GmjClient gc) {
+	
+		return ss.update("com.gmj.prj.vo.GmjClient.updateClient",gc);
 	}
 
 }

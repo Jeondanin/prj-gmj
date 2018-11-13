@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.gmj.prj.dao.BoardInfoDAO;
 import com.gmj.prj.dao.impl.BoardInfoDAOImpl;
 import com.gmj.prj.vo.BoardInfo;
 
@@ -22,14 +23,14 @@ import com.gmj.prj.vo.BoardInfo;
 public class BoardController {
 
 	@Autowired
-	private BoardInfoDAOImpl bai;
+	private BoardInfoDAO bad;
 	@GetMapping(value="/board")
 	public @ResponseBody BoardInfo getBoardCnt() {
-		return bai.gettotalcnt();
+		return bad.gettotalcnt();
 	}
 	@GetMapping(value="/uri/prj/comment/{num}")
 	public @ResponseBody Map<String,Object> getBoardInfo(@PathVariable int num) {
-		return bai.getBoardInfo(num);
+		return bad.getBoardInfo(num);
 	}
 		
 }
