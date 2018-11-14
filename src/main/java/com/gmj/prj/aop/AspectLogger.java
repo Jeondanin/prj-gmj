@@ -70,6 +70,9 @@ public class AspectLogger {
 		Object obj = null;
 		logger.debug("유저세션값{}",hs.getAttribute("user"));
 		if(hs.getAttribute("user").equals("2")) {
+		System.out.println("고쳐요.");
+		}
+		if(hs.getAttribute("user").equals("2")) {
 			obj = pjp.proceed();
 			logger.debug("@Result=>{}", obj);
 			logger.debug("@around end");
@@ -115,7 +118,7 @@ public class AspectLogger {
 		System.out.println("애프터");
 		logger.debug("@After => {}", jp);
 	}
-	@After("execution(* com.gmj.prj.dao.impl.GmjClientDAOImpl*.*(..))")
+	@After("execution(* com.gmj.prj.dao.impl.GmjClientDAOImpl.*(..))")
 	public void afterupdateClient(JoinPoint jp) {
 		System.out.println("dao결과를 로그로 남깁니다. ");
 		HttpServletRequest req = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes())

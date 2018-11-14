@@ -446,9 +446,7 @@
 							<div id="blank" class="tab-pane fade in active"></div>
 							<div id="home" class="tab-pane fade" style="padding-left: 15px">
 
-								<div id="rDiv" style="width: 70vw; height: 45vh"></div>
-								<div id="pagingbox"></div>
-								<div id="recInfoArea"></div>
+								
 
 
 							</div>
@@ -458,10 +456,10 @@
 									ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 							</div>
 							<div id="menu2" class="tab-pane fade" style="padding-left: 15px;">
-								<h3>Menu 2</h3>
-								<p>Sed ut perspiciatis unde omnis iste natus error sit
-									voluptatem accusantium doloremque laudantium, totam rem
-									aperiam.</p>
+								<h1>회원</h1> 
+								<div id="rDiv" style="width: 70vw; height: 45vh"></div>
+								<div id="pagingbox"></div>
+								<div id="recInfoArea"></div>
 							</div>
 							<div id="menu3" class="tab-pane fade" style="padding-left: 15px;">
 								<h3>Menu 3</h3>
@@ -525,7 +523,7 @@
 			dxGrid
 					.setColumnIds('gmjuserno,gmjuseremail,gmjuserpwd,gmjusername,gmjuserphone,gmjuserbirth,gmjusersex,gmjuseraddress,credat,moddat,edit,delete');
 			dxGrid.setColTypes('ro,ro,ed,ed,ed,ed,ed,ed,ro,ro,img,img');
-			dxGrid.enableAutoHeight(true);
+			
 			dxGrid.enableAutoWidth(true);
 			dxGrid.init();
 
@@ -584,7 +582,7 @@
 				keys[i] = target.path[2].childNodes[i].innerHTML;
 			}
 			uinum = keys[0];
-			//deleterow(uinum);
+			deleterow(uinum);
 		}
 
 		function checkvalue(keys) {
@@ -607,6 +605,21 @@
 
 			sendingToServer(keys);
 		}
+		
+		function deleterow(uinum){
+			var conf={
+					url:'/gmjclient/'+uinum+'',
+					method:'DELETE',
+					success:function(res){
+						res=JSON.parse(res);
+						alert(res);
+					}
+				}
+				if(confirm('이 데이터를 삭제하시겠습니까?')){
+					au.send(conf);	
+				};
+		}
+		
 		function sendingToServer(keys){
 			alert('보내기전');
 			conf={
@@ -616,10 +629,8 @@
 					success:function(res){
 						res=JSON.parse(res);
 						alert('바꼈다');
-						
 					}
-				}
-				
+				}	
 				au.send(conf);
 		}
 		

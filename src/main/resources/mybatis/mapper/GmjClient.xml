@@ -23,6 +23,10 @@
 			</set>
 		where gmjuserno=#{gmjuserno}
 		</update>
+		<delete id="deleteClient">
+		delete from gmjclient
+		where gmjuserno=#{gmjuserno}
+		</delete>
 		
 		
 

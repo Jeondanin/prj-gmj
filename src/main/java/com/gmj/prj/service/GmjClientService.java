@@ -9,4 +9,5 @@ public interface GmjClientService {
 	public List<GmjClient> getClientList();
 	public int insertClient(GmjClient gc);
 	public int updateClient(GmjClient gc);
+	public int deleteClient(int gmjclientno);
 }

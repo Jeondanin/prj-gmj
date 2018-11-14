@@ -21,13 +21,18 @@ public class GmjClientDAOImpl implements GmjClientDAO {
 	}
 	@Override
 	public List<GmjClient> getClientList() {
-		// TODO Auto-generated method stub
+
 		return ss.selectList("com.gmj.prj.vo.GmjClient.selectClientList");
 	}
 	@Override
 	public int updateClient(GmjClient gc) {
 	
 		return ss.update("com.gmj.prj.vo.GmjClient.updateClient",gc);
+	}
+	@Override
+	public int deleteClient(int gmjClientno) {
+		// TODO Auto-generated method stub
+		return ss.delete("com.gmj.prj.vo.GmjClient.deleteClient",gmjClientno);
 	}
 
 }
