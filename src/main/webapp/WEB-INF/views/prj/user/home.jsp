@@ -13,7 +13,7 @@
     <title>GMJ</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${resPath}/user/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -23,7 +23,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <!-- Custom styles for this template -->
-    <link href="css/business-casual.min.css" rel="stylesheet">
+    <link href="${resPath}/user/css/business-casual.min.css" rel="stylesheet">
 
   </head>
 
@@ -50,27 +50,27 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav mx-auto">
+          <ul class="navbar-nav mx-auto" style="list-style:none;">
             <li class="nav-item active px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="home.html">Home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="map.html">Map</a>
+              <a class="nav-link text-uppercase text-expanded" href="map">Map</a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="products.html">construct</a>
+              <a class="nav-link text-uppercase text-expanded" href="products">construct</a>
             </li>
               <li class="nav-item px-lg-4">
-                <a class="nav-link text-uppercase text-expanded" href="community.html">community</a>
+                <a class="nav-link text-uppercase text-expanded" href="community">community</a>
               </li>
               <li class="nav-item px-lg-4">
-                <a class="nav-link text-uppercase text-expanded" href="social media.html">social media</a>
+                <a class="nav-link text-uppercase text-expanded" href="social media">social media</a>
               </li>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="academy.html">Academy</a>
+              <a class="nav-link text-uppercase text-expanded" href="academy">Academy</a>
             </li>
           </ul>
         </div>
@@ -188,8 +188,8 @@
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="${resPath}/user/vendor/jquery/jquery.min.js"></script>
+    <script src="${resPath}/user/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   </body>
 </html>

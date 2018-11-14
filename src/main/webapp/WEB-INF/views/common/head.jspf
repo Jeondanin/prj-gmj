@@ -4,13 +4,6 @@
 <c:set var="rootPath" value="${pageContext.request.contextPath}" />
 <c:set var="resPath" value="${rootPath}/resources"/>
 <script src="${resPath}/js/AjaxUtil.js"></script>
-<script>
-var au = new AjaxUtil();
-
-<<<<<<< HEAD
-=======
-
-
 
 
 
@@ -19,5 +12,5 @@ var au = new AjaxUtil();
 <script>
 var au = new AjaxUtil();
 
->>>>>>> branch 'master' of https://github.com/Jeondanin/prj-gmj.git
+
 </script>

@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.gmj.prj.dao.BoardInfoDAO;
 import com.gmj.prj.dao.impl.BoardInfoDAOImpl;
+import com.gmj.prj.service.GmjCboardService;
 import com.gmj.prj.vo.BoardInfo;
+import com.gmj.prj.vo.GmjCboard;
 
 
 
@@ -25,6 +27,8 @@ public class BoardController {
 
 	@Autowired
 	private BoardInfoDAO bad;
+	@Autowired
+	private GmjCboardService gcs;
 	@GetMapping(value="/board")
 	public @ResponseBody BoardInfo getBoardCnt() {
 		return bad.gettotalcnt();
@@ -32,6 +36,11 @@ public class BoardController {
 	@GetMapping(value="/uri/prj/comment/{num}")
 	public @ResponseBody Map<String,Object> getBoardInfo(@PathVariable int num) {
 		return bad.getBoardInfo(num);
+	}
+	
+	@GetMapping(value="/gmjcboard")
+	public @ResponseBody List<GmjCboard> getList(){
+		return gcs.getList();
 	}
 		
 }

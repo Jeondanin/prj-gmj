@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace="com.gmj.prj.vo.GmjCboard">
+		<select id="selectCboardList" resultType="com.gmj.prj.vo.GmjCboard">
+			select gmjcboardno, gmjcboardtitle,gmjusername,gmjcboard.credat,gmjcboardcnt from gmjcboard,gmjclient
+			 where gmjcboard.gmjclientno=gmjclient.gmjUserNo order by gmjcboard.credat, gmjcboardno;
+		</select>
+		
+	</mapper>
