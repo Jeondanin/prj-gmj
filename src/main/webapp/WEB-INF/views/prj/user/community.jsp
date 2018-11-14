@@ -40,6 +40,8 @@
 	margin: 0 10px;
 	font-size: 20px;
 }
+
+
 </style>
 </head>
 
@@ -230,7 +232,7 @@
 							if (limitLNum < 0) {
 								limitLNum = -1;
 							}
-
+					//하나의 페이지에 들어갈 내용을 만들어놓음 .
 							for (var i = limitFNum - 1; i > limitLNum; i--) {
 
 								var html = '<tr class="board'+j+'"><td>'
@@ -244,22 +246,48 @@
 							}
 							if (j < 6) {
 								if(j==1){
-									html2 += '<li><div class="paging" onclick="pageSelected(event)" style="cursor:pointer;" id="paging selected">'
+									html2 += '<li><div class="paging paginggroup'+Math.ceil(j/5)+'" onclick="pageSelected(event)" style="cursor:pointer;" id="paging selected">'
 										+ j + '</div></li>'
+								}else if(j%5==0){
+									html2 += '<li><div class="paging paginggroup'+Math.ceil(j/5)+'" onclick="pageSelected(event)" style="cursor:pointer;" id="paging">'
+										+ j + '</div></li>'
+									html2+='<li><div class="paging paginggroup'+Math.ceil(j/5)+'" onclick="pageSelected(event)" style="cursor:pointer;">&gt;&gt;</div></li>';	
 								}else{
-									html2 += '<li><div class="paging" onclick="pageSelected(event)" style="cursor:pointer;" id="paging">'
-										+ j + '</div></li>'
+									html2 += '<li><div class="paging paginggroup'+Math.ceil(j/5)+'" onclick="pageSelected(event)" style="cursor:pointer;">'
+									+ j + '</div></li>';
 								}
 								
-							} else {
-								html2 += '<li><div class="paging" onclick="pageSelected(event)" style="cursor:pointer; display:none;">'
-										+ j + '</div></li>'
+								
+							} else if(j>=6) {
+								if(j%5==1){
+									html2+= '<li><div class="paging paginggroup'+Math.ceil(j/5)+'" onclick="pageSelected(event)" style="cursor:pointer; display:none;">&lt;&lt;</div></li>';
+									html2 += '<li><div  class="paging paginggroup'+Math.ceil(j/5)+'" onclick="pageSelected(event)" style="cursor:pointer; display:none;">'
+									+ j + '</div></li>';
+								}else if(j%5==0){
+									html2 += '<li><div class="paging paginggroup'+Math.ceil(j/5)+'" onclick="pageSelected(event)" style="cursor:pointer; display:none;">'
+									+ j + '</div></li>';
+									html2+='<li><div class="paging paginggroup'+Math.ceil(j/5)+'" onclick="pageSelected(event)" style="cursor:pointer; display:none;">&gt;&gt;</div></li>';
+								}else{
+									html2 += '<li><div class="paging paginggroup'+Math.ceil(j/5)+'" onclick="pageSelected(event)" style="cursor:pointer; display:none;">'
+									+ j + '</div></li>';
+								}
+								
 							}
 
 						}
 
-						html2 += '<li><div class="paging" onclick="pageSelected(event)" style="cursor:pointer;">&gt;&gt;</div></li></ul>';
+						html2 += '</ul>';
 						paging.insertAdjacentHTML('beforeend', html2);
+						
+						var contents = document.querySelectorAll('.board'+1);
+						var html3 = '';
+						for (var i = 0; i < contents.length; i++) {
+							html3 += contents[i].outerHTML;
+						}
+						console.log(287);
+						paging_here.insertAdjacentHTML('beforeend',html3)
+						
+						
 
 					}
 				})
@@ -267,22 +295,29 @@
 
 	//페이지 네비게이션과 페이지 연동하는 부분.
 	function pageSelected(e) {
+		
+		
 		var changeall = document.querySelectorAll('#pageul li .paging');
+		
 		while (paging_here.hasChildNodes()) {
+			console.log(paging_here);
 			paging_here.removeChild(paging_here.firstChild);
+			console.log(304);
 		}
 		if (e.target.innerHTML >= 0) {
-			var contents = document.querySelectorAll('.board'
-					+ e.target.innerHTML);
-			//클릭하면 id가 변화하는 부분.이벤트 타겟 과 그것이 포함되는 전체영역을 잡아서 함. 	 
+			var contents = document.querySelectorAll('.board'+e.target.innerHTML);
+			
+			var contents = document.querySelectorAll('.board'+1);
+			//클릭하면 id가 변화하는 부분.이벤트 타겟 과 그것이 포함되는 전체영역을 잡아서 함. 	
+			console.log('296');
+			console.log('changeall은' +changeall);
+			console.log(changeall);
 			for (var i = 0; i < changeall.length; i++) {
-				if (i != (e.target.innerHTML - 1)) {
-					changeall[i].setAttribute('id', 'paging');
-				} else {
-					e.target.setAttribute('id', 'paging_selected');
-				}
+				changeall[i].setAttribute('id', 'paging');
+			
 			}
-
+			e.target.setAttribute('id', 'paging_selected');
+			
 			var html = '';
 			for (var i = 0; i < contents.length; i++) {
 				html += contents[i].outerHTML;
@@ -290,13 +325,14 @@
 			paging_here.innerHTML = html;
 
 		} else {
-			//console.log(e.target.innerHTML);
+			console.log(e.target.innerHTML);
 			//전에 있는 애들은 display:none으로하고 << 앞에 있는 애들 >> 만들기
 			pagingV(changeall,e);
 
 		}
 
 	}
+	
 	//페이지 네비게이션 설정 
 	function pagingV(changeall,e) {
 		var pagings = document.querySelector('#paging_selected');
@@ -310,7 +346,43 @@
 		var big =e.target.innerHTML;
 		console.log(big);
 		if (big=='&gt;&gt;') {
+			var upgrade = Math.ceil(pagings.innerHTML/5)+1;
+			var currentgrade = Math.ceil(pagings.innerHTML/5);
+			var upPage = document.querySelectorAll('.paginggroup'+upgrade);
+			var currentPage = document.querySelectorAll('.paginggroup'+currentgrade);
+			console.log(currentPage);
+			for(var i=0;i<currentPage.length;i++){
+				console.log('downpage'+i);
+				currentPage[i].style.display="none";
+			}
+			for(var i=0;i<upPage.length;i++){
+				console.log('upPage'+i);
+				upPage[i].style.display="inline";
+			}	
 			
+			console.log(upPage);
+			
+			console.log(Math.ceil(pagings.innerHTML/5)+1);
+			
+		}
+		if(big=='&lt;&lt;'){
+			var downgrade = Math.ceil(pagings.innerHTML/5)-1;
+			var currentgrade = Math.ceil(pagings.innerHTML/5);
+			var downPage = document.querySelectorAll('.paginggroup'+downgrade);
+			var currentPage = document.querySelectorAll('.paginggroup'+currentgrade);
+			console.log(currentPage);
+			for(var i=0;i<currentPage.length;i++){
+				console.log('downpage'+i);
+				currentPage[i].style.display="none";
+			}
+			for(var i=0;i<downPage.length;i++){
+				console.log('downPage'+i);
+				downPage[i].style.display="inline";
+			}	
+			
+			console.log(downPage);
+			
+		
 		}
 
 	}
