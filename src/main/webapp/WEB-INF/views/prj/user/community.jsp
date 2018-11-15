@@ -35,12 +35,19 @@
 <link href="${resPath}/user/css/business-casual.min.css"
 	rel="stylesheet">
 <style>
+#pageul{
+text-align:center;
+position:relative;
+left:150px;
+}
 #pageul li {
 	float: left;
 	margin: 0 10px;
 	font-size: 20px;
 }
-
+#paging_selected{
+font-weight:bold;
+}
 
 </style>
 </head>
@@ -130,8 +137,13 @@
 							</tbody>
 
 						</table>
+						<div id="tabletools" style="position: relative; text-align:left;"  >
+							<span></span>
+							<button type="button" id="insertbtn" class="btn btn-default" style="boarder-radius:0.5rem;padding:1px;top: -.5rem;bottom: -.5rem;left: -.5rem;right: -.5rem;border:.2rem solid rgba(230,167,86,.9);"><div style="width:100%;background-color:rgba(230,167,86,.9);border-radius: .25rem;">글쓰기</div></button>
+							
+						</div>
 						<div id="paging"
-							style="position: relative; z-index: 10; float: left"></div>
+							style="width:100%;height:50px;position: relative; z-index: 10;"></div>
 					</div>
 				</div>
 			</div>
@@ -178,6 +190,7 @@
 	<script src="${resPath}/user/vendor/jquery/jquery.min.js"></script>
 	<script
 		src="${resPath}/user/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="${resPath}/user/vendor/bootstrap/js/pagination.js"></script>
 
 </body>
 
@@ -189,6 +202,7 @@
 	var paging = document.querySelector('#paging');
 	var totalCnt;
 	var groupcnt;//몇개씩 보기. 위에서 설정할 수 있는 값이라고. 
+	var currentpage=1;
 
 	function doInit() {
 		showPaging();
@@ -204,188 +218,19 @@
 				totalCnt = res.totalCnt;
 				totalPage = res.totalPage;
 				showPaging2(totalCnt, totalPage)
-				//paging를 끼워넣자.
-				/* var html='<ul id="pageul"style="list-style:none;">'
-				html +='<li>1</li>'
-					html +='<li>2</li>'
-				html+='</ul>';
-				
-				paging.insertAdjacentHTML('beforeend',html);  
-				 */
+			
 			}
 		})
 	}
-	function showPaging2(totalCnt, totalPage) {
-		au
-				.send({
-					url : '/gmjcboard',
-					method : 'GET',
-					success : function(res) {
-						res = JSON.parse(res);
-						console.log(totalPage);
-
-						var html2 = '<ul id="pageul"style="list-style:none;">';
-
-						for (var j = 1; j <= totalPage; j++) {
-							var limitFNum = totalCnt - (j - 1) * 10;
-							var limitLNum = (limitFNum - 1) - 10;
-							if (limitLNum < 0) {
-								limitLNum = -1;
-							}
-					//하나의 페이지에 들어갈 내용을 만들어놓음 .
-							for (var i = limitFNum - 1; i > limitLNum; i--) {
-
-								var html = '<tr class="board'+j+'"><td>'
-										+ res[i].gmjcboardno + '</td><td>'
-										+ res[i].gmjcboardtitle + '</td><td>'
-										+ res[i].gmjusername + '</td><td>'
-										+ res[i].credat + '</td><td>'
-										+ res[i].gmjcboardcnt + '</td></tr>';
-
-								boardbody.insertAdjacentHTML('beforeend', html);
-							}
-							if (j < 6) {
-								if(j==1){
-									html2 += '<li><div class="paging paginggroup'+Math.ceil(j/5)+'" onclick="pageSelected(event)" style="cursor:pointer;" id="paging selected">'
-										+ j + '</div></li>'
-								}else if(j%5==0){
-									html2 += '<li><div class="paging paginggroup'+Math.ceil(j/5)+'" onclick="pageSelected(event)" style="cursor:pointer;" id="paging">'
-										+ j + '</div></li>'
-									html2+='<li><div class="paging paginggroup'+Math.ceil(j/5)+'" onclick="pageSelected(event)" style="cursor:pointer;">&gt;&gt;</div></li>';	
-								}else{
-									html2 += '<li><div class="paging paginggroup'+Math.ceil(j/5)+'" onclick="pageSelected(event)" style="cursor:pointer;">'
-									+ j + '</div></li>';
-								}
-								
-								
-							} else if(j>=6) {
-								if(j%5==1){
-									html2+= '<li><div class="paging paginggroup'+Math.ceil(j/5)+'" onclick="pageSelected(event)" style="cursor:pointer; display:none;">&lt;&lt;</div></li>';
-									html2 += '<li><div  class="paging paginggroup'+Math.ceil(j/5)+'" onclick="pageSelected(event)" style="cursor:pointer; display:none;">'
-									+ j + '</div></li>';
-								}else if(j%5==0){
-									html2 += '<li><div class="paging paginggroup'+Math.ceil(j/5)+'" onclick="pageSelected(event)" style="cursor:pointer; display:none;">'
-									+ j + '</div></li>';
-									html2+='<li><div class="paging paginggroup'+Math.ceil(j/5)+'" onclick="pageSelected(event)" style="cursor:pointer; display:none;">&gt;&gt;</div></li>';
-								}else{
-									html2 += '<li><div class="paging paginggroup'+Math.ceil(j/5)+'" onclick="pageSelected(event)" style="cursor:pointer; display:none;">'
-									+ j + '</div></li>';
-								}
-								
-							}
-
-						}
-
-						html2 += '</ul>';
-						paging.insertAdjacentHTML('beforeend', html2);
-						
-						var contents = document.querySelectorAll('.board'+1);
-						var html3 = '';
-						for (var i = 0; i < contents.length; i++) {
-							html3 += contents[i].outerHTML;
-						}
-						console.log(287);
-						paging_here.insertAdjacentHTML('beforeend',html3)
-						
-						
-
-					}
-				})
-	}
-
-	//페이지 네비게이션과 페이지 연동하는 부분.
-	function pageSelected(e) {
-		
-		
-		var changeall = document.querySelectorAll('#pageul li .paging');
-		
-		while (paging_here.hasChildNodes()) {
-			console.log(paging_here);
-			paging_here.removeChild(paging_here.firstChild);
-			console.log(304);
-		}
-		if (e.target.innerHTML >= 0) {
-			var contents = document.querySelectorAll('.board'+e.target.innerHTML);
-			
-			var contents = document.querySelectorAll('.board'+1);
-			//클릭하면 id가 변화하는 부분.이벤트 타겟 과 그것이 포함되는 전체영역을 잡아서 함. 	
-			console.log('296');
-			console.log('changeall은' +changeall);
-			console.log(changeall);
-			for (var i = 0; i < changeall.length; i++) {
-				changeall[i].setAttribute('id', 'paging');
-			
-			}
-			e.target.setAttribute('id', 'paging_selected');
-			
-			var html = '';
-			for (var i = 0; i < contents.length; i++) {
-				html += contents[i].outerHTML;
-			}
-			paging_here.innerHTML = html;
-
-		} else {
-			console.log(e.target.innerHTML);
-			//전에 있는 애들은 display:none으로하고 << 앞에 있는 애들 >> 만들기
-			pagingV(changeall,e);
-
-		}
-
+	
+	
+	///아래부터 삽입
+	document.querySelector('#insertbtn').addEventListener('click',insertContent);
+	function insertContent(){
+		location.href="/uri/prj/user/communityInsert";
 	}
 	
-	//페이지 네비게이션 설정 
-	function pagingV(changeall,e) {
-		var pagings = document.querySelector('#paging_selected');
-
-		/*  for(var i=5;i<changeall.length;i++){
-			 changeall[i].style.display="none";
-		  } */
-
-		console.log(pagings);
-		console.log(pagings.innerHTML);
-		var big =e.target.innerHTML;
-		console.log(big);
-		if (big=='&gt;&gt;') {
-			var upgrade = Math.ceil(pagings.innerHTML/5)+1;
-			var currentgrade = Math.ceil(pagings.innerHTML/5);
-			var upPage = document.querySelectorAll('.paginggroup'+upgrade);
-			var currentPage = document.querySelectorAll('.paginggroup'+currentgrade);
-			console.log(currentPage);
-			for(var i=0;i<currentPage.length;i++){
-				console.log('downpage'+i);
-				currentPage[i].style.display="none";
-			}
-			for(var i=0;i<upPage.length;i++){
-				console.log('upPage'+i);
-				upPage[i].style.display="inline";
-			}	
-			
-			console.log(upPage);
-			
-			console.log(Math.ceil(pagings.innerHTML/5)+1);
-			
-		}
-		if(big=='&lt;&lt;'){
-			var downgrade = Math.ceil(pagings.innerHTML/5)-1;
-			var currentgrade = Math.ceil(pagings.innerHTML/5);
-			var downPage = document.querySelectorAll('.paginggroup'+downgrade);
-			var currentPage = document.querySelectorAll('.paginggroup'+currentgrade);
-			console.log(currentPage);
-			for(var i=0;i<currentPage.length;i++){
-				console.log('downpage'+i);
-				currentPage[i].style.display="none";
-			}
-			for(var i=0;i<downPage.length;i++){
-				console.log('downPage'+i);
-				downPage[i].style.display="inline";
-			}	
-			
-			console.log(downPage);
-			
-		
-		}
-
-	}
+	
 </script>
 
 </html>

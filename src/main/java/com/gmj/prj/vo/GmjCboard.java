@@ -1,5 +1,7 @@
 package com.gmj.prj.vo;
 
+import java.io.UnsupportedEncodingException;
+
 public class GmjCboard {
 	public int gmjcboardno; 
 	public String gmjcboardtitle;
@@ -61,6 +63,22 @@ public class GmjCboard {
 	public void setGmjcboardcnt(int gmjcboardcnt) {
 		this.gmjcboardcnt = gmjcboardcnt;
 	}
+	@Override
+	public String toString() {
+	String oldString = "GmjCboard [gmjcboardno=" + gmjcboardno + ", gmjcboardtitle=" + gmjcboardtitle + ", gmjcboarddesc="
+			+ gmjcboarddesc + ", gmjusername=" + gmjusername + ", credat=" + credat + ", moddat=" + moddat
+			+ ", gmjcboardcnt=" + gmjcboardcnt + ", gpi=" + gpi + "]";
+	String string;
+	try {
+		string = new String(oldString.getBytes("8859_1"),"utf-8");
+		return string;
+	} catch (UnsupportedEncodingException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+		return oldString;
+	}
+	
 	
 	
 	

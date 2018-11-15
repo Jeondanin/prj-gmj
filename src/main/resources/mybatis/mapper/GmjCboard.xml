@@ -7,5 +7,9 @@
 			select gmjcboardno, gmjcboardtitle,gmjusername,gmjcboard.credat,gmjcboardcnt from gmjcboard,gmjclient
 			 where gmjcboard.gmjclientno=gmjclient.gmjUserNo order by gmjcboard.credat, gmjcboardno;
 		</select>
+		<insert id="insertCboard" >
+			insert into gmjcboard(gmjcboardtitle,gmjcboarddesc,gmjclientno,credat,moddat,gmjcboardcnt)
+			values(#{gmjcboardtitle},#{gmjcboardtitle},1,now(),now(),0);
+		</insert>
 		
 	</mapper>

@@ -6,4 +6,5 @@ import com.gmj.prj.vo.GmjCboard;
 
 public interface GmjCboardDAO {
 	public List<GmjCboard> getList();
+	public int insertCboard(GmjCboard gc);
 }

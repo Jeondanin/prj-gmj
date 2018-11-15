@@ -17,5 +17,10 @@ public class GmjCboardDAOImpl implements GmjCboardDAO {
 		
 		return ss.selectList("com.gmj.prj.vo.GmjCboard.selectCboardList");
 	}
+	@Override
+	public int insertCboard(GmjCboard gc) {
+		
+		return ss.insert("com.gmj.prj.vo.GmjCboard.insertCboard",gc);
+	}
 
 }

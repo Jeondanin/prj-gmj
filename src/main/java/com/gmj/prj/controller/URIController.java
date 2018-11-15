@@ -1,5 +1,9 @@
 package com.gmj.prj.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.Iterator;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -8,6 +12,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 @Controller
 public class URIController {
@@ -32,6 +38,47 @@ public class URIController {
 			}
 		}
 		logger.debug("name=>{}", rootPath);*/
+		return req.getRequestURI().replace(rootPath+"/uri","");
+		
+		
+	}
+	@RequestMapping(value="/uri/**",method=RequestMethod.POST)
+	public String goPage3(HttpServletRequest req) throws UnsupportedEncodingException {
+		
+		
+		 
+		try {
+			String name = new String(req.getParameter("title").getBytes("8859_1"),"utf-8");
+			System.out.println(name);
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+
+		
+		System.out.println(req.getParameter("content"));
+		System.out.println(req.getParameter("userfile"));
+		MultipartHttpServletRequest multireq = (MultipartHttpServletRequest) req;
+		Iterator<String> iterator =multireq.getFileNames();
+		MultipartFile mf = null;
+		while(iterator.hasNext()) {
+			mf = multireq.getFile(iterator.next());
+			System.out.println("-----start-----");
+			System.out.println("name:"+mf.getName());
+			String orginname = new String(mf.getOriginalFilename().getBytes("8859_1"),"utf-8");
+			System.out.println("Origanalname:"+orginname);
+			
+			System.out.println("size:"+mf.getSize());
+			System.out.println("-----end-----");
+
+		}
+		
+		
+		String rootPath = req.getContextPath(); 
+		System.out.println(req);
+		String uri = req.getRequestURI();
+		System.out.println(uri);
 		return req.getRequestURI().replace(rootPath+"/uri","");
 		
 		
