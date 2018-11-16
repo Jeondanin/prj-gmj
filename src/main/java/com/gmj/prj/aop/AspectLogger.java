@@ -30,14 +30,14 @@ public class AspectLogger {
 	@Before("execution(* com.gmj.prj.service.*.*(..))")
 	public void beforeLog(JoinPoint jp) {
 		logger.debug("@Before => {}", jp);
-		HttpServletRequest req = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes())
+/*		HttpServletRequest req = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes())
 				.getRequest();
 		String ip = req.getRemoteAddr();
 		System.out.println(ip);
 		Map<String, String> logMap = new HashMap<String, String>();
 		logMap.put("gmjlogip", ip);
 		logMap.put("gmjlogarea", jp.toString());
-		gld.gmjInsertLog(logMap);
+		gld.gmjInsertLog(logMap);*/
 
 	}
 	
@@ -53,34 +53,13 @@ public class AspectLogger {
 		String sigName = pjp.getSignature().getName();
 		String tarName = pjp.getTarget().toString();
 		Object[] params = pjp.getArgs();
-		String str = "";
-		for (Object o : params) {
-			str += o.toString() + ",";
-		}
 		
-		logger.debug("@around start");
-		logger.debug("{}.{}({})", new Object[] { tarName, sigName, str });
-		HttpServletRequest req = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes())
-				.getRequest();
-		HttpSession hs = req.getSession();
-		
-		String ip = req.getRemoteAddr();
-		System.out.println(ip);
-
 		Object obj = null;
-		logger.debug("유저세션값{}",hs.getAttribute("user"));
-		if(hs.getAttribute("user").equals("2")) {
-		System.out.println("고쳐요.");
-		}
-		if(hs.getAttribute("user").equals("2")) {
+		
 			obj = pjp.proceed();
-			logger.debug("@Result=>{}", obj);
-			logger.debug("@around end");
+			
 			return obj;
-		}else {
-			logger.debug("못들어감");
-			return ("못들어가");
-		}		
+				
 	}
 
 	@Around("execution(* com.gmj.prj.service.impl.GmjLoginServiceImpl*.*(..))")
@@ -120,15 +99,15 @@ public class AspectLogger {
 	}
 	@After("execution(* com.gmj.prj.dao.impl.GmjClientDAOImpl.*(..))")
 	public void afterupdateClient(JoinPoint jp) {
-		System.out.println("dao결과를 로그로 남깁니다. ");
-		HttpServletRequest req = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes())
+		
+/*		HttpServletRequest req = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes())
 				.getRequest();
 		String ip = req.getRemoteAddr();
 		System.out.println(ip);
 		Map<String, String> logMap = new HashMap<String, String>();
 		logMap.put("gmjlogip", ip);
 		logMap.put("gmjlogarea", jp.toString());
-		gld.gmjInsertLog(logMap);
+		gld.gmjInsertLog(logMap);*/
 		logger.debug("@After => {}", jp);
 	}
 }
