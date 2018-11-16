@@ -57,7 +57,7 @@
               </a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="map">Map</a>
+              <a class="nav-link text-uppercase text-expanded" href="../Geocode">Map</a>
             </li>
             <li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="products">construct</a>

@@ -118,8 +118,13 @@
 											<textarea id="content" name="gmjcboarddesc" cols="74" rows="8" style="border-radius:4px;border: 1px solid #ccc;"></textarea>
 										</div>
 									</div>
+									<div class="form-group">
 									<input type="hidden" name="MAX_FILE_SIZE" value="30000"  />
-									   이 파일을 전송합니다: <input name="userfile" type="file" />
+									<label class="control-label col-sm-2">업로드파일</label>
+										<div class="col-sm-9">
+										<input name="userfile" type="file" />
+										</div>
+									</div>   
 									<div class="form-group">
 										<div class="col-sm-offset-2 col-sm-10">
 											<button type="submit" class="btn btn-default">Submit</button>

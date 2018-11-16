@@ -58,29 +58,20 @@ public class AspectLogger {
 			str += o.toString() + ",";
 		}
 		
+		
 		logger.debug("@around start");
 		logger.debug("{}.{}({})", new Object[] { tarName, sigName, str });
 		HttpServletRequest req = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes())
 				.getRequest();
 		HttpSession hs = req.getSession();
-		
 		String ip = req.getRemoteAddr();
 		System.out.println(ip);
-
 		Object obj = null;
-		logger.debug("유저세션값{}",hs.getAttribute("user"));
-		if(hs.getAttribute("user").equals("2")) {
-		System.out.println("고쳐요.");
-		}
-		if(hs.getAttribute("user").equals("2")) {
+		
 			obj = pjp.proceed();
-			logger.debug("@Result=>{}", obj);
-			logger.debug("@around end");
+		
 			return obj;
-		}else {
-			logger.debug("못들어감");
-			return ("못들어가");
-		}		
+			
 	}
 
 	@Around("execution(* com.gmj.prj.service.impl.GmjLoginServiceImpl*.*(..))")
