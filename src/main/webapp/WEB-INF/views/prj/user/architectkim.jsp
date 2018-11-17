@@ -10,13 +10,29 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<link href="${resPath}/user/vendor/bootstrap/css/home/recommend.css"
+<link href="${resPath}/user/vendor/bootstrap/css/recommend.css"
 	rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="robots" content="noindex">
+<link rel="shortcut icon" type="image/x-icon"
+	href="//static.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico">
+<link rel="mask-icon" type=""
+	href="//static.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg"
+	color="#111">
+<link rel="canonical" href="https://codepen.io/arthurcamara1/pen/VPjvwB">
+<link
+	href="https://fonts.googleapis.com/css?family=Libre+Franklin:400,600"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
 
 <title>GMJ</title>
 
 <!-- Bootstrap core CSS -->
 <link href="${resPath}/user/vendor/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet">
+<link href="${resPath}/user/vendor/bootstrap/css/work.css"
 	rel="stylesheet">
 
 <!-- Custom fonts for this template -->
@@ -40,8 +56,7 @@
 </head>
 
 <body>
-	<h1 class="site-heading text-center text-white d-none d-lg-block"
-		style="margin-top: 3rem; margin-bottom: 3rem;">
+	<h1 class="site-heading text-center text-white d-none d-lg-block" style="margin-top:3rem; margin-bottom:3rem;">
 		<span class="site-heading-lower"><a href="home"
 			style="color: white; text-decoration: none;"> <svg width="200px"
 					height="200px"> 
@@ -87,37 +102,15 @@
     
 
 </svg>
-
-
-
 		</a></span>
 	</h1>
-	<div style="position: absolute; left: 1500px; top: 5px; width: 200px;">
-		<div style="float: left; margin-right: 5%;">
-			<button
-				style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;">로그인</button>
-		</div>
-		<div style="float: left;">
-			<button
-				style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;"
-				data-toggle="modal" data-target="#myModal">회원가입</button>
-		</div>
-	</div>
 
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav"
-		data-spy="affix" data-offset-top="197">
+		data-spy="affix" data-offset-top="197"> 
 		<div class="container" style="margin-left: 490px;">
-			<div class="intro-button mx-auto">
-				<div class="input-group"
-					style="width: 250px; position: absolute; top: -74px; left: 1496px;">
-
-					<div class="input-group-append"></div>
-				</div>
-			</div>
-			<a
-				class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none"
-				href="home">GMJ</a>
+			<div class="intro-button mx-auto"></div>
+			<a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">GMJ</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarResponsive" aria-controls="navbarResponsive"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -125,283 +118,220 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav mx-auto">
-					<li class="nav-item active px-lg-4"><a
+					<li class="nav-item px-lg-4"><a
 						class="nav-link text-uppercase text-expanded" href="home">Home
 							<span class="sr-only">(current)</span>
 					</a></li>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="loading">Map</a>
-					</li>
-					<li class="nav-item px-lg-4"><a
+						class="nav-link text-uppercase text-expanded" href="loading">Map</a></li>
+					<li class="nav-item active px-lg-4"><a
 						class="nav-link text-uppercase text-expanded" href="architectkim">architect</a>
-					</li>
 					<li class="nav-item px-lg-4"><a
 						class="nav-link text-uppercase text-expanded" href="community">community</a>
 					</li>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded"
-						href="social media.html">social media</a></li>
+						class="nav-link text-uppercase text-expanded" href="social media">social
+							media</a></li>
 					</li>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="academy.html">Academy</a>
+						class="nav-link text-uppercase text-expanded" href="museum">museum</a>
 					</li>
 				</ul>
 			</div>
 		</div>
 	</nav>
-	<div style="width: 1000px; margin-left: 448px; margin-top: 2%;">
-		<div id="myCarousel" class="carousel slide" data-ride="carousel"
-			style="border-radius: 16px;">
-			<!-- Indicators -->
-			<ol class="carousel-indicators">
-				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-				<li data-target="#myCarousel" data-slide-to="1"></li>
-				<li data-target="#myCarousel" data-slide-to="2"></li>
-			</ol>
 
-			<!-- Wrapper for slides -->
-
-			<div class="carousel-inner">
-				<div class="item active">
-					<img src="https://www.w3schools.com/booTsTrap/la.jpg"
-						alt="Los Angeles" style="width: 100%; border-radius: 16px;">
-				</div>
-
-				<div class="item">
-					<img src="https://www.w3schools.com/booTsTrap/chicago.jpg"
-						alt="Chicago" style="width: 100%; border-radius: 16px;">
-				</div>
-
-				<div class="item">
-					<img src="https://www.w3schools.com/booTsTrap/ny.jpg"
-						alt="New york" style="width: 100%; border-radius: 16px;">
-				</div>
-			</div>
-
-			<!-- Left and right controls -->
-			<a class="left carousel-control" href="#myCarousel" data-slide="prev"
-				style="border-radius: 16px;"> <span
-				class="glyphicon glyphicon-chevron-left"></span> <span
-				class="sr-only">Previous</span>
-			</a> <a class="right carousel-control" href="#myCarousel"
-				data-slide="next" style="border-radius: 16px;"> <span
-				class="glyphicon glyphicon-chevron-right"></span> <span
-				class="sr-only">Next</span>
-			</a>
-		</div>
-	</div>
-<div style="width: 1000px; height: 300px; margin:1% 0 1% 448px; border-radius: 16px;">
-	<div class="recommend">
-		<section class="Grid" style="margin:0; padding:5% 0 5% 3%;">
-			<div class="Grid-row">
-				<div class="Card" style="margin-right:50px;">
-					<div class="Card-thumb">
-						<div class="Card-shadow"></div>
-						<div class="Card-shadow"></div>
-						<div class="Card-shadow"></div>
-						<div class="Card-image"
-							style="background-size:430px 150px;background-image: url(${resPath}/img/home/seogangUniversity.jpg); width: 430x; height: 150px;"></div>
-					</div>
-					<div class="Card-title">
-						<span><h1 style="color:white;">서강대 본관입니다.112121</h1> </span>
-					</div>
-					<div class="Card-explore">
-						<span>Explore 50 more</span>
-					</div>
-					<button class="Card-button">view more</button>
-				</div>
-				<div class="Card" style="margin-right:50px;">
-					<div class="Card-thumb">
-						<div class="Card-shadow"></div>
-						<div class="Card-shadow"></div>
-						<div class="Card-shadow"></div>
-						<div class="Card-image"
-							style="background-size:430px 150px;background-image: url(${resPath}/img/home/seogangUniversity.jpg); width: 430x; height: 150px;"></div>
-					</div>
-					<div class="Card-title">
-						<span><h1 style="color:white;">서강대 본관입니다.112121</h1> </span>
-					</div>
-					<div class="Card-explore">
-						<span>Explore 50 more</span>
-					</div>
-					<button class="Card-button">view more</button>
-				</div>
-				
-			</div>
-		</section>
-	</div>
-	</div>
-
-
-		<div class="container"
-			style="width: 600px; height: 400px; background-color: #e6a756; border-radius: 16px; margin-left: 448px; float: left;">
-			<ul class="nav nav-tabs" style="margin-top: 3.1%;">
-				<li class="active"><a data-toggle="tab" href="#서울"
-					style="color: black; border: 1px solid white">서울</a></li>
-				<li><a data-toggle="tab" href="#경기"
-					style="color: black; border: 1px solid white">경기</a></li>
-				<li><a data-toggle="tab" href="#경상"
-					style="color: black; border: 1px solid white">경상</a></li>
-				<li><a data-toggle="tab" href="#전라"
-					style="color: black; border: 1px solid white">전라</a></li>
-				<li><a data-toggle="tab" href="#충청"
-					style="color: black; border: 1px solid white">충청</a></li>
-				<li><a data-toggle="tab" href="#강원"
-					style="color: black; border: 1px solid white">강원</a></li>
-				<li><a data-toggle="tab" href="#제주"
-					style="color: black; border: 1px solid white">제주</a></li>
-			</ul>
-			<div class="tab-content">
-				<div id="서울" class="tab-pane fade in active">
-					<h3>서울</h3>
-					<p>서울</p>
-				</div>
-				<div id="경기" class="tab-pane fade">
-					<h3>경기</h3>
-					<p>경기</p>
-				</div>
-				<div id="경상" class="tab-pane fade">
-					<h3>경상</h3>
-					<p>경상</p>
-				</div>
-				<div id="전라" class="tab-pane fade">
-					<h3>전라</h3>
-					<p>전라</p>
-				</div>
-				<div id="충청" class="tab-pane fade">
-					<h3>충청</h3>
-					<p>충청</p>
-				</div>
-				<div id="강원" class="tab-pane fade">
-					<h3>강원</h3>
-					<p>강원</p>
-				</div>
-				<div id="제주" class="tab-pane fade">
-					<h3>제주</h3>
-					<p>제주</p>
-				</div>
-			</div>
-		</div>
-		<div
-			style="width: 378px; height: 400px; background-color: #e6a756; margin-left: 1070px; margin-top: 1%; border-radius: 16px; padding: 10px">
-			<h4 style="text-align: center;">실시간 트위터</h4>
-			<hr>
-		</div>
-	</div>
-	<div
-		style="width: 1000px; height: 300px; margin-top: 1%; margin-left: 448px; border-radius: 16px;">
-		<section class="page-section cta"
-			style="margin: 0px; padding: 0px; border-radius: 0.5rem;">
-			<div class="container" style="padding: 0; margin: 0;">
-				<div class="row" style="margin: 0.5px; padding: 1px;">
-					<div class="col-xl-9" style="margin: 0; padding: 1px;">
-						<div class="cta-inner text-center rounded"
-							style="width: 984px; height: 300px;">
-							<div class="col-sm-11" style="font: 30px bold">건축 이야기</div>
-							<div class="col-sm-1">
-								<button class="btn btn-default">더보기</button>
-							</div>
-							<div>
-								<div class="col-sm-4" style="padding-right: 0px;">
-									<iframe width="300" height="180"
-										src="https://www.youtube.com/embed/8yAsZt7rfgI"
-										frameborder="0"
-										allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-										allowfullscreen></iframe>
-									<br>산업실록
-								</div>
-								<div class="col-sm-4" style="padding-right: 0px;">
-									<iframe width="300" height="180"
-										src="https://www.youtube.com/embed/9DJgJBaJvDA"
-										frameborder="0"
-										allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-										allowfullscreen></iframe>
-									<br>한국 현대건축의 백미 "삼일빌딩"
-								</div>
-								<div class="col-sm-4" style="padding-right: 0px;">
-									<iframe width="300" height="180"
-										src="https://www.youtube.com/embed/eWaogtA9PNc"
-										frameborder="0"
-										allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-										allowfullscreen></iframe>
-									<br>르 꼬르뷔지에 - 빌라사보아 / 파리
-								</div>
-
-							</div>
-
-
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-	</div>
-
-	<div
-		style="width: 1000px; height: 500px; margin-top: 2%; margin-left: 448px; border-radius: 16px;">
-		<section class="page-section cta"
-			style="margin: 0px; padding: 0px; border-radius: 0.5rem; background-color: rgba(255, 255, 255, .5); height: 460px;">
-			<div class="container" style="padding: 0; margin: 0;">
-				<div class="row" style="margin: 0.5px; padding: 1px;">
-					<div class="col-xl-9" style="margin: 0; padding: 1px;">
-						<div class="cta-inner text-center rounded"
-							style="width: 984px; height: 300px; background-color: rgba(230, 167, 86, .5);">
-
-							<div class="col-sm-11" style="font: 30px bold">책</div>
-							<div class="col-sm-1">
-								<button class="btn btn-default">더보기</button>
-							</div>
-
-
-							<div class="col-sm-4" style="margin-top: 10px">
-								<img
-									src="http://t0.gstatic.com/images?q=tbn:ANd9GcQq-h_qP4eDSgfMiAqrEiCux7DD70QwD_0PzpIoiqpy0tx2AYtD"
-									class="img-thumbnail" alt="Cinque Terre"
-									style="width: 100%; height: 350px;">
-							</div>
-							<div class="col-sm-4" style="margin-top: 10px">
-								<img
-									src="http://image.kyobobook.co.kr/images/book/large/056/l9788972120056.jpg"
-									class="img-thumbnail" alt="Cinque Terre"
-									style="width: 100%; height: 350px;">
-							</div>
-							<div class="col-sm-4" style="margin-top: 10px">
-								<img
-									src="http://t1.daumcdn.net/thumb/R155x225/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fbook%2FKOR9788990641526"
-									class="img-thumbnail" alt="Cinque Terre"
-									style="width: 100%; height: 350px;">
-							</div>
-
-
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-	</div>
-
-	<section class="page-section cta">
+	<section class="page-section">
 		<div class="container">
-			<div class="row">
-				<div class="col-xl-9 mx-auto">
-					<div class="cta-inner text-center rounded">
-						<h2 class="section-heading mb-4">
-							<span class="section-heading-upper">Our Promise</span> <span
-								class="section-heading-lower">To You</span>
+			<div class="product-item">
+				<div class="product-item-title d-flex">
+					<div class="bg-faded p-5 d-flex ml-auto rounded">
+						<h2 class="section-heading mb-0">
+							<span class="section-heading-upper" style="text-align: center;">김중업</span>
+							<span class="section-heading-lower">작품</span>
 						</h2>
-						<p class="mb-0">When you walk into our shop to start your day,
-							we are dedicated to providing you with friendly service, a
-							welcoming atmosphere, and above all else, excellent products made
-							with the highest quality ingredients. If you are not satisfied,
-							please let us know and we will do whatever we can to make things
-							right!</p>
 					</div>
 				</div>
+
+				<!-- 추가 -->
+				<section class="intro">
+					<div class="container1">
+						<h1>My Life &darr;</h1>
+						<h5>Scroll Down</h5>
+					</div>
+				</section>
+				<section class="timeline">
+					<ul>
+						<li>
+							<div>
+								<time>1993</time>
+								<img id="meBaby"
+									src="http://i1356.photobucket.com/albums/q729/eleftheria_b/my%20face/babyMe_zps3ku1takx.jpg" /><br>Born
+								in Greece in a hot noon of mid-summer
+							</div>
+						</li>
+						<li>
+							<div>
+								<time>1998-2011</time>
+								<img class="photos"
+									src="http://www.westperry.org/cms/lib/PA09000117/Centricity/Domain/51/school.gif" /><br>Went
+								to school in many different places in Greece. We had to move a
+								lot due to mama's job.
+							</div>
+						</li>
+						<li>
+							<div>
+								<time>2012-2016</time>
+								<img class="photos"
+									src="https://eclass.uowm.gr/courses/theme_data/3/uowm-logo_1.png" /><br>
+								Study at the university of Western Macedonia in Greece.
+							</div>
+						</li>
+						<li>
+							<div>
+								<time>2016</time>
+								<img class="photos"
+									src="http://i1356.photobucket.com/albums/q729/eleftheria_b/my%20face/3_eleftheria_zpsjwpxlvm7.jpg" /><br>
+								Graduade as an Engineer of Informatics and Telecommunications
+							</div>
+						</li>
+						<li>
+							<div>
+								<time>2017</time>
+								<img class="photos"
+									src="http://i1356.photobucket.com/albums/q729/eleftheria_b/my%20face/IMG-20161208-WA0006_zpsnpvm7kko.jpg" /><br>Been
+								for a couples of months in Amsterdam to internship in a cool
+								start-up company!
+							</div>
+						</li>
+						<li>
+							<div>
+								<time>Find me!</time>
+								<h5>
+									<a href="http://www.eleftheriabatsou.com" target="_blank">Eleftheria</a>
+									| <a href="https://codepen.io/EleftheriaBatsou" target="_blank">Projects</a>
+									| <a
+										href="https://www.youtube.com/channel/UCC-WwYv3DEW7Nkm_IP6VeQQ"
+										target="_blank"> Coding videos </a>
+								</h5>
+							</div>
+						</li>
+					</ul>
+				</section>
+				<script>
+					(function() {
+
+						'use strict';
+
+						// define variables
+						var items = document.querySelectorAll(".timeline li");
+
+						// check if an element is in viewport
+						// http://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport
+						function isElementInViewport(el) {
+							var rect = el.getBoundingClientRect();
+							return (rect.top >= 0
+									&& rect.left >= 0
+									&& rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rect.right <= (window.innerWidth || document.documentElement.clientWidth));
+						}
+
+						function callbackFunc() {
+							for (var i = 0; i < items.length; i++) {
+								if (isElementInViewport(items[i])) {
+									items[i].classList.add("in-view");
+								}
+							}
+						}
+
+						// listen for events
+						window.addEventListener("load", callbackFunc);
+						window.addEventListener("resize", callbackFunc);
+						window.addEventListener("scroll", callbackFunc);
+
+					})();
+				</script>
+				<!-- 추가 끝 -->
+
+
 			</div>
 		</div>
 	</section>
+
+	<!-- --------------------------------------------------------------- -->
+
+	<div class="recommend"> 
+		<section class="Grid">
+			<div class="Grid-row">
+				<div class="Card">
+					<div class="Card-thumb">
+						<div class="Card-shadow"></div>
+						<div class="Card-shadow"></div>
+						<div class="Card-shadow"></div>
+						<div class="Card-image" 
+							style="background-size:297px 250px; background-image: url(${resPath}/user/img/su.jpg); width:298.5px; height:150px;"></div>
+					</div>
+					<div class="Card-title">
+						<span>김수근</span>
+					</div>
+					<a href="architect/architectsu"><button class="Card-button">자세히</button></a>
+				</div>
+				<div class="Card">
+					<div class="Card-thumb">
+						<div class="Card-shadow"></div>
+						<div class="Card-shadow"></div>
+						<div class="Card-shadow"></div>
+						<div class="Card-image"
+							style="background-size:297px; background-image: url(${resPath}/user/img/jung.jpg); width:298.5px; height:150px;"></div>
+					</div>
+					<div class="Card-title">
+						<span>정기용</span>
+					</div>
+					<a href="architect/architectjung"><button class="Card-button">자세히</button></a>
+				</div>
+				<div class="Card" style="width: 30rem; height: 20rem;">
+					<div class="Card-thumb">
+						<div class="Card-shadow"></div>
+						<div class="Card-shadow"></div>
+						<div class="Card-shadow"></div>
+						<div class="Card-image"
+							style="background-size:297px 150px; background-image: url(${resPath}/user/img/kim.jpg); width:298.5px; height:150px;"></div>
+					</div> 
+					<div class="Card-title">
+						<span>김중업</span>
+					</div>
+					<a href="architectkim"><button class="Card-button">자세히</button></a>
+				</div>
+				<div class="Card">
+					<div class="Card-thumb">
+						<div class="Card-shadow"></div>
+						<div class="Card-shadow"></div>
+						<div class="Card-shadow"></div>
+						<div class="Card-image"
+							style="background-size:297px 150px; background-image: url(${resPath}/user/img/min.jpg); width:298.5px; height:150px;"></div>
+					</div>
+					<div class="Card-title">
+						<span>민현식</span>
+					</div>
+					<a href="architect/architectmin"><button class="Card-button">자세히</button></a>
+				</div>
+				<div class="Card">
+					<div class="Card-thumb">
+						<div class="Card-shadow"></div>
+						<div class="Card-shadow"></div>
+						<div class="Card-shadow"></div>
+						<div class="Card-image"
+							style="background-size:297px 250px; background-image: url(${resPath}/user/img/hwang.jpg); width:298.5px; height:150px;"></div>
+					</div>
+					<div class="Card-title">
+						<span>황두진</span>
+					</div>
+					<a href="architect/architecthwang"><button class="Card-button">자세히</button></a>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<!-- --------------------------------------------------------------- -->
 
 	<footer class="footer text-faded text-center py-5">
 		<div class="container">
@@ -409,12 +339,6 @@
 		</div>
 	</footer>
 
-
-	<!-- Bootstrap core JavaScript -->
-	<script src="${resPath}/user/vendor/jquery/jquery.min.js"></script>
-	<script
-		src="${resPath}/user/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-
 </body>
 </html>
+			
