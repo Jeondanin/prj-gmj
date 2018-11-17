@@ -8,8 +8,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
+
 
 <title>GMJ</title>
 
@@ -35,20 +34,8 @@
 <link href="${resPath}/user/css/business-casual.min.css"
 	rel="stylesheet">
 <style>
-#pageul{
-text-align:center;
-position:relative;
-left:150px;
-}
-#pageul li {
-	float: left;
-	margin: 0 10px;
-	font-size: 20px;
-}
-#paging_selected{
-font-weight:bold;
-}
-
+a{
+cursor:pointer;}
 </style>
 </head>
 
@@ -97,8 +84,7 @@ font-weight:bold;
 						class="nav-link text-uppercase text-expanded" href="community">community</a>
 					</li>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="social media">social
-							media</a></li>
+						class="nav-link text-uppercase text-expanded" href="social media">media</a></li>
 					<li class="nav-item px-lg-4"><a
 						class="nav-link text-uppercase text-expanded" href="academy">Academy</a>
 					</li>
@@ -115,28 +101,28 @@ font-weight:bold;
 						<table id="ztable" class="table table-hover"
 							style="position: relative; z-index: 10;">
 							<thead>
-								<tr class="cmt">
-									<th>번호</th>
-									<th>제목</th>
-									<th>작성자</th>
-									<th>작성일</th>
-									<th>조회수</th>
+								<tr>
+									<th class="col-sm-1">번호</th>
+									<th class="col-sm-3">제목</th>
+									<th class="col-sm-1">작성자</th>
+									<th class="col-sm-2">작성일</th>
+									<th class="col-sm-1">조회수</th>
 								</tr>
 							</thead>
 							<tbody id="paging_here">
-
+							
+							
 							</tbody>
-							<tbody id="boardbody" style="display: none;">
-								<!--  <tr>
-                    <td>1</td>
-                    <td>안녕하세요</td>
-                    <td>관리자</td>
-                    <td>2018-11-13</td>
-                    <td>0</td>
-                  </tr> -->
-							</tbody>
+							
+							
+							
+							
+							
 
 						</table>
+						<div id="paginationz" class="row">
+						
+						 </div>
 						<div id="tabletools" style="position: relative; text-align:left;"  >
 							<span></span>
 							<button type="button" id="insertbtn" class="btn btn-default" style="boarder-radius:0.5rem;padding:1px;top: -.5rem;bottom: -.5rem;left: -.5rem;right: -.5rem;border:.2rem solid rgba(230,167,86,.9);"><div style="width:100%;background-color:rgba(230,167,86,.9);border-radius: .25rem;">글쓰기</div></button>
@@ -190,39 +176,130 @@ font-weight:bold;
 	<script src="${resPath}/user/vendor/jquery/jquery.min.js"></script>
 	<script
 		src="${resPath}/user/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="${resPath}/user/vendor/bootstrap/js/pagination.js"></script>
+
 
 </body>
 
 <!-- Script to highlight the active date in the hours list -->
 <script>
-	var boardbody = document.querySelector('#boardbody');
+	var pagination = document.querySelector('#paginationz');
 	var paging_here = document.querySelector('#paging_here');
 	console.log(paging_here);
 	var paging = document.querySelector('#paging');
 	var totalCnt;
 	var groupcnt;//몇개씩 보기. 위에서 설정할 수 있는 값이라고. 
 	var currentpage=1;
-
+	
+	var block =5;
+	var init=1;
 	function doInit() {
 		showPaging();
+		
 	}
 	window.addEventListener('load', doInit);
 
 	function showPaging() {
 		au.send({
-			url : '/gmjcboardz',
+			url : '/gmjcboardcnt',
 			method : 'GET',
 			success : function(res) {
 				res = JSON.parse(res);
 				totalCnt = res.totalCnt;
 				totalPage = res.totalPage;
-				showPaging2(totalCnt, totalPage)
-			
+				showPaging2(totalCnt,totalPage)
+				showList(1);		
 			}
 		})
 	}
+	//total cnt 122, totalPage 13페이지 
+	function showPaging2(totalCnt,totalPage,init=1,block=5){
+		console.log('217:'+init)
+		pagination.innerHTML='';
+		
+		var fin = init+block-1
+		if(totalPage-init<5){
+			console.log('222'+init)
+			fin=totalPage;
+			console.log(fin);
+		}
+		var html2='';
+		
+		for (var j = init; j <=fin; j++) {
 	
+				if(j%block==1){
+					if(j==1){
+					html2 += '<div class="col-sm-1"> </div><div class="col-sm-1"><a onclick="showList('+j+')">'+j+'</a></div></div>'
+					}else{
+						html2 += '<div class="col-sm-1"><a onclick="changePn(totalCnt,totalPage,'+j+',block)">&lt;&lt;</a></div><div class="col-sm-1"><a onclick="showList('+j+')">'+j+'</a></div>'	
+					}
+				}else if(j%block==0){
+					if(j==totalPage){
+						html2 += '<div class="col-sm-1"><a onclick="showList('+j+')">'+j+'</a></div><div class="col-sm-1"></div>'		
+					}else{
+						html2 += '<div class="col-sm-1"><a onclick="showList('+j+')">'+j+'</a></div><div class="col-sm-1"><a onclick="changePn(totalCnt,totalPage,'+j+',block)">&gt;&gt;</a></div>'	
+					}	
+				}else{
+					console.log(j);
+					html2 += '<div class="col-sm-1"><a onclick="showList('+j+')">'+j+'</a></div>';
+				}	
+
+		};
+		
+		pagination.insertAdjacentHTML('beforeend', html2);
+		
+	}
+	
+	function showList(number){
+		var html='';
+		au.send({
+			url : '/gmjcboarduser?page='+number,
+			method : 'GET',
+			success : function(res) {
+				res = JSON.parse(res);
+				for(var i=0;i<10;i++){
+					if(res[i]!=null){
+						html += '<tr class="board"><td>'
+							+ res[i].gmjcboardno + '</td><td>'
+							+ res[i].gmjcboardtitle + '</td><td>'
+							+ res[i].gmjusername + '</td><td>'
+							+ res[i].credat + '</td><td>'
+							+ res[i].gmjcboardcnt + '</td></tr>';
+					}
+				}
+				paging_here.innerHTML='';
+				paging_here.insertAdjacentHTML('afterbegin', html);
+				bodify(number);
+			}
+		})
+		
+	}
+	function bodify(number){
+		var SetNo= document.querySelectorAll('#paginationz .col-sm-1 a');
+		
+		for(var k of SetNo ){
+			k.style.fontWeight="normal";
+			var no = k.innerHTML;
+			if(no==number){
+				k.style.fontWeight="bold";
+				return;	
+			}else{
+				
+			}
+		}
+	
+		
+	}
+	
+	function changePn(totalCnt,totalPage,number,block){
+		if(number%block==1){
+			showPaging2(totalCnt,totalPage,parseFloat(number-block));
+			showList(parseFloat(number-1));
+		}else{
+			showPaging2(totalCnt,totalPage,parseFloat(number+1));
+			showList(parseFloat(number+1));
+		}
+		
+	}
 	
 	///아래부터 삽입
 	document.querySelector('#insertbtn').addEventListener('click',insertContent);

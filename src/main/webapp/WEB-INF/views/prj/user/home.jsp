@@ -136,7 +136,7 @@
 						class="nav-link text-uppercase text-expanded" href="architectkim">architect</a>
 					</li>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="community">community</a>
+						class="nav-link text-uppercase text-expanded" href="community?page=1">community</a>
 					</li>
 					<li class="nav-item px-lg-4"><a
 						class="nav-link text-uppercase text-expanded"

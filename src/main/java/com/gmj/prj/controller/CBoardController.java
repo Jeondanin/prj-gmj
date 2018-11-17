@@ -25,6 +25,7 @@ import com.gmj.prj.dao.impl.BoardInfoDAOImpl;
 import com.gmj.prj.service.GmjCboardService;
 import com.gmj.prj.vo.BoardInfo;
 import com.gmj.prj.vo.GmjCboard;
+import com.gmj.prj.vo.GmjPageInfo;
 
 
 
@@ -50,6 +51,17 @@ public class CBoardController {
 	public @ResponseBody List<GmjCboard> getList(){
 		return gcs.getList();
 	}
+	@GetMapping(value="/gmjcboarduser")
+	public @ResponseBody List<GmjCboard> getList(HttpServletRequest req){
+		return gcs.getList(req);
+	}
+	
+	@GetMapping(value="/gmjcboardcnt")
+	public @ResponseBody GmjPageInfo cntList(){
+		return gcs.getPageInfo();
+	}
+
+	
 		
 }
 

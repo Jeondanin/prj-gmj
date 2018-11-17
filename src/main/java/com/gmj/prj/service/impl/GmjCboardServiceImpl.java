@@ -20,6 +20,7 @@ import com.gmj.prj.dao.GmjCboardDAO;
 import com.gmj.prj.dao.GmjPageInfoDAO;
 import com.gmj.prj.service.GmjCboardService;
 import com.gmj.prj.vo.GmjCboard;
+import com.gmj.prj.vo.GmjPageInfo;
 @Service
 public class GmjCboardServiceImpl implements GmjCboardService {
 	@Autowired
@@ -30,7 +31,7 @@ public class GmjCboardServiceImpl implements GmjCboardService {
 	public List<GmjCboard> getList() {
 		
 		//페이지 정보를 불러와서 변수로 넣는다.
-		gpid.getPageInfo();
+		
 		
 		return gcsd.getList();
 	}
@@ -74,6 +75,16 @@ public class GmjCboardServiceImpl implements GmjCboardService {
 
 		}
 		return 0;
+	}
+	@Override
+	public GmjPageInfo getPageInfo() {
+		
+		return gpid.getPageInfo();
+	}
+	@Override
+	public List<GmjCboard> getList(HttpServletRequest req) {
+		
+		return gcsd.getList(req);
 	}
 
 }

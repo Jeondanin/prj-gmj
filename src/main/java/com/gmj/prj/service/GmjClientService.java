@@ -10,4 +10,6 @@ public interface GmjClientService {
 	public int insertClient(GmjClient gc);
 	public int updateClient(GmjClient gc);
 	public int deleteClient(int gmjclientno);
+	
+	
 }
