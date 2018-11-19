@@ -23,5 +23,11 @@ public class GmjArchitectInfoServiceImpl implements GmjArchitectInfoService {
 		// TODO Auto-generated method stub
 		return gaidi.checkAddress(gmjArchitectBAddress);
 	}
+	@Override
+	public List<GmjArchitectInfo> getgmjMapList() {
+		// TODO Auto-generated method stub
+		return gaidi.getgmjMapList();
+
+	}
 
 }

@@ -11,6 +11,7 @@ var pagination = document.querySelector('#paginationz');
 	function doInit() {
 		showPaging();
 		
+		
 	}
 	window.addEventListener('load', doInit);
 
@@ -23,6 +24,7 @@ var pagination = document.querySelector('#paginationz');
 				totalCnt = res.totalCnt;
 				totalPage = res.totalPage;
 				showPaging2(totalCnt,totalPage)
+				
 				showList(1);		
 			}
 		})
@@ -63,6 +65,7 @@ var pagination = document.querySelector('#paginationz');
 		
 		pagination.insertAdjacentHTML('beforeend', html2);
 		
+		
 	}
 	
 	function showList(number){
@@ -85,9 +88,9 @@ var pagination = document.querySelector('#paginationz');
 				paging_here.innerHTML='';
 				paging_here.insertAdjacentHTML('afterbegin', html);
 				bodify(number);
-				if(viewBoard()!=-1){
-					viewBoard();
-				}
+				viewBoard();
+					
+				
 			}
 		})
 		
@@ -125,6 +128,55 @@ var pagination = document.querySelector('#paginationz');
 	document.querySelector('#insertbtn').addEventListener('click',insertContent);
 	function insertContent(){
 		location.href="/uri/prj/user/community/insert";
+	}
+	
+	function viewBoard(){
+		console.log(134);
+		au.send({url:'/gmjcboard/'+no,
+		method:'GET',
+		success : function(res){
+			res=JSON.parse(res);
+			if(viewSectionhtml!=''){
+				viewSectionhtml='';
+				viewSection.innerHTML='';
+			}
+			viewSectionhtml += '<form><div class="form-group">'
+			
+			viewSectionhtml += '<div class="row"><div class="col-sm-12 viewunderline"><div class="viewtitle">';
+				viewSectionhtml += res.gmjcboardtitle+'</div><div>'+res.credat+'&nbsp;  |  &nbsp;'+res.gmjusername+'</div>';
+				viewSectionhtml += '</div></div>'
+			viewSectionhtml += '<div class="row viewcontentrow"><div class="col-sm-12 viewcontent">'
+				viewSectionhtml += res.gmjcboarddesc;
+				viewSectionhtml += '</div></div>'
+			viewSectionhtml +='<div class="row"><div class="col-sm-12 viewonline">'
+				viewSectionhtml += '가자'
+			viewSectionhtml +='</div></div>'
+			viewSectionhtml += '</div>'
+			viewSectionhtml += '</form>'
+		
+			console.log(viewSectionhtml);
+			viewSection.insertAdjacentHTML('beforeend',viewSectionhtml);
+			
+			
+			cntplus();
+			
+		}})
+		
+	}
+	function cntplus(){
+		if(viewSectionhtml==''){
+			viewreply();
+			au.send({url:'/gmjcboardcntplus/'+no,
+				method:'GET',
+				success : function(res){
+					res=JSON.parse(res);
+					
+				}
+			});
+		}else{
+			
+		}
+		
 	}
 	
 	

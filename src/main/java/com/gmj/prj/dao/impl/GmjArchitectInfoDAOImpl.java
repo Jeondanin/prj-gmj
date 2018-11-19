@@ -26,6 +26,12 @@ public class GmjArchitectInfoDAOImpl implements GmjArchitectInfoDAO {
 		// TODO Auto-generated method stub
 		return ss.selectOne("com.gmj.prj.vo.GmjArchitectInfo.checkAddress",gmjArchitectBAddress);
 	}
+	@Override
+	public List<GmjArchitectInfo> getgmjMapList() {
+		// TODO Auto-generated method stub
+		return ss.selectList("com.gmj.prj.vo.GmjArchitectInfo.selectGmjMapList");
+
+	}
 
 }
 

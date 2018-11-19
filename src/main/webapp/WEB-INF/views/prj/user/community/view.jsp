@@ -396,7 +396,7 @@ var viewSection = document.querySelector('.viewGmjcboard');
 var viewSectionhtml ='';
 var url = decodeURIComponent(location.href);
 var params = url.substring( url.indexOf('?')+1, url.length );
-var no
+var no;
 var indexOfNo = params.indexOf('no=');
 console.log(indexOfNo+' line : 174');
 if(params.indexOf('&')!=-1){
@@ -414,32 +414,8 @@ if(params.indexOf('&')!=-1){
 	
 //실행순서는 는 리스트 켜지고 위에 내용켜지는 순서.
 
-function viewBoard(){
-	au.send({url:'/gmjcboard/'+no,
-	method:'GET',
-	success : function(res){
-		res=JSON.parse(res);
-		
-		viewSectionhtml += '<form><div class="form-group">'
-		
-		viewSectionhtml += '<div class="row"><div class="col-sm-12 viewunderline"><div class="viewtitle">';
-			viewSectionhtml += res.gmjcboardtitle+'</div><div>'+res.credat+'&nbsp;  |  &nbsp;'+res.gmjusername+'</div>';
-			viewSectionhtml += '</div></div>'
-		viewSectionhtml += '<div class="row viewcontentrow"><div class="col-sm-12 viewcontent">'
-			viewSectionhtml += res.gmjcboarddesc;
-			viewSectionhtml += '</div></div>'
-		viewSectionhtml +='<div class="row"><div class="col-sm-12 viewonline">'
-			viewSectionhtml += '가자'
-		viewSectionhtml +='</div></div>'
-		viewSectionhtml += '</div>'
-		viewSectionhtml += '</form>'
-		
-		viewSection.insertAdjacentHTML('beforeend',viewSectionhtml);
-		viewreply();
-		
-	}})
-	
-}
+
+
 
 function insertreply(){
 	var replydesc = document.querySelector('#replydesc').value;

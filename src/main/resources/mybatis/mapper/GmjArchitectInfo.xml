@@ -12,5 +12,8 @@
 			select * from gmjarchitectinfo where concat(gmjarchitectBaddress1,' ',gmjarchitectBaddress2,' ',gmjarchitectBaddress3) like concat('%',#{gmjArchitectBAddress},'%');
 	
 		</select>
+		<select id="selectGmjMapList" resultType="com.gmj.prj.vo.GmjArchitectInfo">
+			select * from gmjarchitectinfo
+		</select>
 	</mapper>
 	

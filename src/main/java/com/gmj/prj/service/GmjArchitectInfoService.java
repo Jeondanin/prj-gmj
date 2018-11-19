@@ -8,5 +8,9 @@ import com.gmj.prj.vo.GmjArchitectInfo;
 public interface GmjArchitectInfoService {
 	public List<GmjArchitectInfo> getList(String gmjArchitectName);
 	public GmjArchitectInfo checkAddress(String gmjArchitectBAddress);
+	
+	public List<GmjArchitectInfo> getgmjMapList();
+
+
 
 }

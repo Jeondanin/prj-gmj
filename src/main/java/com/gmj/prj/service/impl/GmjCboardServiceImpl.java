@@ -106,5 +106,15 @@ public class GmjCboardServiceImpl implements GmjCboardService {
 		
 		return gcsd.getReply(gmjcboardno);
 	}
+	@Override
+	public List<GmjReply> getreplyadmin() {
+		
+		return gcsd.getReplyadmin();
+	}
+	@Override
+	public int pluscnt(int gmjcboardno) {
+		
+		return gcsd.pluscnt(gmjcboardno);
+	}
 
 }

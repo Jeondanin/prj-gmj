@@ -51,5 +51,15 @@ public class GmjCboardDAOImpl implements GmjCboardDAO {
 		// TODO Auto-generated method stub
 		return ss.selectList("com.gmj.prj.vo.GmjCboard.selectReply",gmjcboardno);
 	}
+	@Override
+	public List<GmjReply> getReplyadmin() {
+		
+		return ss.selectList("com.gmj.prj.vo.GmjCboard.selectReplyadmin");
+	}
+	@Override
+	public int pluscnt(int gmjcboardno) {
+		// TODO Auto-generated method stub
+		return ss.update("com.gmj.prj.vo.GmjCboard.pluscnt",gmjcboardno);
+	}
 
 }

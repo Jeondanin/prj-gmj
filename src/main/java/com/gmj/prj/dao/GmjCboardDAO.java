@@ -14,7 +14,9 @@ public interface GmjCboardDAO {
 	public List<GmjCboard> getList(HttpServletRequest req);
 	public int insertCboard(GmjCboard gc);
 	public GmjCboard getOne(int gmjcboardno);
+	public int pluscnt(int gmjcboardno);
 	
 	public int insertReply(HashMap<String, String> reply);
 	public List<GmjReply> getReply(int gmjcboardno); 
+	public List<GmjReply> getReplyadmin(); 
 }

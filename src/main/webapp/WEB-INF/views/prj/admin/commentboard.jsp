@@ -328,161 +328,39 @@
 		</nav>
 
 
-
+<!-- 여기만 건들여 -->
 		<div id="page-wrapper">
-			<div class="row">
-				<div class="col-lg-12">
-					<h1 class="page-header">Dashboard</h1>
-				</div>
-				<!-- /.col-lg-12 -->
-
-
-				<div class="col-lg-12">
-					<div class="row">
-						<ul class="nav nav-tabs"
-							style="height: 200px; padding: 15px; border-bottom: none;">
-							<li class="active" href="#blank"></li>
-							<!--초기화면 없이 -->
-							<li style="width: 380px; height: 100px;"><a
-								data-toggle="tab" href="#home" style="padding: 0;">
-									<div class="panel panel-blue" style="width: 90%;">
-										<div class="panel-heading">
-											<div class="row">
-												<div class="col-xs-3">
-													<i class="fa fa-comments fa-5x"></i>
-												</div>
-												<div class="col-xs-9 text-right">
-													<div class="huge">26</div>
-													<div>등록된 게시물</div>
-												</div>
-											</div>
-										</div>
-										<a href="#">
-											<div class="panel-footer">
-												<span class="pull-left">View Details</span> <span
-													class="pull-right"><i
-													class="fa fa-arrow-circle-right"></i></span>
-												<div class="clearfix"></div>
-											</div>
-										</a>
-									</div>
-							</a></li>
-							<li style="width: 380px; height: 100px;"><a
-								data-toggle="tab" href="#menu1" style="padding: 0;">
-
-									<div class="panel panel panel-green" style="width: 90%;">
-										<div class="panel-heading">
-											<div class="row">
-												<div class="col-xs-3">
-													<i class="fa fa-comments fa-5x"></i>
-												</div>
-												<div class="col-xs-9 text-right">
-													<div class="huge">26</div>
-													<div>등록된 댓글</div>
-												</div>
-											</div>
-										</div>
-										<a href="#">
-											<div class="panel-footer">
-												<span class="pull-left">View Details</span> <span
-													class="pull-right"><i
-													class="fa fa-arrow-circle-right"></i></span>
-												<div class="clearfix"></div>
-											</div>
-										</a>
-									</div>
-							</a></li>
-							<li style="width: 380px; height: 100px;"><a
-								data-toggle="tab" href="#menu2" style="padding: 0;">
-
-									<div class="panel panel panel-yellow" style="width: 90%;">
-										<div class="panel-heading">
-											<div class="row">
-												<div class="col-xs-3">
-													<i class="fa fa-comments fa-5x"></i>
-												</div>
-												<div class="col-xs-9 text-right">
-													<div class="huge">26</div>
-													<div>소중한 우리의 새로운 가족</div>
-												</div>
-											</div>
-										</div>
-										<a href="#">
-											<div class="panel-footer">
-												<span class="pull-left">View Details</span> <span
-													class="pull-right"><i
-													class="fa fa-arrow-circle-right"></i></span>
-												<div class="clearfix"></div>
-											</div>
-										</a>
-									</div>
-							</a></li>
-							<li style="width: 380px; height: 100px;"><a
-								data-toggle="tab" href="#menu3" style="padding: 0;">
-									<div class="panel panel-red" style="width: 90%;">
-										<div class="panel-heading">
-											<div class="row">
-												<div class="col-xs-3">
-													<i class="fa fa-comments fa-5x"></i>
-												</div>
-												<div class="col-xs-9 text-right">
-													<div class="huge">26</div>
-													<div>배신자</div>
-												</div>
-											</div>
-										</div>
-										<a href="#">
-											<div class="panel-footer">
-												<span class="pull-left">View Details</span> <span
-													class="pull-right"><i
-													class="fa fa-arrow-circle-right"></i></span>
-												<div class="clearfix"></div>
-											</div>
-										</a>
-									</div>
-							</a></li>
-						</ul>
-						<div class="tab-content">
-							<div id="blank" class="tab-pane fade in active"></div>
-							<div id="home" class="tab-pane fade" style="padding-left: 15px">
-							121213
-							<h1>등록된 게시물</h1>
-							<div id="rDivboard" style="width: 70vw; height: 45vh"></div>
-							<div id="pagingbox"></div>
-							<div id="recInfoArea"></div>
-
-
-							</div>
-							<div id="menu1" class="tab-pane fade" style="padding-left: 15px;">
-								<h3>Menu 1</h3>
-								<p>Ut enim ad minim veniam, quis nostrud exercitation
-									ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-							</div>
-							<div id="menu2" class="tab-pane fade" style="padding-left: 15px;">
-								<h1>회원</h1> 
-								<div id="rDiv" style="width: 70vw; height: 45vh"></div>
+		<h1>댓글 관리</h1> 
+								<div id="rDivComment" style="width: 70vw; height: 45vh"></div>
 								<div id="pagingbox"></div>
 								<div id="recInfoArea"></div>
-							</div>
-							<div id="menu3" class="tab-pane fade" style="padding-left: 15px;">
-								<h3>Menu 3</h3>
-								<p>Eaque ipsa quae ab illo inventore veritatis et quasi
-									architecto beatae vitae dicta sunt explicabo.</p>
-							</div>
-						</div>
-
-
-					</div>
-				</div>
-			</div>
-		</div>
-
-
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
 	</div>
-	<!-- /#page-wrapper -->
-
-	</div>
-	<!-- /#wrapper -->
+	
 
 	<!-- jQuery -->
 	<script src="${resPath}/vendor/jquery/jquery.min.js"></script>
@@ -511,35 +389,6 @@
 
 	<!--이게 있어야 들어가는..-->
 	<script>
-	var dxGrid;
-
-	function doInit() {
-
-		dxGrid = new dhtmlXGridObject('rDivboard');
-
-		dxGrid.setHeader('번호,게시글제목,게시글내용,회원번호,생성날짜,수정날짜,조회수,수정,삭제');
-
-		dxGrid.setColumnIds('gmjcboardno,gmjcboardtitle,gmjcboarddesc,gmjclientno,credat,moddat,gmjcboardcnt,edit,delete');
-		
-		dxGrid.setColTypes('ro,ed,ed,ro,ro,ed,ro,img,img');
-		dxGrid.enableAutoWidth(true);
-		dxGrid.init();
-		au.send({
-			url : '/gmjcboard',
-			method : 'GET',
-			success : function(res) {
-				res = JSON.parse(res);
-				console.log(res);
-				dxGrid.parse(res, 'js');
-				insertImg();
-			}
-		})
-
-	}
-
-	window.addEventListener('load', doInit);
-	</script>
-	<script>
 	var hanglePattern=/[a-z0-9]|[ \[\]{}()<>?|`~!@#$%^&*-_+=,.;:\"'\\]/g;
 	
 	
@@ -547,20 +396,20 @@
 
 		function doInit() {
 
-			dxGrid = new dhtmlXGridObject('rDiv');
+			dxGrid = new dhtmlXGridObject('rDivComment');
 
 			dxGrid
-					.setHeader('유저번호,유저 이메일,유저비밀번호,유저이름,핸드폰번호,생일,성별,주소,생성날짜,수정날짜,수정,삭제');
+					.setHeader('댓글번호,게시판번호,유저아이디,댓글내용,생성시간,수정시간,수정,삭제');
 
 			dxGrid
-					.setColumnIds('gmjuserno,gmjuseremail,gmjuserpwd,gmjusername,gmjuserphone,gmjuserbirth,gmjusersex,gmjuseraddress,credat,moddat,edit,delete');
-			dxGrid.setColTypes('ro,ro,ed,ed,ed,ed,ed,ed,ro,ro,img,img');
+					.setColumnIds('gmjreplyno,gmjcboardno,gmjuserno,gmjreplydesc,credat,moddat,edit,delete');
+			dxGrid.setColTypes('ro,ro,ro,ed,ro,ro,img,img');
 			
 			dxGrid.enableAutoWidth(true);
 			dxGrid.init();
 
 			au.send({
-				url : '/gmjclient',
+				url : '/gmjreply',
 				method : 'GET',
 				success : function(res) {
 					res = JSON.parse(res);

@@ -21,6 +21,10 @@
 			values(#{gmjcboardtitle},#{gmjcboardtitle},1,now(),now(),0);
 		</insert>
 		
+		<update id="pluscnt">
+			update gmjcboard set gmjcboardcnt=gmjcboardcnt+1 where gmjcboardno=#{gmjcboardno};
+		</update>
+		
 		<insert id="insertReply" >
 			INSERT INTO `bdi`.`gmjreply` (`gmjcboardno`, `gmjuserno`, `gmjreplydesc`, `credat`, `moddat`) 
 			VALUES (#{gmjcboardno}, #{gmjuserno}, #{gmjreplydesc}, now(), now());
@@ -28,6 +32,10 @@
 		<select id="selectReply" resultType="com.gmj.prj.vo.GmjReply" >
 			select distinct gmjreply.*,gmjclient.gmjUserName from gmjreply,gmjclient,gmjcboard 
 			where gmjreply.gmjcboardno=#{gmjcboardno} and gmjreply.gmjuserno=gmjclient.gmjuserno;
+		</select>
+			<select id="selectReplyadmin" resultType="com.gmj.prj.vo.GmjReply" >
+			select distinct gmjreply.*,gmjclient.gmjUserName from gmjreply,gmjclient
+			where gmjreply.gmjuserno=gmjclient.gmjuserno;
 		</select>
 		
 		

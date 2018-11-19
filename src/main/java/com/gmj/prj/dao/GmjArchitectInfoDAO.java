@@ -11,5 +11,7 @@ import com.gmj.prj.vo.GmjArchitectInfo;
 public interface GmjArchitectInfoDAO {
 	public List<GmjArchitectInfo> getList(String gmjarchitectname);
 	public GmjArchitectInfo checkAddress(String gmjArchitectBAddress);
+	public List<GmjArchitectInfo> getgmjMapList();
+
 	
 }

@@ -68,6 +68,10 @@ public class CBoardController {
 	public @ResponseBody GmjCboard getOne(@PathVariable int gmjcboardno){
 		return gcs.getOne(gmjcboardno);
 	}
+	@GetMapping(value="/gmjcboardcntplus/{gmjcboardno}")
+	public @ResponseBody int pluscnt(@PathVariable int gmjcboardno){
+		return gcs.pluscnt(gmjcboardno);
+	}
 	//댓글
 	@PostMapping(value="/gmjreply")
 	public @ResponseBody int insertReply(@RequestBody HashMap<String, String> reply) {
@@ -78,5 +82,10 @@ public class CBoardController {
 		return gcs.getreply(gmjcboardno);
 	}
 		
+	@GetMapping(value="/gmjreply")
+	public @ResponseBody List<GmjReply> getreplyadmin(){
+		return gcs.getreplyadmin();
+	}
+	
 }
 
