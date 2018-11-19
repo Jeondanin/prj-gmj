@@ -7,6 +7,14 @@ public class GmjReply {
 	public String gmjreplydesc;
 	public String credat;
 	public String moddat;
+	public String gmjusername;
+	
+	public String getGmjusername() {
+		return gmjusername;
+	}
+	public void setGmjusername(String gmjusername) {
+		this.gmjusername = gmjusername;
+	}
 	public int getGmjreplyno() {
 		return gmjreplyno;
 	}

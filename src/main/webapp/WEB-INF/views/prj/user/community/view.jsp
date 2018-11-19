@@ -188,13 +188,15 @@ padding:2rem 6.5rem;
 							<c:if test="${empty userID}">
 							<div class="form-group reply" style="min-height:15rem;">
 								<textarea class="form-control col-sm-10" id="replydesc" style="height:80px"></textarea>
-								<input type="hidden" value="손님" id="userno">
+								<input type="hidden" value="손님" id="userid">
+								<input type="hidden" value="0" id="userno">
 								<button type="button" onclick="insertreply()"class="btn col-sm-2" style="margin-left:15px; height:80px;width:100px;">댓글등록</button>
 							</div>
 							</c:if>
 							<c:if test="${!empty userID}">
 							<div class="form-group reply" style="min-height:15rem;">
 								<textarea class="form-control col-sm-10" id="replydesc" style="height:80px" value="${userNO}"></textarea>
+								<input type="hidden" value="${userID}" id="userid">
 								<input type="hidden" value="${userNO}" id="userno">
 								<button type="button" onclick="insertreply()"class="btn col-sm-2" style="margin-left:15px; height:80px;width:100px;">댓글등록</button>
 							</div>
@@ -263,6 +265,125 @@ padding:2rem 6.5rem;
 			<p class="m-0 small">Copyright &copy; GMJ 2018</p>
 		</div>
 	</footer>
+	
+	<div class="modal fade" id="login" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">Modal Header</h4>
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="input-group">
+								<span class="input-group-addon"><i
+									class="glyphicon glyphicon-user"></i></span> <input id="logingmjuseremail"
+									type="email" class="form-control" name="gmjuseremail"
+									placeholder="이메일" required>
+							</div>
+							<div class="input-group">
+								<span class="input-group-addon"><i
+									class="glyphicon glyphicon-lock"></i></span> <input id="logingmjuserpwd"
+									type="password" class="form-control" name="gmjuserpwd"
+									placeholder="비밀번호">
+							</div>					
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button id="sb" class="btn btn-default" onclick="login()">로그인</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="modal fade" id="signup" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">Modal Header</h4>
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="input-group">
+								<span class="input-group-addon"><i
+									class="glyphicon glyphicon-user"></i></span> <input id="gmjuseremail"
+									type="email" class="form-control" name="gmjuseremail"
+									placeholder="이메일" required>
+							</div>
+							<div class="input-group">
+								<span class="input-group-addon"><i
+									class="glyphicon glyphicon-lock"></i></span> <input id="gmjuserpwd"
+									type="password" class="form-control" name="gmjuserpwd"
+									placeholder="비밀번호">
+							</div>
+							<div class="input-group">
+								<span class="input-group-addon"><i
+									class="glyphicon glyphicon-lock"></i></span> <input id="gmjuserpwdchk"
+									type="password" class="form-control" name="gmjuserpwdchk"
+									placeholder="비밀번호 확인">
+							</div>
+							<div class="input-group">
+								<span class="input-group-addon"><i
+									class="glyphicon glyphicon-pencil"></i></span> <input id="gmjusername"
+									type="text" class="form-control" name="gmjusername"
+									placeholder="이름">
+							</div>
+							<div class="input-group">
+								<span class="input-group-addon"><i
+									class="glyphicon glyphicon-phone"></i></span> <input id="gmjuserphone"
+									type="text" class="form-control" name="gmjuserphone"
+									placeholder="핸드폰 번호">
+							</div>
+							<div class="input-group">
+								<span class="input-group-addon"><i
+									class="glyphicon glyphicon-calendar"></i></span> <input
+									id="gmjuserbirth" type="date" class="form-control"
+									name="gmjuserbirth" placeholder="생년월일 8자 ex)900213">
+							</div>
+							<div class="input-group">
+								<span class="input-group-addon"><i
+									class="glyphicon glyphicon-heart"></i></span> 
+									<div id="gmjusersex" style="padding: 6px 12px; font-size: 14px;height: 34px;border: 1px solid #ced4da;border-radius: .25rem;">
+									<label class="radio-inline" >
+									<input type="radio" name="optradio" value="남자">남
+									</label> 
+									<label class="radio-inline"> 
+									<input type="radio" name="optradio" value="여자">녀
+									</label>
+									</div> 
+									
+							</div>
+							<div class="input-group">
+								<span class="input-group-addon"><i
+									class="glyphicon glyphicon-stats"></i></span> <input
+									id="gmjuseraddress" type="text" class="form-control"
+									name="gmjuseraddress" placeholder="주소">
+							</div>
+
+							<br>
+						
+							
+						</form>
+
+
+
+
+
+					</div>
+					<div class="modal-footer">
+						<button id="sb" class="btn btn-default" onclick="submit()">제출</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="${resPath}/user/vendor/jquery/jquery.min.js"></script>
@@ -345,7 +466,7 @@ function viewreply(){
 			console.log(res);
 			for(var one of res){
 				console.log(one.gmjreplydesc);
-				replylisthtml+='<b>'+one.gmjusername+'</b>'
+				replylisthtml+='<b>'+one.gmjusername+' : </b>'
 				replylisthtml+=one.gmjreplydesc+'<br>'
 			}
 			replylist.insertAdjacentHTML('afterbegin',replylisthtml);

@@ -12,7 +12,7 @@ var logingmjuseremail =  document.querySelector('#logingmjuseremail');
 				param : JSON.stringify(data),
 				success : function(res){
 					console.log(res);
-					location.href='./home';
+					location.href=location.href;
 				}
 		}
 		au.send(conf);
@@ -23,7 +23,7 @@ var logingmjuseremail =  document.querySelector('#logingmjuseremail');
 				method:'GET',
 				success : function(res){
 					alert('로그아웃 했슴돠. 결과값은 0이겠죠?'+res)
-					location.href='./home';
+					location.href=location.href;
 				}
 		}
 		au.send(conf);
@@ -61,7 +61,7 @@ var logingmjuseremail =  document.querySelector('#logingmjuseremail');
 				param : JSON.stringify(signupdata),
 				success : function(res){
 					alert(res);	
-					location.href='./home';
+					location.href=location.href;
 				}
 		}
 		au.send(conf);

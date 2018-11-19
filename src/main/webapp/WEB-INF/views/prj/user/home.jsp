@@ -165,7 +165,7 @@
 						href="social media.html">social media</a></li>
 					</li>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="academy.html">Academy</a>
+						class="nav-link text-uppercase text-expanded" href="academy.html">Exhibition</a>
 					</li>
 				</ul>
 			</div>
@@ -225,7 +225,7 @@
 							style="background-size:430px 150px;background-image: url(${resPath}/img/home/seogangUniversity.jpg); width: 430x; height: 150px;"></div>
 					</div>
 					<div class="Card-title">
-						<span><h1 style="color:white;">서강대 본관입니다.112121</h1> </span>
+						<span><h1 style="color:white;">서강대</h1> </span>
 					</div>
 					<div class="Card-explore">
 						<span>Explore 50 more</span>
@@ -238,10 +238,10 @@
 						<div class="Card-shadow"></div>
 						<div class="Card-shadow"></div>
 						<div class="Card-image"
-							style="background-size:430px 150px;background-image: url(${resPath}/img/home/seogangUniversity.jpg); width: 430x; height: 150px;"></div>
+							style="background-size:430px 150px;background-image: url(${resPath}/img/home/exhibition1.jpg); width: 430x; height: 150px;"></div>
 					</div>
 					<div class="Card-title">
-						<span><h1 style="color:white;">서강대 본관입니다.112121</h1> </span>
+						<span><h1 style="color:white;">안양 김중업박물관</h1> </span>
 					</div>
 					<div class="Card-explore">
 						<span>Explore 50 more</span>
