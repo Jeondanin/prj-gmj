@@ -25,7 +25,7 @@
 			INSERT INTO `bdi`.`gmjreply` (`gmjcboardno`, `gmjuserno`, `gmjreplydesc`, `credat`, `moddat`) 
 			VALUES (#{gmjcboardno}, #{gmjuserno}, #{gmjreplydesc}, now(), now());
 		</insert>
-		<select id="selectReply" resultType="Map" >
+		<select id="selectReply" resultType="com.gmj.prj.vo.GmjReply" >
 			select distinct gmjreply.* from gmjreply,gmjclient,gmjcboard where gmjreply.gmjcboardno=#{gmjcboardno};
 		</select>
 		

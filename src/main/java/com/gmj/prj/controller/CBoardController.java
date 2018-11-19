@@ -28,6 +28,7 @@ import com.gmj.prj.service.GmjCboardService;
 import com.gmj.prj.vo.BoardInfo;
 import com.gmj.prj.vo.GmjCboard;
 import com.gmj.prj.vo.GmjPageInfo;
+import com.gmj.prj.vo.GmjReply;
 
 
 
@@ -73,7 +74,7 @@ public class CBoardController {
 		return gcs.insertreply(reply);
 	}
 	@GetMapping(value="/gmjreply/{gmjcboardno}")
-	public @ResponseBody List<Map<String,String>> getreply(@PathVariable int gmjcboardno){
+	public @ResponseBody List<GmjReply> getreply(@PathVariable int gmjcboardno){
 		return gcs.getreply(gmjcboardno);
 	}
 		

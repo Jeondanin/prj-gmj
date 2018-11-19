@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import com.gmj.prj.vo.GmjCboard;
+import com.gmj.prj.vo.GmjReply;
 
 public interface GmjCboardDAO {
 	public List<GmjCboard> getList();
@@ -15,5 +16,5 @@ public interface GmjCboardDAO {
 	public GmjCboard getOne(int gmjcboardno);
 	
 	public int insertReply(HashMap<String, String> reply);
-	public List<Map<String, String>> getReply(int gmjcboardno); 
+	public List<GmjReply> getReply(int gmjcboardno); 
 }

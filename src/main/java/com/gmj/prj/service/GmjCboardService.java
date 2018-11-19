@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.gmj.prj.vo.GmjCboard;
 import com.gmj.prj.vo.GmjPageInfo;
+import com.gmj.prj.vo.GmjReply;
 
 public interface GmjCboardService {
 	public List<GmjCboard> getList();
@@ -16,7 +17,6 @@ public interface GmjCboardService {
 	public GmjCboard getOne(int gmjcboardno);
 	public GmjPageInfo getPageInfo();
 	public int insertreply(HashMap<String, String> reply);
-	public List<Map<String,String>> getreply(int gmjcboardno);
+	public List<GmjReply> getreply(int gmjcboardno);
 }
-
 

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import com.gmj.prj.dao.GmjCboardDAO;
 import com.gmj.prj.vo.GmjCboard;
+import com.gmj.prj.vo.GmjReply;
 @Repository
 public class GmjCboardDAOImpl implements GmjCboardDAO {
 	@Autowired
@@ -46,7 +47,7 @@ public class GmjCboardDAOImpl implements GmjCboardDAO {
 		return ss.insert("com.gmj.prj.vo.GmjCboard.insertReply",reply);
 	}
 	@Override
-	public List<Map<String, String>> getReply(int gmjcboardno) {
+	public List<GmjReply> getReply(int gmjcboardno) {
 		// TODO Auto-generated method stub
 		return ss.selectList("com.gmj.prj.vo.GmjCboard.selectReply",gmjcboardno);
 	}

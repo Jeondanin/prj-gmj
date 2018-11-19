@@ -342,11 +342,13 @@ function viewreply(){
 		method:'GET',
 		success : function(res){
 			res=JSON.parse(res);
+			console.log(res);
 			for(var one of res){
+				console.log(one.gmjreplydesc);
 				replylisthtml+='<b>'+one.gmjusername+'</b>'
 				replylisthtml+=one.gmjreplydesc+'<br>'
 			}
-			replylist.insertAdjacentHTML('afterbegin','안녕');
+			replylist.insertAdjacentHTML('afterbegin',replylisthtml);
 		}
 	}) 
 	

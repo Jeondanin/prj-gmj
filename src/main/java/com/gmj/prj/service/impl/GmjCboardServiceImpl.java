@@ -23,6 +23,7 @@ import com.gmj.prj.dao.GmjPageInfoDAO;
 import com.gmj.prj.service.GmjCboardService;
 import com.gmj.prj.vo.GmjCboard;
 import com.gmj.prj.vo.GmjPageInfo;
+import com.gmj.prj.vo.GmjReply;
 @Service
 public class GmjCboardServiceImpl implements GmjCboardService {
 	@Autowired
@@ -101,7 +102,7 @@ public class GmjCboardServiceImpl implements GmjCboardService {
 		return gcsd.insertReply(reply);
 	}
 	@Override
-	public List<Map<String, String>> getreply(int gmjcboardno) {
+	public List<GmjReply> getreply(int gmjcboardno) {
 		
 		return gcsd.getReply(gmjcboardno);
 	}
