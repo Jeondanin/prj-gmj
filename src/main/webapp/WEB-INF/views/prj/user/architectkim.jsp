@@ -104,6 +104,32 @@
 </svg>
 		</a></span>
 	</h1>
+	<c:if test="${empty userID}">
+	<div style="position: absolute; left: 1500px; top: 5px; width: 200px;">
+		<div style="float: left; margin-right: 5%;">
+			<button data-toggle="modal"	data-target="#login"
+				style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;">${userID}로그인</button>
+		</div>
+		<div style="float: left;">
+			<button
+				style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;"
+				data-toggle="modal" data-target="#signup">회원가입</button>
+		</div>
+	</div>
+	</c:if>
+		<c:if test="${!empty userID}">
+	<div style="position: absolute; left: 1500px; top: 5px; width: 200px;">
+		<div style="float: left; margin-right: 5%; color:white">
+			환영합니다. ${userID}님  
+		</div>
+		<div style="float: left;">
+			<button onclick="logout()"
+				style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;"
+				>로그아웃</button>
+		</div>
+	
+	</div>
+	</c:if>
 
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav"

@@ -11,5 +11,9 @@ public interface GmjClientService {
 	public int updateClient(GmjClient gc);
 	public int deleteClient(int gmjclientno);
 	
+	public int login(GmjClient gc);
+	public int logout();
+	
+	
 	
 }

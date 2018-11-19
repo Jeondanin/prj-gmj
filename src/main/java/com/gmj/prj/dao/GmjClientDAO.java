@@ -9,4 +9,5 @@ public interface GmjClientDAO {
 	public int insertClient(GmjClient gc);
 	public int updateClient(GmjClient gc);
 	public int deleteClient(int gmjClientno);
+	public GmjClient login(GmjClient gc);
 }

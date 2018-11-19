@@ -2,8 +2,13 @@ package com.gmj.prj.service.impl;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.gmj.prj.dao.GmjClientDAO;
 import com.gmj.prj.dao.impl.GmjClientDAOImpl;
@@ -32,6 +37,34 @@ public class GmjClientServiceImpl implements GmjClientService {
 	public int deleteClient(int gmjclientno) {
 		// TODO Auto-generated method stub
 		return gcdi.deleteClient(gmjclientno);
+	}
+	@Override
+	public int login(GmjClient gc) {
+		HttpServletRequest req = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes())
+				.getRequest();
+		HttpSession hs = req.getSession();
+		GmjClient resultgc =gcdi.login(gc);
+		if(resultgc.getGmjuseremail().equals("admin")) {
+			hs.setAttribute("userNO", resultgc.getGmjuserno());
+			hs.setAttribute("userID", resultgc.getGmjuseremail());
+			hs.setAttribute("authority", true);
+			System.out.println("관리자모드 시작합니다.");
+			return 11;
+		}else{
+			hs.setAttribute("userNO", resultgc.getGmjuserno());
+			hs.setAttribute("userID", resultgc.getGmjuseremail());
+			hs.setAttribute("authority", false);
+			System.out.println("사용자모드 시작합니다.");
+			return 12;
+		}
+	}
+	@Override
+	public int logout() {
+		HttpServletRequest req = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes())
+				.getRequest();
+		HttpSession hs = req.getSession();
+		hs.invalidate();
+		return 0;
 	}
 
 }

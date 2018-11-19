@@ -2,6 +2,7 @@
 package com.gmj.prj.controller;
 
 import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -61,7 +63,19 @@ public class CBoardController {
 		return gcs.getPageInfo();
 	}
 
-	
+	@GetMapping(value="/gmjcboard/{gmjcboardno}")
+	public @ResponseBody GmjCboard getOne(@PathVariable int gmjcboardno){
+		return gcs.getOne(gmjcboardno);
+	}
+	//댓글
+	@PostMapping(value="/gmjreply")
+	public @ResponseBody int insertReply(@RequestBody HashMap<String, String> reply) {
+		return gcs.insertreply(reply);
+	}
+	@GetMapping(value="/gmjreply/{gmjcboardno}")
+	public @ResponseBody List<Map<String,String>> getreply(@PathVariable int gmjcboardno){
+		return gcs.getreply(gmjcboardno);
+	}
 		
 }
 

@@ -41,7 +41,37 @@
 	<h1 class="site-heading text-center text-white d-none d-lg-block">
 		<span class="site-heading-lower">GMJ</span>
 	</h1>
-
+<c:if test="${empty userID}">
+	<div style="position: absolute; left: 1500px; top: 5px; width: 200px;">
+		<div style="float: left; margin-right: 5%;">
+			<button data-toggle="modal"	data-target="#login"
+				style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;">${userID}로그인</button>
+		</div>
+		<div style="float: left;">
+			<button
+				style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;"
+				data-toggle="modal" data-target="#signup">회원가입</button>
+		</div>
+	</div>
+	</c:if>
+		<c:if test="${!empty userID}">
+	<div style="position: absolute; left: 1500px; top: 5px; width: 200px;">
+		<div style="float: left; margin-right: 5%; color:white">
+			환영합니다. ${userID}님  
+		</div>
+		<c:if test="${userID eq 'admin'}">
+		<button onclick="function(){location.href='../admin/home'}"
+				style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;"
+				>관리자페이지 가기</button>
+		</c:if>
+		<div style="float: left;">
+			<button onclick="logout()"
+				style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;"
+				>로그아웃</button>
+		</div>
+	
+	</div>
+	</c:if>
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav"
 		data-spy="affix" data-offset-top="197">
@@ -69,22 +99,22 @@
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav mx-auto">
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="home">Home
+						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/home">Home
 							<span class="sr-only">(current)</span>
 					</a></li>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="ma">Map</a></li>
+						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/Geocode">Map</a></li>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="products">construct</a>
+						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/architectkim">arhictect</a>
 					</li>
 					<li class="nav-item active px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="community">community</a>
+						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/community">community</a>
 					</li>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="social media">social
+						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/social media">social
 							media</a></li>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="academy">Academy</a>
+						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/academy">Academy</a>
 					</li>
 				</ul>
 			</div>
@@ -157,9 +187,7 @@
 
 </body>
 
-<!-- Script to highlight the active date in the hours list -->
-<script>
-	
-</script>
+<!-- 화면 위쪽 설정-->
+<script src="${resPath}/user/js/basic.js"></script>
 
 </html>

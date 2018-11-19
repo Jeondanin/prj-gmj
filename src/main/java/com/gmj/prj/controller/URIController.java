@@ -21,27 +21,35 @@ public class URIController {
 	private static final Logger logger = LoggerFactory.getLogger(URIController.class);
 	
 
-	@RequestMapping(value="/uri/**",method=RequestMethod.GET)
+	@RequestMapping(value="/uri/prj/user/**",method=RequestMethod.GET)
 	public String goPage(HttpServletRequest req) {
+		String rootPath = req.getContextPath(); 
+		String uri = req.getRequestURI();
+		return req.getRequestURI().replace(rootPath+"/uri/","");
+	}
+	@RequestMapping(value="/uri/prj/admin/**",method=RequestMethod.GET)
+	public String goadminPage(HttpServletRequest req) {
 		
 		String rootPath = req.getContextPath(); 
 
 		String uri = req.getRequestURI();
-		//if(!req.getRequestURI().equals("/uri/watermelon/login")) {
-		/*	logger.debug("name=>{}", 22);
-			if(hs.getAttribute("token")==null||hs.getAttribute("ssuser")==null||hs.getAttribute("token").equals(0)) {
-				logger.debug("name=>{}", 24);
-				return req.getRequestURI().replace(req.getRequestURI(),"/watermelon/login");
+		HttpSession hs= req.getSession();
+		logger.debug("name=>{}", rootPath);
+		if(hs.getAttribute("authority")!=null) {
+			boolean authority =(boolean)hs.getAttribute("authority");
+			if(authority) {
+				System.out.println("권한확인했다.");
+				return req.getRequestURI().replace(rootPath+"/uri/","");
 			}else {
-				logger.debug("name=>{}", 27);
-				return req.getRequestURI().replace(rootPath+"/uri","");
+				System.out.println("권한확인 결과 fail했다.");
+				return "redirect:../user/home";
 			}
+		}else{
+			System.out.println("권한자체가 없다.");
+			return "redirect:../user/home";
 		}
-		logger.debug("name=>{}", rootPath);*/
-		return req.getRequestURI().replace(rootPath+"/uri","");
-		
-		
 	}
+	
 	@RequestMapping(value="/uri/**",method=RequestMethod.POST)
 	public String goPage3(HttpServletRequest req) throws UnsupportedEncodingException {
 		

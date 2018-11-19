@@ -44,6 +44,42 @@ cursor:pointer;}
 	<h1 class="site-heading text-center text-white d-none d-lg-block">
 		<span class="site-heading-lower">GMJ</span>
 	</h1>
+<c:if test="${empty userID}">
+	<div style="position: absolute; left: 1500px; top: 5px; width: 200px;">
+		<div style="float: left; margin-right: 5%;">
+			<button data-toggle="modal"	data-target="#login"
+				style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;">${userID}로그인</button>
+		</div>
+		<div style="float: left;">
+			<button
+				style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;"
+				data-toggle="modal" data-target="#signup">회원가입</button>
+		</div>
+	</div>
+	</c:if>
+		<c:if test="${!empty userID}">
+	<div style="position: absolute; left: 1500px; top: 5px; width: 200px;">
+		<div style="float: left; margin-right: 5%; color:white">
+			환영합니다. ${userID}님  
+		</div>
+		
+		<c:if test="${userID eq 'admin'}">
+		<div style="float: left;">
+		<button onclick="function(){location.href='../admin/home'}"
+				style="width: 90px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;"
+				>관리자페이지</button>
+		</div>
+		</c:if>
+		
+		<div style="float: left;">
+			<button onclick="logout()"
+				style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;"
+				>로그아웃</button>
+		</div>
+	
+	</div>
+	</c:if>
+
 
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav"
@@ -71,22 +107,23 @@ cursor:pointer;}
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav mx-auto">
-					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="home">Home
+			<li class="nav-item px-lg-4"><a
+						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/home">Home
 							<span class="sr-only">(current)</span>
 					</a></li>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="ma">Map</a></li>
+						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/Geocode">Map</a></li>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="products">construct</a>
+						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/architectkim">arhictect</a>
 					</li>
 					<li class="nav-item active px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="community">community</a>
+						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/community">community</a>
 					</li>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="social media">media</a></li>
+						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/social media">social
+							media</a></li>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="academy">Academy</a>
+						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/academy">Academy</a>
 					</li>
 				</ul>
 			</div>
@@ -181,131 +218,9 @@ cursor:pointer;}
 </body>
 
 <!-- Script to highlight the active date in the hours list -->
+<script src="${resPath}/user/js/basic.js"></script>
+<script src="${resPath}/user/js/board.js"></script>
 <script>
-	var pagination = document.querySelector('#paginationz');
-	var paging_here = document.querySelector('#paging_here');
-	console.log(paging_here);
-	var paging = document.querySelector('#paging');
-	var totalCnt;
-	var groupcnt;//몇개씩 보기. 위에서 설정할 수 있는 값이라고. 
-	var currentpage=1;
-	
-	var block =5;
-	var init=1;
-	function doInit() {
-		showPaging();
-		
-	}
-	window.addEventListener('load', doInit);
-
-	function showPaging() {
-		au.send({
-			url : '/gmjcboardcnt',
-			method : 'GET',
-			success : function(res) {
-				res = JSON.parse(res);
-				totalCnt = res.totalCnt;
-				totalPage = res.totalPage;
-				showPaging2(totalCnt,totalPage)
-				showList(1);		
-			}
-		})
-	}
-	//total cnt 122, totalPage 13페이지 
-	function showPaging2(totalCnt,totalPage,init=1,block=5){
-		console.log('217:'+init)
-		pagination.innerHTML='';
-		
-		var fin = init+block-1
-		if(totalPage-init<5){
-			console.log('222'+init)
-			fin=totalPage;
-			console.log(fin);
-		}
-		var html2='';
-		
-		for (var j = init; j <=fin; j++) {
-	
-				if(j%block==1){
-					if(j==1){
-					html2 += '<div class="col-sm-1"> </div><div class="col-sm-1"><a onclick="showList('+j+')">'+j+'</a></div></div>'
-					}else{
-						html2 += '<div class="col-sm-1"><a onclick="changePn(totalCnt,totalPage,'+j+',block)">&lt;&lt;</a></div><div class="col-sm-1"><a onclick="showList('+j+')">'+j+'</a></div>'	
-					}
-				}else if(j%block==0){
-					if(j==totalPage){
-						html2 += '<div class="col-sm-1"><a onclick="showList('+j+')">'+j+'</a></div><div class="col-sm-1"></div>'		
-					}else{
-						html2 += '<div class="col-sm-1"><a onclick="showList('+j+')">'+j+'</a></div><div class="col-sm-1"><a onclick="changePn(totalCnt,totalPage,'+j+',block)">&gt;&gt;</a></div>'	
-					}	
-				}else{
-					console.log(j);
-					html2 += '<div class="col-sm-1"><a onclick="showList('+j+')">'+j+'</a></div>';
-				}	
-
-		};
-		
-		pagination.insertAdjacentHTML('beforeend', html2);
-		
-	}
-	
-	function showList(number){
-		var html='';
-		au.send({
-			url : '/gmjcboarduser?page='+number,
-			method : 'GET',
-			success : function(res) {
-				res = JSON.parse(res);
-				for(var i=0;i<10;i++){
-					if(res[i]!=null){
-						html += '<tr class="board"><td>'
-							+ res[i].gmjcboardno + '</td><td>'
-							+ res[i].gmjcboardtitle + '</td><td>'
-							+ res[i].gmjusername + '</td><td>'
-							+ res[i].credat + '</td><td>'
-							+ res[i].gmjcboardcnt + '</td></tr>';
-					}
-				}
-				paging_here.innerHTML='';
-				paging_here.insertAdjacentHTML('afterbegin', html);
-				bodify(number);
-			}
-		})
-		
-	}
-	function bodify(number){
-		var SetNo= document.querySelectorAll('#paginationz .col-sm-1 a');
-		
-		for(var k of SetNo ){
-			k.style.fontWeight="normal";
-			var no = k.innerHTML;
-			if(no==number){
-				k.style.fontWeight="bold";
-				return;	
-			}else{
-				
-			}
-		}
-	
-		
-	}
-	
-	function changePn(totalCnt,totalPage,number,block){
-		if(number%block==1){
-			showPaging2(totalCnt,totalPage,parseFloat(number-block));
-			showList(parseFloat(number-1));
-		}else{
-			showPaging2(totalCnt,totalPage,parseFloat(number+1));
-			showList(parseFloat(number+1));
-		}
-		
-	}
-	
-	///아래부터 삽입
-	document.querySelector('#insertbtn').addEventListener('click',insertContent);
-	function insertContent(){
-		location.href="/uri/prj/user/communityInsert";
-	}
 	
 	
 </script>

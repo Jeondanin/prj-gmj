@@ -92,18 +92,40 @@
 
 		</a></span>
 	</h1>
+	<c:if test="${empty userID}">
 	<div style="position: absolute; left: 1500px; top: 5px; width: 200px;">
 		<div style="float: left; margin-right: 5%;">
-			<button
-				style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;">로그인</button>
+			<button data-toggle="modal"	data-target="#login"
+				style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;">${userID}로그인</button>
 		</div>
 		<div style="float: left;">
 			<button
 				style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;"
-				data-toggle="modal" data-target="#myModal">회원가입</button>
+				data-toggle="modal" data-target="#signup">회원가입</button>
 		</div>
 	</div>
-
+	</c:if>
+		<c:if test="${!empty userID}">
+	<div style="position: absolute; left: 1500px; top: 5px; width: 200px;">
+		<div style="float: left; margin-right: 5%; color:white">
+			환영합니다. ${userID}님  
+		</div>
+		<c:if test="${userID eq 'admin'}">
+		<div style="float: left;">
+		<button onclick="{location.href='../admin/home';}"
+				style="width: 100px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;"
+				>관리자페이지</button>
+		</div>
+		</c:if>
+		<div style="float: left;">
+			<button onclick="logout()"
+				style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;"
+				>로그아웃</button>
+		</div>
+	
+	</div>
+	</c:if>
+	
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav"
 		data-spy="affix" data-offset-top="197">
@@ -408,12 +430,130 @@
 			<p class="m-0 small">Copyright &copy; GMJ 2018</p>
 		</div>
 	</footer>
+	
+	<div class="modal fade" id="login" role="dialog">
+			<div class="modal-dialog">
 
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">Modal Header</h4>
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="input-group">
+								<span class="input-group-addon"><i
+									class="glyphicon glyphicon-user"></i></span> <input id="logingmjuseremail"
+									type="email" class="form-control" name="gmjuseremail"
+									placeholder="이메일" required>
+							</div>
+							<div class="input-group">
+								<span class="input-group-addon"><i
+									class="glyphicon glyphicon-lock"></i></span> <input id="logingmjuserpwd"
+									type="password" class="form-control" name="gmjuserpwd"
+									placeholder="비밀번호">
+							</div>					
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button id="sb" class="btn btn-default" onclick="login()">로그인</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="modal fade" id="signup" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">Modal Header</h4>
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="input-group">
+								<span class="input-group-addon"><i
+									class="glyphicon glyphicon-user"></i></span> <input id="gmjuseremail"
+									type="email" class="form-control" name="gmjuseremail"
+									placeholder="이메일" required>
+							</div>
+							<div class="input-group">
+								<span class="input-group-addon"><i
+									class="glyphicon glyphicon-lock"></i></span> <input id="gmjuserpwd"
+									type="password" class="form-control" name="gmjuserpwd"
+									placeholder="비밀번호">
+							</div>
+							<div class="input-group">
+								<span class="input-group-addon"><i
+									class="glyphicon glyphicon-lock"></i></span> <input id="gmjuserpwdchk"
+									type="password" class="form-control" name="gmjuserpwdchk"
+									placeholder="비밀번호 확인">
+							</div>
+							<div class="input-group">
+								<span class="input-group-addon"><i
+									class="glyphicon glyphicon-pencil"></i></span> <input id="gmjusername"
+									type="text" class="form-control" name="gmjusername"
+									placeholder="이름">
+							</div>
+							<div class="input-group">
+								<span class="input-group-addon"><i
+									class="glyphicon glyphicon-phone"></i></span> <input id="gmjuserphone"
+									type="text" class="form-control" name="gmjuserphone"
+									placeholder="핸드폰 번호">
+							</div>
+							<div class="input-group">
+								<span class="input-group-addon"><i
+									class="glyphicon glyphicon-calendar"></i></span> <input
+									id="gmjuserbirth" type="date" class="form-control"
+									name="gmjuserbirth" placeholder="생년월일 8자 ex)900213">
+							</div>
+							<div class="input-group">
+								<span class="input-group-addon"><i
+									class="glyphicon glyphicon-heart"></i></span> 
+									<div id="gmjusersex" style="padding: 6px 12px; font-size: 14px;height: 34px;border: 1px solid #ced4da;border-radius: .25rem;">
+									<label class="radio-inline" >
+									<input type="radio" name="optradio" value="남자">남
+									</label> 
+									<label class="radio-inline"> 
+									<input type="radio" name="optradio" value="여자">녀
+									</label>
+									</div> 
+									
+							</div>
+							<div class="input-group">
+								<span class="input-group-addon"><i
+									class="glyphicon glyphicon-stats"></i></span> <input
+									id="gmjuseraddress" type="text" class="form-control"
+									name="gmjuseraddress" placeholder="주소">
+							</div>
+
+							<br>
+						
+							
+						</form>
+
+
+
+
+
+					</div>
+					<div class="modal-footer">
+						<button id="sb" class="btn btn-default" onclick="submit()">제출</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="${resPath}/user/vendor/jquery/jquery.min.js"></script>
-	<script
-		src="${resPath}/user/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script	src="${resPath}/user/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="${resPath}/user/js/basic.js"></script>
 
 
 </body>

@@ -35,5 +35,20 @@ public class GmjCboardDAOImpl implements GmjCboardDAO {
 		pageFactor.put("OFFSET",bundle*(pageNo-1));
 		return ss.selectList("com.gmj.prj.vo.GmjCboard.selectCboardListUser",pageFactor);
 	}
+	@Override
+	public GmjCboard getOne(int gmjcboardno) {
+		
+		return ss.selectOne("com.gmj.prj.vo.GmjCboard.selectCboard",gmjcboardno);
+	}
+	@Override
+	public int insertReply(HashMap<String, String> reply) {
+		
+		return ss.insert("com.gmj.prj.vo.GmjCboard.insertReply",reply);
+	}
+	@Override
+	public List<Map<String, String>> getReply(int gmjcboardno) {
+		// TODO Auto-generated method stub
+		return ss.selectList("com.gmj.prj.vo.GmjCboard.selectReply",gmjcboardno);
+	}
 
 }

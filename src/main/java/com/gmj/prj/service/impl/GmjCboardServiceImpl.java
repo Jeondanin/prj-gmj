@@ -4,8 +4,10 @@ import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -85,6 +87,23 @@ public class GmjCboardServiceImpl implements GmjCboardService {
 	public List<GmjCboard> getList(HttpServletRequest req) {
 		
 		return gcsd.getList(req);
+	}
+	@Override
+	public GmjCboard getOne(int gmjcboardno) {
+		// TODO Auto-generated method stub
+		return gcsd.getOne(gmjcboardno);
+	}
+	
+	///////댓글 
+	@Override
+	public int insertreply(HashMap<String, String> reply) {
+		
+		return gcsd.insertReply(reply);
+	}
+	@Override
+	public List<Map<String, String>> getreply(int gmjcboardno) {
+		
+		return gcsd.getReply(gmjcboardno);
 	}
 
 }

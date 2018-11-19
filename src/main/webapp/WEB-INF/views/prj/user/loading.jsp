@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <html lang="en" class=""><head>
-<meta http-equiv="refresh" content="4; url=../Geocode">
+<meta http-equiv="refresh" content="4; url=./Geocode">
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 <style class="cp-pen-styles">html, body {

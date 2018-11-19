@@ -8,8 +8,8 @@
 		</select>
 	
 		<insert id="insertClient">
-		INSERT INTO gmjclient(`gmjUserEmail`, `gmjUserPwd`, `gmjUserName`, `gmjUserPhone`, `gmjUserBirth`, `gmjUserSex`, `gmjUserAddress`) 
-		VALUES (#{gmjuseremail}, #{gmjuserpwd}, #{gmjusername}, #{gmjuserphone}, #{gmjuserbirth}, #{gmjusersex}, #{gmjuseraddress})
+		INSERT INTO gmjclient(`gmjUserEmail`, `gmjUserPwd`, `gmjUserName`, `gmjUserPhone`, `gmjUserBirth`, `gmjUserSex`, `gmjUserAddress`,credat,moddat) 
+		VALUES (#{gmjuseremail}, #{gmjuserpwd}, #{gmjusername}, #{gmjuserphone}, #{gmjuserbirth}, #{gmjusersex}, #{gmjuseraddress},now(),now())
 		</insert>
 		<update id="updateClient">
 		update gmjclient
@@ -28,6 +28,9 @@
 		where gmjuserno=#{gmjuserno}
 		</delete>
 		
+		<select id="login" resultType="com.gmj.prj.vo.GmjClient">
+		select * from gmjclient where gmjUserEmail=#{gmjuseremail} and gmjUserPwd=#{gmjuserpwd}
+		</select>
 		
 
 	</mapper>

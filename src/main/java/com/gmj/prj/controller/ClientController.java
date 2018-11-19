@@ -42,4 +42,12 @@ public class ClientController {
 		return gcs.deleteClient(gmjclientno);
 	}
 	
+	@PostMapping(value="/gmjlogin")
+	public @ResponseBody int login(@RequestBody GmjClient gc) {
+		return gcs.login(gc); //11은 admin 12는 일반유저.
+	}
+	@GetMapping(value="/gmjlogout")
+	public @ResponseBody int logout() {
+		return gcs.logout(); 
+	}
 }

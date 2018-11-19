@@ -34,5 +34,11 @@ public class GmjClientDAOImpl implements GmjClientDAO {
 		// TODO Auto-generated method stub
 		return ss.delete("com.gmj.prj.vo.GmjClient.deleteClient",gmjClientno);
 	}
-
+	////////////로그인 
+	@Override
+	public GmjClient login(GmjClient gc) {
+		return ss.selectOne("com.gmj.prj.vo.GmjClient.login",gc);
+	} 
+	
+	
 }
