@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace="com.gmj.prj.vo.GmjUpload">
+		<insert id="insertData" >
+			<if test="gmjcboardno gt 0">
+			insert into gmjupload(gmjuploadaddress,gmjcboardno,credat,moddat)
+			value(#{gmjuploadaddress},#{gmjcboardno},now(),now()) 
+			</if>
+			<if test="gmjvboardno gt 0">
+			insert into gmjupload(gmjuploadaddress,gmjvboardno,credat,moddat)
+			value(#{gmjuploadaddress},#{gmjvboardno},now(),now()) 
+			</if>
+			<if test="gmjbboardno gt 0">
+			insert into gmjupload(gmjuploadaddress,gmjbboardno,credat,moddat)
+			value(#{gmjuploadaddress},#{gmjbboardno},now(),now()) 
+			</if>
+		
+		</insert>
+		
+	</mapper>

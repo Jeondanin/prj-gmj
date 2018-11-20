@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -42,11 +43,10 @@ public class CBoardController {
 	@Autowired
 	private GmjCboardService gcs;
 	@PostMapping(value="/gmjcboard")
-	public @ResponseBody int insertCboard(@ModelAttribute GmjCboard gc,HttpServletRequest req){
+	public String insertCboard(@ModelAttribute GmjCboard gc,HttpServletRequest req){
 		System.out.println(gc);
-	
-		
-		return gcs.insertCboard(gc,req);
+		int a = gcs.insertCboard(gc,req);
+		return "redirect:/uri/prj/user/community";
 	}
 	
 	
@@ -68,10 +68,7 @@ public class CBoardController {
 	public @ResponseBody GmjCboard getOne(@PathVariable int gmjcboardno){
 		return gcs.getOne(gmjcboardno);
 	}
-	@GetMapping(value="/gmjcboardcntplus/{gmjcboardno}")
-	public @ResponseBody int pluscnt(@PathVariable int gmjcboardno){
-		return gcs.pluscnt(gmjcboardno);
-	}
+	
 	//댓글
 	@PostMapping(value="/gmjreply")
 	public @ResponseBody int insertReply(@RequestBody HashMap<String, String> reply) {
@@ -85,6 +82,10 @@ public class CBoardController {
 	@GetMapping(value="/gmjreply")
 	public @ResponseBody List<GmjReply> getreplyadmin(){
 		return gcs.getreplyadmin();
+	}
+	@DeleteMapping(value="/gmjreply/{gmjreplyno}")
+	public @ResponseBody int deleteReply(@PathVariable int gmjreplyno) {
+		return gcs.deleteReply(gmjreplyno);
 	}
 	
 }

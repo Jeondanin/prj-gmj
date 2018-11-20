@@ -16,10 +16,11 @@ public interface GmjCboardService {
 	public int insertCboard(GmjCboard gc,HttpServletRequest req);
 	public GmjCboard getOne(int gmjcboardno);
 	public GmjPageInfo getPageInfo();
-	public int pluscnt(int gmjcboardno);
+
 	
 	public int insertreply(HashMap<String, String> reply);
 	public List<GmjReply> getreply(int gmjcboardno);
 	public List<GmjReply> getreplyadmin();
+	public int deleteReply(int gmjreplyno);
 }
 

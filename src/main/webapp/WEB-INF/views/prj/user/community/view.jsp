@@ -33,6 +33,9 @@
 <link href="${resPath}/user/css/business-casual.min.css"
 	rel="stylesheet">
 <style>
+a{
+cursor:pointer;
+text-decoration:none;}
 .white{
 background:#fff;
 opacity:0.97;
@@ -66,7 +69,7 @@ border-top:1px solid #ddd;
 margin:50px;
 }
 .viewcontent{
-min-height:500px;
+min-height:300px;
 color:#777;
 }
 .viewtitle{
@@ -76,6 +79,10 @@ margin-bottom:2rem;
 }
 .reply{
 background:#f5f5f5;
+padding:2rem 6.5rem;
+}
+.replylist{
+
 padding:2rem 6.5rem;
 }
 
@@ -187,10 +194,10 @@ padding:2rem 6.5rem;
 							
 							<c:if test="${empty userID}">
 							<div class="form-group reply" style="min-height:15rem;">
-								<textarea class="form-control col-sm-10" id="replydesc" style="height:80px"></textarea>
+								<textarea class="form-control col-sm-10" id="replydesc" style="height:80px" readonly>로그인해야 댓글 가능합니다.</textarea>
 								<input type="hidden" value="손님" id="userid">
 								<input type="hidden" value="0" id="userno">
-								<button type="button" onclick="insertreply()"class="btn col-sm-2" style="margin-left:15px; height:80px;width:100px;">댓글등록</button>
+								<button type="button" onclick="{alert('로그인해야합니다.');}"class="btn col-sm-2" style="margin-left:15px; height:80px;width:100px;">댓글등록</button>
 							</div>
 							</c:if>
 							<c:if test="${!empty userID}">
@@ -202,9 +209,7 @@ padding:2rem 6.5rem;
 							</div>
 							
 							</c:if>
-							<div class="replylist">
-								
-							</div>
+							<div class="form-group replylist"></div>
 							
 						</div>
 					</div>
@@ -224,7 +229,9 @@ padding:2rem 6.5rem;
 							style="position: relative; z-index: 10;">
 							<thead>
 								<tr>
-									<th class="col-sm-1">번호</th>
+									<th class="col-sm-1">번호
+									<img src="${resPath}\uploadfiles\newimage11542695682077.jpg">
+									</th>
 									<th class="col-sm-3">제목</th>
 									<th class="col-sm-1">작성자</th>
 									<th class="col-sm-2">작성일</th>
@@ -390,21 +397,20 @@ padding:2rem 6.5rem;
 	<script
 		src="${resPath}/user/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="${resPath}/user/js/basic.js"></script>
-<script src="${resPath}/user/js/board.js"></script>
+<script src="${resPath}/user/js/board.js?ver=2"></script>
 <script>
 var viewSection = document.querySelector('.viewGmjcboard');
 var viewSectionhtml ='';
 var url = decodeURIComponent(location.href);
 var params = url.substring( url.indexOf('?')+1, url.length );
+var userno =document.querySelector('#userno').value; 
 var no;
+var replyno;
 var indexOfNo = params.indexOf('no=');
-console.log(indexOfNo+' line : 174');
 if(params.indexOf('&')!=-1){
 	var indexOfAnd = params.indexOf('&');
-	console.log(indexOfAnd+' line : 176');
 	if(indexOfNo>indexOfAnd){
 		  indexOfAnd = params.indexOf('&',indexOfAnd+1);
-		  console.log(indexOfAnd);
 		}
 	no = params.substring(indexOfNo+3,indexOfAnd);
 }else{
@@ -418,9 +424,7 @@ if(params.indexOf('&')!=-1){
 
 
 function insertreply(){
-	var replydesc = document.querySelector('#replydesc').value;
-	var userno =  document.querySelector('#userno').value;
-
+	var replydesc = document.querySelector('#replydesc').value;	
 	
 	 au.send({url:'/gmjreply',
 		method:'POST',
@@ -433,23 +437,51 @@ function insertreply(){
 	
 }
 function viewreply(){
-	var replylist = document.querySelector('.replylist')
-	var replylisthtml=''
-	au.send({url:'/gmjreply/'+no,
-		method:'GET',
+	var replylist = document.querySelector('.replylist');
+	var replylisthtml;
+	var height = document.querySelector('.about-heading-content');
+	
+	if(replylist.innerHTML==''){
+			var replylisthtml=''
+			au.send({url:'/gmjreply/'+no,
+				method:'GET',
+				success : function(res){
+					res=JSON.parse(res);
+					replylisthtml='<div class="viewunderline">댓글 '+ res.length+'개</div><div style="border-radius:0.25rem;padding:1rem;background:rgba(230,167,86,.9);">'
+					for(var one of res){			
+						replylisthtml+='<div style=""><b>'+one.gmjusername+' : </b>';
+						replylisthtml+=one.gmjreplydesc;
+						if(one.gmjuserno==userno){
+							replylisthtml+='<span style="float:right;"><a onclick="deleteReply('+one.gmjreplyno+')">X</a></span>'
+						}
+						replylisthtml+='</div>';
+					
+					}
+					replylisthtml+='</div></div>';
+					replylist.insertAdjacentHTML('afterbegin',replylisthtml);
+					var now = height.style.height;
+					var nowlength = now.substring(0,now.length-2);
+					var afterlength = Number(nowlength) + Number(20*res.length);
+					height.style.height=afterlength+'px';
+					showPaging();
+				}
+			})
+			
+	}else{		
+	
+	
+	}
+	
+	
+}
+function deleteReply(replyno){
+	au.send({url:'/gmjreply/'+replyno,
+		method:'DELETE',
 		success : function(res){
-			res=JSON.parse(res);
-			console.log(res);
-			for(var one of res){
-				console.log(one.gmjreplydesc);
-				replylisthtml+='<b>'+one.gmjusername+' : </b>'
-				replylisthtml+=one.gmjreplydesc+'<br>'
-			}
-			replylist.insertAdjacentHTML('afterbegin',replylisthtml);
+			alert('댓글 삭제되었슴돠');
+			location.href = location.href;
 		}
-	}) 
-	
-	
+	})
 }
 
 

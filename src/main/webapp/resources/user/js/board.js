@@ -1,15 +1,23 @@
 var pagination = document.querySelector('#paginationz');
+
 	var paging_here = document.querySelector('#paging_here');
 	console.log(paging_here);
 	var paging = document.querySelector('#paging');
 	var totalCnt;
 	var groupcnt;//몇개씩 보기. 위에서 설정할 수 있는 값이라고. 
 	var currentpage=1;
-	
+	var url;
 	var block =5;
 	var init=1;
 	function doInit() {
-		showPaging();
+		if(url!==undefined){
+			viewBoard();
+			console.log('url은defined')
+		}else{
+			showPaging();	
+			console.log('url은 undefined')
+		}
+		
 		
 		
 	}
@@ -24,7 +32,6 @@ var pagination = document.querySelector('#paginationz');
 				totalCnt = res.totalCnt;
 				totalPage = res.totalPage;
 				showPaging2(totalCnt,totalPage)
-				
 				showList(1);		
 			}
 		})
@@ -87,15 +94,15 @@ var pagination = document.querySelector('#paginationz');
 				}
 				paging_here.innerHTML='';
 				paging_here.insertAdjacentHTML('afterbegin', html);
-				bodify(number);
-				viewBoard();
+				boldify(number);
+			
 					
 				
 			}
 		})
 		
 	}
-	function bodify(number){
+	function boldify(number){
 		var SetNo= document.querySelectorAll('#paginationz .col-sm-1 a');
 		
 		for(var k of SetNo ){
@@ -132,14 +139,20 @@ var pagination = document.querySelector('#paginationz');
 	
 	function viewBoard(){
 		console.log(134);
+		
 		au.send({url:'/gmjcboard/'+no,
 		method:'GET',
+		async : false,
 		success : function(res){
 			res=JSON.parse(res);
+			console.log('뜨자11');
 			if(viewSectionhtml!=''){
 				viewSectionhtml='';
 				viewSection.innerHTML='';
 			}
+			console.log('이미지주소는');
+			console.log('뜨자11');
+			console.log(res.gmjuploadaddress);
 			viewSectionhtml += '<form><div class="form-group">'
 			
 			viewSectionhtml += '<div class="row"><div class="col-sm-12 viewunderline"><div class="viewtitle">';
@@ -147,37 +160,23 @@ var pagination = document.querySelector('#paginationz');
 				viewSectionhtml += '</div></div>'
 			viewSectionhtml += '<div class="row viewcontentrow"><div class="col-sm-12 viewcontent">'
 				viewSectionhtml += res.gmjcboarddesc;
-				viewSectionhtml += '</div></div>'
-			viewSectionhtml +='<div class="row"><div class="col-sm-12 viewonline">'
-				viewSectionhtml += '가자'
-			viewSectionhtml +='</div></div>'
-			viewSectionhtml += '</div>'
-			viewSectionhtml += '</form>'
+				viewSectionhtml += '</div></div>';
+			viewSectionhtml +='<div class="row"><div class="col-sm-12 viewonline">';
+				viewSectionhtml += '<img src="/resources/uploadfiles/'+res.gmjuploadaddress+'">';
+			viewSectionhtml +='</div></div>';
+			viewSectionhtml += '</div>';
+			viewSectionhtml += '</form>';
 		
 			console.log(viewSectionhtml);
 			viewSection.insertAdjacentHTML('beforeend',viewSectionhtml);
 			
-			
-			cntplus();
+			viewreply();
+				
 			
 		}})
 		
 	}
-	function cntplus(){
-		if(viewSectionhtml==''){
-			viewreply();
-			au.send({url:'/gmjcboardcntplus/'+no,
-				method:'GET',
-				success : function(res){
-					res=JSON.parse(res);
-					
-				}
-			});
-		}else{
-			
-		}
-		
-	}
+
 	
 	
 	

@@ -46,7 +46,6 @@ public class GmjArchitectInfoController {
 	public @ResponseBody List<GmjArchitectInfo> getgmjMapList() {
 		return gais.getgmjMapList();
 	}
-	
 	@GetMapping(value="/gmjArchitectBAddress/{gmjArchitectBAddress}")
 	public @ResponseBody GmjArchitectInfo checkAddress(@PathVariable String gmjArchitectBAddress) {
 		return gais.checkAddress(gmjArchitectBAddress);
