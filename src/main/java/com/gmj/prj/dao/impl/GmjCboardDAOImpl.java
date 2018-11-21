@@ -39,7 +39,13 @@ public class GmjCboardDAOImpl implements GmjCboardDAO {
 	@Override
 	public GmjCboard getOne(int gmjcboardno) {
 		ss.update("com.gmj.prj.vo.GmjCboard.pluscnt",gmjcboardno);
-		return ss.selectOne("com.gmj.prj.vo.GmjCboard.selectCboard",gmjcboardno);
+		GmjCboard result =ss.selectOne("com.gmj.prj.vo.GmjCboard.selectCboard",gmjcboardno);
+		System.out.println("결과는"+result);
+		if (result==null) {
+			return ss.selectOne("com.gmj.prj.vo.GmjCboard.selectCboardnoimg",gmjcboardno);
+		}
+		return  result;
+		
 	}
 	@Override
 	public GmjCboard getLatestOne() {	

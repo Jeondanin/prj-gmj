@@ -11,9 +11,9 @@ public class GmjPageInfoDAOImpl implements GmjPageInfoDAO {
 	@Autowired
 	private SqlSession ss;
 	@Override
-	public GmjPageInfo getPageInfo() {
+	public GmjPageInfo getPageInfo(String boardtype){
 		GmjPageInfo gpi = new GmjPageInfo();
-		int totalCnt = ss.selectOne("com.gmj.prj.vo.GmjPageInfo.getTotalCnt");
+		int totalCnt = ss.selectOne("com.gmj.prj.vo.GmjPageInfo.getTotalCnt",boardtype);
 		gpi.setTotalCnt(totalCnt);
 		gpi.pageCount();
 		return gpi;

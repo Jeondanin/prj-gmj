@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.gmj.prj.aop.AspectLogger;
 import com.gmj.prj.service.GmjArchitectInfoService;
 import com.gmj.prj.service.GmjFavoriteService;
-import com.gmj.prj.service.GmjMapService;
 import com.gmj.prj.service.impl.GmjArchitectInfoServiceImpl;
 import com.gmj.prj.service.impl.GmjFavoriteServiceImpl;
 import com.gmj.prj.vo.GmjArchitectInfo;

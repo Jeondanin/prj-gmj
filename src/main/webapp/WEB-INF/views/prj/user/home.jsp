@@ -162,7 +162,7 @@
 					</li>
 					<li class="nav-item px-lg-4"><a
 						class="nav-link text-uppercase text-expanded"
-						href="social media.html">social media</a></li>
+						href="/uri/prj/user/socialMedia">social media</a></li>
 					</li>
 					<li class="nav-item px-lg-4"><a
 						class="nav-link text-uppercase text-expanded" href="academy.html">Exhibition</a>
@@ -325,11 +325,7 @@
 							</div>
 							<div>
 								<div class="col-sm-4" style="padding-right: 0px;">
-									<iframe width="300" height="180"
-										src="https://www.youtube.com/embed/8yAsZt7rfgI"
-										frameborder="0"
-										allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-										allowfullscreen></iframe>
+									<iframe width="300" height="180" src="https://www.youtube.com/embed/8yAsZt7rfgI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 									<br>산업실록
 								</div>
 								<div class="col-sm-4" style="padding-right: 0px;">

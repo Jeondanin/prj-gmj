@@ -125,7 +125,7 @@ public class GmjCboardServiceImpl implements GmjCboardService {
 	@Override
 	public GmjPageInfo getPageInfo() {
 		
-		return gpid.getPageInfo();
+		return gpid.getPageInfo("gmjcboard");
 	}
 	@Override
 	public List<GmjCboard> getList(HttpServletRequest req) {

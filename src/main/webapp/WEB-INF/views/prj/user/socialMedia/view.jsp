@@ -33,7 +33,19 @@
 <link href="${resPath}/user/css/business-casual.min.css"
 	rel="stylesheet">
 <style>
-a{
+#filter{
+	position:absolute;
+    width: 320px;
+    height: 180px;
+	background:black;
+    transition: all 0.3s ease-in-out;
+    opacity:0;
+}
+#filter:hover{
+opacity:0.5;
+}
+
+a:hover{
 cursor:pointer;
 text-decoration:none;}
 .white{
@@ -42,6 +54,7 @@ opacity:0.97;
 padding-top:1px;
 
 }
+
 
 .viewGmjcboard{
 padding:20px;
@@ -162,10 +175,10 @@ padding:2rem 6.5rem;
 					<li class="nav-item px-lg-4"><a
 						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/architectkim">arhictect</a>
 					</li>
-					<li class="nav-item active px-lg-4"><a
+					<li class="nav-item px-lg-4"><a
 						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/community">community</a>
 					</li>
-					<li class="nav-item px-lg-4"><a
+					<li class="nav-item active px-lg-4"><a
 						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/socialMedia">social
 							media</a></li>
 					<li class="nav-item px-lg-4"><a
@@ -231,7 +244,7 @@ padding:2rem 6.5rem;
 								<tr>
 									<th class="col-sm-1">번호	</th>
 									<th class="col-sm-3">제목</th>
-									<th class="col-sm-1">작성자</th>
+						
 									<th class="col-sm-2">작성일</th>
 									<th class="col-sm-1">조회수</th>
 								</tr>
@@ -395,7 +408,7 @@ padding:2rem 6.5rem;
 	<script
 		src="${resPath}/user/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="${resPath}/user/js/basic.js"></script>
-<script src="${resPath}/user/js/cboard.js?ver=1"></script>
+<script src="${resPath}/user/js/vboard.js?ver=3"></script>
 <script>
 var viewSection = document.querySelector('.viewGmjcboard');
 var viewSectionhtml ='';

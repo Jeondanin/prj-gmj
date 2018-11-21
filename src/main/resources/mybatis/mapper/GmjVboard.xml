@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace="com.gmj.prj.vo.GmjVboard">
+		<select id="selectVboardList" resultType="com.gmj.prj.vo.GmjVboard">
+			select gmjvboardno, gmjvboardtitle,gmjvboardthumb,gmjusername,gmjvboard.credat,gmjvboardcnt from gmjvboard,gmjclient
+			where gmjvboard.gmjclientno=gmjclient.gmjUserNo order by gmjvboard.credat, gmjvboardno;
+		</select>
+		<select id="selectVboardListUser" resultType="com.gmj.prj.vo.GmjVboard">
+			select gmjvboardno, gmjvboardtitle,gmjusername,gmjvboardthumb,date_format(gmjvboard.credat,"%Y-%m-%d") as credat,gmjvboardcnt from gmjvboard,gmjclient
+			where gmjvboard.gmjclientno=gmjclient.gmjUserNo order by gmjvboard.credat desc, gmjvboardno desc limit #{bundle} OFFSET #{OFFSET}
+		</select>
+		<select id="selectVboard" resultType="com.gmj.prj.vo.GmjVboard">
+			select gmjvboard.gmjvboardno,gmjvboard.gmjvboarddesc,gmjvboard.gmjvboardtitle,date_format(gmjvboard.credat,"%Y-%m-%d") as credat, gmjvboard.gmjvboardcnt from gmjvboard,gmjclient
+			where gmjvboard.gmjvboardno=#{gmjvboardno} and gmjvboard.gmjclientno=gmjclient.gmjUserNo
+		</select>
+		<update id="pluscnt">
+		update gmjvboard set gmjvboardcnt=gmjvboardcnt+1 where gmjvboardno=#{gmjvboardno};
+		</update>
+		
+		
+		
+	</mapper>
