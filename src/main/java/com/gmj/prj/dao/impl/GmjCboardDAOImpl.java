@@ -38,8 +38,18 @@ public class GmjCboardDAOImpl implements GmjCboardDAO {
 	}
 	@Override
 	public GmjCboard getOne(int gmjcboardno) {
+		ss.update("com.gmj.prj.vo.GmjCboard.pluscnt",gmjcboardno);
+		GmjCboard result =ss.selectOne("com.gmj.prj.vo.GmjCboard.selectCboard",gmjcboardno);
+		System.out.println("결과는"+result);
+		if (result==null) {
+			return ss.selectOne("com.gmj.prj.vo.GmjCboard.selectCboardnoimg",gmjcboardno);
+		}
+		return  result;
 		
-		return ss.selectOne("com.gmj.prj.vo.GmjCboard.selectCboard",gmjcboardno);
+	}
+	@Override
+	public GmjCboard getLatestOne() {	
+		return ss.selectOne("com.gmj.prj.vo.GmjCboard.selectLatestCboard");
 	}
 	@Override
 	public int insertReply(HashMap<String, String> reply) {
@@ -57,9 +67,11 @@ public class GmjCboardDAOImpl implements GmjCboardDAO {
 		return ss.selectList("com.gmj.prj.vo.GmjCboard.selectReplyadmin");
 	}
 	@Override
-	public int pluscnt(int gmjcboardno) {
+	public int deleteReply(int gmjreplyno) {
 		// TODO Auto-generated method stub
-		return ss.update("com.gmj.prj.vo.GmjCboard.pluscnt",gmjcboardno);
+		return ss.delete("com.gmj.prj.vo.GmjCboard.deleteReply",gmjreplyno);
 	}
+	
+	
 
 }

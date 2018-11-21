@@ -120,7 +120,7 @@ cursor:pointer;}
 						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/community">community</a>
 					</li>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/social media">social
+						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/socialMedia">social
 							media</a></li>
 					<li class="nav-item px-lg-4"><a
 						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/academy">Academy</a>
@@ -219,7 +219,7 @@ cursor:pointer;}
 
 <!-- Script to highlight the active date in the hours list -->
 <script src="${resPath}/user/js/basic.js"></script>
-<script src="${resPath}/user/js/board.js"></script>
+<script src="${resPath}/user/js/cboard.js"></script>
 <script>
 	
 	

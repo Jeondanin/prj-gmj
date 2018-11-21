@@ -156,9 +156,9 @@
 						class="nav-link text-uppercase text-expanded" href="community">community</a>
 					</li>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="social media">social
+						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/socialMedia">social
 							media</a></li>
-					</li>
+					
 					<li class="nav-item px-lg-4"><a
 						class="nav-link text-uppercase text-expanded" href="museum">museum</a>
 					</li>

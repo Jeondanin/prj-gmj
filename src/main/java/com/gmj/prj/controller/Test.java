@@ -17,7 +17,7 @@ public class Test {
 	private GmjPageInfoDAO gpid;
 	@GetMapping(value="/gmjcboardz")
 	public @ResponseBody GmjPageInfo getList(){
-		return gpid.getPageInfo();
+		return gpid.getPageInfo("test");
 	}
 
 }

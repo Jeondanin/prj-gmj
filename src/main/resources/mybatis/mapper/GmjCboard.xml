@@ -9,16 +9,24 @@
 		</select>
 		<select id="selectCboardListUser" resultType="com.gmj.prj.vo.GmjCboard">
 			select gmjcboardno, gmjcboardtitle,gmjusername,date_format(gmjcboard.credat,"%Y-%m-%d") as credat,gmjcboardcnt from gmjcboard,gmjclient
-			 where gmjcboard.gmjclientno=gmjclient.gmjUserNo order by gmjcboard.credat desc, gmjcboardno desc limit #{bundle} OFFSET #{OFFSET};
+			 where gmjcboard.gmjclientno=gmjclient.gmjUserNo order by gmjcboard.credat desc, gmjcboardno desc limit #{bundle} OFFSET #{OFFSET}
 		</select>
 		<select id="selectCboard" resultType="com.gmj.prj.vo.GmjCboard">
-		select gmjcboardno, gmjcboardtitle,gmjusername,gmjcboarddesc,date_format(gmjcboard.credat,"%Y-%m-%d") as credat,gmjcboardcnt from gmjcboard,gmjclient
-			 where gmjcboardno= #{gmjcboardno} and gmjcboard.gmjclientno=gmjclient.gmjUserNo 
+				select gmjcboard.gmjcboardno,gmjcboard.gmjcboarddesc,gmjcboard.gmjcboardtitle,gmjclient.gmjusername,date_format(gmjcboard.credat,"%Y-%m-%d") as credat, gmjcboard.gmjcboardcnt, gmjupload.gmjuploadaddress from gmjcboard,gmjclient,gmjupload
+			 where gmjcboard.gmjcboardno=#{gmjcboardno} and gmjcboard.gmjclientno=gmjclient.gmjUserNo and gmjupload.gmjcboardno=gmjcboard.gmjcboardno
+		</select>
+		<select id="selectCboardnoimg" resultType="com.gmj.prj.vo.GmjCboard">
+				select gmjcboard.gmjcboardno,gmjcboard.gmjcboarddesc,gmjcboard.gmjcboardtitle,gmjclient.gmjusername,date_format(gmjcboard.credat,"%Y-%m-%d") as credat, gmjcboard.gmjcboardcnt from gmjcboard,gmjclient
+			 where gmjcboard.gmjcboardno=#{gmjcboardno} and gmjcboard.gmjclientno=gmjclient.gmjUserNo
+		</select>
+		<select id="selectLatestCboard" resultType="com.gmj.prj.vo.GmjCboard">
+		select * from gmjcboard
+		where gmjcboardno order by gmjcboardno desc limit 1;
 	
 		</select>
 		<insert id="insertCboard" >
 			insert into gmjcboard(gmjcboardtitle,gmjcboarddesc,gmjclientno,credat,moddat,gmjcboardcnt)
-			values(#{gmjcboardtitle},#{gmjcboardtitle},1,now(),now(),0);
+			values(#{gmjcboardtitle},#{gmjcboarddesc},#{gmjcboardno},now(),now(),0);
 		</insert>
 		
 		<update id="pluscnt">
@@ -37,6 +45,11 @@
 			select distinct gmjreply.*,gmjclient.gmjUserName from gmjreply,gmjclient
 			where gmjreply.gmjuserno=gmjclient.gmjuserno;
 		</select>
+		<delete id="deleteReply">
+			delete from gmjreply
+			where gmjreplyno = #{gmjreplyno}
+		
+		</delete>
 		
 		
 		

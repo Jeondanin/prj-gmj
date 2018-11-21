@@ -119,22 +119,22 @@
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav mx-auto">
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="home">Home
+						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/home">Home
 							<span class="sr-only">(current)</span>
 					</a></li>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="loading">Map</a></li>
+						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/loading">Map</a></li>
 					<li class="nav-item active px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="architect">architect</a>
+						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/architectkim">architect</a>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="community">community</a>
+						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/community">community</a>
 					</li>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="social media">social
+						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/socialMedia">social
 							media</a></li>
-					</li>
+					
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="museum">museum</a>
+						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/exhibition">exhibition</a>
 					</li>
 				</ul>
 			</div>

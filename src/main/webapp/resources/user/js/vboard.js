@@ -1,44 +1,52 @@
 var pagination = document.querySelector('#paginationz');
+
 	var paging_here = document.querySelector('#paging_here');
-	console.log(paging_here);
+	
 	var paging = document.querySelector('#paging');
 	var totalCnt;
 	var groupcnt;//몇개씩 보기. 위에서 설정할 수 있는 값이라고. 
 	var currentpage=1;
-	
+	var url;
 	var block =5;
 	var init=1;
 	function doInit() {
-		showPaging();
+		if(url!==undefined){
+			viewBoard();
+			
+		}else{
+			showPaging(1);	
+
+		}
+		
 		
 		
 	}
 	window.addEventListener('load', doInit);
 
-	function showPaging() {
+	function showPaging(no) {
 		au.send({
-			url : '/gmjcboardcnt',
+			url : '/gmjvboardcnt',
 			method : 'GET',
 			success : function(res) {
 				res = JSON.parse(res);
 				totalCnt = res.totalCnt;
 				totalPage = res.totalPage;
 				showPaging2(totalCnt,totalPage)
-				
-				showList(1);		
+				var pageno = Math.ceil(no/10);
+				showList(pageno);		
 			}
 		})
 	}
 	//total cnt 122, totalPage 13페이지 
 	function showPaging2(totalCnt,totalPage,init=1,block=5){
-		console.log('217:'+init)
+		
 		pagination.innerHTML='';
 		
 		var fin = init+block-1
 		if(totalPage-init<5){
 			
 			fin=totalPage;
-			console.log(fin);
+			
 		}
 		var html2='';
 		
@@ -57,7 +65,7 @@ var pagination = document.querySelector('#paginationz');
 						html2 += '<div class="col-sm-1"><a onclick="showList('+j+')">'+j+'</a></div><div class="col-sm-1"><a onclick="changePn(totalCnt,totalPage,'+j+',block)">&gt;&gt;</a></div>'	
 					}	
 				}else{
-					console.log(j);
+					
 					html2 += '<div class="col-sm-1"><a onclick="showList('+j+')">'+j+'</a></div>';
 				}	
 
@@ -71,31 +79,31 @@ var pagination = document.querySelector('#paginationz');
 	function showList(number){
 		var html='';
 		au.send({
-			url : '/gmjcboarduser?page='+number,
+			url : '/gmjvboarduser?page='+number,
 			method : 'GET',
 			success : function(res) {
 				res = JSON.parse(res);
 				for(var i=0;i<10;i++){
 					if(res[i]!=null){
 						html += '<tr class="board"><td>'
-							+ res[i].gmjcboardno + '</td><td><a href="/uri/prj/user/community/view?no='+res[i].gmjcboardno+'">'
-							+ res[i].gmjcboardtitle + '</a></td><td>'
-							+ res[i].gmjusername + '</td><td>'
-							+ res[i].credat + '</td><td>'
-							+ res[i].gmjcboardcnt + '</td></tr>';
+							+ res[i].gmjvboardno + '</td><td><a href="/uri/prj/user/socialMedia/view?no='+res[i].gmjvboardno+'"><p>'
+							+ res[i].gmjvboardtitle +'</p><div><div id="filter"></div><img src="'+res[i].gmjvboardthumb+'"></div></a></td>'
+							/*+'<td>'+ res[i].gmjusername + '</td>'*/
+							+'<td>' +res[i].credat + '</td><td>'
+							+ res[i].gmjvboardcnt + '</td></tr>';
 					}
 				}
 				paging_here.innerHTML='';
 				paging_here.insertAdjacentHTML('afterbegin', html);
-				bodify(number);
-				viewBoard();
+				boldify(number);
+			
 					
 				
 			}
 		})
 		
 	}
-	function bodify(number){
+	function boldify(number){
 		var SetNo= document.querySelectorAll('#paginationz .col-sm-1 a');
 		
 		for(var k of SetNo ){
@@ -129,13 +137,16 @@ var pagination = document.querySelector('#paginationz');
 	function insertContent(){
 		location.href="/uri/prj/user/community/insert";
 	}
-	
+	////
 	function viewBoard(){
-		console.log(134);
-		au.send({url:'/gmjcboard/'+no,
+		
+		
+		au.send({url:'/gmjvboard/'+no,
 		method:'GET',
+		async : false,
 		success : function(res){
 			res=JSON.parse(res);
+			
 			if(viewSectionhtml!=''){
 				viewSectionhtml='';
 				viewSection.innerHTML='';
@@ -143,41 +154,29 @@ var pagination = document.querySelector('#paginationz');
 			viewSectionhtml += '<form><div class="form-group">'
 			
 			viewSectionhtml += '<div class="row"><div class="col-sm-12 viewunderline"><div class="viewtitle">';
-				viewSectionhtml += res.gmjcboardtitle+'</div><div>'+res.credat+'&nbsp;  |  &nbsp;'+res.gmjusername+'</div>';
+				viewSectionhtml += res.gmjvboardtitle+'</div><div>'+res.credat+'</div>';
 				viewSectionhtml += '</div></div>'
 			viewSectionhtml += '<div class="row viewcontentrow"><div class="col-sm-12 viewcontent">'
-				viewSectionhtml += res.gmjcboarddesc;
-				viewSectionhtml += '</div></div>'
-			viewSectionhtml +='<div class="row"><div class="col-sm-12 viewonline">'
-				viewSectionhtml += '가자'
-			viewSectionhtml +='</div></div>'
-			viewSectionhtml += '</div>'
-			viewSectionhtml += '</form>'
+				viewSectionhtml += res.gmjvboarddesc;
+				viewSectionhtml += '</div></div>';
+				if(res.gmjuploadaddress){
+					viewSectionhtml +='<div class="row"><div class="col-sm-12 viewonline">';
+					viewSectionhtml += '<img  src="/resources/uploadfiles/'+res.gmjuploadaddress+'">';
+				viewSectionhtml +='</div></div>';
+				}
+			viewSectionhtml += '</div>';
+			viewSectionhtml += '</form>';
 		
-			console.log(viewSectionhtml);
+			
 			viewSection.insertAdjacentHTML('beforeend',viewSectionhtml);
 			
-			
-			cntplus();
+			viewreply();
+				
 			
 		}})
 		
 	}
-	function cntplus(){
-		if(viewSectionhtml==''){
-			viewreply();
-			au.send({url:'/gmjcboardcntplus/'+no,
-				method:'GET',
-				success : function(res){
-					res=JSON.parse(res);
-					
-				}
-			});
-		}else{
-			
-		}
-		
-	}
+
 	
 	
 	

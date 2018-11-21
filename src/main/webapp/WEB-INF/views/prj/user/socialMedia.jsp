@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<html lang="en">
 
 <head>
 
@@ -33,6 +34,23 @@
 <link href="${resPath}/user/css/business-casual.min.css"
 	rel="stylesheet">
 <style>
+#filter{
+	position:absolute;
+    width: 320px;
+    height: 180px;
+	background:black;
+    transition: all 0.3s ease-in-out;
+    opacity:0;
+}
+#filter:hover{
+opacity:0.5;
+}
+a:hover{
+cursor:pointer;
+text-decoration:none;}
+td{
+height:180px;
+}
 </style>
 </head>
 
@@ -56,14 +74,18 @@
 	</c:if>
 		<c:if test="${!empty userID}">
 	<div style="position: absolute; left: 1500px; top: 5px; width: 200px;">
-		<div style="float: left; margin-right: 5%; color:white">
+		<div style="float: left; margin-right:5%; color:white">
 			환영합니다. ${userID}님  
 		</div>
+		
 		<c:if test="${userID eq 'admin'}">
+		<div style="float:left;">
 		<button onclick="function(){location.href='../admin/home'}"
-				style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;"
-				>관리자페이지 가기</button>
+				style="width: 90px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;"
+				>관리자페이지</button>
+		</div>
 		</c:if>
+		
 		<div style="float: left;">
 			<button onclick="logout()"
 				style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;"
@@ -72,6 +94,8 @@
 	
 	</div>
 	</c:if>
+
+
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav"
 		data-spy="affix" data-offset-top="197">
@@ -98,7 +122,7 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav mx-auto">
-					<li class="nav-item px-lg-4"><a
+			<li class="nav-item px-lg-4"><a
 						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/home">Home
 							<span class="sr-only">(current)</span>
 					</a></li>
@@ -107,11 +131,11 @@
 					<li class="nav-item px-lg-4"><a
 						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/architectkim">arhictect</a>
 					</li>
-					<li class="nav-item active px-lg-4"><a
+					<li class="nav-item px-lg-4"><a
 						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/community">community</a>
 					</li>
-					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/socialMedia">social
+					<li class="nav-item active px-lg-4"><a
+						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/social media">social
 							media</a></li>
 					<li class="nav-item px-lg-4"><a
 						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/academy">Academy</a>
@@ -120,58 +144,67 @@
 			</div>
 		</div>
 	</nav>
+
+	<section class="page-section cta">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-9 mx-auto">
+					<div class="cta-inner text-center rounded">
+						<table id="ztable" class="table table-hover"
+							style="position: relative; z-index: 10;">
+							<thead>
+								<tr>
+									<th class="col-sm-1">번호</th>
+									<th class="col-sm-3">제목</th>
+									<!-- <th class="col-sm-1">작성자</th> -->
+									 <th class="col-sm-2">작성일</th>
+									<th class="col-sm-1">조회수</th>
+								</tr>
+							</thead>
+							<tbody id="paging_here">
+							
+							
+							</tbody>
+							
+							
+							
+							
+							
+
+						</table>
+						<div id="paginationz" class="row">
+						
+						 </div>
+						<div id="paging"
+							style="width:100%;height:50px;position: relative; z-index: 10;"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<section class="page-section about-heading">
-	
 		<div class="container">
 			<img class="img-fluid rounded about-heading-img mb-3 mb-lg-0"
 				src="${resPath}/user/img/about.jpg" alt="">
 			<div class="about-heading-content">
-			
-				<div class="row" style="position:relative; top:-200px;">
+				<div class="row">
 					<div class="col-xl-9 col-lg-10 mx-auto">
-						<div class="bg-faded rounded" style="height:100vh;">
-							<p>
-							<div class="container">
-								<h2>Horizontal form</h2>
-								<form class="form-horizontal" action="/gmjcboard"enctype="multipart/form-data" method="post" accept-charset="UTF-8">
-									<div class="form-group">
-										<label class="control-label col-sm-2" style="padding-left:0;">제목</label>
-										<div class="col-sm-6">
-											<input type="text" class="form-control" id="title"
-												name="gmjcboardtitle">
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="control-label col-sm-2">내용</label>
-										<div class="col-sm-9">
-											<textarea id="content" name="gmjcboarddesc" cols="74" rows="8" style="border-radius:4px;border: 1px solid #ccc;"></textarea>
-										</div>
-									</div>
-									<div class="form-group">
-									<input type="hidden" name="MAX_FILE_SIZE" value="30000"  />
-									<label class="control-label col-sm-2">업로드파일</label>
-										<div class="col-sm-9">
-										<input name="userfile" type="file" />
-										</div>
-									</div>  
-									<div class="form-group">
-					
-										<div class="col-sm-9">
-										 <input type="hidden" name="gmjclientno" value="${userNO}">
-										</div>
-									</div> 
-									
-									<div class="form-group">
-										<div class="col-sm-offset-2 col-sm-10">
-											<button type="submit" class="btn btn-default">Submit</button>
-										</div>
-									</div>
-								</form>
-							</div>
-							</p>
-
+						<div class="bg-faded rounded p-5">
+							<h2 class="section-heading mb-4">
+								<span class="section-heading-upper">Strong Coffee, Strong
+									Roots</span> <span class="section-heading-lower">About Our Cafe</span>
+							</h2>
+							<p>Founded in 1987 by the Hernandez brothers, our
+								establishment has been serving up rich coffee sourced from
+								artisan farmers in various regions of South and Central America.
+								We are dedicated to travelling the world, finding the best
+								coffee, and bringing back to you here in our cafe.</p>
 							<p class="mb-0">
-						
+								We guarantee that you will fall in <em>lust</em> with our
+								decadent blends the moment you walk inside until you finish your
+								last sip. Join us for your daily routine, an outing with
+								friends, or simply just to enjoy some alone time.
 							</p>
 						</div>
 					</div>
@@ -194,7 +227,12 @@
 
 </body>
 
-<!-- 화면 위쪽 설정-->
+<!-- Script to highlight the active date in the hours list -->
 <script src="${resPath}/user/js/basic.js"></script>
+<script src="${resPath}/user/js/vboard.js?ver=2"></script>
+<script>
+	
+	
+</script>
 
 </html>

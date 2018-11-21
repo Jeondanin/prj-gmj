@@ -1,9 +1,7 @@
 package com.gmj.prj.controller;
 
 import java.util.List;
-import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +17,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.gmj.prj.service.GmjArchitectInfoService;
 import com.gmj.prj.service.GmjFavoriteService;
+
+
 
 import com.gmj.prj.vo.GmjArchitectInfo;
 import com.gmj.prj.vo.GmjFavorite;
@@ -42,7 +42,6 @@ public class GmjArchitectInfoController {
 	public @ResponseBody List<GmjArchitectInfo> getgmjMapList() {
 		return gais.getgmjMapList();
 	}
-	
 	@GetMapping(value="/gmjArchitectBAddress/{gmjArchitectBAddress}")
 	public @ResponseBody GmjArchitectInfo checkAddress(@PathVariable String gmjArchitectBAddress) {
 		return gais.checkAddress(gmjArchitectBAddress);

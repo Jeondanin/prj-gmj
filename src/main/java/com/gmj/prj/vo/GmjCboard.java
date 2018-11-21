@@ -10,17 +10,13 @@ public class GmjCboard {
 	public String credat; 
 	public String moddat; 
 	public int gmjcboardcnt;
-	public GmjPageInfo gpi;
-	public GmjCboard() {
-		gpi = new GmjPageInfo();
+	public String gmjuploadaddress;
+	public String getGmjuploadaddress() {
+		return gmjuploadaddress;
 	}
-	public GmjPageInfo getgpi() {
-		return gpi;
+	public void setGmjuploadaddress(String gmjuploadaddress) {
+		this.gmjuploadaddress = gmjuploadaddress;
 	}
-	public void setGpi(GmjPageInfo gpi){
-		this.gpi =gpi;
-	}
-	
 	public int getGmjcboardno() {
 		return gmjcboardno;
 	}
@@ -67,7 +63,7 @@ public class GmjCboard {
 	public String toString() {
 	String oldString = "GmjCboard [gmjcboardno=" + gmjcboardno + ", gmjcboardtitle=" + gmjcboardtitle + ", gmjcboarddesc="
 			+ gmjcboarddesc + ", gmjusername=" + gmjusername + ", credat=" + credat + ", moddat=" + moddat
-			+ ", gmjcboardcnt=" + gmjcboardcnt + ", gpi=" + gpi + "]";
+			+ ", gmjcboardcnt=" + gmjcboardcnt + "]";
 	String string;
 	try {
 		string = new String(oldString.getBytes("8859_1"),"utf-8");
