@@ -304,12 +304,17 @@
 				</div>
 			</div>
 		</div>
-		<div
-			style="width: 378px; height: 400px; background-color: #e6a756; margin-left: 1070px; margin-top: 1%; border-radius: 16px; padding: 10px">
+		<div style="overflow: hidden;width: 378px; height: 400px; background-color: #e6a756; margin-left: 1070px; margin-top: 1%; border-radius: 16px; padding: 10px">
+			
+			
 			<h4 style="text-align: center;">실시간 트위터</h4>
+			
 			<hr>
+			<div class="twitte" style="overflow-y:auto; height:300px; background:rgba(255,255,255,.85);">
+			</div>
+		
 		</div>
-	</div>
+	
 	<div
 		style="width: 1000px; height: 300px; margin-top: 1%; margin-left: 448px; border-radius: 16px;">
 		<section class="page-section cta"
@@ -551,6 +556,26 @@
 	<script	src="${resPath}/user/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="${resPath}/user/js/basic.js"></script>
 
+<script>
+var twitter=document.querySelector('.twitter');
 
+var twitterhtml;
+/* au.send({
+			url : '/tweets',
+			method : 'GET',
+			success : function(res) {
+				res = JSON.parse(res);
+				for(var i of res){
+					twitterhtml +='아이디는'+i.user.screenName+': 글내용은'+i.text+'<br><br>';	
+				}
+				twitter.insertAdjacentHTML('beforeend',twitterhtml);	
+			}
+		}) */
+var twitte=document.querySelector('.twitte');
+var twittehtml='';
+ twittehtml = '<div style="float:left;"><img src="https://ssl.pstatic.net/sstatic/search/2015/ico_rt_entertain.png" style="width:50px;"></div><div style="float:left;border-bottom: 1px solid #e6a756;">undefined아이디는myoyongshi: 글내용은RT @hitchhiker_j: ‘2018년에 건축가 김중업을 어떻게 보여줄까’에 대한 편집자와 디자이너의 고민, 답을 찾아가는 과정을 들을 수 있어 좋았다. 손바닥만한 크기의 아주 가벼운 책으로 만들고 싶었다는 정재완 디자이너의 말이 기억에 남았다…<br><br></div>'.repeat(10);
+
+twitte.insertAdjacentHTML('beforeend',twittehtml);
+</script>
 </body>
 </html>
