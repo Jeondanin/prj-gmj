@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Locked cells</title>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript" src="../../codebase/spreadsheet.js?v=3.0.1"></script>
+	<link rel="stylesheet" href="../../codebase/spreadsheet.css?v=3.0.1">
+
+	<script type="text/javascript" src="../common/data.js?v=3.0.1"></script>
+	<link rel="stylesheet" href="../common/dhx_samples.css?v=3.0.1">
+</head>
+
+<body>
+	<div class="top-rect-block">
+		Locked cells
+	</div>
+	<div id="cont" class="container"></div>
+	<script>
+		var spreadsheet = new dhx.Spreadsheet("cont", {
+			toolbarBlocks: ["undo", "colors", "decoration", "align", "help", "lock"]
+		});
+		spreadsheet.parse(data);
+		spreadsheet.lock("A1");
+		spreadsheet.lock("C1:D5");
+		spreadsheet.lock("B2,B4,B6");
+	</script>
+</body>
+
+</html>

@@ -260,24 +260,26 @@ div.gridbox {
 								</span>
 							</div> <!-- /input-group -->
 						</li>
-						<li><a href="/uri/prj/admin/home"><i class="fa fa-dashboard fa-fw"></i>대쉬보드</a>
-						</li>
-						<li><a href="/uri/prj/admin/map"><i class="fa fa-edit fa-fw"></i> 지도 관리</a></li>
-						<li><a href="/uri/prj/admin/userList"><i class="fa fa-edit fa-fw"></i> 회원 관리</a></li>
+						<li><a href="/uri/prj/admin/home"><i
+								class="fa fa-dashboard fa-fw"></i>대쉬보드</a></li>
+						<li><a href="/uri/prj/admin/map"><i
+								class="fa fa-edit fa-fw"></i> 지도 관리</a></li>
+						<li><a href="/uri/prj/admin/userList"><i
+								class="fa fa-edit fa-fw"></i> 회원 관리</a></li>
 						<li><a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>
 								게시판 관리<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level">
 								<li><a href="/uri/prj/admin/adboard">게시물 관리</a></li>
 								<li><a href="/uri/prj/admin/commentboard">댓글 관리</a></li>
 							</ul> <!-- /.nav-second-level --></li>
-						<li><a href="/uri/prj/admin/Bboard"><i class="fa fa-table fa-fw"></i>추천글
-								관리</a></li>
-						<li><a href="/uri/prj/admin/Vboard"><i class="fa fa-table fa-fw"></i>영상게시판
-								관리</a></li>
+						<li><a href="/uri/prj/admin/Bboard"><i
+								class="fa fa-table fa-fw"></i>추천글 관리</a></li>
+						<li><a href="/uri/prj/admin/Vboard"><i
+								class="fa fa-table fa-fw"></i>영상게시판 관리</a></li>
 						<li><a href="tables.html"><i class="fa fa-table fa-fw"></i>트위터배너
 								관리</a></li>
-						<li><a href="/uri/prj/admin/Book"><i class="fa fa-table fa-fw"></i>책
-								관리</a></li>
+						<li><a href="/uri/prj/admin/Book"><i
+								class="fa fa-table fa-fw"></i>책 관리</a></li>
 
 
 
@@ -335,208 +337,248 @@ div.gridbox {
 		</nav>
 
 
-<!-- 여기만 건들여 -->
+		<!-- 여기만 건들여 -->
 		<div id="page-wrapper">
-		<h1>지도</h1> 
-								<div id="rDivMap" style="width:70vw; height: 45vh"></div>
-								<div id="pagingbox"></div>
-								<div id="recInfoArea"></div>
-						 	
+
+			<h1>지도</h1>
+
+
+			<ul class="nav nav-tabs">
+				<li class="active"><a data-toggle="tab" href="#home">기본</a></li>
+				<li><a data-toggle="tab" href="#menu1">[유료] 스프레드시트</a></li>
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+			</ul>
+
+			<div class="tab-content">
+				<div id="home" class="tab-pane fade in active">
+					<div id="rDivMap" style="width: 70vw; height: 45vh"></div>
+					<div id="pagingbox"></div>
+					<div id="recInfoArea"></div>
+
 	
-	</div>
-	<!-- /#wrapper -->
-	<script>
-	var dxGrid;
+				</div>
+				<div id="menu1" class="tab-pane fade">
+					<h3>Menu 1</h3>
+					<p>Some content in menu 1.</p>
+				</div>
+			</div>
 
-	function doInit() {
 
-		dxGrid = new dhtmlXGridObject('rDivMap');
 
-		dxGrid
-				.setHeader('번호,건축물번호,이름(韓),이름(日),이름(美),지역,주소1,주소2,주소3,건축물명,건축물설명,수정,삭제');
 
-		dxGrid
-				.setColumnIds('gmjarchitectbno,gmjarchitectNo,gmjarchitectkname,gmjarchitectjname,gmjarchitectename,gmjarchitectbarea,gmjarchitectbaddress1,gmjarchitectbaddress2,gmjarchitectbaddress3,gmjarchitectbtitle,gmjarchitectbdesc,edit,delete');
-		dxGrid.setColTypes('ro,ro,ed,ed,ed,ed,ed,ed,ed,ed,ed,img,img');
-		dxGrid.setColSorting("int,int,str,na,str,str,na,na,na,str,na,na,na"); 
-		dxGrid.attachHeader("&nbsp;,#text_search,#text_search,#text_search,#text_search,#select_filter,&nbsp;,&nbsp;,&nbsp;,#text_search,&nbsp;,&nbsp;,&nbsp;");
-		dxGrid.enableAutoWidth(true);
-		
-		dxGrid.init();
-		au.send({
-			url : '/mboards',
-			method : 'GET',
-			success : function(res) {
-				res = JSON.parse(res);
-				console.log(res);
-				dxGrid.parse(res, 'js');
-				insertImg();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		</div>
+		<!-- /#wrapper -->
+		<script>
+			var dxGrid;
+
+			function doInit() {
+
+				dxGrid = new dhtmlXGridObject('rDivMap');
+
+				dxGrid
+						.setHeader('번호,건축물번호,이름(韓),이름(日),이름(美),지역,주소1,주소2,주소3,건축물명,건축물설명,수정,삭제');
+
+				dxGrid
+						.setColumnIds('gmjarchitectbno,gmjarchitectno,gmjarchitectkname,gmjarchitectjname,gmjarchitectename,gmjarchitectbarea,gmjarchitectbaddress1,gmjarchitectbaddress2,gmjarchitectbaddress3,gmjarchitectbtitle,gmjarchitectbdesc,edit,delete');
+				dxGrid.setColTypes('ro,ro,ed,ed,ed,ed,ed,ed,ed,ed,ed,img,img');
+				dxGrid.enableAutoWidth(true);
+				dxGrid.init();
+				au.send({
+					url : '/mboards',
+					method : 'GET',
+					success : function(res) {
+						res = JSON.parse(res);
+						console.log(res);
+						dxGrid.parse(res, 'js');
+						insertImg();
+					}
+				})
+
 			}
-		})
 
-	}
+			window.addEventListener('load', doInit);
+		</script>
 
-	window.addEventListener('load', doInit);
-	</script>
+		<!-- jQuery -->
+		<script src="${resPath}/vendor/jquery/jquery.min.js"></script>
 
-	<!-- jQuery -->
-	<script src="${resPath}/vendor/jquery/jquery.min.js"></script>
+		<!-- Bootstrap Core JavaScript -->
+		<script src="${resPath}/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-	<!-- Bootstrap Core JavaScript -->
-	<script src="${resPath}/vendor/bootstrap/js/bootstrap.min.js"></script>
+		<!-- Metis Menu Plugin JavaScript -->
+		<script src="${resPath}/vendor/metisMenu/metisMenu.min.js"></script>
 
-	<!-- Metis Menu Plugin JavaScript -->
-	<script src="${resPath}/vendor/metisMenu/metisMenu.min.js"></script>
+		<!-- Custom Theme JavaScript -->
+		<script src="${resPath}/dist/js/sb-admin-2.js"></script>
+		<!--dhtmlx-->
+		<script src="${resPath}/vendor/codebase/dhtmlx.js"></script>
+		<script scr="${resPath}/vendor/codebase/dhtmlx.d.tx"></script>
 
-	<!-- Custom Theme JavaScript -->
-	<script src="${resPath}/dist/js/sb-admin-2.js"></script>
-	<!--dhtmlx-->
-	<script src="${resPath}/vendor/codebase/dhtmlx.js"></script>
-	<script scr="${resPath}/vendor/codebase/dhtmlx.d.tx"></script>
-
-	<!-- DataTables JavaScript -->
-	<script src="${resPath}/vendor/datatables/js/jquery.dataTables.min.js"></script>
-	<script
-		src="${resPath}/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
-	<script
-		src="${resPath}/vendor/datatables-responsive/dataTables.responsive.js"></script>
+		<!-- DataTables JavaScript -->
+		<script src="${resPath}/vendor/datatables/js/jquery.dataTables.min.js"></script>
+		<script
+			src="${resPath}/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+		<script
+			src="${resPath}/vendor/datatables-responsive/dataTables.responsive.js"></script>
 
 
-	<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+		<!-- Page-Level Demo Scripts - Tables - Use for reference -->
 
-	<!--이게 있어야 들어가는..-->
-	<script>
+		<!--이게 있어야 들어가는..-->
+		<script>
+			var hanglePattern = /[a-z0-9]|[ \[\]{}()<>?|`~!@#$%^&*-_+=,.;:\"'\\]/g;
 
+			var dxGrid;
 
-		function insertImg() {
-			var tnwjd = document.querySelectorAll('td img');
+			function doInit() {
 
-			for (var i = 0; i < tnwjd.length; i++) {
+				dxGrid = new dhtmlXGridObject('rDiv');
 
-				if (i % 2 == 0) {
-					tnwjd[i].setAttribute("class", "수정");
-					tnwjd[i].setAttribute("src", "${resPath}/img/down.png");
-				} else {
-					tnwjd[i].setAttribute("class", "삭제");
-					tnwjd[i].setAttribute("src", "${resPath}/img/del.jpg");
-				}
+				dxGrid.setHeader('유저번호,유저 이메일,유저비밀번호,유저이름,핸드폰번호,생일,성별,주소,생성날짜,수정날짜,수정,삭제');
+
+				dxGrid.setColumnIds('gmjuserno,gmjuseremail,gmjuserpwd,gmjusername,gmjuserphone,gmjuserbirth,gmjusersex,gmjuseraddress,credat,moddat,edit,delete');
+				dxGrid.setColTypes('ro,ro,ed,ed,ed,ed,ed,ed,ro,ro,img,img');
+
+				dxGrid.enableAutoWidth(true);
+				dxGrid.init();
+
+				au.send({
+					url : '/gmjclient',
+					method : 'GET',
+					success : function(res) {
+						res = JSON.parse(res);
+						console.log(res);
+						dxGrid.parse(res, 'js');
+						insertImg();
+					}
+				})
+
 			}
-			var tnwjd1 = document.getElementsByClassName('수정');
-			for (var i = 0; i < tnwjd1.length; i++) {
-				tnwjd1[i].addEventListener('click', findFactor);
-			}
-			var tkrwp1 = document.getElementsByClassName('삭제');
-			for (var i = 0; i < tnwjd1.length; i++) {
-				tkrwp1[i].addEventListener('click', findFactor2);
-			}
-		}
-		function findFactor(target) {
-			keys = new Array();
-			for (var i = 0; i < 10; i++) { //i<3의 3은 이미지 앞에 있는 항목 개수.
-			//	console.log(target.path[2].childNodes[i].innerHTML);//target:누르는 그림, path[2]:target을 기준으로 tr전체영역,
-				keys[i] = target.path[2].childNodes[i].innerHTML;
-			}
-			//alert('눌럿다.');
-			checkvalue(keys);
-		}
 
-		function findFactor2(target) {
-			alert('눌렀다.');
-			keys = new Array();
-			for (var i = 0; i < 10; i++) { //i<3의 3은 이미지 앞에 있는 항목 개수.
-			//	console.log(target.path[2].childNodes[i].innerHTML);//target:누르는 그림, path[2]:target을 기준으로 tr전체영역,
-				keys[i] = target.path[2].childNodes[i].innerHTML;
-			}
-			uinum = keys[0];
-			deleterow(uinum);
-		}
+			window.addEventListener('load', doInit);
 
-		function checkvalue(keys) {
-			//아래부분은 값을 확인.
-			/* for (var i = 1; i < keys.length; i++) {
+			function insertImg() {
+				var tnwjd = document.querySelectorAll('td img');
 
-				if (keys[i].match(pattern) || keys[i].length < 2) {
-					if (i != 5 || i != 0) {
-						alert(keys[i] + '가 공백패턴또는 2글자 미만입니다.');
-						return;
+				for (var i = 0; i < tnwjd.length; i++) {
+
+					if (i % 2 == 0) {
+						tnwjd[i].setAttribute("class", "수정");
+						tnwjd[i].setAttribute("src", "${resPath}/img/down.png");
+					} else {
+						tnwjd[i].setAttribute("class", "삭제");
+						tnwjd[i].setAttribute("src", "${resPath}/img/del.jpg");
 					}
 				}
-			} */
-			if (keys[3].match(hanglePattern)) {
-				
-				alert('이름은 한글로 써야합니다.');
-				return;
+				var tnwjd1 = document.getElementsByClassName('수정');
+				for (var i = 0; i < tnwjd1.length; i++) {
+					tnwjd1[i].addEventListener('click', findFactor);
+				}
+				var tkrwp1 = document.getElementsByClassName('삭제');
+				for (var i = 0; i < tnwjd1.length; i++) {
+					tkrwp1[i].addEventListener('click', findFactor2);
+				}
 			}
-			
+			function findFactor(target) {
+				keys = new Array();
+				for (var i = 0; i < 10; i++) { //i<3의 3은 이미지 앞에 있는 항목 개수.
+					//	console.log(target.path[2].childNodes[i].innerHTML);//target:누르는 그림, path[2]:target을 기준으로 tr전체영역,
+					keys[i] = target.path[2].childNodes[i].innerHTML;
+				}
+				//alert('눌럿다.');
+				checkvalue(keys);
+			}
 
-			sendingToServer(keys);
-		}
-		
-		function deleterow(uinum){
-			var conf={
-					url:'/gmjclient/'+uinum+'',
-					method:'DELETE',
-					success:function(res){
-						res=JSON.parse(res);
+			function findFactor2(target) {
+				alert('눌렀다.');
+				keys = new Array();
+				for (var i = 0; i < 10; i++) { //i<3의 3은 이미지 앞에 있는 항목 개수.
+					//	console.log(target.path[2].childNodes[i].innerHTML);//target:누르는 그림, path[2]:target을 기준으로 tr전체영역,
+					keys[i] = target.path[2].childNodes[i].innerHTML;
+				}
+				uinum = keys[0];
+				deleterow(uinum);
+			}
+
+			function checkvalue(keys) {
+				//아래부분은 값을 확인.
+				/* for (var i = 1; i < keys.length; i++) {
+
+					if (keys[i].match(pattern) || keys[i].length < 2) {
+						if (i != 5 || i != 0) {
+							alert(keys[i] + '가 공백패턴또는 2글자 미만입니다.');
+							return;
+						}
+					}
+				} */
+				if (keys[3].match(hanglePattern)) {
+
+					alert('이름은 한글로 써야합니다.');
+					return;
+				}
+
+				sendingToServer(keys);
+			}
+
+			function deleterow(uinum) {
+				var conf = {
+					url : '/gmjclient/' + uinum + '',
+					method : 'DELETE',
+					success : function(res) {
+						res = JSON.parse(res);
 						alert(res);
 					}
 				}
-				if(confirm('이 데이터를 삭제하시겠습니까?')){
-					au.send(conf);	
-				};
-		}
-		
-		function sendingToServer(keys){
-			alert('보내기전');
-			conf={
-					url:'/gmjclient',
-					method:'PUT',
-					param :JSON.stringify({gmjuserno:keys[0],gmjuserpwd:keys[2],gmjusername:keys[3],gmjuserphone:keys[4],gmjuserbirth:keys[5],gmjusersex:keys[6]}),
-					success:function(res){
-						res=JSON.parse(res);
+				if (confirm('이 데이터를 삭제하시겠습니까?')) {
+					au.send(conf);
+				}
+				;
+			}
+
+			function sendingToServer(keys) {
+				alert('보내기전');
+				conf = {
+					url : '/gmjclient',
+					method : 'PUT',
+					param : JSON.stringify({
+						gmjuserno : keys[0],
+						gmjuserpwd : keys[2],
+						gmjusername : keys[3],
+						gmjuserphone : keys[4],
+						gmjuserbirth : keys[5],
+						gmjusersex : keys[6]
+					}),
+					success : function(res) {
+						res = JSON.parse(res);
 						alert('바꼈다');
 					}
-				}	
+				}
 				au.send(conf);
-		}
-		
-		
-		
-		
-		
-		
-		
-		
-		$(document).ready(function() {
-			$('#dataTables-example').DataTable({
-				responsive : true
-			});
-		});
-	</script>
+			}
 
+			$(document).ready(function() {
+				$('#dataTables-example').DataTable({
+					responsive : true
+				});
+			});
+		</script>
 </body>
 
 </html>

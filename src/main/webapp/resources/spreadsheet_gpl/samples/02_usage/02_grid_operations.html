@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Rows and columns adding/deleting</title>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript" src="../../codebase/spreadsheet.js?v=3.0.1"></script>
+	<link rel="stylesheet" href="../../codebase/spreadsheet.css?v=3.0.1">
+
+	<script type="text/javascript" src="../common/data.js?v=3.0.1"></script>
+	<link rel="stylesheet" href="../common/dhx_samples.css?v=3.0.1">
+</head>
+
+<body>
+	<div class="top-rect-block">
+		<button onclick="spreadsheet.addColumn('B1')" class="dhx_btn dhx_btn--flat">Add column</button>
+		<button onclick="spreadsheet.deleteColumn('B1')" class="dhx_btn dhx_btn--flat">Remove column</button>
+
+		<button onclick="spreadsheet.addRow('A1')" class="dhx_btn dhx_btn--flat">Add row</button>
+		<button onclick="spreadsheet.deleteRow('A1')" class="dhx_btn dhx_btn--flat">Remove row</button>
+	</div>
+	<div id="cont" class="container"></div>
+
+	<script>
+		var spreadsheet = new dhx.Spreadsheet("cont", {
+			toolbarBlocks: ["undo", "colors", "decoration", "align", "help", "rows", "columns"]
+		});
+		spreadsheet.parse(data);
+	</script>
+</body>
+
+</html>

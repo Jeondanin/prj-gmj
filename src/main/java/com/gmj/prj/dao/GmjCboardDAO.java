@@ -19,4 +19,5 @@ public interface GmjCboardDAO {
 	public List<GmjReply> getReply(int gmjcboardno); 
 	public List<GmjReply> getReplyadmin();
 	public int deleteReply(int gmjreplyno);
+	public int getOrder(int gmjcboardno);
 }

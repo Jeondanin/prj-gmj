@@ -32,7 +32,8 @@ var pagination = document.querySelector('#paginationz');
 				totalCnt = res.totalCnt;
 				totalPage = res.totalPage;
 				showPaging2(totalCnt,totalPage)
-				showList(1);		
+				findorder(no);
+				
 			}
 		})
 	}
@@ -73,6 +74,22 @@ var pagination = document.querySelector('#paginationz');
 		pagination.insertAdjacentHTML('beforeend', html2);
 		
 		
+	}
+	function findorder(no){
+		au.send({
+			url : '/gmjcboardorder/'+no,
+			method : 'GET',
+			success : function(res) {
+				res = JSON.parse(res);
+				console.log('몇번째 순서에 있습니까?')
+				console.log(res);
+				console.log('몇번째 페이지에 있습니까?')
+				var pageno =Math.ceil(res/10);
+				
+				showList(pageno);		
+				
+			}
+		})
 	}
 	
 	function showList(number){

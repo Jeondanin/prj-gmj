@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Custom menu</title>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript" src="../../codebase/spreadsheet.js?v=3.0.1"></script>
+	<link rel="stylesheet" href="../../codebase/spreadsheet.css?v=3.0.1">
+
+	<script type="text/javascript" src="../common/data.js?v=3.0.1"></script>
+	<link rel="stylesheet" href="../common/dhx_samples.css?v=3.0.1">
+</head>
+
+<body>
+	<div class="top-rect-block">
+		Custom menu
+	</div>
+	<div id="cont" class="container"></div>
+	<script>
+		var spreadsheet = new dhx.Spreadsheet("cont", {
+			menu: true
+		});
+		spreadsheet.parse(data);
+
+		spreadsheet.menu.data.add({
+			id: "validate",
+			value: "Validate",
+			childs: [
+				{
+					id: "isNumber",
+					value: "Is number"
+				},
+				{
+					id: "isEven",
+					value: "Is even number"
+				}
+			]
+		});
+
+		function checkValue(check) {
+			spreadsheet.eachCell(function (cell, value) {
+				if (!check(value)) {
+					spreadsheet.setStyle(cell, { background: "#e57373" });
+				} else {
+					spreadsheet.setStyle(cell, { background: "" });
+				}
+			}, spreadsheet.selection.getSelectedCell());
+		}
+		spreadsheet.menu.events.on("click", function (id) {
+			switch (id) {
+				case "isNumber":
+					checkValue(function (value) { return !isNaN(value) });
+					break;
+				case "isEven":
+					checkValue(function (value) { return value % 2 === 0 });
+					break;
+			}
+		});
+	</script>
+</body>
+
+</html>

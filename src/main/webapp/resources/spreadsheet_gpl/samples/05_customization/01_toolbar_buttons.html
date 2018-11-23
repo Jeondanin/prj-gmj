@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Custom buttons in toolbar</title>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript" src="../../codebase/spreadsheet.js?v=3.0.1"></script>
+	<link rel="stylesheet" href="../../codebase/spreadsheet.css?v=3.0.1">
+
+	<script type="text/javascript" src="../common/data.js?v=3.0.1"></script>
+	<link rel="stylesheet" href="../common/dhx_samples.css?v=3.0.1">
+
+	<link rel="stylesheet" href="//cdn.materialdesignicons.com/2.8.94/css/materialdesignicons.min.css?v=3.0.1">
+</head>
+
+<body>
+	<div class="top-rect-block">
+		Custom buttons in toolbar
+	</div>
+	<div id="cont" class="container"></div>
+	<script>
+		var spreadsheet = new dhx.Spreadsheet("cont");
+		spreadsheet.parse(data);
+
+		spreadsheet.toolbar.data.add({
+			type: "button",
+			icon: "mdi mdi-delete",
+			tooltip: "Remove all",
+			id: "remove-all"
+		});
+
+		spreadsheet.toolbar.events.on("click", function (id) {
+			if (id === "remove-all") {
+				spreadsheet.parse([]);
+			}
+		})
+	</script>
+</body>
+
+</html>

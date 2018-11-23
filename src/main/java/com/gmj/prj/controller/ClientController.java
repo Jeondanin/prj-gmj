@@ -29,8 +29,12 @@ public class ClientController {
 		return gcs.getClientList();
 	}
 	@PutMapping(value="/gmjclient")
-	public @ResponseBody int getClientList(@RequestBody GmjClient gc) {
+	public @ResponseBody int updateClient(@RequestBody GmjClient gc) {
 		return gcs.updateClient(gc);
+	}
+	@PutMapping(value="/gmjclientAll")
+	public @ResponseBody int updateClientList(@RequestBody List<GmjClient> listgc) {
+		return gcs.updateClientList(listgc);
 	}
 	@PostMapping(value="/gmjclient")
 	public @ResponseBody int checkAddress(@RequestBody GmjClient gc) {

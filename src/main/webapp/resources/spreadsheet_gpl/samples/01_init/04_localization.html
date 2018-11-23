@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Localization</title>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript" src="../../codebase/spreadsheet.js?v=3.0.1"></script>
+	<link rel="stylesheet" href="../../codebase/spreadsheet.css?v=3.0.1">
+
+	<script type="text/javascript" src="../common/data.js?v=3.0.1"></script>
+	<link rel="stylesheet" href="../common/dhx_samples.css?v=3.0.1">
+</head>
+
+<body>
+	<div class="top-rect-block">
+		Localization
+	</div>
+	<div id="cont" class="container"></div>
+	<script>
+		dhx.i18n.setLocale("spreadsheet", {
+			undo: "Отменить",
+			redo: "Применить",
+			textColor: "Цвет текста",
+			backgroundColor: "Цвет фона",
+			bold: "Жирный",
+			italic: "Курсив",
+
+			lockCell: "Блокировать ячейку",
+			unlockCell: "Разблокировать ячейку",
+
+			format: "Формат",
+			edit: "Редактировать",
+			clear: "Очистить",
+			clearValue: "Очистить значение",
+			clearStyles: "Очистить стили",
+			clearAll: "Очистить все",
+
+			insert: "Вставка",
+			columns: "Столбцы",
+			rows: "Строки",
+			addColumn: "Добавить столбец",
+			removeColumn: "Удалить столбец",
+			addRow: "Добавить строку",
+			removeRow: "Удалить строку",
+
+			configuration: "Конфигурация",
+			underline: "Подчеркнутый",
+
+			align: "Выровнять",
+			left: "по левому краю",
+			right: "по правому краю",
+			center: "по центру",
+			help: "Помощь",
+		})
+		var spreadsheet = new dhx.Spreadsheet("cont");
+		spreadsheet.parse(data);
+	</script>
+</body>
+
+</html>

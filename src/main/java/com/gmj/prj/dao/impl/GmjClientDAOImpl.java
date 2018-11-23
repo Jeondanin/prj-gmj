@@ -30,6 +30,11 @@ public class GmjClientDAOImpl implements GmjClientDAO {
 		return ss.update("com.gmj.prj.vo.GmjClient.updateClient",gc);
 	}
 	@Override
+	public int updateClientList(List<GmjClient> listgc) {
+		System.out.println(listgc);
+		return ss.update("com.gmj.prj.vo.GmjClient.updateClientAll",listgc);
+	} 
+	@Override
 	public int deleteClient(int gmjClientno) {
 		// TODO Auto-generated method stub
 		return ss.delete("com.gmj.prj.vo.GmjClient.deleteClient",gmjClientno);
@@ -38,7 +43,8 @@ public class GmjClientDAOImpl implements GmjClientDAO {
 	@Override
 	public GmjClient login(GmjClient gc) {
 		return ss.selectOne("com.gmj.prj.vo.GmjClient.login",gc);
-	} 
+	}
+	
 	
 	
 }

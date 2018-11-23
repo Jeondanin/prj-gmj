@@ -22,5 +22,6 @@ public interface GmjCboardService {
 	public List<GmjReply> getreply(int gmjcboardno);
 	public List<GmjReply> getreplyadmin();
 	public int deleteReply(int gmjreplyno);
+	public int getOrder(int gmjcboardno);
 }
 
