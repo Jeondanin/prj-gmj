@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Custom toolbar icons</title>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript" src="../../codebase/spreadsheet.js?v=3.0.1"></script>
+	<link rel="stylesheet" href="../../codebase/spreadsheet.css?v=3.0.1">
+
+	<script type="text/javascript" src="../common/data.js?v=3.0.1"></script>
+	<link rel="stylesheet" href="../common/dhx_samples.css?v=3.0.1">
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css?v=3.0.1" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+	 crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="top-rect-block">
+		<div class="radio-group-block">
+			<label class="dhx_demo_checkbox">
+				<input type="radio" name="icons" checked="checked" value="dxi" onchange="setIcons(this.value)">
+				<div class="checkmark"></div>
+				Material Icons
+			</label>
+			<label class="dhx_demo_checkbox">
+				<input type="radio" name="icons" value="fa" onchange="setIcons(this.value)">
+				<div class="checkmark"></div>
+				Font Awesome
+			</label>
+		</div>
+	</div>
+	<div id="cont" class="container"></div>
+	<script>
+		var spreadsheet = new dhx.Spreadsheet("cont");
+		spreadsheet.parse(data);
+
+		function setIcons(type) {
+			switch (type) {
+				case "fa":
+					spreadsheet.toolbar.data.update("undo", {
+						icon: "fa fa-undo"
+					});
+					spreadsheet.toolbar.data.update("redo", {
+						icon: "fa fa-redo"
+					});
+					spreadsheet.toolbar.paint();
+					break;
+				case "dxi":
+					spreadsheet.toolbar.data.update("undo", {
+						icon: "dxi-undo"
+					});
+					spreadsheet.toolbar.data.update("redo", {
+						icon: "dxi-redo"
+					});
+					spreadsheet.toolbar.paint();
+					break;
+			}
+		}
+	</script>
+</body>
+
+</html>

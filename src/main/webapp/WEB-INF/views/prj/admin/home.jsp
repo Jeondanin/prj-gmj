@@ -497,7 +497,7 @@
 	<script src="${resPath}/dist/js/sb-admin-2.js"></script>
 	<!--dhtmlx-->
 	<script src="${resPath}/vendor/codebase/dhtmlx.js"></script>
-	<script scr="${resPath}/vendor/codebase/dhtmlx.d.tx"></script>
+	<script src="${resPath}/vendor/codebase/dhtmlx.d.ts"></script>
 
 	<!-- DataTables JavaScript -->
 	<script src="${resPath}/vendor/datatables/js/jquery.dataTables.min.js"></script>

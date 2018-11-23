@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Spreadsheet events</title>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript" src="../../codebase/spreadsheet.js?v=3.0.1"></script>
+	<link rel="stylesheet" href="../../codebase/spreadsheet.css?v=3.0.1">
+
+	<script type="text/javascript" src="../common/data.js?v=3.0.1"></script>
+	<link rel="stylesheet" href="../common/dhx_samples.css?v=3.0.1">
+</head>
+
+<body>
+	<div class="top-rect-block">
+		Spreadsheet events
+	</div>
+	<div class="wrapper">
+		<div class="content">
+			<div id="cont" class="center"></div>
+			<div class="right">
+				<div class="eventsContainer"></div>
+			</div>
+		</div>
+	</div>
+	<script>
+		var spreadsheet = new dhx.Spreadsheet("cont");
+
+
+		var eventsContainer = document.querySelector(".eventsContainer");
+
+		var events = [
+			"beforeValueChange",
+			"afterValueChange",
+			"beforeStyleChange",
+			"afterStyleChange",
+			"beforeSelectionSet",
+			"afterSelectionSet",
+			"beforeFocusSet",
+			"afterFocusSet",
+			"beforeEditStart",
+			"afterEditStart",
+			"beforeEditEnd",
+			"afterEditEnd"
+		];
+
+		function eventHandler(event, arguments) {
+			var argsList = "";
+			for (var i = 0; i < arguments.length; i++) {
+				argsList += "<div>" + JSON.stringify(arguments[i]) + "</div>";
+			}
+			eventsContainer.insertAdjacentHTML("afterBegin", "<div class='event'>Event: " + event + "<div class='arguments'>Arguments:</div>" + argsList + "</div>")
+		}
+
+		events.forEach(function (event) {
+			spreadsheet.events.on(event, function () {
+				eventHandler(event, arguments);
+			});
+		});
+
+		spreadsheet.parse(data);
+	</script>
+</body>
+
+</html>

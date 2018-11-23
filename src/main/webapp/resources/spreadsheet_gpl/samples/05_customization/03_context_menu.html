@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Context menu customization</title>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript" src="../../codebase/spreadsheet.js?v=3.0.1"></script>
+	<link rel="stylesheet" href="../../codebase/spreadsheet.css?v=3.0.1">
+
+	<script type="text/javascript" src="../common/data.js?v=3.0.1"></script>
+	<link rel="stylesheet" href="../common/dhx_samples.css?v=3.0.1">
+
+	<link rel="stylesheet" href="//cdn.materialdesignicons.com/2.8.94/css/materialdesignicons.min.css?v=3.0.1">
+</head>
+
+<body>
+	<div class="top-rect-block">
+		Context menu customization
+	</div>
+	<div id="cont" class="container"></div>
+	<script>
+		var spreadsheet = new dhx.Spreadsheet("cont");
+		spreadsheet.parse(data);
+
+		spreadsheet.contextMenu.data.add({
+			icon: "mdi mdi-eyedropper-variant",
+			value: "Paint format",
+			id: "paint-format"
+		});
+
+		var savedStyles;
+		spreadsheet.contextMenu.events.on("click", function (id) {
+			if (id === "paint-format") {
+				savedStyles = spreadsheet.getStyle(spreadsheet.selection.getSelectedCell());
+			}
+		});
+
+		spreadsheet.events.on("afterSelectionSet", function (cells) {
+			if (savedStyles) {
+				spreadsheet.setStyle(cells, savedStyles);
+				savedStyles = null;
+			}
+		});
+	</script>
+</body>
+
+</html>

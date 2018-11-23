@@ -23,6 +23,20 @@
 			</set>
 		where gmjuserno=#{gmjuserno}
 		</update>
+		<update id="updateClientAll" parameterType="java.util.List">
+			<foreach collection="list" item="gc" index="index" separator=";">
+				update gmjclient 
+					<set>
+						<if test="gc.gmjuserpwd!=null">gmjuserpwd=#{gc.gmjuserpwd},</if>
+						<if test="gc.gmjusername!=null">gmjusername=#{gc.gmjusername},</if>
+						<if test="gc.gmjuserphone!=null">gmjuserphone=#{gc.gmjuserphone},</if>
+						<if test="gc.gmjusersex!=null">gmjusersex=#{gc.gmjusersex},</if>
+						moddat=now()
+					</set>
+				where gmjuserno=#{gc.gmjuserno}
+			</foreach>
+		</update>
+		
 		<delete id="deleteClient">
 		delete from gmjclient
 		where gmjuserno=#{gmjuserno}

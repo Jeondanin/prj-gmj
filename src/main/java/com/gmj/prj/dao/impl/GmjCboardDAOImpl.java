@@ -71,6 +71,11 @@ public class GmjCboardDAOImpl implements GmjCboardDAO {
 		// TODO Auto-generated method stub
 		return ss.delete("com.gmj.prj.vo.GmjCboard.deleteReply",gmjreplyno);
 	}
+	@Override
+	public int getOrder(int gmjcboardno) {
+		
+		return ss.selectOne("com.gmj.prj.vo.GmjCboard.getOrder",gmjcboardno);
+	}
 	
 	
 

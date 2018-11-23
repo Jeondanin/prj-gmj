@@ -34,6 +34,11 @@ public class GmjClientServiceImpl implements GmjClientService {
 		return gcdi.updateClient(gc);
 	}
 	@Override
+	public int updateClientList(List<GmjClient> listgc) {
+		
+		return gcdi.updateClientList(listgc);
+	}
+	@Override
 	public int deleteClient(int gmjclientno) {
 		// TODO Auto-generated method stub
 		return gcdi.deleteClient(gmjclientno);
@@ -66,5 +71,6 @@ public class GmjClientServiceImpl implements GmjClientService {
 		hs.invalidate();
 		return 0;
 	}
+	
 
 }

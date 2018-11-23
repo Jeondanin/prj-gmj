@@ -159,6 +159,11 @@ public class GmjCboardServiceImpl implements GmjCboardService {
 		// TODO Auto-generated method stub
 		return gcsd.deleteReply(gmjreplyno);
 	}
+	@Override
+	public int getOrder(int gmjcboardno) {
+		
+		return gcsd.getOrder(gmjcboardno);
+	}
 
 
 }

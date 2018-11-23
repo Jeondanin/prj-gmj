@@ -88,5 +88,10 @@ public class CBoardController {
 		return gcs.deleteReply(gmjreplyno);
 	}
 	
+	@GetMapping(value="/gmjcboardorder/{gmjcboardno}")
+	public @ResponseBody int getOrder(@PathVariable int gmjcboardno){
+		return gcs.getOrder(gmjcboardno);
+	}
+	
 }
 

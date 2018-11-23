@@ -15,7 +15,8 @@
 <!--dhtmlx-->
 <link href="${resPath}/vendor/codebase/dhtmlx.css" rel="stylesheet">
 <link href="${resPath}/vendor/skins/skyblue/dhtmlx.css" rel="stylesheet">
-
+<!-- dhtmlspreadsheet -->
+<link rel="stylesheet" href="${resPath}/spreadsheet_gpl/codebase/spreadsheet.css?v=3.0.1">
 
 <!-- Bootstrap Core CSS -->
 <link href="${resPath}/vendor/bootstrap/css/bootstrap.min.css"
@@ -331,11 +332,26 @@
 <!-- 여기만 건들여 -->
 		<div id="page-wrapper">
 		<h1>회원관리</h1> 
-								<div id="rDivUser" style="width: 70vw; height: 45vh"></div>
-								<div id="pagingbox"></div>
-								<div id="recInfoArea"></div>
+								
 		
-		
+
+			<ul class="nav nav-tabs">
+				<li class="active"><a data-toggle="tab" href="#home">기본</a></li>
+				<li><a data-toggle="tab" href="#menu1">[유료] 스프레드시트</a></li>
+			</ul>
+
+			<div class="tab-content">
+				<div id="home" class="tab-pane fade in active">
+					<div id="rDivUser" style="width: 70vw; height: 45vh"></div>
+					<div id="pagingbox"></div>
+					<div id="recInfoArea"></div>
+				</div>
+				<div id="menu1" class="tab-pane fade">
+					<div style="width:1000px; height:600px;"id="box"></div>
+					<button onclick="saveAndSend()">저장</button>
+				</div>
+			
+			</div>
 		
 		
 		
@@ -384,6 +400,7 @@
 				console.log(res);
 				dxGrid.parse(res, 'js');
 				insertImg();
+				spreadsheetz();
 			}
 		})
 
@@ -416,42 +433,14 @@
 
 
 	<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+	<script type="text/javascript" src="${resPath}/spreadsheet_gpl/codebase/spreadsheet.js?v=3.0.1"></script>
+	<script type="text/javascript" src="${resPath}/user/js/spreadsheet.js?v=21"></script>
+	
+	
 
 	<!--이게 있어야 들어가는..-->
 	<script>
 	var hanglePattern=/[a-z0-9]|[ \[\]{}()<>?|`~!@#$%^&*-_+=,.;:\"'\\]/g;
-	
-	
-		var dxGrid;
-
-		function doInit() {
-
-			dxGrid = new dhtmlXGridObject('rDiv');
-
-			dxGrid
-					.setHeader('유저번호,유저 이메일,유저비밀번호,유저이름,핸드폰번호,생일,성별,주소,생성날짜,수정날짜,수정,삭제');
-
-			dxGrid
-					.setColumnIds('gmjuserno,gmjuseremail,gmjuserpwd,gmjusername,gmjuserphone,gmjuserbirth,gmjusersex,gmjuseraddress,credat,moddat,edit,delete');
-			dxGrid.setColTypes('ro,ro,ed,ed,ed,ed,ed,ed,ro,ro,img,img');
-			
-			dxGrid.enableAutoWidth(true);
-			dxGrid.init();
-
-			au.send({
-				url : '/gmjclient',
-				method : 'GET',
-				success : function(res) {
-					res = JSON.parse(res);
-					console.log(res);
-					dxGrid.parse(res, 'js');
-					insertImg();
-				}
-			})
-
-		}
-
-		window.addEventListener('load', doInit);
 
 		function insertImg() {
 			var tnwjd = document.querySelectorAll('td img');
