@@ -336,6 +336,7 @@
 			<div id="rDivboard" style="width: 50vw; height: 45vh"></div>
 			<div id="pagingbox"></div>
 			<div id="recInfoArea"></div>
+			<button onclick="search1()">검색</button>
 		</div>
 								
 		
@@ -403,7 +404,7 @@
 	<!--이게 있어야 들어가는..-->
 	<script>
 	var dxGrid;
-
+	
 	function doInit() {
 		
 
@@ -412,7 +413,7 @@
 		dxGrid.setHeader('번호,게시글제목,게시글내용,회원번호,생성날짜,수정날짜,조회수,수정,삭제');
 
 		dxGrid.setColumnIds('gmjcboardno,gmjcboardtitle,gmjcboarddesc,gmjclientno,credat,moddat,gmjcboardcnt,edit,delete');
-		
+		dxGrid.attachHeader("&nbsp;,#text_search,#text_search,#text_search,&nbsp;,&nbsp;,&nbsp;,&nbsp;,&nbsp;");
 		dxGrid.setColTypes('ro,ed,ed,ro,ro,ed,ro,img,img');
 		dxGrid.enableAutoWidth(true); 
 		dxGrid.enableAutoHeight(true);
@@ -420,6 +421,7 @@
 	
 		
 		dxGrid.init(); 
+	
 		
 		au.send({
 			url : '/gmjcboard',
@@ -429,6 +431,7 @@
 				res = JSON.parse(res);
 				console.log(res);
 				dxGrid.parse(res, 'js');
+				 
 				insertImg();
 			
 			}
@@ -532,6 +535,36 @@
 				au.send(conf);
 		}
 		
+		function search1(){
+			var searchinput = document.querySelectorAll('.hdrcell input');
+			console.log(searchinput[0].value);
+			searchinput[0].addEventListener('keyup',search2)
+			searchinput[1].addEventListener('keyup',search2)
+			searchinput[2].addEventListener('keyup',search2)
+			
+			 
+		}
+		function search2(e){
+			var searchinput = document.querySelectorAll('.hdrcell input');
+			var nowno;
+			for(var i=0;i<searchinput.length;i++){
+				if(searchinput[i].value==e.target.value ){
+					nowno=i;
+					console.log('넌지금 몇번째니?');
+					console.log(nowno); 
+					continue;
+				}
+			}
+			
+
+			var kw = e.target.value;
+			/* if(e.target의 위치==) */
+			console.log(1+Number(nowno));
+			if(kw==''){
+				dxGrid.filterBy(1+Number(nowno),kw,false);	
+			}
+			dxGrid.filterBy(1+Number(nowno),kw,true);
+		}
 		
 		
 		

@@ -42,7 +42,14 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+<style>
+div.gridbox {
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+}
 
+</style>
 </head>
 
 <body>
@@ -331,10 +338,10 @@
 <!-- 여기만 건들여 -->
 		<div id="page-wrapper">
 		<h1>지도</h1> 
-								<div id="rDivMap" style="width: 70vw; height: 45vh"></div>
+								<div id="rDivMap" style="width:70vw; height: 45vh"></div>
 								<div id="pagingbox"></div>
 								<div id="recInfoArea"></div>
-		
+						 	
 		
 		
 		
@@ -372,9 +379,12 @@
 				.setHeader('번호,건축물번호,이름(韓),이름(日),이름(美),지역,주소1,주소2,주소3,건축물명,건축물설명,수정,삭제');
 
 		dxGrid
-				.setColumnIds('gmjarchitectbno,gmjarchitectno,gmjarchitectkname,gmjarchitectjname,gmjarchitectename,gmjarchitectbarea,gmjarchitectbaddress1,gmjarchitectbaddress2,gmjarchitectbaddress3,gmjarchitectbtitle,gmjarchitectbdesc,edit,delete');
+				.setColumnIds('gmjarchitectbno,gmjarchitectNo,gmjarchitectkname,gmjarchitectjname,gmjarchitectename,gmjarchitectbarea,gmjarchitectbaddress1,gmjarchitectbaddress2,gmjarchitectbaddress3,gmjarchitectbtitle,gmjarchitectbdesc,edit,delete');
 		dxGrid.setColTypes('ro,ro,ed,ed,ed,ed,ed,ed,ed,ed,ed,img,img');
+		dxGrid.setColSorting("int,int,str,na,str,str,na,na,na,str,na,na,na"); 
+		dxGrid.attachHeader("&nbsp;,#text_search,#text_search,#text_search,#text_search,#select_filter,&nbsp;,&nbsp;,&nbsp;,#text_search,&nbsp;,&nbsp;,&nbsp;");
 		dxGrid.enableAutoWidth(true);
+		
 		dxGrid.init();
 		au.send({
 			url : '/mboards',
@@ -419,39 +429,7 @@
 
 	<!--이게 있어야 들어가는..-->
 	<script>
-	var hanglePattern=/[a-z0-9]|[ \[\]{}()<>?|`~!@#$%^&*-_+=,.;:\"'\\]/g;
-	
-	
-		var dxGrid;
 
-		function doInit() {
-
-			dxGrid = new dhtmlXGridObject('rDiv');
-
-			dxGrid
-					.setHeader('유저번호,유저 이메일,유저비밀번호,유저이름,핸드폰번호,생일,성별,주소,생성날짜,수정날짜,수정,삭제');
-
-			dxGrid
-					.setColumnIds('gmjuserno,gmjuseremail,gmjuserpwd,gmjusername,gmjuserphone,gmjuserbirth,gmjusersex,gmjuseraddress,credat,moddat,edit,delete');
-			dxGrid.setColTypes('ro,ro,ed,ed,ed,ed,ed,ed,ro,ro,img,img');
-			
-			dxGrid.enableAutoWidth(true);
-			dxGrid.init();
-
-			au.send({
-				url : '/gmjclient',
-				method : 'GET',
-				success : function(res) {
-					res = JSON.parse(res);
-					console.log(res);
-					dxGrid.parse(res, 'js');
-					insertImg();
-				}
-			})
-
-		}
-
-		window.addEventListener('load', doInit);
 
 		function insertImg() {
 			var tnwjd = document.querySelectorAll('td img');

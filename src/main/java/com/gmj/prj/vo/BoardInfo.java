@@ -1,5 +1,8 @@
 package com.gmj.prj.vo;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class BoardInfo {
 	public Integer num;
 	public String texta;

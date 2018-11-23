@@ -1,8 +1,11 @@
 package com.gmj.prj.vo;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class GmjArchitectInfo {
 	private Integer gmjarchitectbno;
-	private Integer gmjarchitectNo;
+	private Integer gmjarchitectno;
 	private String gmjarchitectkname;
 	private String gmjarchitectjname;
 	private String gmjarchitectename;
@@ -18,11 +21,11 @@ public class GmjArchitectInfo {
 	public void setGmjarchitectbno(Integer gmjarchitectbno) {
 		this.gmjarchitectbno = gmjarchitectbno;
 	}
-	public Integer getGmjarchitectNo() {
-		return gmjarchitectNo;
+	public Integer getGmjarchitectno() {
+		return gmjarchitectno;
 	}
-	public void setGmjarchitectNo(Integer gmjarchitectNo) {
-		this.gmjarchitectNo = gmjarchitectNo;
+	public void setGmjarchitectNo(Integer gmjarchitectno) {
+		this.gmjarchitectno = gmjarchitectno;
 	}
 	public String getGmjarchitectkname() {
 		return gmjarchitectkname;

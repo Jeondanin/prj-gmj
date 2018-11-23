@@ -182,7 +182,7 @@ padding:2rem 6.5rem;
 						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/socialMedia">social
 							media</a></li>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/academy">Exhibition</a>
+						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/Exhibition">Exhibition</a>
 					</li>
 				</ul>
 			</div>
