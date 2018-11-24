@@ -1,0 +1,63 @@
+
+#myCarousel {
+	background: white !important;
+	border: none !important;
+}
+.car-obj {
+	width: 200px; 
+	min-height: 213px;
+	max-width: 320px;
+	max-height: 213px;
+	border: 1px solid darkred;
+	padding: 10px;
+}
+.car-obj__header {
+	font-size: 8px;
+	text-align: center;
+}
+	.car-obj__header span {
+		font-size: 10px;
+		font-weight: bold;
+	}
+
+.car-obj__img-and-price {
+	position: relative;
+	margin: 5px 0;
+	max-height: 120px;
+	overflow: hidden;
+}
+.car-obj__price {
+	position: absolute;
+	bottom: 5px;
+	right: 5px;
+	background: red;
+	padding: 5px 15px;
+	color: white;
+	font-size: 8px;
+}
+.car-obj__desc {
+	font-size: 7px;
+	line-height: 10px;
+}
+.car-obj__btn {
+	color: white;
+	background: #ff5c88;
+	padding: 5px 5px;
+	font-size: 11px;
+	margin: 10px auto;
+	display: block;
+	width: 70%;
+	position: relative;
+  text-align: center;
+  text-decoration: none;
+}
+
+.car-obj__btn::after {
+	content: "";
+	width: 20px;
+	height: 20px;
+	background: url(http://nefritovueyayca.optvostoka.com/images/pres_icon2.png) center no-repeat/cover;
+	position: absolute;
+	top: 0;
+	right: 10px;
+}

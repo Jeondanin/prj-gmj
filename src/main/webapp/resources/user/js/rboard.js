@@ -25,7 +25,7 @@ var pagination = document.querySelector('#paginationz');
 
 	function showPaging(no) {
 		au.send({
-			url : '/gmjcboardcnt',
+			url : '/gmjbboardcnt',
 			method : 'GET',
 			success : function(res) {
 				res = JSON.parse(res);
@@ -82,7 +82,7 @@ var pagination = document.querySelector('#paginationz');
 	}
 	function findorder(no){
 		au.send({
-			url : '/gmjcboardorder/'+no,
+			url : '/gmjbboardorder/'+no,
 			method : 'GET',
 			success : function(res) {
 				res = JSON.parse(res);
@@ -100,18 +100,18 @@ var pagination = document.querySelector('#paginationz');
 	function showList(number){
 		var html='';
 		au.send({
-			url : '/gmjcboarduser?page='+number,
+			url : '/gmjbboarduser?page='+number,
 			method : 'GET',
 			success : function(res) {
 				res = JSON.parse(res);
 				for(var i=0;i<10;i++){
 					if(res[i]!=null){
 						html += '<tr class="board"><td>'
-							+ res[i].gmjcboardno + '</td><td><a href="/uri/prj/user/community/view?no='+res[i].gmjcboardno+'">'
-							+ res[i].gmjcboardtitle + '</a></td><td>'
+							+ res[i].gmjbboardno + '</td><td><a href="/uri/prj/user/community/view?no='+res[i].gmjbboardno+'">'
+							+ res[i].gmjbboardtitle + '</a></td><td>'
 							+ res[i].gmjusername + '</td><td>'
 							+ res[i].credat + '</td><td>'
-							+ res[i].gmjcboardcnt + '</td></tr>';
+							+ res[i].gmjbboardcnt + '</td></tr>';
 					}
 				}
 				paging_here.innerHTML='';
@@ -162,9 +162,8 @@ var pagination = document.querySelector('#paginationz');
 	function viewBoard(){
 		console.log(134);
 		
-		au.send({url:'/gmjcboard/'+no,
+		au.send({url:'/gmjbboard/'+no,
 		method:'GET',
-		async : false,
 		success : function(res){
 			res=JSON.parse(res);
 			
@@ -175,10 +174,10 @@ var pagination = document.querySelector('#paginationz');
 			viewSectionhtml += '<form><div class="form-group">'
 			
 			viewSectionhtml += '<div class="row"><div class="col-sm-12 viewunderline"><div class="viewtitle">';
-				viewSectionhtml += res.gmjcboardtitle+'</div><div>'+res.credat+'&nbsp;  |  &nbsp;'+res.gmjusername+'</div>';
+				viewSectionhtml += res.gmjbboardtitle+'</div><div>'+res.credat+'&nbsp;  |  &nbsp;</div>';
 				viewSectionhtml += '</div></div>'
 			viewSectionhtml += '<div class="row viewcontentrow"><div class="col-sm-12 viewcontent">'
-				viewSectionhtml += res.gmjcboarddesc;
+				viewSectionhtml += res.gmjbboarddesc;
 				viewSectionhtml += '</div></div>';
 				if(res.gmjuploadaddress){
 					viewSectionhtml +='<div class="row"><div class="col-sm-12 viewonline">';
@@ -190,8 +189,8 @@ var pagination = document.querySelector('#paginationz');
 		
 			
 			viewSection.insertAdjacentHTML('beforeend',viewSectionhtml);
-			
 			viewreply();
+	
 				
 			
 		}})

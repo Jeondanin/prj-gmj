@@ -32,6 +32,21 @@
 		<update id="pluscnt">
 			update gmjcboard set gmjcboardcnt=gmjcboardcnt+1 where gmjcboardno=#{gmjcboardno};
 		</update>
+		<update id="updateCboardList">
+			<foreach collection="list" item="gc" index="index" separator=";">
+				update gmjclient 
+					<set>
+						<if test="gc.gmjcboardtitle!=null">gmjcboardtitle=#{gc.gmjcboardtitle},</if>
+						<if test="gc.gmjcboarddesc!=null">gmjcboarddesc=#{gc.gmjcboarddesc},</if>
+						<if test="gc.moddat!=null">moddat=#{gc.moddat},</if>
+						<if test="gc.gmjcboardcnt!=null">gmjcboardcnt=#{gc.gmjcboardcnt},</if>
+						moddat=now()
+					</set>
+				where gmjcboardno=#{gc.gmjcboardno}
+			</foreach>
+		</update>
+		
+		
 		
 		<insert id="insertReply" >
 			INSERT INTO `bdi`.`gmjreply` (`gmjcboardno`, `gmjuserno`, `gmjreplydesc`, `credat`, `moddat`) 

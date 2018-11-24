@@ -15,7 +15,8 @@
 <!--dhtmlx-->
 <link href="${resPath}/vendor/codebase/dhtmlx.css" rel="stylesheet">
 <link href="${resPath}/vendor/skins/skyblue/dhtmlx.css" rel="stylesheet">
-
+<!-- dhtmlspreadsheet -->
+<link rel="stylesheet" href="${resPath}/spreadsheet_gpl/codebase/spreadsheet.css?v=3.0.1">
 
 <!-- Bootstrap Core CSS -->
 <link href="${resPath}/vendor/bootstrap/css/bootstrap.min.css"
@@ -331,22 +332,11 @@
 		</nav>
 
 
-<<<<<<< HEAD
-<!-- 여기만 건들여 -->
-		<div id="page-wrapper" >
-		<div class="col-sm-7" style="float:left">
-			<h1>게시물 관리</h1> 
-			<div id="rDivboard" style="width: 50vw; height: 45vh"></div>
-			<div id="pagingbox"></div>
-			<div id="recInfoArea"></div>
-			<button onclick="search1()">검색</button>
-		</div>
-								
-=======
+
 		<!-- 여기만 건들여 -->
 
 		<div id="page-wrapper">
-			<h1>게시물 관리ㅁㅇㅁㅇㅁㅇ</h1>
+			<h1>게시물 관리</h1>
 
 
 			<ul class="nav nav-tabs">
@@ -362,10 +352,11 @@
 				</div>
 				<div id="menu1" class="tab-pane fade">
 					<div style="width:1000px; height:600px;"id="box"></div>
+					<button onclick="saveAndSend()">저장</button>
 				</div>
 			
 			</div>
->>>>>>> branch 'master' of https://github.com/Jeondanin/prj-gmj.git
+
 		
 
 
@@ -399,27 +390,24 @@
 		src="${resPath}/vendor/datatables-responsive/dataTables.responsive.js"></script>
 
 
-	<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+
+<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+	<script type="text/javascript" src="${resPath}/spreadsheet_gpl/codebase/spreadsheet.js?v=3.0.1"></script>
+	<script type="text/javascript" src="${resPath}/user/js/spreadsheet-cboard.js?v=1"></script>
+
 
 	<!--이게 있어야 들어가는..-->
 	<script>
-<<<<<<< HEAD
-	var dxGrid;
-	
-	function doInit() {
-		
-=======
+
 	var hanglePattern=/[a-z0-9]|[ \[\]{}()<>?|`~!@#$%^&*-_+=,.;:\"'\\]/g;
 		var dxGrid;
 
 		function doInit() {
->>>>>>> branch 'master' of https://github.com/Jeondanin/prj-gmj.git
+
 
 			dxGrid = new dhtmlXGridObject('rDivboard');
 
 			dxGrid.setHeader('번호,게시글제목,게시글내용,회원번호,생성날짜,수정날짜,조회수,수정,삭제');
-
-<<<<<<< HEAD
 		dxGrid.setColumnIds('gmjcboardno,gmjcboardtitle,gmjcboarddesc,gmjclientno,credat,moddat,gmjcboardcnt,edit,delete');
 		dxGrid.attachHeader("&nbsp;,#text_search,#text_search,#text_search,&nbsp;,&nbsp;,&nbsp;,&nbsp;,&nbsp;");
 		dxGrid.setColTypes('ro,ed,ed,ro,ro,ed,ro,img,img');
@@ -441,35 +429,12 @@
 				dxGrid.parse(res, 'js');
 				 
 				insertImg();
+				spreadsheetz();
 			
 			}
 		});
-		
-=======
-			dxGrid
-					.setColumnIds('gmjcboardno,gmjcboardtitle,gmjcboarddesc,gmjclientno,credat,moddat,gmjcboardcnt,edit,delete');
->>>>>>> branch 'master' of https://github.com/Jeondanin/prj-gmj.git
 
-			dxGrid.setColTypes('ro,ed,ed,ro,ro,ed,ro,img,img');
-			dxGrid.enableAutoWidth(true);
-			dxGrid.enableAutoHeight(true);
-			dxGrid.enablePaging(true, 15, 5, "pagingbox", true, "recInfoArea");
 
-			dxGrid.init();
-
-			au.send({
-				url : '/gmjcboard',
-				method : 'GET',
-				success : function(res) {
-
-					res = JSON.parse(res);
-					console.log(res);
-					dxGrid.parse(res, 'js');
-					insertImg();
-					spreadsheetz();
-
-				}
-			});
 
 		}
 

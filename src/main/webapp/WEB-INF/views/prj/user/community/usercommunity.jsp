@@ -81,25 +81,19 @@ cursor:pointer;}
 	</c:if>
 
 
-	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav"
 		data-spy="affix" data-offset-top="197">
-		<div class="container">
+		<div class="container" style="margin-left: 490px;">
 			<div class="intro-button mx-auto">
 				<div class="input-group"
 					style="width: 250px; position: absolute; top: -74px; left: 1496px;">
-					<input type="text" class="form-control" placeholder="Search for..."
-						aria-label="Search" aria-describedby="basic-addon2">
-					<div class="input-group-append">
-						<button class="btn btn-primary" type="button">
-							<i class="fas fa-search" style="width: 500px;"></i>
-						</button>
-					</div>
+
+					<div class="input-group-append"></div>
 				</div>
 			</div>
 			<a
 				class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none"
-				href="#">GMJ</a>
+				href="home">GMJ</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarResponsive" aria-controls="navbarResponsive"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -107,23 +101,37 @@ cursor:pointer;}
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav mx-auto">
-			<li class="nav-item px-lg-4"><a
+					<li class="nav-item  px-lg-4"><a
 						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/home">Home
 							<span class="sr-only">(current)</span>
 					</a></li>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/Geocode">Map</a></li>
+						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/loading">Map</a>
+					</li>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/architectkim">arhictect</a>
+						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/architectkim">architect</a>
 					</li>
 					<li class="nav-item active px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/community">community</a>
+						class="nav-link text-uppercase text-expanded" href="#"
+						data-toggle="dropdown">Commnuity</a>
+						<ul class="dropdown-menu" style="position:absolute; left:861px;background:rgba(47, 23, 15, 0.9);">
+							<li onmouseover="{document.querySelectorAll('.fontblacka')[0].style.color='rgba(47, 23, 15, 0.9)';}"onmouseleave="{document.querySelectorAll('.fontblacka')[0].style.color='rgba(255,255,255,.7)';}"><a class="fontblacka" href="/uri/prj/user/community/recommend" style="font-size:3rem;color: rgba(255,255,255,.7);" >Recommend</a></li>
+							<li onmouseover="{document.querySelectorAll('.fontblacka')[1].style.color='rgba(47, 23, 15, 0.9)';}"onmouseleave="{document.querySelectorAll('.fontblacka')[1].style.color='rgba(255,255,255,.7)';}"><a class="fontblacka" href="/uri/prj/user/community/usercommunity" style="font-size:3rem;color: rgba(255,255,255,.7);" >User Community</a></li>
+
+						</ul>
 					</li>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/socialMedia">social
-							media</a></li>
+						class="nav-link text-uppercase text-expanded"
+						href="/uri/prj/user/socialMedia">social media</a></li>
+					</li>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/academy">Academy</a>
+						class="nav-link text-uppercase text-expanded" href="#/uri/prj/user/culture"
+						data-toggle="dropdown">Culture</a>
+						<ul class="dropdown-menu" style="position:absolute; left:1220px;background:rgba(47, 23, 15, 0.9);">
+							<li onmouseover="{document.querySelectorAll('.fontblack')[0].style.color='rgba(47, 23, 15, 0.9)';}"onmouseleave="{document.querySelectorAll('.fontblack')[0].style.color='rgba(255,255,255,.7)';}"><a class="fontblack" href="/uri/prj/user/book" style="font-size:3rem;color: rgba(255,255,255,.7);" >Book</a></li>
+							<li onmouseover="{document.querySelectorAll('.fontblack')[1].style.color='rgba(47, 23, 15, 0.9)';}"onmouseleave="{document.querySelectorAll('.fontblack')[1].style.color='rgba(255,255,255,.7)';}"><a class="fontblack" href="/uri/prj/user/exhibition" style="font-size:3rem;color: rgba(255,255,255,.7);" >exhibition</a></li>
+
+						</ul>
 					</li>
 				</ul>
 			</div>
@@ -219,7 +227,7 @@ cursor:pointer;}
 
 <!-- Script to highlight the active date in the hours list -->
 <script src="${resPath}/user/js/basic.js"></script>
-<script src="${resPath}/user/js/cboard.js"></script>
+<script src="${resPath}/user/js/cboard.js?v=1"></script>
 <script>
 	
 	

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -28,6 +29,7 @@ import com.gmj.prj.dao.impl.BoardInfoDAOImpl;
 import com.gmj.prj.service.GmjCboardService;
 import com.gmj.prj.vo.BoardInfo;
 import com.gmj.prj.vo.GmjCboard;
+import com.gmj.prj.vo.GmjClient;
 import com.gmj.prj.vo.GmjPageInfo;
 import com.gmj.prj.vo.GmjReply;
 
@@ -48,12 +50,17 @@ public class CBoardController {
 		int a = gcs.insertCboard(gc,req);
 		return "redirect:/uri/prj/user/community";
 	}
+	@PutMapping(value="/gmjcboardAll")
+	public @ResponseBody int updateCboardList(@RequestBody List<GmjCboard> listcb) {
+		return gcs.updateCboardList(listcb);
+	}
 	
 	
 	@GetMapping(value="/gmjcboard")
 	public @ResponseBody List<GmjCboard> getList(){
 		return gcs.getList();
 	}
+	//유저쪽 리스트 뽑는 곳. 
 	@GetMapping(value="/gmjcboarduser")
 	public @ResponseBody List<GmjCboard> getList(HttpServletRequest req){
 		return gcs.getList(req);

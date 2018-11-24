@@ -44,13 +44,20 @@ public class GmjCboardDAOImpl implements GmjCboardDAO {
 		if (result==null) {
 			return ss.selectOne("com.gmj.prj.vo.GmjCboard.selectCboardnoimg",gmjcboardno);
 		}
-		return  result;
-		
+		return  result;	
 	}
 	@Override
 	public GmjCboard getLatestOne() {	
 		return ss.selectOne("com.gmj.prj.vo.GmjCboard.selectLatestCboard");
 	}
+	@Override
+	public int updateCboardList(List<GmjCboard> gc) {
+		return ss.update("com.gmj.prj.vo.GmjCboard.updateCboardList",gc);
+	}
+	
+	
+	
+	
 	@Override
 	public int insertReply(HashMap<String, String> reply) {
 		
@@ -76,6 +83,7 @@ public class GmjCboardDAOImpl implements GmjCboardDAO {
 		
 		return ss.selectOne("com.gmj.prj.vo.GmjCboard.getOrder",gmjcboardno);
 	}
+	
 	
 	
 
