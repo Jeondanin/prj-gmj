@@ -245,7 +245,7 @@
 										<div class="col-sm-10">
 											<img src="https://www.mmca.go.kr/upload/exhibition/2018/08/dse_2018081303072555719273.jpg"
 												style="width: 400;height:400">
-												<br>김중업, &lt;삼일빌딩&gt;<br> 1969년 설계, 사진: 김한용, 1970년대
+													<br>김중업, &lt;삼일빌딩&gt;<br> 1969년 설계, 사진: 김한용, 1970년대
 										</div>
 			
 									</div>
