@@ -68,6 +68,7 @@
 			<version>${org.slf4j-version}</version>
 			<scope>runtime</scope>
 		</dependency>
+		
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
@@ -203,13 +204,13 @@
 			<artifactId>aspectjtools</artifactId>
 			<version>1.8.9</version>
 		</dependency>
-
-		<!-- Aspect Weaver -->
+	<!-- Aspect Weaver -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
 			<version>1.8.9</version>
 		</dependency>
+	
 
 		<!-- Aspect Runtime -->
 		<dependency>

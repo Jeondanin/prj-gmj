@@ -137,6 +137,13 @@ public class GmjCboardServiceImpl implements GmjCboardService {
 		// TODO Auto-generated method stub
 		return gcsd.getOne(gmjcboardno);
 	}
+	@Override
+	public int updateCboardList(List<GmjCboard> listcb) {
+		
+		return gcsd.updateCboardList(listcb);
+	}
+
+	
 	
 	///////댓글 
 	@Override

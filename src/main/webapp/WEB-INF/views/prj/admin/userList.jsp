@@ -434,7 +434,7 @@
 
 	<!-- Page-Level Demo Scripts - Tables - Use for reference -->
 	<script type="text/javascript" src="${resPath}/spreadsheet_gpl/codebase/spreadsheet.js?v=3.0.1"></script>
-	<script type="text/javascript" src="${resPath}/user/js/spreadsheet.js?v=21"></script>
+	<script type="text/javascript" src="${resPath}/user/js/spreadsheet-client.js?v=21"></script>
 	
 	
 

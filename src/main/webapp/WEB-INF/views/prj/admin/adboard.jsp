@@ -15,7 +15,8 @@
 <!--dhtmlx-->
 <link href="${resPath}/vendor/codebase/dhtmlx.css" rel="stylesheet">
 <link href="${resPath}/vendor/skins/skyblue/dhtmlx.css" rel="stylesheet">
-
+<!-- dhtmlspreadsheet -->
+<link rel="stylesheet" href="${resPath}/spreadsheet_gpl/codebase/spreadsheet.css?v=3.0.1">
 
 <!-- Bootstrap Core CSS -->
 <link href="${resPath}/vendor/bootstrap/css/bootstrap.min.css"
@@ -331,10 +332,11 @@
 		</nav>
 
 
+
 		<!-- 여기만 건들여 -->
 
 		<div id="page-wrapper">
-			<h1>게시물 관리ㅁㅇㅁㅇㅁㅇ</h1>
+			<h1>게시물 관리</h1>
 
 
 			<ul class="nav nav-tabs">
@@ -350,9 +352,11 @@
 				</div>
 				<div id="menu1" class="tab-pane fade">
 					<div style="width:1000px; height:600px;"id="box"></div>
+					<button onclick="saveAndSend()">저장</button>
 				</div>
 			
 			</div>
+
 		
 
 
@@ -386,42 +390,51 @@
 		src="${resPath}/vendor/datatables-responsive/dataTables.responsive.js"></script>
 
 
-	<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+
+<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+	<script type="text/javascript" src="${resPath}/spreadsheet_gpl/codebase/spreadsheet.js?v=3.0.1"></script>
+	<script type="text/javascript" src="${resPath}/user/js/spreadsheet-cboard.js?v=1"></script>
+
 
 	<!--이게 있어야 들어가는..-->
 	<script>
+
 	var hanglePattern=/[a-z0-9]|[ \[\]{}()<>?|`~!@#$%^&*-_+=,.;:\"'\\]/g;
 		var dxGrid;
 
 		function doInit() {
 
+
 			dxGrid = new dhtmlXGridObject('rDivboard');
 
 			dxGrid.setHeader('번호,게시글제목,게시글내용,회원번호,생성날짜,수정날짜,조회수,수정,삭제');
+		dxGrid.setColumnIds('gmjcboardno,gmjcboardtitle,gmjcboarddesc,gmjclientno,credat,moddat,gmjcboardcnt,edit,delete');
+		dxGrid.attachHeader("&nbsp;,#text_search,#text_search,#text_search,&nbsp;,&nbsp;,&nbsp;,&nbsp;,&nbsp;");
+		dxGrid.setColTypes('ro,ed,ed,ro,ro,ed,ro,img,img');
+		dxGrid.enableAutoWidth(true); 
+		dxGrid.enableAutoHeight(true);
+		dxGrid.enablePaging(true,15,5,"pagingbox",true,"recInfoArea");
+	
+		
+		dxGrid.init(); 
+	
+		
+		au.send({
+			url : '/gmjcboard',
+			method : 'GET',
+			success : function(res) {
+				
+				res = JSON.parse(res);
+				console.log(res);
+				dxGrid.parse(res, 'js');
+				 
+				insertImg();
+				spreadsheetz();
+			
+			}
+		});
 
-			dxGrid
-					.setColumnIds('gmjcboardno,gmjcboardtitle,gmjcboarddesc,gmjclientno,credat,moddat,gmjcboardcnt,edit,delete');
 
-			dxGrid.setColTypes('ro,ed,ed,ro,ro,ed,ro,img,img');
-			dxGrid.enableAutoWidth(true);
-			dxGrid.enableAutoHeight(true);
-			dxGrid.enablePaging(true, 15, 5, "pagingbox", true, "recInfoArea");
-
-			dxGrid.init();
-
-			au.send({
-				url : '/gmjcboard',
-				method : 'GET',
-				success : function(res) {
-
-					res = JSON.parse(res);
-					console.log(res);
-					dxGrid.parse(res, 'js');
-					insertImg();
-					spreadsheetz();
-
-				}
-			});
 
 		}
 
@@ -505,26 +518,44 @@
 			;
 		}
 
-		function sendingToServer(keys) {
-			alert('보내기전');
-			conf = {
-				url : '/gmjclient',
-				method : 'PUT',
-				param : JSON.stringify({
-					gmjuserno : keys[0],
-					gmjuserpwd : keys[2],
-					gmjusername : keys[3],
-					gmjuserphone : keys[4],
-					gmjuserbirth : keys[5],
-					gmjusersex : keys[6]
-				}),
-				success : function(res) {
-					res = JSON.parse(res);
-					alert('바꼈다');
+		
+		function search1(){
+			var searchinput = document.querySelectorAll('.hdrcell input');
+			console.log(searchinput[0].value);
+			searchinput[0].addEventListener('keyup',search2)
+			searchinput[1].addEventListener('keyup',search2)
+			searchinput[2].addEventListener('keyup',search2)
+			
+			 
+		}
+		function search2(e){
+			var searchinput = document.querySelectorAll('.hdrcell input');
+			var nowno;
+			for(var i=0;i<searchinput.length;i++){
+				if(searchinput[i].value==e.target.value ){
+					nowno=i;
+					console.log('넌지금 몇번째니?');
+					console.log(nowno); 
+					continue;
 				}
 			}
-			au.send(conf);
+			
+
+			var kw = e.target.value;
+			/* if(e.target의 위치==) */
+			console.log(1+Number(nowno));
+			if(kw==''){
+				dxGrid.filterBy(1+Number(nowno),kw,false);	
+			}
+			dxGrid.filterBy(1+Number(nowno),kw,true);
 		}
+		
+		
+		
+		
+		
+		
+		
 
 		$(document).ready(function() {
 			$('#dataTables-example').DataTable({

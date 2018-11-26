@@ -16,7 +16,7 @@ public interface GmjCboardService {
 	public int insertCboard(GmjCboard gc,HttpServletRequest req);
 	public GmjCboard getOne(int gmjcboardno);
 	public GmjPageInfo getPageInfo();
-
+	public int updateCboardList(List<GmjCboard> listcb);
 	
 	public int insertreply(HashMap<String, String> reply);
 	public List<GmjReply> getreply(int gmjcboardno);

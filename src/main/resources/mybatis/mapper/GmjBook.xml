@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace="com.gmj.prj.GmjBook">
+		<select id="selectBookList" resultType="com.gmj.prj.vo.GmjBook">
+			select * from gmjbook
+		</select>
+		<select id="selectBook" resultType="com.gmj.prj.vo.GmjBook">
+			select * from gmjbook
+			where gmjbookno=#{gmjbookno}
+		</select>
+		<delete id="deleteGmjBook">
+			delete from gmjbook
+			where gmjbookno=#{gmjbookno}
+		</delete>
+		<update id="updateGmjBook">
+			update gmjbook
+			<set>
+				<if test="gmjbookname1!=null">gmjbookname1=#{gmjbookname1},</if>
+				<if test="gmjbookname2!=null">gmjbookname2=#{gmjbookname2},</if>
+				<if test="gmjbooktitle!=null">gmjbooktitle=#{gmjbooktitle},</if>
+				<if test="gmjbookdesc!=null">gmjbookdesc=#{gmjbookdesc}</if>
+			</set>
+			where gmjbookno=#{gmjbookno}
+		</update>
+	</mapper>

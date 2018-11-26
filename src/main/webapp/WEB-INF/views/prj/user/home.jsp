@@ -93,39 +93,36 @@
 		</a></span>
 	</h1>
 	<c:if test="${empty userID}">
-	<div style="position: absolute; left: 1500px; top: 5px; width: 200px;">
-		<div style="float: left; margin-right: 5%;">
-			<button data-toggle="modal"	data-target="#login"
-				style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;">${userID}로그인</button>
+		<div style="position: absolute; left: 1500px; top: 5px; width: 200px;">
+			<div style="float: left; margin-right: 5%;">
+				<button data-toggle="modal" data-target="#login"
+					style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;">${userID}로그인</button>
+			</div>
+			<div style="float: left;">
+				<button
+					style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;"
+					data-toggle="modal" data-target="#signup">회원가입</button>
+			</div>
 		</div>
-		<div style="float: left;">
-			<button
-				style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;"
-				data-toggle="modal" data-target="#signup">회원가입</button>
-		</div>
-	</div>
 	</c:if>
-		<c:if test="${!empty userID}">
-	<div style="position: absolute; left: 1500px; top: 5px; width: 200px;">
-		<div style="float: left; margin-right: 5%; color:white">
-			환영합니다. ${userID}님  
+	<c:if test="${!empty userID}">
+		<div style="position: absolute; left: 1500px; top: 5px; width: 200px;">
+			<div style="float: left; margin-right: 5%; color: white">
+				환영합니다. ${userID}님</div>
+			<c:if test="${userID eq 'admin'}">
+				<div style="float: left;">
+					<button onclick="{location.href='../admin/home';}"
+						style="width: 100px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;">관리자페이지</button>
+				</div>
+			</c:if>
+			<div style="float: left;">
+				<button onclick="logout()"
+					style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;">로그아웃</button>
+			</div>
+
 		</div>
-		<c:if test="${userID eq 'admin'}">
-		<div style="float: left;">
-		<button onclick="{location.href='../admin/home';}"
-				style="width: 100px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;"
-				>관리자페이지</button>
-		</div>
-		</c:if>
-		<div style="float: left;">
-			<button onclick="logout()"
-				style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;"
-				>로그아웃</button>
-		</div>
-	
-	</div>
 	</c:if>
-	
+
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav"
 		data-spy="affix" data-offset-top="197">
@@ -158,14 +155,26 @@
 						class="nav-link text-uppercase text-expanded" href="architectkim">architect</a>
 					</li>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="community?page=1">community</a>
+						class="nav-link text-uppercase text-expanded" href="academy.html"
+						data-toggle="dropdown">Commnuity</a>
+						<ul class="dropdown-menu" style="position:absolute; left:861px;background:rgba(47, 23, 15, 0.9);">
+							<li onmouseover="{document.querySelectorAll('.fontblack')[0].style.color='rgba(47, 23, 15, 0.9)';}"onmouseleave="{document.querySelectorAll('.fontblacka')[0].style.color='rgba(255,255,255,.7)';}"><a class="fontblacka" href="/uri/prj/user/community/recommend" style="font-size:3rem;color: rgba(255,255,255,.7);" >Recommend</a></li>
+							<li onmouseover="{document.querySelectorAll('.fontblack')[1].style.color='rgba(47, 23, 15, 0.9)';}"onmouseleave="{document.querySelectorAll('.fontblacka')[1].style.color='rgba(255,255,255,.7)';}"><a class="fontblacka" href="/uri/prj/user/community/usercommunity" style="font-size:3rem;color: rgba(255,255,255,.7);" >User Community</a></li>
+
+						</ul>
 					</li>
 					<li class="nav-item px-lg-4"><a
 						class="nav-link text-uppercase text-expanded"
 						href="/uri/prj/user/socialMedia">social media</a></li>
 					</li>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="academy.html">Exhibition</a>
+						class="nav-link text-uppercase text-expanded" href="academy.html"
+						data-toggle="dropdown">Culture</a>
+						<ul class="dropdown-menu" style="position:absolute; left:1220px;background:rgba(47, 23, 15, 0.9);">
+							<li onmouseover="{document.querySelectorAll('.fontblack')[0].style.color='rgba(47, 23, 15, 0.9)';}"onmouseleave="{document.querySelectorAll('.fontblack')[0].style.color='rgba(255,255,255,.7)';}"><a class="fontblack" href="/uri/prj/user/book" style="font-size:3rem;color: rgba(255,255,255,.7);" >Book</a></li>
+							<li onmouseover="{document.querySelectorAll('.fontblack')[1].style.color='rgba(47, 23, 15, 0.9)';}"onmouseleave="{document.querySelectorAll('.fontblack')[1].style.color='rgba(255,255,255,.7)';}"><a class="fontblack" href="/uri/prj/user/exhibition" style="font-size:3rem;color: rgba(255,255,255,.7);" >exhibition</a></li>
+
+						</ul>
 					</li>
 				</ul>
 			</div>
@@ -212,109 +221,112 @@
 			</a>
 		</div>
 	</div>
-<div style="width: 1000px; height: 300px; margin:1% 0 1% 448px; border-radius: 16px;">
-	<div class="recommend">
-		<section class="Grid" style="margin:0; padding:5% 0 5% 3%;">
-			<div class="Grid-row">
-				<div class="Card" style="margin-right:50px;">
-					<div class="Card-thumb">
-						<div class="Card-shadow"></div>
-						<div class="Card-shadow"></div>
-						<div class="Card-shadow"></div>
-						<div class="Card-image"
-							style="background-size:430px 150px;background-image: url(${resPath}/img/home/seogangUniversity.jpg); width: 430x; height: 150px;"></div>
+	<div
+		style="width: 1000px; height: 300px; margin: 1% 0 1% 448px; border-radius: 16px;">
+		<div class="recommend">
+			<section class="Grid" style="margin: 0; padding: 5% 0 5% 3%;">
+				<div class="Grid-row">
+					<div class="Card" style="margin-right: 50px;">
+						<div class="Card-thumb">
+							<div class="Card-shadow"></div>
+							<div class="Card-shadow"></div>
+							<div class="Card-shadow"></div>
+							<div class="Card-image"
+								style="background-size:430px 150px;background-image: url(${resPath}/img/home/seogangUniversity.jpg); width: 430x; height: 150px;"></div>
+						</div>
+						<div class="Card-title">
+							<span><h1 style="color: white;">서강대</h1> </span>
+						</div>
+						<div class="Card-explore">
+							<span>Explore 50 more</span>
+						</div>
+						<button class="Card-button">view more</button>
 					</div>
-					<div class="Card-title">
-						<span><h1 style="color:white;">서강대</h1> </span>
+					<div class="Card" style="margin-right: 50px;">
+						<div class="Card-thumb">
+							<div class="Card-shadow"></div>
+							<div class="Card-shadow"></div>
+							<div class="Card-shadow"></div>
+							<div class="Card-image"
+								style="background-size:430px 150px;background-image: url(${resPath}/img/home/exhibition1.jpg); width: 430x; height: 150px;"></div>
+						</div>
+						<div class="Card-title">
+							<span><h1 style="color: white;">안양 김중업박물관</h1> </span>
+						</div>
+						<div class="Card-explore">
+							<span>Explore 50 more</span>
+						</div>
+						<button class="Card-button">view more</button>
 					</div>
-					<div class="Card-explore">
-						<span>Explore 50 more</span>
-					</div>
-					<button class="Card-button">view more</button>
+
 				</div>
-				<div class="Card" style="margin-right:50px;">
-					<div class="Card-thumb">
-						<div class="Card-shadow"></div>
-						<div class="Card-shadow"></div>
-						<div class="Card-shadow"></div>
-						<div class="Card-image"
-							style="background-size:430px 150px;background-image: url(${resPath}/img/home/exhibition1.jpg); width: 430x; height: 150px;"></div>
-					</div>
-					<div class="Card-title">
-						<span><h1 style="color:white;">안양 김중업박물관</h1> </span>
-					</div>
-					<div class="Card-explore">
-						<span>Explore 50 more</span>
-					</div>
-					<button class="Card-button">view more</button>
-				</div>
-				
-			</div>
-		</section>
-	</div>
+			</section>
+		</div>
 	</div>
 
 
-		<div class="container"
-			style="width: 600px; height: 400px; background-color: #e6a756; border-radius: 16px; margin-left: 448px; float: left;">
-			<ul class="nav nav-tabs" style="margin-top: 3.1%;">
-				<li class="active"><a data-toggle="tab" href="#서울"
-					style="color: black; border: 1px solid white">서울</a></li>
-				<li><a data-toggle="tab" href="#경기"
-					style="color: black; border: 1px solid white">경기</a></li>
-				<li><a data-toggle="tab" href="#경상"
-					style="color: black; border: 1px solid white">경상</a></li>
-				<li><a data-toggle="tab" href="#전라"
-					style="color: black; border: 1px solid white">전라</a></li>
-				<li><a data-toggle="tab" href="#충청"
-					style="color: black; border: 1px solid white">충청</a></li>
-				<li><a data-toggle="tab" href="#강원"
-					style="color: black; border: 1px solid white">강원</a></li>
-				<li><a data-toggle="tab" href="#제주"
-					style="color: black; border: 1px solid white">제주</a></li>
-			</ul>
-			<div class="tab-content">
-				<div id="서울" class="tab-pane fade in active">
-					<h3>서울</h3>
-					<p>서울</p>
-				</div>
-				<div id="경기" class="tab-pane fade">
-					<h3>경기</h3>
-					<p>경기</p>
-				</div>
-				<div id="경상" class="tab-pane fade">
-					<h3>경상</h3>
-					<p>경상</p>
-				</div>
-				<div id="전라" class="tab-pane fade">
-					<h3>전라</h3>
-					<p>전라</p>
-				</div>
-				<div id="충청" class="tab-pane fade">
-					<h3>충청</h3>
-					<p>충청</p>
-				</div>
-				<div id="강원" class="tab-pane fade">
-					<h3>강원</h3>
-					<p>강원</p>
-				</div>
-				<div id="제주" class="tab-pane fade">
-					<h3>제주</h3>
-					<p>제주</p>
-				</div>
+	<div class="container"
+		style="width: 600px; height: 400px; background-color: #e6a756; border-radius: 16px; margin-left: 448px; float: left;">
+		<ul class="nav nav-tabs" style="margin-top: 3.1%;">
+			<li class="active"><a data-toggle="tab" href="#서울"
+				style="color: black; border: 1px solid white">서울</a></li>
+			<li><a data-toggle="tab" href="#경기"
+				style="color: black; border: 1px solid white">경기</a></li>
+			<li><a data-toggle="tab" href="#경상"
+				style="color: black; border: 1px solid white">경상</a></li>
+			<li><a data-toggle="tab" href="#전라"
+				style="color: black; border: 1px solid white">전라</a></li>
+			<li><a data-toggle="tab" href="#충청"
+				style="color: black; border: 1px solid white">충청</a></li>
+			<li><a data-toggle="tab" href="#강원"
+				style="color: black; border: 1px solid white">강원</a></li>
+			<li><a data-toggle="tab" href="#제주"
+				style="color: black; border: 1px solid white">제주</a></li>
+		</ul>
+		<div class="tab-content">
+			<div id="서울" class="tab-pane fade in active">
+				<h3>서울</h3>
+				<p>서울</p>
+			</div>
+			<div id="경기" class="tab-pane fade">
+				<h3>경기</h3>
+				<p>경기</p>
+			</div>
+			<div id="경상" class="tab-pane fade">
+				<h3>경상</h3>
+				<p>경상</p>
+			</div>
+			<div id="전라" class="tab-pane fade">
+				<h3>전라</h3>
+				<p>전라</p>
+			</div>
+			<div id="충청" class="tab-pane fade">
+				<h3>충청</h3>
+				<p>충청</p>
+			</div>
+			<div id="강원" class="tab-pane fade">
+				<h3>강원</h3>
+				<p>강원</p>
+			</div>
+			<div id="제주" class="tab-pane fade">
+				<h3>제주</h3>
+				<p>제주</p>
 			</div>
 		</div>
-		<div style="overflow: hidden;width: 378px; height: 400px; background-color: #e6a756; margin-left: 1070px; margin-top: 1%; border-radius: 16px; padding: 10px">
-			
-			
-			<h4 style="text-align: center;">실시간 트위터</h4>
-			
-			<hr>
-			<div class="twitte" style="overflow-y:auto; height:300px; background:rgba(255,255,255,.85);">
-			</div>
-		
+	</div>
+	<div
+		style="overflow: hidden; width: 378px; height: 400px; background-color: #e6a756; margin-left: 1070px; margin-top: 1%; border-radius: 16px; padding: 10px">
+
+
+		<h4 style="text-align: center;">실시간 트위터</h4>
+
+		<hr>
+		<div class="twitte"
+			style="overflow-y: auto; height: 300px; background: rgba(255, 255, 255, .85);">
 		</div>
-	
+
+	</div>
+
 	<div
 		style="width: 1000px; height: 300px; margin-top: 1%; margin-left: 448px; border-radius: 16px;">
 		<section class="page-section cta"
@@ -330,7 +342,11 @@
 							</div>
 							<div>
 								<div class="col-sm-4" style="padding-right: 0px;">
-									<iframe width="300" height="180" src="https://www.youtube.com/embed/8yAsZt7rfgI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+									<iframe width="300" height="180"
+										src="https://www.youtube.com/embed/8yAsZt7rfgI"
+										frameborder="0"
+										allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+										allowfullscreen></iframe>
 									<br>산업실록
 								</div>
 								<div class="col-sm-4" style="padding-right: 0px;">
@@ -431,151 +447,153 @@
 			<p class="m-0 small">Copyright &copy; GMJ 2018</p>
 		</div>
 	</footer>
-	
+
 	<div class="modal fade" id="login" role="dialog">
-			<div class="modal-dialog">
+		<div class="modal-dialog">
 
-				<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-header">
-						<h4 class="modal-title">Modal Header</h4>
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-					</div>
-					<div class="modal-body">
-						<form>
-							<div class="input-group">
-								<span class="input-group-addon"><i
-									class="glyphicon glyphicon-user"></i></span> <input id="logingmjuseremail"
-									type="email" class="form-control" name="gmjuseremail"
-									placeholder="이메일" required>
-							</div>
-							<div class="input-group">
-								<span class="input-group-addon"><i
-									class="glyphicon glyphicon-lock"></i></span> <input id="logingmjuserpwd"
-									type="password" class="form-control" name="gmjuserpwd"
-									placeholder="비밀번호">
-							</div>					
-						</form>
-					</div>
-					<div class="modal-footer">
-						<button id="sb" class="btn btn-default" onclick="login()">로그인</button>
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					</div>
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Modal Header</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
 				</div>
-
-			</div>
-		</div>
-		<div class="modal fade" id="signup" role="dialog">
-			<div class="modal-dialog">
-
-				<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-header">
-						<h4 class="modal-title">Modal Header</h4>
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-					</div>
-					<div class="modal-body">
-						<form>
-							<div class="input-group">
-								<span class="input-group-addon"><i
-									class="glyphicon glyphicon-user"></i></span> <input id="gmjuseremail"
-									type="email" class="form-control" name="gmjuseremail"
-									placeholder="이메일" required>
-							</div>
-							<div class="input-group">
-								<span class="input-group-addon"><i
-									class="glyphicon glyphicon-lock"></i></span> <input id="gmjuserpwd"
-									type="password" class="form-control" name="gmjuserpwd"
-									placeholder="비밀번호">
-							</div>
-							<div class="input-group">
-								<span class="input-group-addon"><i
-									class="glyphicon glyphicon-lock"></i></span> <input id="gmjuserpwdchk"
-									type="password" class="form-control" name="gmjuserpwdchk"
-									placeholder="비밀번호 확인">
-							</div>
-							<div class="input-group">
-								<span class="input-group-addon"><i
-									class="glyphicon glyphicon-pencil"></i></span> <input id="gmjusername"
-									type="text" class="form-control" name="gmjusername"
-									placeholder="이름">
-							</div>
-							<div class="input-group">
-								<span class="input-group-addon"><i
-									class="glyphicon glyphicon-phone"></i></span> <input id="gmjuserphone"
-									type="text" class="form-control" name="gmjuserphone"
-									placeholder="핸드폰 번호">
-							</div>
-							<div class="input-group">
-								<span class="input-group-addon"><i
-									class="glyphicon glyphicon-calendar"></i></span> <input
-									id="gmjuserbirth" type="date" class="form-control"
-									name="gmjuserbirth" placeholder="생년월일 8자 ex)900213">
-							</div>
-							<div class="input-group">
-								<span class="input-group-addon"><i
-									class="glyphicon glyphicon-heart"></i></span> 
-									<div id="gmjusersex" style="padding: 6px 12px; font-size: 14px;height: 34px;border: 1px solid #ced4da;border-radius: .25rem;">
-									<label class="radio-inline" >
-									<input type="radio" name="optradio" value="남자">남
-									</label> 
-									<label class="radio-inline"> 
-									<input type="radio" name="optradio" value="여자">녀
-									</label>
-									</div> 
-									
-							</div>
-							<div class="input-group">
-								<span class="input-group-addon"><i
-									class="glyphicon glyphicon-stats"></i></span> <input
-									id="gmjuseraddress" type="text" class="form-control"
-									name="gmjuseraddress" placeholder="주소">
-							</div>
-
-							<br>
-						
-							
-						</form>
-
-
-
-
-
-					</div>
-					<div class="modal-footer">
-						<button id="sb" class="btn btn-default" onclick="submit()">제출</button>
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					</div>
+				<div class="modal-body">
+					<form>
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-user"></i></span> <input
+								id="logingmjuseremail" type="email" class="form-control"
+								name="gmjuseremail" placeholder="이메일" required>
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-lock"></i></span> <input
+								id="logingmjuserpwd" type="password" class="form-control"
+								name="gmjuserpwd" placeholder="비밀번호">
+						</div>
+					</form>
 				</div>
-
+				<div class="modal-footer">
+					<button id="sb" class="btn btn-default" onclick="login()">로그인</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
 			</div>
+
 		</div>
+	</div>
+	<div class="modal fade" id="signup" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Modal Header</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-user"></i></span> <input id="gmjuseremail"
+								type="email" class="form-control" name="gmjuseremail"
+								placeholder="이메일" required>
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-lock"></i></span> <input id="gmjuserpwd"
+								type="password" class="form-control" name="gmjuserpwd"
+								placeholder="비밀번호">
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-lock"></i></span> <input id="gmjuserpwdchk"
+								type="password" class="form-control" name="gmjuserpwdchk"
+								placeholder="비밀번호 확인">
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-pencil"></i></span> <input id="gmjusername"
+								type="text" class="form-control" name="gmjusername"
+								placeholder="이름">
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-phone"></i></span> <input id="gmjuserphone"
+								type="text" class="form-control" name="gmjuserphone"
+								placeholder="핸드폰 번호">
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-calendar"></i></span> <input
+								id="gmjuserbirth" type="date" class="form-control"
+								name="gmjuserbirth" placeholder="생년월일 8자 ex)900213">
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-heart"></i></span>
+							<div id="gmjusersex"
+								style="padding: 6px 12px; font-size: 14px; height: 34px; border: 1px solid #ced4da; border-radius: .25rem;">
+								<label class="radio-inline"> <input type="radio"
+									name="optradio" value="남자">남
+								</label> <label class="radio-inline"> <input type="radio"
+									name="optradio" value="여자">녀
+								</label>
+							</div>
+
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-stats"></i></span> <input
+								id="gmjuseraddress" type="text" class="form-control"
+								name="gmjuseraddress" placeholder="주소">
+						</div>
+
+						<br>
+
+
+					</form>
+
+
+
+
+
+				</div>
+				<div class="modal-footer">
+					<button id="sb" class="btn btn-default" onclick="submit()">제출</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="${resPath}/user/vendor/jquery/jquery.min.js"></script>
-	<script	src="${resPath}/user/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script
+		src="${resPath}/user/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="${resPath}/user/js/basic.js"></script>
 
-<script>
-var twitter=document.querySelector('.twitter');
+	<script>
+		var twitter = document.querySelector('.twitter');
 
-var twitterhtml;
-/* au.send({
-			url : '/tweets',
-			method : 'GET',
-			success : function(res) {
-				res = JSON.parse(res);
-				for(var i of res){
-					twitterhtml +='아이디는'+i.user.screenName+': 글내용은'+i.text+'<br><br>';	
-				}
-				twitter.insertAdjacentHTML('beforeend',twitterhtml);	
-			}
-		}) */
-var twitte=document.querySelector('.twitte');
-var twittehtml='';
- twittehtml = '<div style="float:left;"><img src="https://ssl.pstatic.net/sstatic/search/2015/ico_rt_entertain.png" style="width:50px;"></div><div style="float:left;border-bottom: 1px solid #e6a756;">undefined아이디는myoyongshi: 글내용은RT @hitchhiker_j: ‘2018년에 건축가 김중업을 어떻게 보여줄까’에 대한 편집자와 디자이너의 고민, 답을 찾아가는 과정을 들을 수 있어 좋았다. 손바닥만한 크기의 아주 가벼운 책으로 만들고 싶었다는 정재완 디자이너의 말이 기억에 남았다…<br><br></div>'.repeat(10);
+		var twitterhtml;
+		/* au.send({
+		 url : '/tweets',
+		 method : 'GET',
+		 success : function(res) {
+		 res = JSON.parse(res);
+		 for(var i of res){
+		 twitterhtml +='아이디는'+i.user.screenName+': 글내용은'+i.text+'<br><br>';	
+		 }
+		 twitter.insertAdjacentHTML('beforeend',twitterhtml);	
+		 }
+		 }) */
+		var twitte = document.querySelector('.twitte');
+		var twittehtml = '';
+		twittehtml = '<div style="float:left;"><img src="https://ssl.pstatic.net/sstatic/search/2015/ico_rt_entertain.png" style="width:50px;"></div><div style="float:left;border-bottom: 1px solid #e6a756;">undefined아이디는myoyongshi: 글내용은RT @hitchhiker_j: ‘2018년에 건축가 김중업을 어떻게 보여줄까’에 대한 편집자와 디자이너의 고민, 답을 찾아가는 과정을 들을 수 있어 좋았다. 손바닥만한 크기의 아주 가벼운 책으로 만들고 싶었다는 정재완 디자이너의 말이 기억에 남았다…<br><br></div>'
+				.repeat(10);
 
-twitte.insertAdjacentHTML('beforeend',twittehtml);
-</script>
+		twitte.insertAdjacentHTML('beforeend', twittehtml);
+	</script>
 </body>
 </html>

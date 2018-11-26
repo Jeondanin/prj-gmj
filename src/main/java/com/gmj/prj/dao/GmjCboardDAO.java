@@ -15,6 +15,9 @@ public interface GmjCboardDAO {
 	public int insertCboard(GmjCboard gc);
 	public GmjCboard getOne(int gmjcboardno);
 	public GmjCboard getLatestOne();
+	public int updateCboardList(List<GmjCboard> gc);
+	
+	
 	public int insertReply(HashMap<String, String> reply);
 	public List<GmjReply> getReply(int gmjcboardno); 
 	public List<GmjReply> getReplyadmin();

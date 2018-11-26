@@ -42,7 +42,14 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+<style>
+div.gridbox {
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+}
 
+</style>
 </head>
 
 <body>
@@ -332,6 +339,7 @@
 
 		<!-- 여기만 건들여 -->
 		<div id="page-wrapper">
+
 			<h1>지도</h1>
 
 
@@ -346,6 +354,7 @@
 					<div id="rDivMap" style="width: 70vw; height: 45vh"></div>
 					<div id="pagingbox"></div>
 					<div id="recInfoArea"></div>
+
 	
 				</div>
 				<div id="menu1" class="tab-pane fade">
@@ -353,11 +362,6 @@
 					<p>Some content in menu 1.</p>
 				</div>
 			</div>
-
-			
-
-
-
 
 
 
@@ -447,11 +451,9 @@
 
 				dxGrid = new dhtmlXGridObject('rDiv');
 
-				dxGrid
-						.setHeader('유저번호,유저 이메일,유저비밀번호,유저이름,핸드폰번호,생일,성별,주소,생성날짜,수정날짜,수정,삭제');
+				dxGrid.setHeader('유저번호,유저 이메일,유저비밀번호,유저이름,핸드폰번호,생일,성별,주소,생성날짜,수정날짜,수정,삭제');
 
-				dxGrid
-						.setColumnIds('gmjuserno,gmjuseremail,gmjuserpwd,gmjusername,gmjuserphone,gmjuserbirth,gmjusersex,gmjuseraddress,credat,moddat,edit,delete');
+				dxGrid.setColumnIds('gmjuserno,gmjuseremail,gmjuserpwd,gmjusername,gmjuserphone,gmjuserbirth,gmjusersex,gmjuseraddress,credat,moddat,edit,delete');
 				dxGrid.setColTypes('ro,ro,ed,ed,ed,ed,ed,ed,ro,ro,img,img');
 
 				dxGrid.enableAutoWidth(true);

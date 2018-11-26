@@ -4,7 +4,7 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	<mapper namespace="com.gmj.prj.vo.GmjCboard">
 		<select id="selectCboardList" resultType="com.gmj.prj.vo.GmjCboard">
-			select gmjcboardno, gmjcboardtitle,gmjusername,gmjcboard.credat,gmjcboardcnt from gmjcboard,gmjclient
+			select gmjcboardno, gmjcboardtitle,gmjcboarddesc,gmjusername,gmjcboard.credat,gmjcboardcnt from gmjcboard,gmjclient
 			 where gmjcboard.gmjclientno=gmjclient.gmjUserNo order by gmjcboard.credat, gmjcboardno;
 		</select>
 		<select id="selectCboardListUser" resultType="com.gmj.prj.vo.GmjCboard">
@@ -32,6 +32,21 @@
 		<update id="pluscnt">
 			update gmjcboard set gmjcboardcnt=gmjcboardcnt+1 where gmjcboardno=#{gmjcboardno};
 		</update>
+		<update id="updateCboardList">
+			<foreach collection="list" item="gc" index="index" separator=";">
+				update gmjclient 
+					<set>
+						<if test="gc.gmjcboardtitle!=null">gmjcboardtitle=#{gc.gmjcboardtitle},</if>
+						<if test="gc.gmjcboarddesc!=null">gmjcboarddesc=#{gc.gmjcboarddesc},</if>
+						<if test="gc.moddat!=null">moddat=#{gc.moddat},</if>
+						<if test="gc.gmjcboardcnt!=null">gmjcboardcnt=#{gc.gmjcboardcnt},</if>
+						moddat=now()
+					</set>
+				where gmjcboardno=#{gc.gmjcboardno}
+			</foreach>
+		</update>
+		
+		
 		
 		<insert id="insertReply" >
 			INSERT INTO `bdi`.`gmjreply` (`gmjcboardno`, `gmjuserno`, `gmjreplydesc`, `credat`, `moddat`) 
