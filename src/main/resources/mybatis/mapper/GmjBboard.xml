@@ -2,13 +2,13 @@
 <!DOCTYPE mapper
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-	<mapper namespace="com.gmj.prj.GmjBboard">
+	<mapper namespace="com.gmj.prj.vo.GmjBboard">
 		<select id="selectBboardList" resultType="com.gmj.prj.vo.GmjBboard">
 			select * from gmjbboard
 		</select>
-		<select id="selectCboardListUser" resultType="com.gmj.prj.vo.GmjCboard">
-			select gmjbboardno, gmjbboardtitle,gmjusername,date_format(gmjbboard.credat,"%Y-%m-%d") as credat,gmjbboardcnt from gmjbboard,gmjclient
-			 where gmjbboard.gmjclientno=gmjclient.gmjUserNo order by gmjbboard.credat desc, gmjbboardno desc limit #{bundle} OFFSET #{OFFSET}
+		<select id="selectBboardListUser" resultType="com.gmj.prj.vo.GmjBboard">
+			select * from gmjbboard
+			order by gmjbboard.credat desc limit #{bundle} OFFSET #{OFFSET}
 		</select>
 		<select id="selectBboard" resultType="com.gmj.prj.vo.GmjBboard">
 			select * from gmjbboard

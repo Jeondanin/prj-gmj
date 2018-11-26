@@ -20,7 +20,7 @@ public class GmjBboardDAOImpl implements GmjBboardDAO {
 	@Override
 	public List<GmjBboard> getBboardList() {
 		// TODO Auto-generated method stub
-		return ss.selectList("com.gmj.prj.GmjBboard.selectBboardList");
+		return ss.selectList("com.gmj.prj.vo.GmjBboard.selectBboardList");
 	}
 	@Override
 	public List<GmjBboard> getBboardList(HttpServletRequest req) {
@@ -29,28 +29,29 @@ public class GmjBboardDAOImpl implements GmjBboardDAO {
 		int bundle =10;
 		pageFactor.put("bundle", bundle);
 		pageFactor.put("OFFSET",bundle*(pageNo-1));
+		System.out.println(pageFactor);
 		return ss.selectList("com.gmj.prj.vo.GmjBboard.selectBboardListUser",pageFactor);
 	
 	}
 	@Override
 	public GmjBboard selectBboard(int gmjbboardno) {
 		// TODO Auto-generated method stub
-		return ss.selectOne("com.gmj.prj.GmjBboard.selectBboard", gmjbboardno);
+		return ss.selectOne("com.gmj.prj.vo.GmjBboard.selectBboard", gmjbboardno);
 	}
 	@Override
 	public int updateBboard(GmjBboard gb) {
 		// TODO Auto-generated method stub
-		return ss.update("com.gmj.prj.GmjBboard.updateBboard", gb);
+		return ss.update("com.gmj.prj.vo.GmjBboard.updateBboard", gb);
 	}
 	@Override
 	public int deleteBboard(int gmjbboardno) {
 		// TODO Auto-generated method stub
-		return ss.delete("com.gmj.prj.GmjBboard.deleteBboard",gmjbboardno);
+		return ss.delete("com.gmj.prj.vo.GmjBboard.deleteBboard",gmjbboardno);
 	}
 	@Override
 	public int getOrder(int gmjbboardno) {
 		// TODO Auto-generated method stub
-		return ss.selectOne("com.gmj.prj.GmjBboard.getOrder",gmjbboardno);
+		return ss.selectOne("com.gmj.prj.vo.GmjBboard.getOrder",gmjbboardno);
 	}
 	
 

@@ -177,7 +177,45 @@ padding:2rem 6.5rem;
 	</nav>
 
 	
-		
+		<div class="container">
+			<img class="img-fluid rounded about-heading-img mb-3 mb-lg-0"
+				src="${resPath}/user/img/about.jpg" alt="">
+			<div style="background:blue;">
+			
+			
+				<div class="col-sm-12">
+						<div class="white rounded">
+							
+							
+							
+							<div class="viewGmjcboard viewline"></div>
+									
+							<c:if test="${empty userID}">
+							<div class="form-group reply" style="min-height:15rem;">
+								<textarea class="form-control col-sm-10" id="replydesc" style="height:80px; width:900px" readonly>로그인해야 댓글 가능합니다.</textarea>
+								<input type="hidden" value="손님" id="userid">
+								<input type="hidden" value="0" id="userno">
+								<button type="button" onclick="{alert('로그인해야합니다.');}"class="btn col-sm-2" style="margin-left:15px; height:80px;width:100px;">댓글등록</button>
+							</div>
+							</c:if>
+							<c:if test="${!empty userID}">
+							<div class="form-group reply" style="min-height:15rem;">
+								<textarea class="form-control col-sm-10" id="replydesc" style="height:80px ; value="${userNO}"></textarea>
+								<input type="hidden" value="${userID}" id="userid">
+								<input type="hidden" value="${userNO}" id="userno">
+								<button type="button" onclick="insertreply()"class="btn col-sm-2" style="margin-left:30px; height:80px;width:120px;">댓글등록</button>
+							</div>
+							</c:if>
+							
+							<div class="form-group replylist"></div>
+							
+						
+						
+						</div>
+				
+				</div>
+			</div>
+		</div>
 	
 	
 	
@@ -193,6 +231,7 @@ padding:2rem 6.5rem;
 								<tr>
 									<th class="col-sm-1">번호	</th>
 									<th class="col-sm-3">제목</th>
+									<th class="col-sm-1">작성자</th>
 									<th class="col-sm-2">작성일</th>
 									<th class="col-sm-1">조회수</th>
 								</tr>
@@ -356,14 +395,87 @@ padding:2rem 6.5rem;
 	<script
 		src="${resPath}/user/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="${resPath}/user/js/basic.js"></script>
-<script src="${resPath}/user/js/rboard.js?ver=21"></script>
+<script src="${resPath}/user/js/rboard.js?ver=3"></script>
 <script>
-
+var viewSection = document.querySelector('.viewGmjcboard');
+var viewSectionhtml ='';
+var url = decodeURIComponent(location.href);
+var params = url.substring( url.indexOf('?')+1, url.length );
+var userno =document.querySelector('#userno').value; 
+var no;
+var replyno;
+var indexOfNo = params.indexOf('no=');
+if(params.indexOf('&')!=-1){
+	var indexOfAnd = params.indexOf('&');
+	if(indexOfNo>indexOfAnd){
+		  indexOfAnd = params.indexOf('&',indexOfAnd+1);
+		}
+	no = params.substring(indexOfNo+3,indexOfAnd);
+}else{
+	no = params.substring(3,params.length); 
+}
 
 	
+//실행순서는 는 리스트 켜지고 위에 내용켜지는 순서.
 
 
 
+
+function insertreply(){
+	var replydesc = document.querySelector('#replydesc').value;	
+	
+	 au.send({url:'/gmjreply',
+		method:'POST',
+		param:JSON.stringify({"gmjcboardno":no,"gmjuserno":userno,"gmjreplydesc":replydesc}),
+		success : function(res){
+			res=JSON.parse(res);
+			location.href=location.href;
+		}
+	}) 
+	
+}
+function viewreply(){
+	var replylist = document.querySelector('.replylist');
+	var replylisthtml;
+	if(replylist.innerHTML==''){
+			var replylisthtml=''
+			au.send({url:'/gmjreply/'+no,
+				method:'GET',
+				success : function(res){			
+					res=JSON.parse(res);
+					console.log(res);
+					replylisthtml='<div class="viewunderline">댓글 '+ res.length+'개</div><div style="border-radius:0.25rem;padding:1rem;background:rgba(230,167,86,.9);">'
+					for(var one of res){			
+						replylisthtml+='<div style=""><b>'+one.gmjusername+' : </b>';
+						replylisthtml+=one.gmjreplydesc;
+						if(one.gmjuserno==userno){
+							replylisthtml+='<span style="float:right;"><a onclick="deleteReply('+one.gmjreplyno+')">X</a></span>'
+						}
+						replylisthtml+='</div>';
+					
+					}	
+					replylisthtml+='</div></div>';
+					replylist.insertAdjacentHTML('afterbegin',replylisthtml);
+					showPaging(no);
+				}
+			})
+			
+	}else{		
+	
+	
+	}
+	
+	
+}
+function deleteReply(replyno){
+	au.send({url:'/gmjreply/'+replyno,
+		method:'DELETE',
+		success : function(res){
+			alert('댓글 삭제되었슴돠');
+			location.href = location.href;
+		}
+	})
+}
 
 
 </script>

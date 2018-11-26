@@ -11,6 +11,7 @@ var pagination = document.querySelector('#paginationz');
 	var init=1;
 	function doInit() {
 		if(url!==undefined){
+			console.log(14);
 			viewBoard();
 			
 		}else{
@@ -34,6 +35,7 @@ var pagination = document.querySelector('#paginationz');
 				showPaging2(totalCnt,totalPage)
 				if(no==-1){
 					findorder(totalCnt);
+					console.log(totalCnt);
 				}else{
 					findorder(no);
 				}
@@ -97,6 +99,7 @@ var pagination = document.querySelector('#paginationz');
 		})
 	}
 	
+
 	function showList(number){
 		var html='';
 		au.send({
@@ -106,10 +109,10 @@ var pagination = document.querySelector('#paginationz');
 				res = JSON.parse(res);
 				for(var i=0;i<10;i++){
 					if(res[i]!=null){
+						console.log(111);
 						html += '<tr class="board"><td>'
-							+ res[i].gmjbboardno + '</td><td><a href="/uri/prj/user/community/view?no='+res[i].gmjbboardno+'">'
+							+ res[i].gmjbboardno + '</td><td><a href="/uri/prj/user/community/recommend/view?no='+res[i].gmjbboardno+'">'
 							+ res[i].gmjbboardtitle + '</a></td><td>'
-							+ res[i].gmjusername + '</td><td>'
 							+ res[i].credat + '</td><td>'
 							+ res[i].gmjbboardcnt + '</td></tr>';
 					}
