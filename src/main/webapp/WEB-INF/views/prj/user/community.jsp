@@ -219,7 +219,7 @@ cursor:pointer;}
 
 <!-- Script to highlight the active date in the hours list -->
 <script src="${resPath}/user/js/basic.js"></script>
-<script src="${resPath}/user/js/cboard.js"></script>
+<script src="${resPath}/user/js/cboard.js?v=1"></script>
 <script>
 	
 	

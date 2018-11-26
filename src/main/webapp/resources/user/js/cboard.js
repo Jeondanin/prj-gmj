@@ -14,7 +14,7 @@ var pagination = document.querySelector('#paginationz');
 			viewBoard();
 			
 		}else{
-			showPaging(1);	
+			showPaging(-1);	
 
 		}
 		
@@ -32,7 +32,12 @@ var pagination = document.querySelector('#paginationz');
 				totalCnt = res.totalCnt;
 				totalPage = res.totalPage;
 				showPaging2(totalCnt,totalPage)
-				findorder(no);
+				if(no===-1){
+					findorder(totalCnt);
+				}else{
+					findorder(no);
+				}
+				
 				
 			}
 		})
