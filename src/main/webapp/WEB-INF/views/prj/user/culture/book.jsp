@@ -150,8 +150,8 @@ td {
 						class="nav-link text-uppercase text-expanded" href="academy.html"
 						data-toggle="dropdown">Culture</a>
 						<ul class="dropdown-menu" style="position:absolute; left:1220px;background:rgba(47, 23, 15, 0.9);">
-							<li onmouseover="{document.querySelectorAll('.fontblack')[0].style.color='rgba(47, 23, 15, 0.9)';}"onmouseleave="{document.querySelectorAll('.fontblack')[0].style.color='rgba(255,255,255,.7)';}"><a class="fontblack" href="/uri/prj/user/culture/book" style="font-size:3rem;color: rgba(255,255,255,.7);" >Book</a></li>
-							<li onmouseover="{document.querySelectorAll('.fontblack')[1].style.color='rgba(47, 23, 15, 0.9)';}"onmouseleave="{document.querySelectorAll('.fontblack')[1].style.color='rgba(255,255,255,.7)';}"><a class="fontblack" href="/uri/prj/user/culture/exhibition" style="font-size:3rem;color: rgba(255,255,255,.7);" >exhibition</a></li>
+							<li onmouseover="{document.querySelectorAll('.fontblack')[0].style.color='rgba(47, 23, 15, 0.9)';}"onmouseleave="{document.querySelectorAll('.fontblack')[0].style.color='rgba(255,255,255,.7)';}"><a class="fontblack" href="/uri/prj/user/book" style="font-size:3rem;color: rgba(255,255,255,.7);" >Book</a></li>
+							<li onmouseover="{document.querySelectorAll('.fontblack')[1].style.color='rgba(47, 23, 15, 0.9)';}"onmouseleave="{document.querySelectorAll('.fontblack')[1].style.color='rgba(255,255,255,.7)';}"><a class="fontblack" href="/uri/prj/user/exhibition" style="font-size:3rem;color: rgba(255,255,255,.7);" >exhibition</a></li>
 
 						</ul>
 					</li>
