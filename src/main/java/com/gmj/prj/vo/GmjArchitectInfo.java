@@ -15,6 +15,16 @@ public class GmjArchitectInfo {
 	private String gmjarchitectbaddress3;
 	private String gmjarchitectbtitle;
 	private String gmjarchitectbdesc;
+	private String gmjarchitectbthumb;
+	public String getGmjarchitectbthumb() {
+		return gmjarchitectbthumb;
+	}
+	public void setGmjarchitectbthumb(String gmjarchitectbthumb) {
+		this.gmjarchitectbthumb = gmjarchitectbthumb;
+	}
+	public void setGmjarchitectno(Integer gmjarchitectno) {
+		this.gmjarchitectno = gmjarchitectno;
+	}
 	public Integer getGmjarchitectbno() {
 		return gmjarchitectbno;
 	}

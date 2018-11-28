@@ -321,7 +321,7 @@
 		<h4 style="text-align: center;">실시간 트위터</h4>
 
 		<hr>
-		<div class="twitte"
+		<div class="twitter"
 			style="overflow-y: auto; height: 300px; background: rgba(255, 255, 255, .85);">
 		</div>
 
@@ -338,7 +338,7 @@
 							style="width: 984px; height: 300px;">
 							<div class="col-sm-11" style="font: 30px bold">건축 이야기</div>
 							<div class="col-sm-1">
-								<button class="btn btn-default">더보기</button>
+								<button class="btn btn-default"><a href="/uri/prj/user/socialMedia">더보기</a></button>
 							</div>
 							<div>
 								<div class="col-sm-4" style="padding-right: 0px;">
@@ -389,25 +389,25 @@
 
 							<div class="col-sm-11" style="font: 30px bold">책</div>
 							<div class="col-sm-1">
-								<button class="btn btn-default">더보기</button>
+								<button class="btn btn-default"><a href="/uri/prj/user/culture/book">더보기</a></button>
 							</div>
 
 
 							<div class="col-sm-4" style="margin-top: 10px">
 								<img
-									src="http://t0.gstatic.com/images?q=tbn:ANd9GcQq-h_qP4eDSgfMiAqrEiCux7DD70QwD_0PzpIoiqpy0tx2AYtD"
+									src="https://bookthumb-phinf.pstatic.net/cover/069/774/06977419.jpg?udate=20170419"
 									class="img-thumbnail" alt="Cinque Terre"
 									style="width: 100%; height: 350px;">
 							</div>
 							<div class="col-sm-4" style="margin-top: 10px">
 								<img
-									src="http://image.kyobobook.co.kr/images/book/large/056/l9788972120056.jpg"
+									src="https://bookthumb-phinf.pstatic.net/cover/084/985/08498556.jpg?udate=20150716"
 									class="img-thumbnail" alt="Cinque Terre"
 									style="width: 100%; height: 350px;">
 							</div>
 							<div class="col-sm-4" style="margin-top: 10px">
 								<img
-									src="http://t1.daumcdn.net/thumb/R155x225/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fbook%2FKOR9788990641526"
+									src="https://bookthumb-phinf.pstatic.net/cover/061/825/06182581.jpg?udate=20150723"
 									class="img-thumbnail" alt="Cinque Terre"
 									style="width: 100%; height: 350px;">
 							</div>
@@ -430,10 +430,10 @@
 							<span class="section-heading-upper">Our Promise</span> <span
 								class="section-heading-lower">To You</span>
 						</h2>
-						<p class="mb-0">When you walk into our shop to start your day,
-							we are dedicated to providing you with friendly service, a
-							welcoming atmosphere, and above all else, excellent products made
-							with the highest quality ingredients. If you are not satisfied,
+						<p class="mb-0">When you walk around your neighborhood to do whatever it is,
+							we hope you to find something you can regard as a treasure. So many buildings which
+							was designed by famous architect are nearby! Our service makes 
+							you find easily where you want to go during your journey.If you are not satisfied,
 							please let us know and we will do whatever we can to make things
 							right!</p>
 					</div>
@@ -576,24 +576,25 @@
 	<script>
 		var twitter = document.querySelector('.twitter');
 
-		var twitterhtml;
-		/* au.send({
+		var twitterhtml='';
+		 au.send({
 		 url : '/tweets',
 		 method : 'GET',
 		 success : function(res) {
 		 res = JSON.parse(res);
+		 console.log(res);
 		 for(var i of res){
-		 twitterhtml +='아이디는'+i.user.screenName+': 글내용은'+i.text+'<br><br>';	
+		 twitterhtml +='<div style="height:110px; float:left;width:33px"><img src="'+i.user.biggerProfileImageURLHttps+'" style=" object-fit:cover;border-radius: 50%;width:30px;height:30px;"></div><div style="font-size:20px;font-weight:bold float:left;">'+i.user.screenName+'</div>'+i.text+'<br><br>';	
 		 }
 		 twitter.insertAdjacentHTML('beforeend',twitterhtml);	
 		 }
-		 }) */
-		var twitte = document.querySelector('.twitte');
+		 }) 
+	/* 	var twitte = document.querySelector('.twitte');
 		var twittehtml = '';
 		twittehtml = '<div style="float:left;"><img src="https://ssl.pstatic.net/sstatic/search/2015/ico_rt_entertain.png" style="width:50px;"></div><div style="float:left;border-bottom: 1px solid #e6a756;">undefined아이디는myoyongshi: 글내용은RT @hitchhiker_j: ‘2018년에 건축가 김중업을 어떻게 보여줄까’에 대한 편집자와 디자이너의 고민, 답을 찾아가는 과정을 들을 수 있어 좋았다. 손바닥만한 크기의 아주 가벼운 책으로 만들고 싶었다는 정재완 디자이너의 말이 기억에 남았다…<br><br></div>'
 				.repeat(10);
 
-		twitte.insertAdjacentHTML('beforeend', twittehtml);
+		twitte.insertAdjacentHTML('beforeend', twittehtml); */
 	</script>
 </body>
 </html>
