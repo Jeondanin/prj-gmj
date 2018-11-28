@@ -240,7 +240,7 @@
 						<div class="Card-explore">
 							<span>Explore 50 more</span>
 						</div>
-						<button class="Card-button">view more</button>
+						<button class="Card-button" onclick="{location.href='/uri/prj/user/community/recommend/view?no=1'}">view more</button>
 					</div>
 					<div class="Card" style="margin-right: 50px;">
 						<div class="Card-thumb">

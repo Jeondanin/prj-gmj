@@ -100,7 +100,7 @@ td {
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav"
 		data-spy="affix" data-offset-top="197">
-		<div class="container">
+		<div class="container" style="margin-left:490px">
 			<div class="intro-button mx-auto">
 				<div class="input-group"
 					style="width: 250px; position: absolute; top: -74px; left: 1496px;">
