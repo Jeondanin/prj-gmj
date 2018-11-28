@@ -10,29 +10,13 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<link href="${resPath}/user/vendor/bootstrap/css/recommend.css"
+<link href="${resPath}/user/vendor/bootstrap/css/home/recommend.css"
 	rel="stylesheet">
-<meta charset="UTF-8">
-<meta name="robots" content="noindex">
-<link rel="shortcut icon" type="image/x-icon"
-	href="//static.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico">
-<link rel="mask-icon" type=""
-	href="//static.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg"
-	color="#111">
-<link rel="canonical" href="https://codepen.io/arthurcamara1/pen/VPjvwB">
-<link
-	href="https://fonts.googleapis.com/css?family=Libre+Franklin:400,600"
-	rel="stylesheet">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-
 
 <title>GMJ</title>
 
 <!-- Bootstrap core CSS -->
 <link href="${resPath}/user/vendor/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet">
-<link href="${resPath}/user/vendor/bootstrap/css/work.css"
 	rel="stylesheet">
 
 <!-- Custom fonts for this template -->
@@ -56,7 +40,8 @@
 </head>
 
 <body>
-	<h1 class="site-heading text-center text-white d-none d-lg-block" style="margin-top:3rem; margin-bottom:3rem;">
+	<h1 class="site-heading text-center text-white d-none d-lg-block"
+		style="margin-top: 3rem; margin-bottom: 3rem;">
 		<span class="site-heading-lower"><a href="home"
 			style="color: white; text-decoration: none;"> <svg width="200px"
 					height="200px"> 
@@ -102,41 +87,56 @@
     
 
 </svg>
+
+
+
 		</a></span>
 	</h1>
 	<c:if test="${empty userID}">
-	<div style="position: absolute; left: 1500px; top: 5px; width: 200px;">
-		<div style="float: left; margin-right: 5%;">
-			<button data-toggle="modal"	data-target="#login"
-				style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;">${userID}로그인</button>
+		<div style="position: absolute; left: 1500px; top: 5px; width: 200px;">
+			<div style="float: left; margin-right: 5%;">
+				<button data-toggle="modal" data-target="#login"
+					style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;">${userID}로그인</button>
+			</div>
+			<div style="float: left;">
+				<button
+					style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;"
+					data-toggle="modal" data-target="#signup">회원가입</button>
+			</div>
 		</div>
-		<div style="float: left;">
-			<button
-				style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;"
-				data-toggle="modal" data-target="#signup">회원가입</button>
-		</div>
-	</div>
 	</c:if>
-		<c:if test="${!empty userID}">
-	<div style="position: absolute; left: 1500px; top: 5px; width: 200px;">
-		<div style="float: left; margin-right: 5%; color:white">
-			환영합니다. ${userID}님  
+	<c:if test="${!empty userID}">
+		<div style="position: absolute; left: 1500px; top: 5px; width: 200px;">
+			<div style="float: left; margin-right: 5%; color: white">
+				환영합니다. ${userID}님</div>
+			<c:if test="${userID eq 'admin'}">
+				<div style="float: left;">
+					<button onclick="{location.href='../admin/home';}"
+						style="width: 100px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;">관리자페이지</button>
+				</div>
+			</c:if>
+			<div style="float: left;">
+				<button onclick="logout()"
+					style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;">로그아웃</button>
+			</div>
+
 		</div>
-		<div style="float: left;">
-			<button onclick="logout()"
-				style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;"
-				>로그아웃</button>
-		</div>
-	
-	</div>
 	</c:if>
 
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav"
-		data-spy="affix" data-offset-top="197"> 
+		data-spy="affix" data-offset-top="197">
 		<div class="container" style="margin-left: 490px;">
-			<div class="intro-button mx-auto"></div>
-			<a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">GMJ</a>
+			<div class="intro-button mx-auto">
+				<div class="input-group"
+					style="width: 250px; position: absolute; top: -74px; left: 1496px;">
+
+					<div class="input-group-append"></div>
+				</div>
+			</div>
+			<a
+				class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none"
+				href="home">GMJ</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarResponsive" aria-controls="navbarResponsive"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -144,7 +144,7 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav mx-auto">
-					<li class="nav-item active px-lg-4"><a
+					<li class="nav-item px-lg-4"><a
 						class="nav-link text-uppercase text-expanded" href="home">Home
 							<span class="sr-only">(current)</span>
 					</a></li>
@@ -167,7 +167,7 @@
 						class="nav-link text-uppercase text-expanded"
 						href="/uri/prj/user/socialMedia">social media</a></li>
 					</li>
-						<li class="nav-item px-lg-4"><a
+					<li class="nav-item px-lg-4 active"><a
 						class="nav-link text-uppercase text-expanded" href="academy.html"
 						data-toggle="dropdown">Culture</a>
 						<ul class="dropdown-menu" style="position:absolute; left:1220px;background:rgba(47, 23, 15, 0.9);">
@@ -180,198 +180,121 @@
 			</div>
 		</div>
 	</nav>
+	
+	
 
-	<section class="page-section">
+	<section class="page-section cta">
 		<div class="container">
-			<div class="product-item">
-				<div class="product-item-title d-flex">
-					<div class="bg-faded p-5 d-flex ml-auto rounded">
-						<h2 class="section-heading mb-0">
-							<span class="section-heading-upper" style="text-align: center;">김중업</span>
-							<span class="section-heading-lower">작품</span>
+			<div class="row">
+				<div class="col-xl-9 mx-auto">
+					<div class="cta-inner text-center rounded">
+						<h2 class="section-heading mb-4">
+							<span class="section-heading-upper">건축전시회</span>
 						</h2>
+						 <span style="font-weight:lighter; font-size:40px;">김중업 다이얼로그</span><br>
+						 <!-- 회전목마 -->
+						 <section class="page-section cta">
+		<div class="container"
+			style="width: 700px; margin-left: 20px; margin-right: 20px;">
+			<div class="row" style="width: 700px;">
+				<div class="col-xl-12 mx-auto">
+					<div class="cta-inner text-center rounded"
+						style="background: rgba(215, 215, 215, 0.9);">
+						<div id="myCarousel" class="carousel slide" data-ride="carousel">
+							<!-- Indicators -->
+							<ol class="carousel-indicators">
+								<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+								<li data-target="#myCarousel" data-slide-to="1"></li>
+								<li data-target="#myCarousel" data-slide-to="2"></li>
+							</ol>
+
+							<!-- Wrapper for slides -->
+							<div class="carousel-inner" style="width: 700px; margin: auto;">
+								<div class="item active">
+									<div
+										style="width: 70%; height:700px; margin-left:65px; padding-top: 100px;">
+									
+										<div class="col-sm-12">
+											
+												<img src="https://www.mmca.go.kr/upload/exhibition/2018/08/dse_2018081303061505115290.jpg"
+													style="width: 400;height:400">
+													<br>김중업 , &lt;건국대학교 도서관 (현 건국대학교 언어교육원)&gt;<br> 1956년 설계, 김중업건축박물관 소장 사진
+											
+										</div>
+									
+									</div>
+								</div>
+
+								<div class="item">
+									<div
+										style="width: 70%; height: 700px; margin-left:65px; padding-top: 100px;">
+										
+										<div class="col-sm-12">
+											<img src="https://www.mmca.go.kr/upload/exhibition/2018/08/dse_2018081303074859211904.jpg"
+												style="width: 400;height:400">
+												<br>김중업,&lt;유엔기념묘지 정문 (현 유엔기념공원 정문)&gt;<br> 1966년 설계, 김중업건축박물관 소장 사진
+										</div>
+									
+									</div>
+								</div>
+
+								<div class="item">
+									<div
+										style="width: 70%; height: 700px; margin-left: 65px; padding-top: 100px;">
+									
+										<div class="col-sm-10">
+											<img src="https://www.mmca.go.kr/upload/exhibition/2018/08/dse_2018081303072555719273.jpg"
+												style="width: 400;height:400">
+												<br>김중업, &lt;삼일빌딩&gt;<br> 1969년 설계, 사진: 김한용, 1970년대
+										</div>
+			
+									</div>
+								</div>
+							</div>
+
+							<!-- Left and right controls -->
+							<a class="left carousel-control" href="#myCarousel"
+								data-slide="prev"> <span
+								class="glyphicon glyphicon-chevron-left"></span> <span
+								class="sr-only">Previous</span>
+							</a> <a class="right carousel-control" href="#myCarousel"
+								data-slide="next"> <span
+								class="glyphicon glyphicon-chevron-right"></span> <span
+								class="sr-only">Next</span>
+							</a>
+						</div>
+
+
+
+
+
+
+
 					</div>
 				</div>
-
-				<!-- 추가 -->
-				<section class="intro">
-					<div class="container1">
-						<h1>My Life &darr;</h1>
-						<h5>Scroll Down</h5>
-					</div>
-				</section>
-				<section class="timeline">
-					<ul>
-						<li>
-							<div>
-								<time>1993</time>
-								<img id="meBaby"
-									src="http://i1356.photobucket.com/albums/q729/eleftheria_b/my%20face/babyMe_zps3ku1takx.jpg" /><br>Born
-								in Greece in a hot noon of mid-summer
-							</div>
-						</li>
-						<li>
-							<div>
-								<time>1998-2011</time>
-								<img class="photos"
-									src="http://www.westperry.org/cms/lib/PA09000117/Centricity/Domain/51/school.gif" /><br>Went
-								to school in many different places in Greece. We had to move a
-								lot due to mama's job.
-							</div>
-						</li>
-						<li>
-							<div>
-								<time>2012-2016</time>
-								<img class="photos"
-									src="https://eclass.uowm.gr/courses/theme_data/3/uowm-logo_1.png" /><br>
-								Study at the university of Western Macedonia in Greece.
-							</div>
-						</li>
-						<li>
-							<div>
-								<time>2016</time>
-								<img class="photos"
-									src="http://i1356.photobucket.com/albums/q729/eleftheria_b/my%20face/3_eleftheria_zpsjwpxlvm7.jpg" /><br>
-								Graduade as an Engineer of Informatics and Telecommunications
-							</div>
-						</li>
-						<li>
-							<div>
-								<time>2017</time>
-								<img class="photos"
-									src="http://i1356.photobucket.com/albums/q729/eleftheria_b/my%20face/IMG-20161208-WA0006_zpsnpvm7kko.jpg" /><br>Been
-								for a couples of months in Amsterdam to internship in a cool
-								start-up company!
-							</div>
-						</li>
-						<li>
-							<div>
-								<time>Find me!</time>
-								<h5>
-									<a href="http://www.eleftheriabatsou.com" target="_blank">Eleftheria</a>
-									| <a href="https://codepen.io/EleftheriaBatsou" target="_blank">Projects</a>
-									| <a
-										href="https://www.youtube.com/channel/UCC-WwYv3DEW7Nkm_IP6VeQQ"
-										target="_blank"> Coding videos </a>
-								</h5>
-							</div>
-						</li>
-					</ul>
-				</section>
-				<script>
-					(function() {
-
-						'use strict';
-
-						// define variables
-						var items = document.querySelectorAll(".timeline li");
-
-						// check if an element is in viewport
-						// http://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport
-						function isElementInViewport(el) {
-							var rect = el.getBoundingClientRect();
-							return (rect.top >= 0
-									&& rect.left >= 0
-									&& rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rect.right <= (window.innerWidth || document.documentElement.clientWidth));
-						}
-
-						function callbackFunc() {
-							for (var i = 0; i < items.length; i++) {
-								if (isElementInViewport(items[i])) {
-									items[i].classList.add("in-view");
-								}
-							}
-						}
-
-						// listen for events
-						window.addEventListener("load", callbackFunc);
-						window.addEventListener("resize", callbackFunc);
-						window.addEventListener("scroll", callbackFunc);
-
-					})();
-				</script>
-				<!-- 추가 끝 -->
-
-
 			</div>
 		</div>
 	</section>
-
-	<!-- --------------------------------------------------------------- -->
-
-	<div class="recommend"> 
-		<section class="Grid">
-			<div class="Grid-row">
-				<div class="Card">
-					<div class="Card-thumb">
-						<div class="Card-shadow"></div>
-						<div class="Card-shadow"></div>
-						<div class="Card-shadow"></div>
-						<div class="Card-image" 
-							style="background-size:297px 250px; background-image: url(${resPath}/user/img/su.jpg); width:298.5px; height:150px;"></div>
+	<!-- //회전목마 끝  -->
+						 
+						 
+						 
+						 
+						 
+						 
+						 
+						 
+						<p>전시회 개요 </p>
+						<p style="text-align:left;">《김중업 다이얼로그》전은 한국 현대 건축의 신화적 인물인 건축가 김중업을 조망한다. 하지만 이 전시는 그동안 김중업에 관한 피상적인 진단과 신화화된 측면과는 거리를 두고, 예술과 건축의 관계를 매개로 그동안 논의되지 않았던 다양한 맥락 속에서 작가와 그가 남긴 유산을 살펴보는 전시다. 김중업의 타계 30주기를 기념하기 위해 마련된 이 전시는 한국 현대 건축 전시를 꾸준히 기획해온 국립현대미술관이 김중업건축박물관과 공동으로 준비했다. 건축가 김중업의 생애 전반을 조망하는 첫 대규모 전시로서, 김중업건축박물관의 소장품과 국립현대미술관의 아카이브, 그리고 건물주로부터 대여한 자료들과 사진 및 영상 신작으로 구성했다.</p>
+						<br>
+						<p style="text-align:left;">1922년 평양에서 출생한 김중업은 르코르뷔지에 아틀리에에서 실무를 한 뒤 한국전쟁 이후 초토화된 한국 땅에서 한국적 모더니즘을 구현하고자 한 건축가다. 그는 임시수도 부산에서 만난 예술가들과의 네트워크를 기반으로 한국 문화예술계 중심에서 활동하며 예술가 들을 후원하고, 그들과의 협업을 오랜 기간 진행했다. 한국에서 최초의 건축 전시회를 열기도 한 김중업은 전시라는 문화양식을 일찍부터 이해하고 실천한 사람이다. 그는 건축을 건물로 한정하지 않고 담론의 문제로 보고 예술매체에 대한 깊이 있는 탐구를 진행했다. 그러한 사유의 흔적은 그가 남긴 이미지 아카이브에서 발견할 수 있다.</p>
+						<br>
+						<p style="text-align:left">《김중업 다이얼로그》전은 역순으로 진행되는 김중업의 작품 연대기를 첫 번째 대화의 시작으로 연다. 그리고 ‘세계성과 지역성’, ‘예술적 사유와 실천’, ‘도시와 욕망’, ‘기억과 재생’ 등 4개의 주제로 그간 김중업과 그의 작품에 관해 주변부에 머물렀던 문맥들을 펼쳐보이고자 한다. 특히 이번 전시는 그간 논의가 부족했던 김중업의 후기 작업들과 한국의 중요한 예술가들과의 협업 과정, 도시에 대한 그의 생각들을 살펴보는 기회가 될 것이다. 《김중업 다이얼로그》는 이제 막 촉발되기 시작한 한국 건축가 연구의 출발점으로서 건축, 예술 그리고 우리 사회의 다양한 관계망들과 대화의 장을 여는 단초가 되리라 기대한다. </p>
 					</div>
-					<div class="Card-title">
-						<span>김수근</span>
-					</div>
-					<a href="architect/architectsu"><button class="Card-button">자세히</button></a>
-				</div>
-				<div class="Card">
-					<div class="Card-thumb">
-						<div class="Card-shadow"></div>
-						<div class="Card-shadow"></div>
-						<div class="Card-shadow"></div>
-						<div class="Card-image"
-							style="background-size:297px; background-image: url(${resPath}/user/img/jung.jpg); width:298.5px; height:150px;"></div>
-					</div>
-					<div class="Card-title">
-						<span>정기용</span>
-					</div>
-					<a href="architect/architectjung"><button class="Card-button">자세히</button></a>
-				</div>
-				<div class="Card" style="width: 30rem; height: 20rem;">
-					<div class="Card-thumb">
-						<div class="Card-shadow"></div>
-						<div class="Card-shadow"></div>
-						<div class="Card-shadow"></div>
-						<div class="Card-image"
-							style="background-size:297px 150px; background-image: url(${resPath}/user/img/kim.jpg); width:298.5px; height:150px;"></div>
-					</div> 
-					<div class="Card-title">
-						<span>김중업</span>
-					</div>
-					<a href="architectkim"><button class="Card-button">자세히</button></a>
-				</div>
-				<div class="Card">
-					<div class="Card-thumb">
-						<div class="Card-shadow"></div>
-						<div class="Card-shadow"></div>
-						<div class="Card-shadow"></div>
-						<div class="Card-image"
-							style="background-size:297px 150px; background-image: url(${resPath}/user/img/min.jpg); width:298.5px; height:150px;"></div>
-					</div>
-					<div class="Card-title">
-						<span>민현식</span>
-					</div>
-					<a href="architect/architectmin"><button class="Card-button">자세히</button></a>
-				</div>
-				<div class="Card">
-					<div class="Card-thumb">
-						<div class="Card-shadow"></div>
-						<div class="Card-shadow"></div>
-						<div class="Card-shadow"></div>
-						<div class="Card-image"
-							style="background-size:297px 250px; background-image: url(${resPath}/user/img/hwang.jpg); width:298.5px; height:150px;"></div>
-					</div>
-					<div class="Card-title">
-						<span>황두진</span>
-					</div>
-					<a href="architect/architecthwang"><button class="Card-button">자세히</button></a>
 				</div>
 			</div>
-		</section>
-	</div>
-
-	<!-- --------------------------------------------------------------- -->
+		</div>
+	</section>
 
 	<footer class="footer text-faded text-center py-5">
 		<div class="container">
@@ -379,6 +302,133 @@
 		</div>
 	</footer>
 
+	<div class="modal fade" id="login" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Modal Header</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-user"></i></span> <input
+								id="logingmjuseremail" type="email" class="form-control"
+								name="gmjuseremail" placeholder="이메일" required>
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-lock"></i></span> <input
+								id="logingmjuserpwd" type="password" class="form-control"
+								name="gmjuserpwd" placeholder="비밀번호">
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button id="sb" class="btn btn-default" onclick="login()">로그인</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<div class="modal fade" id="signup" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Modal Header</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-user"></i></span> <input id="gmjuseremail"
+								type="email" class="form-control" name="gmjuseremail"
+								placeholder="이메일" required>
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-lock"></i></span> <input id="gmjuserpwd"
+								type="password" class="form-control" name="gmjuserpwd"
+								placeholder="비밀번호">
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-lock"></i></span> <input id="gmjuserpwdchk"
+								type="password" class="form-control" name="gmjuserpwdchk"
+								placeholder="비밀번호 확인">
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-pencil"></i></span> <input id="gmjusername"
+								type="text" class="form-control" name="gmjusername"
+								placeholder="이름">
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-phone"></i></span> <input id="gmjuserphone"
+								type="text" class="form-control" name="gmjuserphone"
+								placeholder="핸드폰 번호">
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-calendar"></i></span> <input
+								id="gmjuserbirth" type="date" class="form-control"
+								name="gmjuserbirth" placeholder="생년월일 8자 ex)900213">
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-heart"></i></span>
+							<div id="gmjusersex"
+								style="padding: 6px 12px; font-size: 14px; height: 34px; border: 1px solid #ced4da; border-radius: .25rem;">
+								<label class="radio-inline"> <input type="radio"
+									name="optradio" value="남자">남
+								</label> <label class="radio-inline"> <input type="radio"
+									name="optradio" value="여자">녀
+								</label>
+							</div>
+
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-stats"></i></span> <input
+								id="gmjuseraddress" type="text" class="form-control"
+								name="gmjuseraddress" placeholder="주소">
+						</div>
+
+						<br>
+
+
+					</form>
+
+
+
+
+
+				</div>
+				<div class="modal-footer">
+					<button id="sb" class="btn btn-default" onclick="submit()">제출</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="${resPath}/user/vendor/jquery/jquery.min.js"></script>
+	<script
+		src="${resPath}/user/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="${resPath}/user/js/basic.js"></script>
+
+	<script>
+		
+	</script>
 </body>
 </html>
-			
