@@ -46,64 +46,70 @@ html, body {
 	line-height: 30px;
 	padding-left: 10px;
 }
-#maptools{
-position:absolute;
-width:20%;
-height:819px;
-top:150px;
-left:0px;
-background-color:rgba(221,221,221,1);
-border-radius:5px;
-transition-property: left;
- transition-duration: 0.4s;
- display:none;
 
-}
-#maptools #container{
-background-color:rgba(255,255,255,0.8);
-margin:1% 3%;
-padding:5%;
-width:84%;
-height:90%;
-border-radius:5px;
-overflow-y: auto;
-}
-#drawer{
-position:absolute;
-top:480px;
-left:20%;
-background-color:rgba(221,221,221,1);
-width:35px;
-height:50px;
-transition-property: left;
- transition-duration: 0.4s;
- font-size:35px;
- display:none;
+#maptools {
+	position: absolute;
+	width: 20%;
+	height: 759px;
+	top: 150px;
+	left: 0px;
+	background-color: rgba(221, 221, 221, 1);
+	border-radius: 5px;
+	transition-property: left;
+	transition-duration: 0.4s;
+	display: none;
 }
 
+#maptools #container {
+	background-color: rgba(255, 255, 255, 0.8);
+	margin: 1% 3%;
+	padding: 5%;
+	width: 84%;
+	height: 90%;
+	border-radius: 5px;
+	overflow-y: auto;
+}
+
+#drawer {
+	position: absolute;
+	top: 480px;
+	left: 20%;
+	background-color: rgba(221, 221, 221, 1);
+	width: 35px;
+	height: 50px;
+	transition-property: left;
+	transition-duration: 0.4s;
+	font-size: 35px;
+	display: none;
+}
 </style>
 </head>
 <body>
 
 	<div id="floating-panel">
-		<span><a href="/uri/prj/user/home">GMJ</a>&nbsp;</span>
-		<select id="fruits" name='fruits' style="height:35px; m:3px;" >
-			
+		<span><a href="/uri/prj/user/home">GMJ</a>&nbsp;</span> <select
+			id="fruits" name='fruits' style="height: 35px; m: 3px;">
+
 			<option value='people' selected>건축가</option>
 			<option value='building'>주소</option>
-		</select> <input id="selectC" type="text" style="height:35px" value="김중업"><input id="btz" type="button"
-			value="검색" style="height:35px">
+		</select> <input id="selectC" type="text" style="height: 35px" value="김중업"><input
+			id="btz" type="button" value="검색" style="height: 35px">
 	</div>
 	<div id="map"></div>
-	
+
 	<div id="maptools">
-		 <div style="background:rgba(100,200,200,1);margin:1% 3%;padding-left:15px;"><p style="font-size:20px;margin-top:3%;margin-bottom:1%;font-weight:bold;">검색결과</p></div>
-		<div id="container">
+		<div
+			style="background: rgba(100, 200, 200, 1); margin: 1% 3%; padding-left: 15px;">
+			<p
+				style="font-size: 20px; margin-top: 3%; margin-bottom: 1%; font-weight: bold;">검색결과</p>
 		</div>
+		<div id="container"></div>
 
 	</div>
-	<div id="drawer" style="border-radius:0 25px 25px 0;border:5px solid rgba(100,200,200,1);border-left:none;" onclick="hidetools()">&lt;</div>
-		
+	<div id="drawer"
+		style="border-radius: 0 25px 25px 0; border: 5px solid rgba(100, 200, 200, 1); border-left: none;"
+		onclick="hidetools()">&lt;</div>
+
 	<script>
 	var sc= document.getElementById('selectC')
 	var fs= document.getElementById('fruits');
@@ -130,7 +136,8 @@ transition-property: left;
 								console.log(ads.gmjarchitectbaddress1);
 								console.log(ads.gmjarchitectbaddress2);
 								//testAd = ads.gmjarchitectbaddress1+' '+ads.gmjarchitectbaddress2+ads.gmjarchitectbaddress3;
-								//console.log(testAd);	
+								//console.log(testAd)
+								setTimeout(function() { console.log('Works!')}, 3000);
 								geocodeAddress(geocoder,map,ads);	
 								console.log(86);
 								console.log(ads);
