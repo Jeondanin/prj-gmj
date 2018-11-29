@@ -15,8 +15,10 @@ public class GmjFavoriteDAOImpl implements GmjFavoriteDAO {
 	public SqlSession ss;
 	@Override
 	public int insertFavorite(GmjFavorite gf) {
-		
-		return ss.insert("com.gmj.prj.vo.GmjFavorite.insertFavorite",gf);
+		ss.update("com.gmj.prj.vo.GmjFavorite.updateFavoriteCnt",gf);
+		 int a = ss.insert("com.gmj.prj.vo.GmjFavorite.insertFavorite",gf);
+		 System.out.println(a);
+		return a;
 	}
 
 }

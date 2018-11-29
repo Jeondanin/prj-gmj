@@ -33,7 +33,10 @@ public class GmjArchitectInfoController {
 	@Autowired
 	private GmjFavoriteService gfs;
 	
-	
+	@GetMapping(value="/gmjlandmark")
+	public @ResponseBody List<GmjArchitectInfo> getlandmark(){
+		return gais.getLandmark();
+	}
 	@GetMapping(value="/gmjArchitectName/{gmjArchitectName}")
 	public @ResponseBody List<GmjArchitectInfo> userprList(@PathVariable String gmjArchitectName) {
 		return gais.getList(gmjArchitectName);

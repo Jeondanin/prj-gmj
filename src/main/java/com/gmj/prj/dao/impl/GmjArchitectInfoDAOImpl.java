@@ -32,6 +32,11 @@ public class GmjArchitectInfoDAOImpl implements GmjArchitectInfoDAO {
 		return ss.selectList("com.gmj.prj.vo.GmjArchitectInfo.selectGmjMapList");
 
 	}
+	@Override
+	public List<GmjArchitectInfo> getLandmark() {
+
+		return ss.selectList("com.gmj.prj.vo.GmjArchitectInfo.selectLandmark","서울");
+	}
 
 }
 

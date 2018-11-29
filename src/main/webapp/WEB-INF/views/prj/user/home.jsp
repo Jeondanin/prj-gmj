@@ -285,8 +285,8 @@
 		</ul>
 		<div class="tab-content">
 			<div id="서울" class="tab-pane fade in active">
-				<h3>서울</h3>
-				<p>서울</p>
+				<h3>서울지역랜드마크 </h3>
+				<div class="seoullm"></div>
 			</div>
 			<div id="경기" class="tab-pane fade">
 				<h3>경기</h3>
@@ -595,6 +595,21 @@
 				.repeat(10);
 
 		twitte.insertAdjacentHTML('beforeend', twittehtml); */
+		
+		var seoullm = document.querySelector('.seoullm');
+		au.send({
+			url:'/gmjlandmark',
+			method:'GET',
+			success : function(res){
+				res=JSON.parse(res);
+				for(var i of res){
+					seoullm.insertAdjacentHTML('beforeend',i.gmjarchitectbtitle);	
+				}
+			}
+			
+		})
+		
+		
 	</script>
 </body>
 </html>

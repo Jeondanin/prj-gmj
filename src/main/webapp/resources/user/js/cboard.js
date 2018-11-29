@@ -108,7 +108,7 @@ var pagination = document.querySelector('#paginationz');
 				for(var i=0;i<10;i++){
 					if(res[i]!=null){
 						html += '<tr class="board"><td>'
-							+ res[i].gmjcboardno + '</td><td><a href="/uri/prj/user/community/view?no='+res[i].gmjcboardno+'">'
+							+ res[i].gmjcboardno + '</td><td><a href="/uri/prj/user/community/usercommunity/view?no='+res[i].gmjcboardno+'">'
 							+ res[i].gmjcboardtitle + '</a></td><td>'
 							+ res[i].gmjusername + '</td><td>'
 							+ res[i].credat + '</td><td>'

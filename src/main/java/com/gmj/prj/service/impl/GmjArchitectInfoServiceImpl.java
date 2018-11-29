@@ -20,6 +20,11 @@ public class GmjArchitectInfoServiceImpl implements GmjArchitectInfoService {
 		return gaid.getList(gmjArchitectName);
 	}
 	@Override
+	public List<GmjArchitectInfo> getLandmark() {
+		
+		return gaid.getLandmark();
+	}
+	@Override
 	public GmjArchitectInfo checkAddress(String gmjArchitectBAddress) {
 		// TODO Auto-generated method stub
 		return gaid.checkAddress(gmjArchitectBAddress);
@@ -30,5 +35,6 @@ public class GmjArchitectInfoServiceImpl implements GmjArchitectInfoService {
 		return gaid.getgmjMapList();
 
 	}
+	
 
 }

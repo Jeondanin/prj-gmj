@@ -4,7 +4,14 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	<mapper namespace="com.gmj.prj.vo.GmjFavorite">
 		<insert id="insertFavorite">
-			insert into gmjfavorite(gmjuserno,gmjarchitectbno,favoritecnt)
-			values(${gmjuserno},#{gmjarchitectbno},0)
+		select @fc :=count(*)+1  from gmjfavorite where gmjuserno=#{gmjuserno};
+		insert into gmjfavorite(gmjuserno,gmjarchitectbno,favoritecnt)
+		select #{gmjuserno},#{gmjarchitectbno},@fc from dual where not exists(select * from gmjfavorite where favoritecnt=5 and gmjuserno=#{gmjuserno});
+		
 		</insert>
+		<update id="updateFavoriteCnt">
+			update gmjarchitectinfo
+			set favoritecnt = favoritecnt +1 
+			where gmjarchitectbno=#{gmjarchitectbno}
+		</update>
 	</mapper>

@@ -87,7 +87,7 @@ html, body {
 <body>
 
 	<div id="floating-panel">
-		<span><a href="/uri/prj/user/home">GMJ</a>&nbsp;</span> <select
+		<span><a href="/uri/prj/user/home" style="text-decoration:none;">GMJ</a>&nbsp;</span> <select
 			id="fruits" name='fruits' style="height: 35px; m: 3px;">
 
 			<option value='people' selected>건축가</option>
@@ -137,8 +137,11 @@ html, body {
 								console.log(ads.gmjarchitectbaddress2);
 								//testAd = ads.gmjarchitectbaddress1+' '+ads.gmjarchitectbaddress2+ads.gmjarchitectbaddress3;
 								//console.log(testAd)
-								setTimeout(function() { console.log('Works!')}, 3000);
-								geocodeAddress(geocoder,map,ads);	
+								
+								geocodeAddress(geocoder,map,ads);
+								
+								
+								console.log(ads.gmjarchitectbno);
 								console.log(86);
 								console.log(ads);
 								addtools(ads);
@@ -222,7 +225,8 @@ html, body {
 				method:'POST',
 				param : JSON.stringify({gmjuserno:1,gmjarchitectbno:ads}),
 				success : function(res){
-				//	alert(res.length);
+					console.log(res);
+					//alert('즐겨찾기로 등록되었습니다.');
 				}
 		}
 		au.send(conf);
@@ -305,48 +309,47 @@ html, body {
 				contentString='<img src="https://png.pngtree.com/element_origin_min_pic/20/16/01/3056ac19d18d908.jpg" onclick="insertFavorite(event,'+ads.gmjarchitectbno+')"style="width:20px;height:20px; cursor:pointer;"><div name="'+ads.gmjarchitectbtitle+'"><h1>'+ads.gmjarchitectbtitle+'</h1><br><a href="'+ads.gmjarchitectbthumb+'"><img style="width:80px;height:120px;float:right;"src="'+ads.gmjarchitectbthumb+'"></a>'+ads.gmjarchitectbdesc+'</div>'; //함수로 따로 빼서 해도 될듯.
 			}
 			console.log(address);
-			
-			geocoder
-					.geocode(
-							{
-								'address' : address
-							},
-							function(results, status) {
-								if (status === 'OK') {
-									console.log(results)
-									resultsMap.setCenter(results[0].geometry.location);
-									
-									//marker를 지우고 다른거 
-									for(var ss of results){
-										console.log(ss.geometry.location.lat());
-										console.log(ss.geometry.location.lng());
-										document.querySelector('#'+ads.gmjarchitectbtitle+'').addEventListener('click',function(){setCenter(resultsMap,ss)});
-											
-										console.log(ads);
-										console.log(ads.gmjarchitectbthumb);
-									var marker = new google.maps.Marker({
-										
-										
-										map : resultsMap,
-										position : ss.geometry.location,
-									});
-									google.maps.event.addListener(marker, 'click', function() {
-										var infowindow = new google.maps.InfoWindow({
-											maxWidth : 200,
-											maxHeight: 300
-										});
-										infowindow.close();
-										infowindow.setContent(contentString);
-										infowindow.open(map, this);
-									});
-									
-									
-									}
-								} else {
-									alert('Geocode was not successful for the following reason: '
-											+ status);
-								}
+			setTimeout(function(){
+				geocoder.geocode({'address' : address},function(results, status) {
+					if (status === 'OK') {
+						console.log(results)
+						resultsMap.setCenter(results[0].geometry.location);
+						
+						//marker를 지우고 다른거 
+						for(var ss of results){
+							console.log(ss.geometry.location.lat());
+							console.log(ss.geometry.location.lng());
+							document.querySelector('#'+ads.gmjarchitectbtitle+'').addEventListener('click',function(){setCenter(resultsMap,ss)});
+								
+							
+							console.log(ads.gmjarchitectbthumb);
+						var marker = new google.maps.Marker({
+							
+							
+							map : resultsMap,
+							position : ss.geometry.location,
+						});
+						google.maps.event.addListener(marker, 'click', function() {
+							var infowindow = new google.maps.InfoWindow({
+								maxWidth : 200,
+								maxHeight: 300
 							});
+							infowindow.close();
+							infowindow.setContent(contentString);
+							infowindow.open(map, this);
+						});
+						
+						
+						}
+					} else {
+						alert('Geocode was not successful for the following reason: '
+								+ status);
+					}
+				});
+				
+			},ads.gmjarchitectbno*200);
+			
+		
 		}
 	</script>
 	<script async defer
