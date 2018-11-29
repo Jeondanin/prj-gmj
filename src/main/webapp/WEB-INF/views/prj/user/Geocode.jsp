@@ -132,17 +132,19 @@ html, body {
 						res=JSON.parse(res);
 						var testAd; 
 					
-							for(var ads of res){
+							{for(var ads of res){
 								console.log(ads.gmjarchitectbaddress1);
 								console.log(ads.gmjarchitectbaddress2);
 								//testAd = ads.gmjarchitectbaddress1+' '+ads.gmjarchitectbaddress2+ads.gmjarchitectbaddress3;
 								//console.log(testAd)
-								setTimeout(function() { console.log('Works!')}, 3000);
-								geocodeAddress(geocoder,map,ads);	
-								console.log(86);
-								console.log(ads);
-								addtools(ads);
-							}
+								setTimeout(function() { 
+									geocodeAddress(geocoder,map,ads);	
+									console.log(86);
+									console.log(ads);
+									addtools(ads);
+								}, 3000);
+								
+							}}
 					}
 					
 			
