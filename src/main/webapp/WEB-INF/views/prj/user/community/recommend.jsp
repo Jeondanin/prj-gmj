@@ -130,19 +130,8 @@ padding:2rem 6.5rem;
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav"
 		data-spy="affix" data-offset-top="197">
-		<div class="container">
-			<div class="intro-button mx-auto">
-				<div class="input-group"
-					style="width: 250px; position: absolute; top: -74px; left: 1496px;">
-					<input type="text" class="form-control" placeholder="Search for..."
-						aria-label="Search" aria-describedby="basic-addon2">
-					<div class="input-group-append">
-						<button class="btn btn-primary" type="button">
-							<i class="fas fa-search" style="width: 500px;"></i>
-						</button>
-					</div>
-				</div>
-			</div>
+		<div class="container" style="margin-left: 490px;">
+			
 			<a
 				class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none"
 				href="#">GMJ</a>

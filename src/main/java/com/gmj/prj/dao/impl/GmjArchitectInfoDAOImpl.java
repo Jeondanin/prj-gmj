@@ -33,9 +33,9 @@ public class GmjArchitectInfoDAOImpl implements GmjArchitectInfoDAO {
 
 	}
 	@Override
-	public List<GmjArchitectInfo> getLandmark() {
+	public List<GmjArchitectInfo> getLandmark(String areaname) {
 
-		return ss.selectList("com.gmj.prj.vo.GmjArchitectInfo.selectLandmark","서울");
+		return ss.selectList("com.gmj.prj.vo.GmjArchitectInfo.selectLandmark",areaname);
 	}
 
 }

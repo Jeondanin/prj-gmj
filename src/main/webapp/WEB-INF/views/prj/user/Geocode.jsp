@@ -203,7 +203,7 @@ html, body {
 				method:'GET',
 				//	param : JSON.stringify({uiid:id,uipwd:pwd,uiname:name,uiemail:email,uibirth:birth,uiaddress:address,uihobby:hobby,uidesc:desc,uitel:tel}),
 				success : function(res){
-					alert(res.length);
+				
 					if(res!=''){
 					res=JSON.parse(res);
 					geocodeAddress(geocoder,map,res);				
@@ -319,10 +319,10 @@ html, body {
 						for(var ss of results){
 							console.log(ss.geometry.location.lat());
 							console.log(ss.geometry.location.lng());
-							document.querySelector('#'+ads.gmjarchitectbtitle+'').addEventListener('click',function(){setCenter(resultsMap,ss)});
-								
+							if(ads!='없음'){
+								document.querySelector('#'+ads.gmjarchitectbtitle+'').addEventListener('click',function(){setCenter(resultsMap,ss)});	
+							}			
 							
-							console.log(ads.gmjarchitectbthumb);
 						var marker = new google.maps.Marker({
 							
 							

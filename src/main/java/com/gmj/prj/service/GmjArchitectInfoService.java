@@ -7,7 +7,7 @@ import com.gmj.prj.vo.GmjArchitectInfo;
 
 public interface GmjArchitectInfoService {
 	public List<GmjArchitectInfo> getList(String gmjArchitectName);
-	public List<GmjArchitectInfo> getLandmark();
+	public List<GmjArchitectInfo> getLandmark(String areaname);
 	public GmjArchitectInfo checkAddress(String gmjArchitectBAddress);
 	
 	public List<GmjArchitectInfo> getgmjMapList();

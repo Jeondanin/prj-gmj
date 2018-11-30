@@ -33,9 +33,9 @@ public class GmjArchitectInfoController {
 	@Autowired
 	private GmjFavoriteService gfs;
 	
-	@GetMapping(value="/gmjlandmark")
-	public @ResponseBody List<GmjArchitectInfo> getlandmark(){
-		return gais.getLandmark();
+	@GetMapping(value="/gmjlandmark/{areaname}")
+	public @ResponseBody List<GmjArchitectInfo> landmarkList(@PathVariable String areaname){
+		return gais.getLandmark(areaname);
 	}
 	@GetMapping(value="/gmjArchitectName/{gmjArchitectName}")
 	public @ResponseBody List<GmjArchitectInfo> userprList(@PathVariable String gmjArchitectName) {
@@ -54,6 +54,7 @@ public class GmjArchitectInfoController {
 		System.out.println(gf);
 		return gfs.insertFavorite(gf);
 	}
+	
 	
 }
 

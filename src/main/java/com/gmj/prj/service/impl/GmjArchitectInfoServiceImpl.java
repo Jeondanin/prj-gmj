@@ -20,9 +20,9 @@ public class GmjArchitectInfoServiceImpl implements GmjArchitectInfoService {
 		return gaid.getList(gmjArchitectName);
 	}
 	@Override
-	public List<GmjArchitectInfo> getLandmark() {
+	public List<GmjArchitectInfo> getLandmark(String areaname) {
 		
-		return gaid.getLandmark();
+		return gaid.getLandmark(areaname);
 	}
 	@Override
 	public GmjArchitectInfo checkAddress(String gmjArchitectBAddress) {
