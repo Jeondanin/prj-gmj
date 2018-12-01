@@ -264,6 +264,7 @@
 
 	</dependencies>
 	<build>
+		<finalName>gmj</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-eclipse-plugin</artifactId>

@@ -218,18 +218,18 @@ margin-top:5px;
 
 			<div class="carousel-inner">
 				<div class="item active">
-					<img src="https://www.w3schools.com/booTsTrap/la.jpg"
-						alt="Los Angeles" style="width: 100%; border-radius: 16px;">
+					<img src="https://user-images.githubusercontent.com/39483767/49288385-ee71f780-f4e3-11e8-910a-5bb57b69e649.jpg"
+						alt="Los Angeles" style="width: 100%; height:666; border-radius: 16px;">
 				</div>
 
 				<div class="item">
-					<img src="https://www.w3schools.com/booTsTrap/chicago.jpg"
-						alt="Chicago" style="width: 100%; border-radius: 16px;">
+					<img src="https://user-images.githubusercontent.com/39483767/49288150-4ceaa600-f4e3-11e8-8366-c7c3f4d51ce7.jpg"
+						alt="Chicago" style="width: 100%; height:666; border-radius: 16px;">
 				</div>
 
 				<div class="item">
-					<img src="https://www.w3schools.com/booTsTrap/ny.jpg"
-						alt="New york" style="width: 100%; border-radius: 16px;">
+					<img src="https://user-images.githubusercontent.com/39483767/49288366-e31ecc00-f4e3-11e8-99dc-47beb3033714.jpg"
+						alt="New york" style="width: 100%;height:666; border-radius: 16px;">
 				</div>
 			</div>
 
@@ -261,15 +261,10 @@ margin-top:5px;
 						<div class="Card-title">
 							<span><h4 style="color: white;">서강대</h4> </span>
 						</div>
-<<<<<<< HEAD
-						<div class="Card-explore">
-							<span>Explore 50 more</span>
-						</div>
-						<button class="Card-button" onclick="{location.href='/uri/prj/user/community/recommend/view?no=1'}">view more</button>
-=======
+
 					
 						<button class="Card-button">view more</button>
->>>>>>> branch 'master' of https://github.com/Jeondanin/prj-gmj.git
+
 					</div>
 					
 					<div class="Card">
