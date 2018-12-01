@@ -132,19 +132,19 @@ html, body {
 						res=JSON.parse(res);
 						var testAd; 
 					
-							{for(var ads of res){
+							for(var ads of res){
 								console.log(ads.gmjarchitectbaddress1);
 								console.log(ads.gmjarchitectbaddress2);
 								//testAd = ads.gmjarchitectbaddress1+' '+ads.gmjarchitectbaddress2+ads.gmjarchitectbaddress3;
 								//console.log(testAd)
-								setTimeout(function() { 
+							
 									geocodeAddress(geocoder,map,ads);	
 									console.log(86);
 									console.log(ads);
 									addtools(ads);
-								}, 3000);
 								
-							}}
+								
+							}
 					}
 					
 			
@@ -300,7 +300,8 @@ html, body {
 			console.log(ads);
 			if(ads=='없음'){
 				address = sc.value;
-				contentString='<h1>'+address+'</h1>입니다.'						
+				contentString='<h1>'+address+'</h1>입니다.'
+				ads['gmjarchitectno']=0;
 			}else{
 				console.log(ads.gmjarchitectbno);
 				address= ads.gmjarchitectbaddress1+' '+ads.gmjarchitectbaddress2+' '+ads.gmjarchitectbaddress3
@@ -308,47 +309,47 @@ html, body {
 			}
 			console.log(address);
 			
-			geocoder
-					.geocode(
-							{
-								'address' : address
-							},
-							function(results, status) {
-								if (status === 'OK') {
-									console.log(results)
-									resultsMap.setCenter(results[0].geometry.location);
-									
-									//marker를 지우고 다른거 
-									for(var ss of results){
-										console.log(ss.geometry.location.lat());
-										console.log(ss.geometry.location.lng());
-										document.querySelector('#'+ads.gmjarchitectbtitle+'').addEventListener('click',function(){setCenter(resultsMap,ss)});
-											
-										console.log(ads);
-										console.log(ads.gmjarchitectbthumb);
-									var marker = new google.maps.Marker({
-										
-										
-										map : resultsMap,
-										position : ss.geometry.location,
-									});
-									google.maps.event.addListener(marker, 'click', function() {
-										var infowindow = new google.maps.InfoWindow({
-											maxWidth : 200,
-											maxHeight: 300
-										});
-										infowindow.close();
-										infowindow.setContent(contentString);
-										infowindow.open(map, this);
-									});
-									
-									
-									}
-								} else {
-									alert('Geocode was not successful for the following reason: '
-											+ status);
-								}
+			setTimeout(function(){
+				geocoder.geocode({'address' : address},	function(results, status) {
+					if (status === 'OK') {
+						console.log(results)
+						resultsMap.setCenter(results[0].geometry.location);
+						
+						//marker를 지우고 다른거 
+						for(var ss of results){
+							console.log(ss.geometry.location.lat());
+							console.log(ss.geometry.location.lng());
+							if(ads!='없음'){
+								document.querySelector('#'+ads.gmjarchitectbtitle+'').addEventListener('click',function(){setCenter(resultsMap,ss)});	
+								console.log(ads);
+								console.log(ads.gmjarchitectbthumb);
+							}
+						var marker = new google.maps.Marker({
+							
+							
+							map : resultsMap,
+							position : ss.geometry.location,
+						});
+						google.maps.event.addListener(marker, 'click', function() {
+							var infowindow = new google.maps.InfoWindow({
+								maxWidth : 200,
+								maxHeight: 300
 							});
+							infowindow.close();
+							infowindow.setContent(contentString);
+							infowindow.open(map, this);
+						});
+						
+						
+						}
+					} else {
+						alert('Geocode was not successful for the following reason: '
+								+ status);
+					}
+				});
+			},200*ads.gmjarchitectbno);
+			
+			
 		}
 	</script>
 	<script async defer
