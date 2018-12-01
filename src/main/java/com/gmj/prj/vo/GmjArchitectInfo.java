@@ -16,6 +16,14 @@ public class GmjArchitectInfo {
 	private String gmjarchitectbtitle;
 	private String gmjarchitectbdesc;
 	private String gmjarchitectbthumb;
+	private int favoritecnt;
+	
+	public int getFavoritecnt() {
+		return favoritecnt;
+	}
+	public void setFavoritecnt(int favoritecnt) {
+		this.favoritecnt = favoritecnt;
+	}
 	public String getGmjarchitectbthumb() {
 		return gmjarchitectbthumb;
 	}

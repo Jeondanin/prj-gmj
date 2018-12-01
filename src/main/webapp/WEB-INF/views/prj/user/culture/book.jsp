@@ -100,6 +100,7 @@ td {
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav"
 		data-spy="affix" data-offset-top="197">
+<<<<<<< HEAD
 		<div class="container" style="margin-left:490px">
 			<div class="intro-button mx-auto">
 				<div class="input-group"
@@ -113,6 +114,10 @@ td {
 					</div>
 				</div>
 			</div>
+=======
+		<div class="container" style="margin-left: 490px;">
+			
+>>>>>>> branch 'master' of https://github.com/Jeondanin/prj-gmj.git
 			<a
 				class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none"
 				href="#">GMJ</a>
@@ -124,11 +129,11 @@ td {
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav mx-auto">
 					<li class="nav-item active px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="home">Home
+						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/home">Home
 							<span class="sr-only">(current)</span>
 					</a></li>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="loading">Map</a>
+						class="nav-link text-uppercase text-expanded" href="/uri/pjr/user/geocode">Map</a>
 					</li>
 					<li class="nav-item px-lg-4"><a
 						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/architectkim">architect</a>
@@ -150,8 +155,8 @@ td {
 						class="nav-link text-uppercase text-expanded" href="academy.html"
 						data-toggle="dropdown">Culture</a>
 						<ul class="dropdown-menu" style="position:absolute; left:1220px;background:rgba(47, 23, 15, 0.9);">
-							<li onmouseover="{document.querySelectorAll('.fontblack')[0].style.color='rgba(47, 23, 15, 0.9)';}"onmouseleave="{document.querySelectorAll('.fontblack')[0].style.color='rgba(255,255,255,.7)';}"><a class="fontblack" href="/uri/prj/user/book" style="font-size:3rem;color: rgba(255,255,255,.7);" >Book</a></li>
-							<li onmouseover="{document.querySelectorAll('.fontblack')[1].style.color='rgba(47, 23, 15, 0.9)';}"onmouseleave="{document.querySelectorAll('.fontblack')[1].style.color='rgba(255,255,255,.7)';}"><a class="fontblack" href="/uri/prj/user/exhibition" style="font-size:3rem;color: rgba(255,255,255,.7);" >exhibition</a></li>
+							<li onmouseover="{document.querySelectorAll('.fontblack')[0].style.color='rgba(47, 23, 15, 0.9)';}"onmouseleave="{document.querySelectorAll('.fontblack')[0].style.color='rgba(255,255,255,.7)';}"><a class="fontblack" href="/uri/prj/user/culture/book" style="font-size:3rem;color: rgba(255,255,255,.7);" >Book</a></li>
+							<li onmouseover="{document.querySelectorAll('.fontblack')[1].style.color='rgba(47, 23, 15, 0.9)';}"onmouseleave="{document.querySelectorAll('.fontblack')[1].style.color='rgba(255,255,255,.7)';}"><a class="fontblack" href="/uri/prj/user/culture/exhibition" style="font-size:3rem;color: rgba(255,255,255,.7);" >exhibition</a></li>
 
 						</ul>
 					</li>
@@ -160,7 +165,7 @@ td {
 		</div>
 	</nav>
 
-	<section class="page-section cta">
+	<section class="page-section cta" id="bookc">
 		<div class="container"
 			style="width: 2000px; margin-left: 50px; margin-right: 50px;">
 			<div class="row" style="width: 1800px;">

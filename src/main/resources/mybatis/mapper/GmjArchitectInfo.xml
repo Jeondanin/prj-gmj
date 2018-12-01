@@ -8,6 +8,10 @@
 			where gmjarchitectKname=#{gmjarchitectname} or gmjarchitectjname=#{gmjarchitectname} or gmjarchitectename=#{gmjarchitectname}
 	
 		</select>
+		<select id="selectLandmark" resultType="com.gmj.prj.vo.GmjArchitectInfo">
+			select * from gmjarchitectinfo where gmjarchitectbarea = #{value} limit 3;
+		
+		</select>
 		<select id="checkAddress" resultType="com.gmj.prj.vo.GmjArchitectInfo">
 			select * from gmjarchitectinfo where concat(gmjarchitectBaddress1,' ',gmjarchitectBaddress2,' ',gmjarchitectBaddress3) like concat('%',#{gmjArchitectBAddress},'%');
 	

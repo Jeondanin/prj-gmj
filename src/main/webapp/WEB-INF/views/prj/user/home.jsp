@@ -26,16 +26,40 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i"
 	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Yeon+Sung&amp;subset=korean" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding:400,700&amp;subset=korean" rel="stylesheet">
+
+
+
+<!-- Custom styles for this template -->
+<link href="${resPath}/user/css/business-casual.min.css"
+	rel="stylesheet">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+.lmsection{
+float:left;
+margin:10px;
+}
+#tagname{
+float:left;
+font-family: 'Yeon Sung', cursive;
+font-size:25px;
+}
+.lmtab li,.tab-content,.twitter-container,.vtitle{
+font-family: 'Nanum Gothic Coding', monospace;
+}
+.vtitle{
+margin-top:5px;
+}
 
-<!-- Custom styles for this template -->
-<link href="${resPath}/user/css/business-casual.min.css"
-	rel="stylesheet">
+</style>
+
+
 
 </head>
 
@@ -224,50 +248,61 @@
 	<div
 		style="width: 1000px; height: 300px; margin: 1% 0 1% 448px; border-radius: 16px;">
 		<div class="recommend">
-			<section class="Grid" style="margin: 0; padding: 5% 0 5% 3%;">
+			<section class="Grid" style="margin: 0; padding: 3% 0 1% 5%;">
 				<div class="Grid-row">
-					<div class="Card" style="margin-right: 50px;">
+					<div class="Card" style="margin-right: 80px;">
 						<div class="Card-thumb">
 							<div class="Card-shadow"></div>
 							<div class="Card-shadow"></div>
 							<div class="Card-shadow"></div>
 							<div class="Card-image"
-								style="background-size:430px 150px;background-image: url(${resPath}/img/home/seogangUniversity.jpg); width: 430x; height: 150px;"></div>
+								style="background-size:435px 150px;background-image: url(${resPath}/img/home/seogangUniversity.jpg); "></div>
 						</div>
 						<div class="Card-title">
-							<span><h1 style="color: white;">서강대</h1> </span>
+							<span><h4 style="color: white;">서강대</h4> </span>
 						</div>
+<<<<<<< HEAD
 						<div class="Card-explore">
 							<span>Explore 50 more</span>
 						</div>
 						<button class="Card-button" onclick="{location.href='/uri/prj/user/community/recommend/view?no=1'}">view more</button>
+=======
+					
+						<button class="Card-button">view more</button>
+>>>>>>> branch 'master' of https://github.com/Jeondanin/prj-gmj.git
 					</div>
-					<div class="Card" style="margin-right: 50px;">
+					
+					<div class="Card">
 						<div class="Card-thumb">
 							<div class="Card-shadow"></div>
 							<div class="Card-shadow"></div>
 							<div class="Card-shadow"></div>
 							<div class="Card-image"
-								style="background-size:430px 150px;background-image: url(${resPath}/img/home/exhibition1.jpg); width: 430x; height: 150px;"></div>
+								style="background-size:435px 150px;background-image: url(${resPath}/img/home/exhibition1.jpg);"></div>
 						</div>
 						<div class="Card-title">
-							<span><h1 style="color: white;">안양 김중업박물관</h1> </span>
+							<span><h4 style="color: white;">안양 김중업박물관</h4> </span>
 						</div>
-						<div class="Card-explore">
-							<span>Explore 50 more</span>
-						</div>
+					
 						<button class="Card-button">view more</button>
+						
 					</div>
-
+					
 				</div>
 			</section>
+			<ul style="list-style:none;">
+			<li class="col-sm-6" id="tagname">[서울] 서강대 그 역사적 장소</li>
+			<li class="col-sm-6" id="tagname">[경기] 김중업의 생애를 볼 수 있는 그곳 </li>
+			</ul>
+		
+			
 		</div>
 	</div>
 
 
 	<div class="container"
 		style="width: 600px; height: 400px; background-color: #e6a756; border-radius: 16px; margin-left: 448px; float: left;">
-		<ul class="nav nav-tabs" style="margin-top: 3.1%;">
+		<ul class="nav nav-tabs lmtab" style="margin-top: 3.1%;">
 			<li class="active"><a data-toggle="tab" href="#서울"
 				style="color: black; border: 1px solid white">서울</a></li>
 			<li><a data-toggle="tab" href="#경기"
@@ -285,36 +320,38 @@
 		</ul>
 		<div class="tab-content">
 			<div id="서울" class="tab-pane fade in active">
-				<h3>서울</h3>
-				<p>서울</p>
+				<h3>Landmark Ranking </h3>
+				<div class="seoullm"></div>
 			</div>
 			<div id="경기" class="tab-pane fade">
-				<h3>경기</h3>
-				<p>경기</p>
+				<h3>Landmark Ranking </h3>
+				
+				<div class="kglm"></div>
 			</div>
 			<div id="경상" class="tab-pane fade">
-				<h3>경상</h3>
-				<p>경상</p>
+				<h3>Landmark Ranking </h3>
+				
+				<div class="kslm"></div>
 			</div>
 			<div id="전라" class="tab-pane fade">
-				<h3>전라</h3>
-				<p>전라</p>
+				<h3>Landmark Ranking </h3>
+				<div class="jllm"></div>
 			</div>
 			<div id="충청" class="tab-pane fade">
-				<h3>충청</h3>
-				<p>충청</p>
+				<h3>Landmark Ranking </h3>
+				<div class="cclm"></div>
 			</div>
 			<div id="강원" class="tab-pane fade">
-				<h3>강원</h3>
-				<p>강원</p>
+				<h3>Landmark Ranking </h3>
+				<div class="gwlm"></div>
 			</div>
 			<div id="제주" class="tab-pane fade">
-				<h3>제주</h3>
-				<p>제주</p>
+				<h3>Landmark Ranking </h3>
+				<div class="jjlm"></div>
 			</div>
 		</div>
 	</div>
-	<div
+	<div class="twitter-container"
 		style="overflow: hidden; width: 378px; height: 400px; background-color: #e6a756; margin-left: 1070px; margin-top: 1%; border-radius: 16px; padding: 10px">
 
 
@@ -336,10 +373,11 @@
 					<div class="col-xl-9" style="margin: 0; padding: 1px;">
 						<div class="cta-inner text-center rounded"
 							style="width: 984px; height: 300px;">
-							<div class="col-sm-11" style="font: 30px bold">건축 이야기</div>
+							<div class="col-sm-11" style="font: 30px bold;margin-bottom:15px;">건축 이야기</div>
 							<div class="col-sm-1">
 								<button class="btn btn-default"><a href="/uri/prj/user/socialMedia">더보기</a></button>
 							</div>
+							
 							<div>
 								<div class="col-sm-4" style="padding-right: 0px;">
 									<iframe width="300" height="180"
@@ -347,7 +385,7 @@
 										frameborder="0"
 										allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 										allowfullscreen></iframe>
-									<br>산업실록
+									<br><div class="vtitle">산업실록</div>
 								</div>
 								<div class="col-sm-4" style="padding-right: 0px;">
 									<iframe width="300" height="180"
@@ -355,7 +393,7 @@
 										frameborder="0"
 										allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 										allowfullscreen></iframe>
-									<br>한국 현대건축의 백미 "삼일빌딩"
+									<br><div class="vtitle">한국 현대건축의 백미 "삼일빌딩"</div>
 								</div>
 								<div class="col-sm-4" style="padding-right: 0px;">
 									<iframe width="300" height="180"
@@ -363,7 +401,7 @@
 										frameborder="0"
 										allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 										allowfullscreen></iframe>
-									<br>르 꼬르뷔지에 - 빌라사보아 / 파리
+									<br><div class="vtitle">르 꼬르뷔지에 - 빌라사보아 / 파리</div>
 								</div>
 
 							</div>
@@ -394,23 +432,24 @@
 
 
 							<div class="col-sm-4" style="margin-top: 10px">
-								<img
-									src="https://bookthumb-phinf.pstatic.net/cover/069/774/06977419.jpg?udate=20170419"
-									class="img-thumbnail" alt="Cinque Terre"
-									style="width: 100%; height: 350px;">
-							</div>
-							<div class="col-sm-4" style="margin-top: 10px">
-								<img
-									src="https://bookthumb-phinf.pstatic.net/cover/084/985/08498556.jpg?udate=20150716"
-									class="img-thumbnail" alt="Cinque Terre"
-									style="width: 100%; height: 350px;">
-							</div>
-							<div class="col-sm-4" style="margin-top: 10px">
-								<img
+								<a href="/uri/prj/user/culture/book#bookc"><img
 									src="https://bookthumb-phinf.pstatic.net/cover/061/825/06182581.jpg?udate=20150723"
 									class="img-thumbnail" alt="Cinque Terre"
-									style="width: 100%; height: 350px;">
+									style="width: 100%; height: 350px;"></a>
 							</div>
+							<div class="col-sm-4" style="margin-top: 10px">
+								<a href="/uri/prj/user/culture/book#bookc"><img
+									src="https://bookthumb-phinf.pstatic.net/cover/069/774/06977419.jpg?udate=20170419"
+									class="img-thumbnail" alt="Cinque Terre"
+									style="width: 100%; height: 350px;"></a>
+							</div>
+							<div class="col-sm-4" style="margin-top: 10px">
+								<a href="/uri/prj/user/culture/book"><img
+									src="https://bookthumb-phinf.pstatic.net/cover/084/985/08498556.jpg?udate=20150716"
+									class="img-thumbnail" alt="Cinque Terre"
+									style="width: 100%; height: 350px;"></a>
+							</div>
+						
 
 
 						</div>
@@ -574,9 +613,11 @@
 	<script src="${resPath}/user/js/basic.js"></script>
 
 	<script>
+	function twitter(){
 		var twitter = document.querySelector('.twitter');
 
 		var twitterhtml='';
+		
 		 au.send({
 		 url : '/tweets',
 		 method : 'GET',
@@ -584,17 +625,42 @@
 		 res = JSON.parse(res);
 		 console.log(res);
 		 for(var i of res){
-		 twitterhtml +='<div style="height:110px; float:left;width:33px"><img src="'+i.user.biggerProfileImageURLHttps+'" style=" object-fit:cover;border-radius: 50%;width:30px;height:30px;"></div><div style="font-size:20px;font-weight:bold float:left;">'+i.user.screenName+'</div>'+i.text+'<br><br>';	
+		 twitterhtml +='<div style="border-bottom:1px grey solid;padding:5px 0px 0px 5px;"><div style="height:130px; float:left;width:33px"><img src="'+i.user.biggerProfileImageURLHttps+'" style=" object-fit:cover;border-radius: 50%;width:30px;height:30px;"></div><div style="font-size:20px;font-weight:bold float:left;">'+i.user.screenName+'</div>'+i.text+'<br><br></div>';	
 		 }
 		 twitter.insertAdjacentHTML('beforeend',twitterhtml);	
 		 }
 		 }) 
+		
+	}
+		
 	/* 	var twitte = document.querySelector('.twitte');
 		var twittehtml = '';
 		twittehtml = '<div style="float:left;"><img src="https://ssl.pstatic.net/sstatic/search/2015/ico_rt_entertain.png" style="width:50px;"></div><div style="float:left;border-bottom: 1px solid #e6a756;">undefined아이디는myoyongshi: 글내용은RT @hitchhiker_j: ‘2018년에 건축가 김중업을 어떻게 보여줄까’에 대한 편집자와 디자이너의 고민, 답을 찾아가는 과정을 들을 수 있어 좋았다. 손바닥만한 크기의 아주 가벼운 책으로 만들고 싶었다는 정재완 디자이너의 말이 기억에 남았다…<br><br></div>'
 				.repeat(10);
 
 		twitte.insertAdjacentHTML('beforeend', twittehtml); */
+		function landmark(){
+			var seoullm = document.querySelector('.seoullm');
+			au.send({
+				url:'/gmjlandmark/서울',
+				method:'GET',
+				success : function(res){
+					res=JSON.parse(res);
+					for(var i=0;i<res.length;i++){
+						var html = '<div class="lmsection"><div style="font-size:20px">'+Number(i+1)+'위 </div>';
+						html+='<div style="width:155px;height:155px;margin-bottom:10px;padding:2.5px; background:rgba(255,255,255,0.8)" ><img src="'+res[i].gmjarchitectbthumb+'" style="width:150px;height:150px;"></div>'
+						html+='<div style="font-size:20px">&nbsp;&nbsp;'+res[i].gmjarchitectbtitle+'</div>'
+						html+='</div>';
+						seoullm.insertAdjacentHTML('beforeend',html);	
+					}
+					twitter();
+				}
+				
+			})
+		}
+		landmark();
+		
+		
 	</script>
 </body>
 </html>

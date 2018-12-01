@@ -130,6 +130,7 @@ padding:2rem 6.5rem;
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav"
 		data-spy="affix" data-offset-top="197">
+<<<<<<< HEAD
 		<div class="container" style="margin-left:490px">
 			<div class="intro-button mx-auto">
 				<div class="input-group"
@@ -143,6 +144,10 @@ padding:2rem 6.5rem;
 					</div>
 				</div>
 			</div>
+=======
+		<div class="container" style="margin-left: 490px;">
+			
+>>>>>>> branch 'master' of https://github.com/Jeondanin/prj-gmj.git
 			<a
 				class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none"
 				href="#">GMJ</a>

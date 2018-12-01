@@ -101,7 +101,7 @@ cursor:pointer;}
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav mx-auto">
-					<li class="nav-item active px-lg-4"><a
+					<li class="nav-item  px-lg-4"><a
 						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/home">Home
 							<span class="sr-only">(current)</span>
 					</a></li>
@@ -111,7 +111,7 @@ cursor:pointer;}
 					<li class="nav-item px-lg-4"><a
 						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/architectkim">architect</a>
 					</li>
-					<li class="nav-item px-lg-4"><a
+					<li class="nav-item active px-lg-4"><a
 						class="nav-link text-uppercase text-expanded" href="academy.html"
 						data-toggle="dropdown">Commnuity</a>
 						<ul class="dropdown-menu" style="position:absolute; left:861px;background:rgba(47, 23, 15, 0.9);">
@@ -227,7 +227,7 @@ cursor:pointer;}
 
 <!-- Script to highlight the active date in the hours list -->
 <script src="${resPath}/user/js/basic.js"></script>
-<script src="${resPath}/user/js/cboard.js?v=1"></script>
+<script src="${resPath}/user/js/cboard.js"></script>
 <script>
 	
 	
