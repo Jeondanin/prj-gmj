@@ -54,4 +54,8 @@ public class ClientController {
 	public @ResponseBody int logout() {
 		return gcs.logout(); 
 	}
+	@GetMapping(value="/gmjclient/{userno}")
+	public @ResponseBody GmjClient getClientUser(@PathVariable int userno) {
+		return gcs.getClientUser(userno);
+	}
 }

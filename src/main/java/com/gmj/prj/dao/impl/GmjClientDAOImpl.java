@@ -44,6 +44,10 @@ public class GmjClientDAOImpl implements GmjClientDAO {
 	public GmjClient login(GmjClient gc) {
 		return ss.selectOne("com.gmj.prj.vo.GmjClient.login",gc);
 	}
+	@Override
+	public GmjClient getClientUser(int gc) {
+		return ss.selectOne("com.gmj.prj.vo.GmjClient.gmjclientUser",gc);
+	}
 	
 	
 	

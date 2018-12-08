@@ -23,8 +23,19 @@ public class URIController {
 
 	@RequestMapping(value="/uri/prj/user/**",method=RequestMethod.GET)
 	public String goPage(HttpServletRequest req) {
+		HttpSession hs= req.getSession();
 		String rootPath = req.getContextPath(); 
 		String uri = req.getRequestURI();
+		String uricheck = uri.substring(uri.lastIndexOf("/")+1, uri.length());
+		logger.debug("너의 뒷주소는 이것이다. {}",uricheck);
+		if(uricheck.equals("status")) {
+			if(hs.getAttribute("userNO")!=null) {
+				return req.getRequestURI().replace(rootPath+"/uri/","");
+			}else {
+				return "redirect:../user/home";
+			}
+		}
+		
 		return req.getRequestURI().replace(rootPath+"/uri/","");
 	}
 	@RequestMapping(value="/uri/prj/admin/**",method=RequestMethod.GET)

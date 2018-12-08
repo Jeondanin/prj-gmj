@@ -14,6 +14,7 @@ public interface GmjClientService {
 	
 	public int login(GmjClient gc);
 	public int logout();
+	public GmjClient getClientUser(int gc);
 	
 	
 	

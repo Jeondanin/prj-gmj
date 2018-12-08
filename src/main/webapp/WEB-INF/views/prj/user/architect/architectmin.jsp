@@ -145,23 +145,37 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav mx-auto">
-					<li class="nav-item px-lg-4"><a
+					<li class="nav-item  px-lg-4"><a
 						class="nav-link text-uppercase text-expanded" href="home">Home
 							<span class="sr-only">(current)</span>
 					</a></li>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="loading">Map</a></li>
+						class="nav-link text-uppercase text-expanded" href="loading">Map</a>
+					</li>
 					<li class="nav-item active px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/architectkim">architect</a>
-					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="community">community</a>
+						class="nav-link text-uppercase text-expanded" href="architectkim">architect</a>
 					</li>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="social media">social
-							media</a></li>
+						class="nav-link text-uppercase text-expanded" href="academy.html"
+						data-toggle="dropdown">Commnuity</a>
+						<ul class="dropdown-menu" style="position:absolute; left:861px;background:rgba(47, 23, 15, 0.9);">
+							<li onmouseover="{document.querySelectorAll('.fontblack')[0].style.color='rgba(47, 23, 15, 0.9)';}"onmouseleave="{document.querySelectorAll('.fontblacka')[0].style.color='rgba(255,255,255,.7)';}"><a class="fontblacka" href="/uri/prj/user/community/recommend" style="font-size:3rem;color: rgba(255,255,255,.7);" >Recommend</a></li>
+							<li onmouseover="{document.querySelectorAll('.fontblack')[1].style.color='rgba(47, 23, 15, 0.9)';}"onmouseleave="{document.querySelectorAll('.fontblacka')[1].style.color='rgba(255,255,255,.7)';}"><a class="fontblacka" href="/uri/prj/user/community/usercommunity" style="font-size:3rem;color: rgba(255,255,255,.7);" >User Community</a></li>
+
+						</ul>
 					</li>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="exhibition">exhibition</a>
+						class="nav-link text-uppercase text-expanded"
+						href="/uri/prj/user/socialMedia">social media</a></li>
+					</li>
+					<li class="nav-item px-lg-4"><a
+						class="nav-link text-uppercase text-expanded" href="academy.html"
+						data-toggle="dropdown">Culture</a>
+						<ul class="dropdown-menu" style="position:absolute; left:1220px;background:rgba(47, 23, 15, 0.9);">
+							<li onmouseover="{document.querySelectorAll('.fontblack')[0].style.color='rgba(47, 23, 15, 0.9)';}"onmouseleave="{document.querySelectorAll('.fontblack')[0].style.color='rgba(255,255,255,.7)';}"><a class="fontblack" href="/uri/prj/user/culture/book" style="font-size:3rem;color: rgba(255,255,255,.7);" >Book</a></li>
+							<li onmouseover="{document.querySelectorAll('.fontblack')[1].style.color='rgba(47, 23, 15, 0.9)';}"onmouseleave="{document.querySelectorAll('.fontblack')[1].style.color='rgba(255,255,255,.7)';}"><a class="fontblack" href="/uri/prj/user/culture/exhibition" style="font-size:3rem;color: rgba(255,255,255,.7);" >exhibition</a></li>
+
+						</ul>
 					</li>
 				</ul>
 			</div>

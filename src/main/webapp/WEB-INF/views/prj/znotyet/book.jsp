@@ -123,7 +123,7 @@ td {
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav mx-auto">
-					<li class="nav-item active px-lg-4"><a
+					<li class="nav-item  px-lg-4"><a
 						class="nav-link text-uppercase text-expanded" href="home">Home
 							<span class="sr-only">(current)</span>
 					</a></li>
@@ -146,7 +146,7 @@ td {
 						class="nav-link text-uppercase text-expanded"
 						href="/uri/prj/user/socialMedia">social media</a></li>
 					</li>
-					<li class="nav-item px-lg-4"><a
+					<li class="nav-item px-lg-4 active"><a
 						class="nav-link text-uppercase text-expanded" href="academy.html"
 						data-toggle="dropdown">Culture</a>
 						<ul class="dropdown-menu" style="position:absolute; left:1220px;background:rgba(47, 23, 15, 0.9);">

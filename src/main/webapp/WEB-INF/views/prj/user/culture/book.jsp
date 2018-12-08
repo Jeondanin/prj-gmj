@@ -100,24 +100,7 @@ td {
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav"
 		data-spy="affix" data-offset-top="197">
-<<<<<<< HEAD
-		<div class="container" style="margin-left:490px">
-			<div class="intro-button mx-auto">
-				<div class="input-group"
-					style="width: 250px; position: absolute; top: -74px; left: 1496px;">
-					<input type="text" class="form-control" placeholder="Search for..."
-						aria-label="Search" aria-describedby="basic-addon2">
-					<div class="input-group-append">
-						<button class="btn btn-primary" type="button">
-							<i class="fas fa-search" style="width: 500px;"></i>
-						</button>
-					</div>
-				</div>
-			</div>
-=======
 		<div class="container" style="margin-left: 490px;">
-			
->>>>>>> branch 'master' of https://github.com/Jeondanin/prj-gmj.git
 			<a
 				class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none"
 				href="#">GMJ</a>
@@ -128,7 +111,7 @@ td {
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav mx-auto">
-					<li class="nav-item active px-lg-4"><a
+					<li class="nav-item  px-lg-4"><a
 						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/home">Home
 							<span class="sr-only">(current)</span>
 					</a></li>
@@ -151,7 +134,7 @@ td {
 						class="nav-link text-uppercase text-expanded"
 						href="/uri/prj/user/socialMedia">social media</a></li>
 					</li>
-					<li class="nav-item px-lg-4"><a
+					<li class="nav-item px-lg-4 active"><a
 						class="nav-link text-uppercase text-expanded" href="academy.html"
 						data-toggle="dropdown">Culture</a>
 						<ul class="dropdown-menu" style="position:absolute; left:1220px;background:rgba(47, 23, 15, 0.9);">

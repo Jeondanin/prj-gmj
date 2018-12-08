@@ -142,6 +142,7 @@ margin-top:5px;
 			<div style="float: left;">
 				<button onclick="logout()"
 					style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;">로그아웃</button>
+					<button onclick="{location.href='/uri/prj/user/status'}"style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;">회원정보</button>
 			</div>
 
 		</div>

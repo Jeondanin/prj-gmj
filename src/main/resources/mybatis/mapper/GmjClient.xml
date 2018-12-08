@@ -46,5 +46,10 @@
 		select * from gmjclient where gmjUserEmail=#{gmjuseremail} and gmjUserPwd=#{gmjuserpwd}
 		</select>
 		
+		<select id="gmjclientUser" resultType="com.gmj.prj.vo.GmjClient">
+			select * from gmjClient
+			where gmjuserno=#{gmjuserno}
+		</select>
+		
 
 	</mapper>

@@ -71,6 +71,10 @@ public class GmjClientServiceImpl implements GmjClientService {
 		hs.invalidate();
 		return 0;
 	}
+	@Override
+	public GmjClient getClientUser(int userno) {
+		return gcdi.getClientUser(userno);
+	}
 	
 
 }
