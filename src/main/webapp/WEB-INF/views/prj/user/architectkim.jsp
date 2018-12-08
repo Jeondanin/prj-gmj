@@ -122,9 +122,16 @@
 		<div style="position: absolute; left: 1500px; top: 5px; width: 200px;">
 			<div style="float: left; margin-right: 5%; color: white">
 				환영합니다. ${userID}님</div>
+			<c:if test="${userID eq 'admin@gmj.com'}">
+				<div style="float: left;">
+					<button onclick="{location.href='../admin/home';}"
+						style="width: 100px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;">관리자페이지</button>
+				</div>
+			</c:if>
 			<div style="float: left;">
 				<button onclick="logout()"
 					style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;">로그아웃</button>
+					<button onclick="{location.href='/uri/prj/user/status'}"style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;">회원정보</button>
 			</div>
 
 		</div>
@@ -385,6 +392,9 @@
 			<p class="m-0 small">Copyright &copy; GMJ 2018</p>
 		</div>
 	</footer>
-
+<!-- 검색용. -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+	<script> $(function() { $("#postcodify_search_button").postcodifyPopUp(); }); </script>
 </body>
 </html>

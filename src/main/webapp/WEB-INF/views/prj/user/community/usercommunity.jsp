@@ -33,6 +33,7 @@
 <!-- Custom styles for this template -->
 <link href="${resPath}/user/css/business-casual.min.css"
 	rel="stylesheet">
+	<script src="${resPath}/user/js/basic.js?V=5"></script>
 <style>
 a{
 cursor:pointer;}
@@ -216,17 +217,24 @@ cursor:pointer;}
 			<p class="m-0 small">Copyright &copy; GMJ 2018</p>
 		</div>
 	</footer>
+	
 
 	<!-- Bootstrap core JavaScript -->
+	
+	
+	<script src="${resPath}/user/js/basic.js?V=1"></script>
+	
 	<script src="${resPath}/user/vendor/jquery/jquery.min.js"></script>
 	<script
 		src="${resPath}/user/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-
+	<!-- 검색용. -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+	<script> $(function() { $("#postcodify_search_button").postcodifyPopUp(); }); </script>
 </body>
 
 <!-- Script to highlight the active date in the hours list -->
-<script src="${resPath}/user/js/basic.js"></script>
+
 <script src="${resPath}/user/js/cboard.js"></script>
 <script>
 	

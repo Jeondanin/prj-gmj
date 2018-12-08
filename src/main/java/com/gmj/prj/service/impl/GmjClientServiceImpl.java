@@ -49,19 +49,23 @@ public class GmjClientServiceImpl implements GmjClientService {
 				.getRequest();
 		HttpSession hs = req.getSession();
 		GmjClient resultgc =gcdi.login(gc);
-		if(resultgc.getGmjuseremail().equals("admin@gmj.com")) {
-			hs.setAttribute("userNO", resultgc.getGmjuserno());
-			hs.setAttribute("userID", resultgc.getGmjuseremail());
-			hs.setAttribute("authority", true);
-			System.out.println("관리자모드 시작합니다.");
-			return 11;
-		}else{
-			hs.setAttribute("userNO", resultgc.getGmjuserno());
-			hs.setAttribute("userID", resultgc.getGmjuseremail());
-			hs.setAttribute("authority", false);
-			System.out.println("사용자모드 시작합니다.");
-			return 12;
+		if(resultgc!=null) {
+			if(resultgc.getGmjuseremail().equals("admin@gmj.com")) {
+				hs.setAttribute("userNO", resultgc.getGmjuserno());
+				hs.setAttribute("userID", resultgc.getGmjuseremail());
+				hs.setAttribute("authority", true);
+				System.out.println("관리자모드 시작합니다.");
+				return 11;
+			}else{
+				hs.setAttribute("userNO", resultgc.getGmjuserno());
+				hs.setAttribute("userID", resultgc.getGmjuseremail());
+				hs.setAttribute("authority", false);
+				System.out.println("사용자모드 시작합니다.");
+				return 12;
+			}
 		}
+		return 0;
+		
 	}
 	@Override
 	public int logout() {

@@ -195,6 +195,7 @@
 </body>
 
 <!-- 화면 위쪽 설정-->
-<script src="${resPath}/user/js/basic.js"></script>
+
+<script src="${resPath}/user/js/basic.js?V=5"></script>
 
 </html>

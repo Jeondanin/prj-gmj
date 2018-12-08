@@ -1,3 +1,112 @@
+//공통 회원가입 / 로그인
+	
+	var gtsec ='<div class="modal fade" id="login" role="dialog">'+
+	'<div class="modal-dialog">'+
+	'<div class="modal-content">'+
+	'<div class="modal-header">'+
+	'<h4 class="modal-title">로구인</h4>'+
+	'<button type="button" class="close" data-dismiss="modal">&times;</button>'+
+		'</div>'+
+		'<div class="modal-body">'+
+			'<form>'+
+				'<div class="input-group">'+
+					'<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>'+
+				'<input id="logingmjuseremail" type="email" class="form-control" name="gmjuseremail" placeholder="이메일" required>'+
+				'</div>'+
+				'<div class="input-group">'+
+					'<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span> <input '+
+						'id="logingmjuserpwd" type="password" class="form-control"'+
+						'name="gmjuserpwd" placeholder="비밀번호">'+
+				'</div>'+
+			'</form>'+
+		'</div>'+
+		'<div class="modal-footer">'+
+			'<button id="sb" class="btn btn-default" onclick="login()">로그인</button>'+
+			'<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
+		'</div>'+
+	'</div>'+
+'</div>'+
+'</div>'+
+'<div class="modal fade" id="signup" role="dialog">'+
+'<div class="modal-dialog">'+
+
+	'<!-- Modal content-->'+
+	'<div class="modal-content">'+
+		'<div class="modal-header">'+
+			'<h4 class="modal-title">회원가입</h4>'+
+			'<button type="button" class="close" data-dismiss="modal">&times;</button>'+
+		'</div>'+
+		'<div class="modal-body">'+
+			'<form>'+
+				'<div class="input-group">'+
+					'<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span> <input id="gmjuseremail"'+
+						'type="email" class="form-control" name="gmjuseremail"'+
+						'placeholder="이메일" required>'+
+				'</div>'+
+				'<div class="input-group">'+
+					'<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span> <input id="gmjuserpwd"'+
+						'type="password" class="form-control" name="gmjuserpwd"'+
+						'placeholder="비밀번호">'+
+				'</div>'+
+				'<div class="input-group">'+
+					'<span class="input-group-addon"><i '+
+						'class="glyphicon glyphicon-lock"></i></span> <input id="gmjuserpwdchk"'+
+						'type="password" class="form-control" name="gmjuserpwdchk"'+
+						'placeholder="비밀번호 확인">'+
+				'</div>'+
+				'<div class="input-group">'+
+					'<span class="input-group-addon"><i '+
+						'class="glyphicon glyphicon-pencil"></i></span> <input id="gmjusername"'+
+						'type="text" class="form-control" name="gmjusername"'+
+						'placeholder="이름">'+
+				'</div>'+
+				'<div class="input-group">'+
+					'<span class="input-group-addon"><i '+
+						'class="glyphicon glyphicon-phone"></i></span> <input id="gmjuserphone"'+
+					'type="text" class="form-control" name="gmjuserphone"'+
+						'placeholder="핸드폰 번호">'+
+				'</div>'+
+				'<div class="input-group">'+
+					'<span class="input-group-addon"><i '+
+						'class="glyphicon glyphicon-calendar"></i></span> <input '+
+						'id="gmjuserbirth" type="date" class="form-control"'+
+						'name="gmjuserbirth" placeholder="생년월일 8자 ex)900213">'+
+				'</div>'+
+				'<div class="input-group">'+
+					'<span class="input-group-addon"><i '+
+						'class="glyphicon glyphicon-heart"></i></span>'+
+					'<div id="gmjusersex"'+
+						'style="padding: 6px 12px; font-size: 14px; height: 34px; border: 1px solid #ced4da; border-radius: .25rem;">'+
+						'<label class="radio-inline"> <input type="radio"'+
+							'name="optradio" value="남자">남'+
+						'</label> <label class="radio-inline"> <input type="radio"'+
+							'name="optradio" value="여자">녀'+
+						'</label>'+
+					'</div>'+
+				'</div>'+
+				'<div class="input-group">'+
+					'<span class="input-group-addon"><i '+
+						'class="glyphicon glyphicon-stats"></i></span> <input class="postcodify_address" '+ 
+						'id="gmjuseraddress" type="text" class="form-control"'+
+						'name="gmjuseraddress" placeholder="주소" style="width:100%;">'+
+						'<div id="demo5">'+										
+							'<input type="hidden" class="postcodify_postcode5" style="width:50px; margin-left:30px; margin-top:20px;" disabled="disabled"/>'+
+							'<div id="postcodify_search_button" style="background-color:#ffc985; cursor:pointer; border:1px solid lightgray; font-weight:600;">검색</div><br/>'+
+							
+						'</div>'+
+					'</div>'+
+					'<br>'+
+			'</form>'+
+		'</div>'+
+		'<div class="modal-footer">'+
+			'<button id="sb" class="btn btn-default" onclick="submit()">제출</button>'+
+			'<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
+		'</div>'+
+	'</div>'+
+
+'</div>'+
+'</div>'
+document.querySelector('footer').insertAdjacentHTML('afterend',gtsec);
 var logingmjuseremail =  document.querySelector('#logingmjuseremail');
 	var logingmjuserpwd = document.querySelector('#logingmjuserpwd');
 	var data ={};
@@ -27,8 +136,17 @@ var logingmjuseremail =  document.querySelector('#logingmjuseremail');
 				method:'POST',
 				param : JSON.stringify(data),
 				success : function(res){
-					console.log(res);
-					location.href=location.href;
+			
+					if(res=='0'){
+						alert('아이디와 비밀번호를 잘 확인하세요.');
+					
+					}else{
+						
+						location.href=location.href;
+					}
+					
+					
+					
 				}
 		}
 		au.send(conf);
@@ -193,4 +311,9 @@ var logingmjuseremail =  document.querySelector('#logingmjuseremail');
 		}
 		au.send(conf);
 	}
+	
+	
+	
+	
+	
 	

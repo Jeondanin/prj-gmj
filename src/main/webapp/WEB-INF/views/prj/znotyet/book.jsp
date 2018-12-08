@@ -302,7 +302,10 @@ td {
 </body>
 
 <!-- Script to highlight the active date in the hours list -->
-<script src="${resPath}/user/js/basic.js"></script>
+<!-- 검색용. -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+	<script> $(function() { $("#postcodify_search_button").postcodifyPopUp(); }); </script>
 <script>
 var title = document.querySelector('.modal-title');
 var body = document.querySelector('.modal-body');

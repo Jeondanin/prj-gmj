@@ -285,6 +285,10 @@ td {
 	<script src="${resPath}/user/vendor/jquery/jquery.min.js"></script>
 	<script
 		src="${resPath}/user/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- 검색용. -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+	<script> $(function() { $("#postcodify_search_button").postcodifyPopUp(); }); </script>
 
 
 </body>

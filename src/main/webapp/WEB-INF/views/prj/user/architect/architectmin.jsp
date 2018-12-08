@@ -374,7 +374,7 @@
 			<p class="m-0 small">Copyright &copy; GMJ 2018</p>
 		</div>
 	</footer>
-
+<script src="${resPath}/user/js/basic.js?V=5"></script>
 </body>
 </html>
 			
