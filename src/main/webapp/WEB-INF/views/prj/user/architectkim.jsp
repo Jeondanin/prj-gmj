@@ -10,7 +10,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<link href="${resPath}/user/vendor/bootstrap/css/recommend.css"
+<link href="${resPath}/user/vendor/bootstrap/css/recommend1.css"
 	rel="stylesheet">
 <meta charset="UTF-8">
 <meta name="robots" content="noindex">
@@ -56,7 +56,8 @@
 </head>
 
 <body>
-	<h1 class="site-heading text-center text-white d-none d-lg-block" style="margin-top:3rem; margin-bottom:3rem;">
+	<h1 class="site-heading text-center text-white d-none d-lg-block"
+		style="margin-top: 3rem; margin-bottom: 3rem;">
 		<span class="site-heading-lower"><a href="home"
 			style="color: white; text-decoration: none;"> <svg width="200px"
 					height="200px"> 
@@ -105,38 +106,38 @@
 		</a></span>
 	</h1>
 	<c:if test="${empty userID}">
-	<div style="position: absolute; left: 1500px; top: 5px; width: 200px;">
-		<div style="float: left; margin-right: 5%;">
-			<button data-toggle="modal"	data-target="#login"
-				style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;">${userID}로그인</button>
+		<div style="position: absolute; left: 1500px; top: 5px; width: 200px;">
+			<div style="float: left; margin-right: 5%;">
+				<button data-toggle="modal" data-target="#login"
+					style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;">${userID}로그인</button>
+			</div>
+			<div style="float: left;">
+				<button
+					style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;"
+					data-toggle="modal" data-target="#signup">회원가입</button>
+			</div>
 		</div>
-		<div style="float: left;">
-			<button
-				style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;"
-				data-toggle="modal" data-target="#signup">회원가입</button>
-		</div>
-	</div>
 	</c:if>
-		<c:if test="${!empty userID}">
-	<div style="position: absolute; left: 1500px; top: 5px; width: 200px;">
-		<div style="float: left; margin-right: 5%; color:white">
-			환영합니다. ${userID}님  
+	<c:if test="${!empty userID}">
+		<div style="position: absolute; left: 1500px; top: 5px; width: 200px;">
+			<div style="float: left; margin-right: 5%; color: white">
+				환영합니다. ${userID}님</div>
+			<div style="float: left;">
+				<button onclick="logout()"
+					style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;">로그아웃</button>
+			</div>
+
 		</div>
-		<div style="float: left;">
-			<button onclick="logout()"
-				style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;"
-				>로그아웃</button>
-		</div>
-	
-	</div>
 	</c:if>
 
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav"
-		data-spy="affix" data-offset-top="197"> 
+		data-spy="affix" data-offset-top="197">
 		<div class="container" style="margin-left: 490px;">
 			<div class="intro-button mx-auto"></div>
-			<a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">GMJ</a>
+			<a
+				class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none"
+				href="#">GMJ</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarResponsive" aria-controls="navbarResponsive"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -144,37 +145,23 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav mx-auto">
-					<li class="nav-item active px-lg-4"><a
+					<li class="nav-item px-lg-4"><a
 						class="nav-link text-uppercase text-expanded" href="home">Home
 							<span class="sr-only">(current)</span>
 					</a></li>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="loading">Map</a>
-					</li>
-					<li class="nav-item px-lg-4"><a
+						class="nav-link text-uppercase text-expanded" href="loading">Map</a></li>
+					<li class="nav-item active px-lg-4"><a
 						class="nav-link text-uppercase text-expanded" href="architectkim">architect</a>
-					</li>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="academy.html"
-						data-toggle="dropdown">Commnuity</a>
-						<ul class="dropdown-menu" style="position:absolute; left:861px;background:rgba(47, 23, 15, 0.9);">
-							<li onmouseover="{document.querySelectorAll('.fontblack')[0].style.color='rgba(47, 23, 15, 0.9)';}"onmouseleave="{document.querySelectorAll('.fontblacka')[0].style.color='rgba(255,255,255,.7)';}"><a class="fontblacka" href="/uri/prj/user/community/recommend" style="font-size:3rem;color: rgba(255,255,255,.7);" >Recommend</a></li>
-							<li onmouseover="{document.querySelectorAll('.fontblack')[1].style.color='rgba(47, 23, 15, 0.9)';}"onmouseleave="{document.querySelectorAll('.fontblacka')[1].style.color='rgba(255,255,255,.7)';}"><a class="fontblacka" href="/uri/prj/user/community/usercommunity" style="font-size:3rem;color: rgba(255,255,255,.7);" >User Community</a></li>
-
-						</ul>
+						class="nav-link text-uppercase text-expanded" href="community">community</a>
 					</li>
 					<li class="nav-item px-lg-4"><a
 						class="nav-link text-uppercase text-expanded"
 						href="/uri/prj/user/socialMedia">social media</a></li>
-					</li>
-						<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="academy.html"
-						data-toggle="dropdown">Culture</a>
-						<ul class="dropdown-menu" style="position:absolute; left:1220px;background:rgba(47, 23, 15, 0.9);">
-							<li onmouseover="{document.querySelectorAll('.fontblack')[0].style.color='rgba(47, 23, 15, 0.9)';}"onmouseleave="{document.querySelectorAll('.fontblack')[0].style.color='rgba(255,255,255,.7)';}"><a class="fontblack" href="/uri/prj/user/culture/book" style="font-size:3rem;color: rgba(255,255,255,.7);" >Book</a></li>
-							<li onmouseover="{document.querySelectorAll('.fontblack')[1].style.color='rgba(47, 23, 15, 0.9)';}"onmouseleave="{document.querySelectorAll('.fontblack')[1].style.color='rgba(255,255,255,.7)';}"><a class="fontblack" href="/uri/prj/user/culture/exhibition" style="font-size:3rem;color: rgba(255,255,255,.7);" >exhibition</a></li>
 
-						</ul>
+					<li class="nav-item px-lg-4"><a
+						class="nav-link text-uppercase text-expanded" href="exhibition">exhibition</a>
 					</li>
 				</ul>
 			</div>
@@ -194,9 +181,9 @@
 				</div>
 
 				<!-- 추가 -->
-				<section class="intro">
+				<section class="intro" style="border-radius: 20px 20px 0px 0px;">
 					<div class="container1">
-						<h1>My Life &darr;</h1>
+						<h1>Architect &darr;</h1>
 						<h5>Scroll Down</h5>
 					</div>
 				</section>
@@ -204,55 +191,58 @@
 					<ul>
 						<li>
 							<div>
-								<time>1993</time>
-								<img id="meBaby"
-									src="http://i1356.photobucket.com/albums/q729/eleftheria_b/my%20face/babyMe_zps3ku1takx.jpg" /><br>Born
-								in Greece in a hot noon of mid-summer
+								<time>1958</time>
+								<img class="photos" src="${resPath}/user/img/서강대 본관.jpg"
+									style="width: 170px; height: 100px;" /><br>-서강대학교 본관-<br>
+								본관을 정면에서 바라보면 우측으로 보이는 격자 형태의 외부 차양막이 눈길을 끈다. 서향인 탓에 오후가 되면 건물
+								내부로 깊숙이 파고드는 햇빛을 막기 위해 설치됐다. 정교하게 계산된 차양막의 각도 때문에 내부에선 시시각각 빛의
+								흐름을 느낄 수 있다.
 							</div>
 						</li>
 						<li>
 							<div>
-								<time>1998-2011</time>
-								<img class="photos"
-									src="http://www.westperry.org/cms/lib/PA09000117/Centricity/Domain/51/school.gif" /><br>Went
-								to school in many different places in Greece. We had to move a
-								lot due to mama's job.
+								<time>1960</time>
+								<img id="meBaby" src="${resPath}/user/img/주한프랑스대사관.jpg"
+									style="width: 170px; height: 100px;" /><br>-주한프랑스대사관-<br>
+								다른 대사관보다 예쁜 수준 따위에서 그치는 게 아니라 건축가들이 한국 최고의 건축으로 인정할 정도의 걸작으로, 한국
+								최고의 현대건축이라는 순위선정에서 2위를 차지하기도 하였다.
 							</div>
 						</li>
 						<li>
 							<div>
-								<time>2012-2016</time>
-								<img class="photos"
-									src="https://eclass.uowm.gr/courses/theme_data/3/uowm-logo_1.png" /><br>
-								Study at the university of Western Macedonia in Greece.
+								<time>1968-1970</time>
+								<img class="photos" src="${resPath}/user/img/31빌딩.jpg" /><br>-31빌딩-<br>
+								건물을 31층으로 한 것은 일제 잔재를 청산한다는 3.1절의 의미도 개입되었다고 하는데 청계천 변에 우람하게 선
+								삼일빌딩은 일대 장안의 화제가 된다.
 							</div>
 						</li>
 						<li>
 							<div>
-								<time>2016</time>
-								<img class="photos"
-									src="http://i1356.photobucket.com/albums/q729/eleftheria_b/my%20face/3_eleftheria_zpsjwpxlvm7.jpg" /><br>
-								Graduade as an Engineer of Informatics and Telecommunications
+								<time>1979</time>
+								<img class="photos" src="${resPath}/user/img/태양의 집.jpg"
+									style="width: 170px; height: 100px;" /><br>-태양의 집-<br>
+								외관은 쓰임에 비해 다소 이질적이고 예리한 첨탑이 솟아 있으며 붉은벽돌로 마감이 됐는데 고딕양식의 교회를
+								연상시킨다. 건물 정면에 배치된 지그재그 백색의 램프가 독특한 조형미를 보여준다.
 							</div>
 						</li>
 						<li>
 							<div>
-								<time>2017</time>
-								<img class="photos"
-									src="http://i1356.photobucket.com/albums/q729/eleftheria_b/my%20face/IMG-20161208-WA0006_zpsnpvm7kko.jpg" /><br>Been
-								for a couples of months in Amsterdam to internship in a cool
-								start-up company!
+								<time>1985</time>
+								<img class="photos" src="${resPath}/user/img/평화의 문.jpg"
+									style="width: 170px; height: 100px;" /><br>-평화의 문-<br>
+								올림픽공원의 대표적 상징물이자 정문 역할을 하고 있으며 평화를 상징하는 비둘기가 날개를 편 모습을 본따서 만들었다.
+								앞에는 올림픽 엠블럼이 있으며 날개 부분의 천장에는 서양화가 백금남의 사신도가 그려져 있다. 평화의 문 인근에는
+								조각가 이승택씨의 작품인 '열주탈'이 둘러싸고 있다.
 							</div>
 						</li>
 						<li>
 							<div>
-								<time>Find me!</time>
+								<time>김중업의 건축물 더보기</time>
 								<h5>
-									<a href="http://www.eleftheriabatsou.com" target="_blank">Eleftheria</a>
-									| <a href="https://codepen.io/EleftheriaBatsou" target="_blank">Projects</a>
-									| <a
-										href="https://www.youtube.com/channel/UCC-WwYv3DEW7Nkm_IP6VeQQ"
-										target="_blank"> Coding videos </a>
+									<a href="https://namu.wiki/w/%EA%B9%80%EC%A4%91%EC%97%85"
+										target="_blank">더보기</a>
+
+
 								</h5>
 							</div>
 						</li>
@@ -299,15 +289,15 @@
 
 	<!-- --------------------------------------------------------------- -->
 
-	<div class="recommend"> 
+	<div class="recommend">
 		<section class="Grid">
 			<div class="Grid-row">
-				<div class="Card">
+				<div class="Card" style="height: 200px; margin-top: 5rem;">
 					<div class="Card-thumb">
 						<div class="Card-shadow"></div>
 						<div class="Card-shadow"></div>
 						<div class="Card-shadow"></div>
-						<div class="Card-image" 
+						<div class="Card-image"
 							style="background-size:297px 250px; background-image: url(${resPath}/user/img/su.jpg); width:298.5px; height:150px;"></div>
 					</div>
 					<div class="Card-title">
@@ -315,33 +305,36 @@
 					</div>
 					<a href="architect/architectsu"><button class="Card-button">자세히</button></a>
 				</div>
-				<div class="Card">
+				<div class="Card" style="height: 200px; margin-top: 5rem;">
 					<div class="Card-thumb">
 						<div class="Card-shadow"></div>
 						<div class="Card-shadow"></div>
 						<div class="Card-shadow"></div>
 						<div class="Card-image"
-							style="background-size:297px; background-image: url(${resPath}/user/img/jung.jpg); width:298.5px; height:150px;"></div>
+							style="background-size:297px 150px; background-image: url(${resPath}/user/img/seung.jpg); width:298.5px; height:150px;"></div>
 					</div>
 					<div class="Card-title">
-						<span>정기용</span>
+						<span>승효상</span>
 					</div>
-					<a href="architect/architectjung"><button class="Card-button">자세히</button></a>
+					<a href="architect/architectseung"><button class="Card-button">자세히</button></a>
 				</div>
-				<div class="Card" style="width: 30rem; height: 20rem;">
-					<div class="Card-thumb">
-						<div class="Card-shadow"></div>
-						<div class="Card-shadow"></div>
-						<div class="Card-shadow"></div>
-						<div class="Card-image"
-							style="background-size:297px 150px; background-image: url(${resPath}/user/img/kim.jpg); width:298.5px; height:150px;"></div>
-					</div> 
-					<div class="Card-title">
-						<span>김중업</span>
+				<div
+					style="width: 340px; height: 240px; margin-top: 3rem; border: 2rem solid #61380B; border-radius: 5px;">
+					<div class="Card" style="height: 200px; width: 301px;">
+						<div class="Card-thumb">
+							<div class="Card-shadow"></div>
+							<div class="Card-shadow"></div>
+							<div class="Card-shadow"></div>
+							<div class="Card-image"
+								style="background-size:297px 150px; background-image: url(${resPath}/user/img/kim.jpg); width:298.5px; height:150px;"></div>
+						</div>
+						<div class="Card-title">
+							<span>김중업</span>
+						</div>
+						<a href="architectkim"><button class="Card-button">자세히</button></a>
 					</div>
-					<a href="architectkim"><button class="Card-button">자세히</button></a>
 				</div>
-				<div class="Card">
+				<div class="Card" style="height: 200px; margin-top: 5rem;">
 					<div class="Card-thumb">
 						<div class="Card-shadow"></div>
 						<div class="Card-shadow"></div>
@@ -354,7 +347,7 @@
 					</div>
 					<a href="architect/architectmin"><button class="Card-button">자세히</button></a>
 				</div>
-				<div class="Card">
+				<div class="Card" style="height: 200px; margin-top: 5rem;">
 					<div class="Card-thumb">
 						<div class="Card-shadow"></div>
 						<div class="Card-shadow"></div>
@@ -381,4 +374,3 @@
 
 </body>
 </html>
-			

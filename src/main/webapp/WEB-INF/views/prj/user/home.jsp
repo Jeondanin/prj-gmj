@@ -133,7 +133,7 @@ margin-top:5px;
 		<div style="position: absolute; left: 1500px; top: 5px; width: 200px;">
 			<div style="float: left; margin-right: 5%; color: white">
 				환영합니다. ${userID}님</div>
-			<c:if test="${userID eq 'admin'}">
+			<c:if test="${userID eq 'admin@gmj.com'}">
 				<div style="float: left;">
 					<button onclick="{location.href='../admin/home';}"
 						style="width: 100px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;">관리자페이지</button>
@@ -488,7 +488,7 @@ margin-top:5px;
 			<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title">Modal Header</h4>
+					<h4 class="modal-title">로그인</h4>
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 				</div>
 				<div class="modal-body">
@@ -521,7 +521,7 @@ margin-top:5px;
 			<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title">Modal Header</h4>
+					<h4 class="modal-title">회원가입</h4>
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 				</div>
 				<div class="modal-body">
@@ -577,10 +577,29 @@ margin-top:5px;
 						</div>
 						<div class="input-group">
 							<span class="input-group-addon"><i
-								class="glyphicon glyphicon-stats"></i></span> <input
+								class="glyphicon glyphicon-stats"></i></span> <input class="postcodify_address" 
 								id="gmjuseraddress" type="text" class="form-control"
-								name="gmjuseraddress" placeholder="주소">
+								name="gmjuseraddress" placeholder="주소" style="width:100%;">
+								<div id="demo5">										<!-- 주소와 우편번호를 입력할 <input>들을 생성하고 적당한 name과 class를 부여한다 -->
+									<input type="hidden" class="postcodify_postcode5" style="width:50px; margin-left:30px; margin-top:20px;" disabled="disabled"/>
+									<div id="postcodify_search_button" style="background-color:#ffc985; cursor:pointer; border:1px solid lightgray; font-weight:600;">검색</div><br />
+									
+
+									
+									
+
+									<!-- "검색" 단추를 누르면 팝업 레이어가 열리도록 설정한다 -->
+									<script> $(function() { $("#postcodify_search_button").postcodifyPopUp(); }); </script>
+									
+								</div>
+								
+								
 						</div>
+
+									
+
+
+
 
 						<br>
 
@@ -603,11 +622,16 @@ margin-top:5px;
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="${resPath}/user/vendor/jquery/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
 	<script
 		src="${resPath}/user/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="${resPath}/user/js/basic.js"></script>
+	<script src="${resPath}/user/js/basic.js?V=2"></script>
 
 	<script>
+	
+	
+	
 	function twitter(){
 		var twitter = document.querySelector('.twitter');
 

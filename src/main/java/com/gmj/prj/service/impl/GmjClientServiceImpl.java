@@ -49,7 +49,7 @@ public class GmjClientServiceImpl implements GmjClientService {
 				.getRequest();
 		HttpSession hs = req.getSession();
 		GmjClient resultgc =gcdi.login(gc);
-		if(resultgc.getGmjuseremail().equals("admin")) {
+		if(resultgc.getGmjuseremail().equals("admin@gmj.com")) {
 			hs.setAttribute("userNO", resultgc.getGmjuserno());
 			hs.setAttribute("userID", resultgc.getGmjuseremail());
 			hs.setAttribute("authority", true);

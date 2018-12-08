@@ -6,11 +6,11 @@
 <head>
 
 <meta charset="utf-8">
-<meta name="viewport"
+<meta name="viewport" 
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<link href="${resPath}/user/vendor/bootstrap/css/recommend.css"
+<link href="${resPath}/user/vendor/bootstrap/css/recommend1.css"
 	rel="stylesheet">
 <meta charset="UTF-8">
 <meta name="robots" content="noindex">
@@ -57,7 +57,8 @@
 
 <body>
 	<h1 class="site-heading text-center text-white d-none d-lg-block" style="margin-top:3rem; margin-bottom:3rem;">
-		<span class="site-heading-lower"><a href="home"
+
+		<span class="site-heading-lower"><a href="/uri/prj/user/home"
 			style="color: white; text-decoration: none;"> <svg width="200px"
 					height="200px"> 
 
@@ -104,6 +105,32 @@
 </svg>
 		</a></span>
 	</h1>
+	<c:if test="${empty userID}">
+	<div style="position: absolute; left: 1500px; top: 5px; width: 200px;">
+		<div style="float: left; margin-right: 5%;">
+			<button data-toggle="modal"	data-target="#login"
+				style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;">${userID}로그인</button>
+		</div>
+		<div style="float: left;">
+			<button
+				style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;"
+				data-toggle="modal" data-target="#signup">회원가입</button>
+		</div>
+	</div>
+	</c:if>
+		<c:if test="${!empty userID}">
+	<div style="position: absolute; left: 1500px; top: 5px; width: 200px;">
+		<div style="float: left; margin-right: 5%; color:white">
+			환영합니다. ${userID}님  
+		</div>
+		<div style="float: left;">
+			<button onclick="logout()"
+				style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;"
+				>로그아웃</button>
+		</div>
+	
+	</div>
+	</c:if>
 
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav"
@@ -123,18 +150,18 @@
 							<span class="sr-only">(current)</span>
 					</a></li>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/loading">Map</a></li>
+						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/Geocode">Map</a></li>
 					<li class="nav-item active px-lg-4"><a
 						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/architectkim">architect</a>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/community">community</a>
+						class="nav-link text-uppercase text-expanded" href="community">community</a>
 					</li>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/socialMedia">social
+						class="nav-link text-uppercase text-expanded" href="social media">social
 							media</a></li>
-					
+					</li>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/exhibition">exhibition</a>
+						class="nav-link text-uppercase text-expanded" href="exhibition">exhibition</a>
 					</li>
 				</ul>
 			</div>
@@ -147,16 +174,16 @@
 				<div class="product-item-title d-flex">
 					<div class="bg-faded p-5 d-flex ml-auto rounded">
 						<h2 class="section-heading mb-0">
-							<span class="section-heading-upper" style="text-align: center;">김중업</span>
+							<span class="section-heading-upper" style="text-align: center;">황두진</span>
 							<span class="section-heading-lower">작품</span>
 						</h2>
 					</div>
 				</div>
 
 				<!-- 추가 -->
-				<section class="intro">
+				<section class="intro" style="border-radius:20px 20px 0px 0px;">
 					<div class="container1">
-						<h1>My Life &darr;</h1>
+						<h1>Architect &darr;</h1>
 						<h5>Scroll Down</h5>
 					</div>
 				</section>
@@ -164,55 +191,49 @@
 					<ul>
 						<li>
 							<div>
-								<time>1993</time>
+								<time>2002</time>
 								<img id="meBaby"
-									src="http://i1356.photobucket.com/albums/q729/eleftheria_b/my%20face/babyMe_zps3ku1takx.jpg" /><br>Born
-								in Greece in a hot noon of mid-summer
+									src="${resPath}/user/img/열린책들사옥.jpg" style="width:170px; height:100px;"/><br>-열린 책들 사옥-<br>
+								미니멀리즘과 건물의 파사드라 할 수 있는 동측면은 벽체 압축 시멘트 패널, 노출콘크리트, 단열창호 그리고 수평선이 강조된 목재 루버가 3~4층 창에 걸려 있는 정도다.
 							</div>
 						</li>
 						<li>
 							<div>
-								<time>1998-2011</time>
+								<time>2013</time>
 								<img class="photos"
-									src="http://www.westperry.org/cms/lib/PA09000117/Centricity/Domain/51/school.gif" /><br>Went
-								to school in many different places in Greece. We had to move a
-								lot due to mama's job.
+									src="${resPath}/user/img/과천동무지개떡.jpg" style="width:150px; height:130px;"/><br>-과천동무지개떡-<br>
+								다공성 벽의 발전된 형태로써, 기존의 다공성 벽이 한 면에만 설치되었다면 이 건물의 다공성 벽은 면과 면이 만나는 코너에 자리한다. 전면 다공성 벽의 연속성은 건물의 예각 모서리에 위치하여 그 특별함을 더하게 된다. 이를 위해 벽돌을 하나하나 특수 가공하였다. 전면의 다공성벽은 남쪽을 면하고 있어 주거 공간에 따뜻한 아침 햇살을 투영하고, 후면의 다공성 벽은 포근한 석양의 빛을 까페 내부로 끌어들인다. 
+							</div>
+						</li> 
+						<li>
+							<div>
+								<time>2013</time>
+								<img class="photos"
+									src="${resPath}/user/img/캐슬오브스카이워커스.jpg" style="width:170px; height:100px;"/><br>-캐슬오브스카이워커스-<br>
+								구조 및 단열벽체로부터 250mm 이격되어 건물 전체를 둘러싸고 있는 알루미늄 재질의 익스펜디드 메탈은 여름의 높은 태양광은 걸러내고 겨울의 낮은 태양광은 실내로 유입하는 기능성 외피이다.
 							</div>
 						</li>
 						<li>
 							<div>
-								<time>2012-2016</time>
+								<time>2015</time>
 								<img class="photos"
-									src="https://eclass.uowm.gr/courses/theme_data/3/uowm-logo_1.png" /><br>
-								Study at the university of Western Macedonia in Greece.
+									src="${resPath}/user/img/목경헌.jpg" style="width:150px; height:130px;"/><br>-목경헌-<br>
+								근대화 과정에서 애초에 상업용도로 등장했던 2층 한옥이라는 유형이 도시화 및 기술의 발달에 따라 다층 주거용 현대 한옥으로 진화하는 과정을 보여주는 사례라고 할 수 있다.
 							</div>
 						</li>
 						<li>
 							<div>
 								<time>2016</time>
 								<img class="photos"
-									src="http://i1356.photobucket.com/albums/q729/eleftheria_b/my%20face/3_eleftheria_zpsjwpxlvm7.jpg" /><br>
-								Graduade as an Engineer of Informatics and Telecommunications
+									src="${resPath}/user/img/무카스사옥.jpg" style="width:170px; height:100px;"/><br>-무카스사옥-<br>
+								부드러운 곡선의 지붕이 만들어내는 경관은 파주 일대의 산의 능선과 조화를 이룬다. 건물의 여러 부분에 발코니와 테라스, 마당 등 외기를 접할 수 있는 공간이 여러 개 설치되어 있다. 황두진건축이 꾸준히 작업해오고 있는 무지개떡건축이라는 유형에 중첩된 기하학과 다공성의 개념이 적용된 사례다.
 							</div>
 						</li>
 						<li>
 							<div>
-								<time>2017</time>
-								<img class="photos"
-									src="http://i1356.photobucket.com/albums/q729/eleftheria_b/my%20face/IMG-20161208-WA0006_zpsnpvm7kko.jpg" /><br>Been
-								for a couples of months in Amsterdam to internship in a cool
-								start-up company!
-							</div>
-						</li>
-						<li>
-							<div>
-								<time>Find me!</time>
+								<time>황두진의 건축물 더보기</time>
 								<h5>
-									<a href="http://www.eleftheriabatsou.com" target="_blank">Eleftheria</a>
-									| <a href="https://codepen.io/EleftheriaBatsou" target="_blank">Projects</a>
-									| <a
-										href="https://www.youtube.com/channel/UCC-WwYv3DEW7Nkm_IP6VeQQ"
-										target="_blank"> Coding videos </a>
+									<a href="https://ko.wikipedia.org/wiki/%ED%99%A9%EB%91%90%EC%A7%84" target="_blank">더보기</a>
 								</h5>
 							</div>
 						</li>
@@ -262,70 +283,72 @@
 	<div class="recommend"> 
 		<section class="Grid">
 			<div class="Grid-row">
-				<div class="Card">
+				<div class="Card" style="height:200px; margin-top:5rem;">
 					<div class="Card-thumb">
 						<div class="Card-shadow"></div>
 						<div class="Card-shadow"></div>
 						<div class="Card-shadow"></div>
 						<div class="Card-image" 
-							style="background-image: url(${resPath}/user/img/su.jpg); width:298.5px; height:150px;"></div>
+							style="background-size:297px 250px; background-image: url(${resPath}/user/img/su.jpg); width:298.5px; height:150px;"></div>
 					</div>
 					<div class="Card-title">
 						<span>김수근</span>
 					</div>
 					<a href="architectsu"><button class="Card-button">자세히</button></a>
 				</div>
-				<div class="Card">
+				<div class="Card" style="height:200px; margin-top:5rem;">
 					<div class="Card-thumb">
 						<div class="Card-shadow"></div>
 						<div class="Card-shadow"></div>
 						<div class="Card-shadow"></div>
 						<div class="Card-image"
-							style="background-image: url(${resPath}/user/img/jung.jpg); width:298.5px; height:150px;"></div>
+							style="background-size:297px 150px; background-image: url(${resPath}/user/img/seung.jpg); width:298.5px; height:150px;"></div>
 					</div>
 					<div class="Card-title">
-						<span>정기용</span>
+						<span>승효상</span>
 					</div>
-					<a href="architectjung"><button class="Card-button">자세히</button></a>
+					<a href="architectseung"><button class="Card-button">자세히</button></a>
 				</div>
-				<div class="Card" style="width: 30rem; height: 20rem;">
+				<div class="Card" style="height:200px; margin-top:5rem;">
 					<div class="Card-thumb">
 						<div class="Card-shadow"></div>
 						<div class="Card-shadow"></div>
 						<div class="Card-shadow"></div>
 						<div class="Card-image"
-							style="background-image: url(${resPath}/user/img/kim.jpg); width:298.5px; height:150px;"></div>
+							style="background-size:297px 150px; background-image: url(${resPath}/user/img/kim.jpg); width:298.5px; height:150px;"></div>
 					</div>
 					<div class="Card-title">
 						<span>김중업</span>
 					</div>
 					<a href="../architectkim"><button class="Card-button">자세히</button></a>
 				</div>
-				<div class="Card">
+				<div class="Card" style="height:200px; margin-top:5rem;">
 					<div class="Card-thumb">
 						<div class="Card-shadow"></div>
 						<div class="Card-shadow"></div>
 						<div class="Card-shadow"></div>
 						<div class="Card-image"
-							style="background-image: url(${resPath}/user/img/min.jpg); width:298.5px; height:150px;"></div>
+							style="background-size:297px 150px; background-image: url(${resPath}/user/img/min.jpg); width:298.5px; height:150px;"></div>
 					</div>
 					<div class="Card-title">
 						<span>민현식</span>
 					</div>
 					<a href="architectmin"><button class="Card-button">자세히</button></a>
 				</div>
-				<div class="Card">
-					<div class="Card-thumb">
-						<div class="Card-shadow"></div>
-						<div class="Card-shadow"></div>
-						<div class="Card-shadow"></div>
-						<div class="Card-image"
-							style="background-image: url(${resPath}/user/img/hwang.jpg); width:298.5px; height:150px;"></div>
+				<div style="width:340px; height:240px; margin-top:3rem; border:2rem solid #61380B; border-radius:5px;">
+					<div class="Card" style="height:200px; width:301px;">
+						<div class="Card-thumb">
+							<div class="Card-shadow"></div>
+							<div class="Card-shadow"></div>
+							<div class="Card-shadow"></div>
+							<div class="Card-image"
+								style="background-size:297px 250px; background-image: url(${resPath}/user/img/hwang.jpg); width:298.5px; height:150px;"></div>
+						</div>
+						<div class="Card-title">
+							<span>황두진</span>
+						</div>
+						<a href="architecthwang"><button class="Card-button">자세히</button></a>
 					</div>
-					<div class="Card-title">
-						<span>황두진</span>
-					</div>
-					<a href="architecthwang"><button class="Card-button">자세히</button></a>
 				</div>
 			</div>
 		</section>
