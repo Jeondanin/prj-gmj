@@ -392,9 +392,12 @@
 			<p class="m-0 small">Copyright &copy; GMJ 2018</p>
 		</div>
 	</footer>
-<!-- 검색용. -->
+	<!-- 검색용. -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
 	<script> $(function() { $("#postcodify_search_button").postcodifyPopUp(); }); </script>
+	<script src="${resPath}/user/js/basic.js"></script>
+
+
 </body>
 </html>

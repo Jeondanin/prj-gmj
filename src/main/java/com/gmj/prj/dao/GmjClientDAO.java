@@ -12,4 +12,5 @@ public interface GmjClientDAO {
 	public int deleteClient(int gmjClientno);
 	public GmjClient login(GmjClient gc);
 	public GmjClient getClientUser(int gc);
+	
 }

@@ -491,7 +491,7 @@ margin-top:5px;
 	<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
 	<script
 		src="${resPath}/user/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="${resPath}/user/js/basic.js?V=5"></script>
+	<script src="${resPath}/user/js/basic.js?V=1"></script>
     <script> $(function() { $("#postcodify_search_button").postcodifyPopUp(); }); </script>
 	<script>
 	

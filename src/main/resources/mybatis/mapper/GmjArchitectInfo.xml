@@ -9,7 +9,7 @@
 	
 		</select>
 		<select id="selectLandmark" resultType="com.gmj.prj.vo.GmjArchitectInfo">
-			select * from gmjarchitectinfo where gmjarchitectbarea = #{value} limit 3;
+			select * from gmjarchitectinfo where gmjarchitectbarea = #{value} order by favoritecnt desc limit 3;
 		
 		</select>
 		<select id="checkAddress" resultType="com.gmj.prj.vo.GmjArchitectInfo">

@@ -130,18 +130,9 @@ padding:2rem 6.5rem;
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav"
 		data-spy="affix" data-offset-top="197">
-		<div class="container">
+		<div class="container" style="margin-left: 490px;">
 			<div class="intro-button mx-auto">
-				<div class="input-group"
-					style="width: 250px; position: absolute; top: -74px; left: 1496px;">
-					<input type="text" class="form-control" placeholder="Search for..."
-						aria-label="Search" aria-describedby="basic-addon2">
-					<div class="input-group-append">
-						<button class="btn btn-primary" type="button">
-							<i class="fas fa-search" style="width: 500px;"></i>
-						</button>
-					</div>
-				</div>
+				
 			</div>
 			<a
 				class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none"
@@ -153,23 +144,37 @@ padding:2rem 6.5rem;
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav mx-auto">
-					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/home">Home
+					<li class="nav-item active px-lg-4"><a
+						class="nav-link text-uppercase text-expanded" href="home">Home
 							<span class="sr-only">(current)</span>
 					</a></li>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/Geocode">Map</a></li>
-					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/architectkim">arhictect</a>
-					</li>
-					<li class="nav-item active px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/community">community</a>
+						class="nav-link text-uppercase text-expanded" href="loading">Map</a>
 					</li>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/socialMedia">social
-							media</a></li>
+						class="nav-link text-uppercase text-expanded" href="architectkim">architect</a>
+					</li>
 					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="/uri/prj/user/academy">Exhibition</a>
+						class="nav-link text-uppercase text-expanded" href="academy.html"
+						data-toggle="dropdown">Commnuity</a>
+						<ul class="dropdown-menu" style="position:absolute; left:861px;background:rgba(47, 23, 15, 0.9);">
+							<li onmouseover="{document.querySelectorAll('.fontblack')[0].style.color='rgba(47, 23, 15, 0.9)';}"onmouseleave="{document.querySelectorAll('.fontblacka')[0].style.color='rgba(255,255,255,.7)';}"><a class="fontblacka" href="/uri/prj/user/community/recommend" style="font-size:3rem;color: rgba(255,255,255,.7);" >Recommend</a></li>
+							<li onmouseover="{document.querySelectorAll('.fontblack')[1].style.color='rgba(47, 23, 15, 0.9)';}"onmouseleave="{document.querySelectorAll('.fontblacka')[1].style.color='rgba(255,255,255,.7)';}"><a class="fontblacka" href="/uri/prj/user/community/usercommunity" style="font-size:3rem;color: rgba(255,255,255,.7);" >User Community</a></li>
+
+						</ul>
+					</li>
+					<li class="nav-item px-lg-4"><a
+						class="nav-link text-uppercase text-expanded"
+						href="/uri/prj/user/socialMedia">social media</a></li>
+					</li>
+					<li class="nav-item px-lg-4"><a
+						class="nav-link text-uppercase text-expanded" href="academy.html"
+						data-toggle="dropdown">Culture</a>
+						<ul class="dropdown-menu" style="position:absolute; left:1220px;background:rgba(47, 23, 15, 0.9);">
+							<li onmouseover="{document.querySelectorAll('.fontblack')[0].style.color='rgba(47, 23, 15, 0.9)';}"onmouseleave="{document.querySelectorAll('.fontblack')[0].style.color='rgba(255,255,255,.7)';}"><a class="fontblack" href="/uri/prj/user/culture/book" style="font-size:3rem;color: rgba(255,255,255,.7);" >Book</a></li>
+							<li onmouseover="{document.querySelectorAll('.fontblack')[1].style.color='rgba(47, 23, 15, 0.9)';}"onmouseleave="{document.querySelectorAll('.fontblack')[1].style.color='rgba(255,255,255,.7)';}"><a class="fontblack" href="/uri/prj/user/culture/exhibition" style="font-size:3rem;color: rgba(255,255,255,.7);" >exhibition</a></li>
+
+						</ul>
 					</li>
 				</ul>
 			</div>
@@ -252,8 +257,9 @@ padding:2rem 6.5rem;
 						 </div>
 						<div id="tabletools" style="position: relative; text-align:left;"  >
 							<span></span>
+							<c:if test="${!empty userID}">
 							<button type="button" id="insertbtn" class="btn btn-default" style="boarder-radius:0.5rem;padding:1px;top: -.5rem;bottom: -.5rem;left: -.5rem;right: -.5rem;border:.2rem solid rgba(230,167,86,.9);"><div style="width:100%;background-color:rgba(230,167,86,.9);border-radius: .25rem;">글쓰기</div></button>
-							
+							</c:if>
 						</div>
 						<div id="paging"
 							style="width:100%;height:50px;position: relative; z-index: 10;"></div>
@@ -271,124 +277,8 @@ padding:2rem 6.5rem;
 		</div>
 	</footer>
 	
-	<div class="modal fade" id="login" role="dialog">
-			<div class="modal-dialog">
 
-				<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-header">
-						<h4 class="modal-title">Modal Header</h4>
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-					</div>
-					<div class="modal-body">
-						<form>
-							<div class="input-group">
-								<span class="input-group-addon"><i
-									class="glyphicon glyphicon-user"></i></span> <input id="logingmjuseremail"
-									type="email" class="form-control" name="gmjuseremail"
-									placeholder="이메일" required>
-							</div>
-							<div class="input-group">
-								<span class="input-group-addon"><i
-									class="glyphicon glyphicon-lock"></i></span> <input id="logingmjuserpwd"
-									type="password" class="form-control" name="gmjuserpwd"
-									placeholder="비밀번호">
-							</div>					
-						</form>
-					</div>
-					<div class="modal-footer">
-						<button id="sb" class="btn btn-default" onclick="login()">로그인</button>
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					</div>
-				</div>
-
-			</div>
-		</div>
-		<div class="modal fade" id="signup" role="dialog">
-			<div class="modal-dialog">
-
-				<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-header">
-						<h4 class="modal-title">Modal Header</h4>
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-					</div>
-					<div class="modal-body">
-						<form>
-							<div class="input-group">
-								<span class="input-group-addon"><i
-									class="glyphicon glyphicon-user"></i></span> <input id="gmjuseremail"
-									type="email" class="form-control" name="gmjuseremail"
-									placeholder="이메일" required>
-							</div>
-							<div class="input-group">
-								<span class="input-group-addon"><i
-									class="glyphicon glyphicon-lock"></i></span> <input id="gmjuserpwd"
-									type="password" class="form-control" name="gmjuserpwd"
-									placeholder="비밀번호">
-							</div>
-							<div class="input-group">
-								<span class="input-group-addon"><i
-									class="glyphicon glyphicon-lock"></i></span> <input id="gmjuserpwdchk"
-									type="password" class="form-control" name="gmjuserpwdchk"
-									placeholder="비밀번호 확인">
-							</div>
-							<div class="input-group">
-								<span class="input-group-addon"><i
-									class="glyphicon glyphicon-pencil"></i></span> <input id="gmjusername"
-									type="text" class="form-control" name="gmjusername"
-									placeholder="이름">
-							</div>
-							<div class="input-group">
-								<span class="input-group-addon"><i
-									class="glyphicon glyphicon-phone"></i></span> <input id="gmjuserphone"
-									type="text" class="form-control" name="gmjuserphone"
-									placeholder="핸드폰 번호">
-							</div>
-							<div class="input-group">
-								<span class="input-group-addon"><i
-									class="glyphicon glyphicon-calendar"></i></span> <input
-									id="gmjuserbirth" type="date" class="form-control"
-									name="gmjuserbirth" placeholder="생년월일 8자 ex)900213">
-							</div>
-							<div class="input-group">
-								<span class="input-group-addon"><i
-									class="glyphicon glyphicon-heart"></i></span> 
-									<div id="gmjusersex" style="padding: 6px 12px; font-size: 14px;height: 34px;border: 1px solid #ced4da;border-radius: .25rem;">
-									<label class="radio-inline" >
-									<input type="radio" name="optradio" value="남자">남
-									</label> 
-									<label class="radio-inline"> 
-									<input type="radio" name="optradio" value="여자">녀
-									</label>
-									</div> 
-									
-							</div>
-							<div class="input-group">
-								<span class="input-group-addon"><i
-									class="glyphicon glyphicon-stats"></i></span> <input
-									id="gmjuseraddress" type="text" class="form-control"
-									name="gmjuseraddress" placeholder="주소">
-							</div>
-
-							<br>
-						
-							
-						</form>
-
-
-
-
-
-					</div>
-					<div class="modal-footer">
-						<button id="sb" class="btn btn-default" onclick="submit()">제출</button>
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					</div>
-				</div>
-
-			</div>
-		</div>
+		
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="${resPath}/user/vendor/jquery/jquery.min.js"></script>

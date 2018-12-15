@@ -12,6 +12,7 @@ import com.gmj.prj.dao.GmjPageInfoDAO;
 import com.gmj.prj.service.GmjBboardService;
 import com.gmj.prj.vo.GmjBboard;
 import com.gmj.prj.vo.GmjPageInfo;
+import com.gmj.prj.vo.GmjReply;
 
 
 @Service
@@ -55,6 +56,11 @@ public class GmjBboardServiceImpl implements GmjBboardService {
 	public GmjPageInfo getPageInfo() {
 		
 		return gpid.getPageInfo("gmjbboard");
+	}
+	@Override
+	public List<GmjReply> getreply(int gmjbboardno) {
+		
+		return gbdao.getReply(gmjbboardno);
 	}
 	
 	

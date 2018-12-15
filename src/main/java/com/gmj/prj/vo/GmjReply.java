@@ -8,7 +8,14 @@ public class GmjReply {
 	public String credat;
 	public String moddat;
 	public String gmjusername;
+	public int gmjbboardno;
 	
+	public int getGmjbboardno() {
+		return gmjbboardno;
+	}
+	public void setGmjbboardno(int gmjbboardno) {
+		this.gmjbboardno = gmjbboardno;
+	}
 	public String getGmjusername() {
 		return gmjusername;
 	}

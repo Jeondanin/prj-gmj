@@ -29,5 +29,9 @@
 		<select id="getOrder" resultType="int">
 			call p_find_order_b(#{gmjbboardno},@_row);
 		</select>
+		<select id="selectReply" resultType="com.gmj.prj.vo.GmjReply" >
+			select distinct gmjreply.*,gmjclient.gmjUserName from gmjreply,gmjclient,gmjbboard 
+			where gmjreply.gmjbboardno=#{gmjbboardno} and gmjreply.gmjuserno=gmjclient.gmjuserno;
+		</select>
 		
 	</mapper>

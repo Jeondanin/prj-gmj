@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace="com.gmj.prj.GmjMap">
+		<select id="selectGmjMapList" resultType="com.gmj.prj.vo.GmjArchitectInfo">
+			select * from gmjarchitectinfo
+		</select>
+		<delete id="deleteGmjMap">
+			delete from gmjarchitectinfo
+			where gmjarchitectbno=#{gmjarchitectbno}
+		</delete>
+		<update id="updateGmjMap">
+			update gmjarchitectinfo
+			<set>
+				<if test="gmjarchitectkname!=null">gmjarchitectkname=#{gmjarchitectkname},</if>
+				<if test="gmjarchitectjname!=null">gmjarchitectjname=#{gmjarchitectjname},</if>
+				<if test="gmjarchitectename!=null">gmjarchitectename=#{gmjarchitectename},</if>
+				<if test="gmjarchitectbarea!=null">gmjarchitectbarea=#{gmjarchitectbarea},</if>
+				<if test="gmjarchitectbaddress1!=null">gmjarchitectbaddress1=#{gmjarchitectbaddress1},</if>
+				<if test="gmjarchitectbaddress2!=null">gmjarchitectbaddress2=#{gmjarchitectbaddress2},</if>
+				<if test="gmjarchitectbaddress3!=null">gmjarchitectbaddress3=#{gmjarchitectbaddress3},</if>
+				<if test="gmjarchitectbtitle!=null">gmjarchitectbtitle=#{gmjarchitectbtitle},</if>
+				<if test="gmjarchitectbdesc!=null">gmjarchitectbdesc=#{gmjarchitectbdesc},</if>
+				<if test="gmjarchitectbthumb!=null">gmjarchitectbthumb=#{gmjarchitectbthumb},</if>
+				<if test="favoritecnt!=null">favoritecnt=#{favoritecnt}</if>
+			</set>
+			where gmjarchitectbno=#{gmjarchitectbno}
+		</update>
+	</mapper>

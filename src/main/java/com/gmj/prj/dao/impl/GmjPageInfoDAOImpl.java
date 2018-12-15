@@ -14,7 +14,9 @@ public class GmjPageInfoDAOImpl implements GmjPageInfoDAO {
 	public GmjPageInfo getPageInfo(String boardtype){
 		GmjPageInfo gpi = new GmjPageInfo();
 		int totalCnt = ss.selectOne("com.gmj.prj.vo.GmjPageInfo.getTotalCnt",boardtype);
+		int lastNum = ss.selectOne("com.gmj.prj.vo.GmjPageInfo.lastNum");
 		gpi.setTotalCnt(totalCnt);
+		gpi.setLastnum(lastNum);
 		gpi.pageCount();
 		return gpi;
 	}

@@ -9,6 +9,7 @@ var pagination = document.querySelector('#paginationz');
 	var url;
 	var block =5;
 	var init=1;
+	
 	function doInit() {
 		if(url!==undefined){
 			viewBoard();
@@ -29,12 +30,14 @@ var pagination = document.querySelector('#paginationz');
 			method : 'GET',
 			success : function(res) {
 				res = JSON.parse(res);
+				//마지막 번호를 넘겨야함 
+				lastNum =res.lastnum;
 				totalCnt = res.totalCnt;
 				totalPage = res.totalPage;
 				showPaging2(totalCnt,totalPage)
 				if(no===-1){
 
-					findorder(totalCnt);
+					findorder(lastNum);
 				}else{
 					findorder(no);
 				}
@@ -54,7 +57,7 @@ var pagination = document.querySelector('#paginationz');
 			fin=totalPage;
 			
 		}
-		var html2='';
+		var html2='<div style="width:200px;"> </div>';
 		
 		for (var j = init; j <=fin; j++) {
 	
@@ -77,10 +80,30 @@ var pagination = document.querySelector('#paginationz');
 
 		};
 		
-		pagination.insertAdjacentHTML('beforeend', html2);
+		pagination.insertAdjacentHTML('afterbegin', html2);
+		if(document.getElementById('paging')!=''){
+			document.getElementById('paging').innerHTML='';
+		}
+		document.getElementById('paging').insertAdjacentHTML('afterbegin','<br><input type="text" style="width:60px; text-align:center;" value="제목" disabled><input id="inputSearch" type="text"><button  onclick="searchK()">검색</button>');
+	
+		
+	}
+	//검색창 
+	function searchK(){
+		
+		var inputSearch = document.querySelector('#inputSearch');
+		alert('/uri/prj/user/community/usercommunity/list?search='+inputSearch.value+'로 이동합니다.');
+		location.href='/uri/prj/user/community/usercommunity/list?search='+inputSearch.value;
+	
+		
+		
+
 		
 		
 	}
+	//검색창끝
+	
+	
 	function findorder(no){
 		au.send({
 			url : '/gmjcboardorder/'+no,
@@ -155,47 +178,52 @@ var pagination = document.querySelector('#paginationz');
 	}
 	
 	///아래부터 삽입
-	document.querySelector('#insertbtn').addEventListener('click',insertContent);
+	if(document.querySelector('#insertbtn')!=null){
+		document.querySelector('#insertbtn').addEventListener('click',insertContent);	
+	}
+	
 	function insertContent(){
-		location.href="/uri/prj/user/community/insert";
+		location.href="/uri/prj/user/community/usercommunity/insert";
 	}
 	
 	function viewBoard(){
-		console.log(134);
 		
-		au.send({url:'/gmjcboard/'+no,
-		method:'GET',
-		async : false,
-		success : function(res){
-			res=JSON.parse(res);
-			
-			if(viewSectionhtml!=''){
-				viewSectionhtml='';
-				viewSection.innerHTML='';
-			}
-			viewSectionhtml += '<form><div class="form-group">'
-			
-			viewSectionhtml += '<div class="row"><div class="col-sm-12 viewunderline"><div class="viewtitle">';
-				viewSectionhtml += res.gmjcboardtitle+'</div><div>'+res.credat+'&nbsp;  |  &nbsp;'+res.gmjusername+'</div>';
-				viewSectionhtml += '</div></div>'
-			viewSectionhtml += '<div class="row viewcontentrow"><div class="col-sm-12 viewcontent">'
-				viewSectionhtml += res.gmjcboarddesc;
-				viewSectionhtml += '</div></div>';
-				if(res.gmjuploadaddress){
-					viewSectionhtml +='<div class="row"><div class="col-sm-12 viewonline">';
-					viewSectionhtml += '<img  src="/resources/uploadfiles/'+res.gmjuploadaddress+'">';
-				viewSectionhtml +='</div></div>';
-				}
-			viewSectionhtml += '</div>';
-			viewSectionhtml += '</form>';
-		
-			
-			viewSection.insertAdjacentHTML('beforeend',viewSectionhtml);
-			
-			viewreply();
+		if(no!==undefined){
+			au.send({url:'/gmjcboard/'+no,
+				method:'GET',
+				async : false,
+				success : function(res){
+					res=JSON.parse(res);
+					
+					if(viewSectionhtml!=''){
+						viewSectionhtml='';
+						viewSection.innerHTML='';
+					}
+					viewSectionhtml += '<form><div class="form-group">'
+					
+					viewSectionhtml += '<div class="row"><div class="col-sm-12 viewunderline"><div class="viewtitle">';
+						viewSectionhtml += res.gmjcboardtitle+'</div><div>'+res.credat+'&nbsp;  |  &nbsp;'+res.gmjusername+'</div>';
+						viewSectionhtml += '</div></div>'
+					viewSectionhtml += '<div class="row viewcontentrow"><div class="col-sm-12 viewcontent">'
+						viewSectionhtml += res.gmjcboarddesc;
+						viewSectionhtml += '</div></div>';
+						if(res.gmjuploadaddress){
+							viewSectionhtml +='<div class="row"><div class="col-sm-12 viewonline">';
+							viewSectionhtml += '<img  src="/resources/uploadfiles/'+res.gmjuploadaddress+'">';
+						viewSectionhtml +='</div></div>';
+						}
+					viewSectionhtml += '</div>';
+					viewSectionhtml += '</form>';
 				
-			
-		}})
+					
+					viewSection.insertAdjacentHTML('beforeend',viewSectionhtml);
+					
+					viewreply();
+						
+					
+				}})
+		}
+		
 		
 	}
 

@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -48,7 +49,7 @@ public class GmjCboardServiceImpl implements GmjCboardService {
 	}
 	@Override
 	public int insertCboard(GmjCboard gc,HttpServletRequest req){
-		
+		HttpSession hs = req.getSession();
 		
 		System.out.println("과연 니가 나올까? 타이틀");
 		System.out.println(req.getParameter("gmjcboardtitle"));
@@ -59,6 +60,8 @@ public class GmjCboardServiceImpl implements GmjCboardService {
 			String desc = new String(gc.getGmjcboarddesc().getBytes("8859_1"),"utf-8");
 			gc.setGmjcboarddesc(desc);
 			gc.setGmjcboardtitle(title);
+			gc.setGmjclientno((Integer)hs.getAttribute("userNO"));	
+			System.out.println(hs.getAttribute("userNO"));
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -86,8 +89,14 @@ public class GmjCboardServiceImpl implements GmjCboardService {
 					System.out.println("Origanalname"+orginname);
 					System.out.println("확장자: "+fEndName);
 					System.out.println("size"+mf.getSize());
-					String path ="C:\\bdi_study\\workspace\\prj-gmj\\src\\main\\webapp\\resources\\uploadfiles\\newimage1"+System.currentTimeMillis()+fEndName;
+					//파일 경로 찾기.
+					String utstr = this.getClass().getResource("").getPath();
+					
+					utstr = utstr.substring(0, utstr.indexOf("workspace")+10);
+					System.out.println(utstr);
+					String path =utstr+"\\prj-gmj\\src\\main\\webapp\\resources\\uploadfiles\\newimage1"+System.currentTimeMillis()+fEndName;
 		            File file = new File(path);
+		            
 		            String adjusted = path.substring(path.lastIndexOf("\\")+1, path.length());
 		            gu.setGmjuploadaddress(adjusted);
 		            gu.setGmjcboardno(forUpload.getGmjcboardno());
@@ -134,9 +143,16 @@ public class GmjCboardServiceImpl implements GmjCboardService {
 	}
 	@Override
 	public GmjCboard getOne(int gmjcboardno) {
-		// TODO Auto-generated method stub
+		
 		return gcsd.getOne(gmjcboardno);
 	}
+	@Override
+	public List<GmjCboard> searchList(String searchWord) {
+		
+		return gcsd.searchList(searchWord);
+	}
+
+	
 	@Override
 	public int updateCboardList(List<GmjCboard> listcb) {
 		
@@ -171,6 +187,14 @@ public class GmjCboardServiceImpl implements GmjCboardService {
 		
 		return gcsd.getOrder(gmjcboardno);
 	}
-
+	@Override
+	public int deletecboard(int gmjcboardno) {
+		// TODO Auto-generated method stub
+		return gcsd.deletecboard(gmjcboardno);
+	}
+	@Override
+	public int updateGmjCBoard(GmjCboard gc) {
+		return gcsd.updateGmjCBoard(gc);
+	}
 
 }

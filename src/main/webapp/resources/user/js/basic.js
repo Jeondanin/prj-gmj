@@ -4,7 +4,7 @@
 	'<div class="modal-dialog">'+
 	'<div class="modal-content">'+
 	'<div class="modal-header">'+
-	'<h4 class="modal-title">로구인</h4>'+
+	'<h4 class="modal-title">노구인</h4>'+
 	'<button type="button" class="close" data-dismiss="modal">&times;</button>'+
 		'</div>'+
 		'<div class="modal-body">'+
@@ -21,7 +21,7 @@
 			'</form>'+
 		'</div>'+
 		'<div class="modal-footer">'+
-			'<button id="sb" class="btn btn-default" onclick="login()">로그인</button>'+
+			'<button id="lg" class="btn btn-default" onclick="login()">로그인</button>'+
 			'<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
 		'</div>'+
 	'</div>'+
@@ -106,24 +106,34 @@
 
 '</div>'+
 '</div>'
-document.querySelector('footer').insertAdjacentHTML('afterend',gtsec);
+//signup의 display가 block일때유효.
+
+
+
+	console.log(document.querySelector('footer'));
+	if(document.querySelector('footer')!=null){
+		document.querySelector('footer').insertAdjacentHTML('afterend',gtsec);
+		
+		
+	}
+	
+	
 var logingmjuseremail =  document.querySelector('#logingmjuseremail');
 	var logingmjuserpwd = document.querySelector('#logingmjuserpwd');
 	var data ={};
 	function login(){
 		if(!logingmjuseremail.value.match(emailPattern)||blankPattern.test(logingmjuseremail.value)){
-			console.log('이메일을 확인하세요.');
-			console.log('공백이 포함되어 있습니다.');
+			alert('이메일을 확인하세요.');
 			return;
 		}
 	
 		console.log(logingmjuserpwd);
 		if(logingmjuserpwd.value.length<8||logingmjuserpwd.value.length>16||blankPattern.test(logingmjuserpwd.value)){
-			console.log('비밀번호 조건은 8자 ~16자이고, 영문(대소문자 구분),숫자,특수문자(!,@,#,$,%,^,&,*,?,_,~,-만 허용)를 혼용해주세요..');
+			alert('비밀번호 조건은 8자 ~16자이고, 영문(대소문자 구분),숫자,특수문자(!,@,#,$,%,^,&,*,?,_,~,-만 허용)를 혼용해주세요..');
 			return;
 		}
 		if(!logingmjuserpwd.value.trim().match(pwdPattern)){	
-			console.log('비밀번호 조건은 8자 ~16자이고, 영문(대소문자 구분),숫자,특수문자(!,@,#,$,%,^,&,*,?,_,~,-만 허용)를 혼용해주세요..');
+			alert('비밀번호 조건은 8자 ~16자이고, 영문(대소문자 구분),숫자,특수문자(!,@,#,$,%,^,&,*,?,_,~,-만 허용)를 혼용해주세요..');
 			return;
 		}	
 		
@@ -156,7 +166,7 @@ var logingmjuseremail =  document.querySelector('#logingmjuseremail');
 				url:'/gmjlogout/',
 				method:'GET',
 				success : function(res){
-					alert('로그아웃 했슴돠. 결과값은 0이겠죠?'+res)
+					alert('로그아웃되셨습니다.');
 					location.href=location.href;
 				}
 		}
@@ -168,7 +178,7 @@ var logingmjuseremail =  document.querySelector('#logingmjuseremail');
 	var gmjuserpwd = document.querySelector('#gmjuserpwd');
 	var gmjuserpwdchk = document.querySelector('#gmjuserpwdchk')
 	var gmjusername =  document.querySelector('#gmjusername');
-	var gmjuserphone =  document.querySelector('#gmjuserphone');
+	var gmjuserphone =  document.getElementById('gmjuserphone');
 	var gmjuserbirth =  document.querySelector('#gmjuserbirth');
 	var gmjusersexTest =  document.querySelectorAll('input[name="optradio"]');
 	var gmjusersex;
@@ -179,8 +189,12 @@ var logingmjuseremail =  document.querySelector('#logingmjuseremail');
 	var emailPattern = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 	var pwdPattern =/([a-zA-Z0-9].*[!,@,#,$,%,^,&,*,?,_,~,-])|([!,@,#,$,%,^,&,*,?,_,~,-].*[a-zA-Z0-9])/;
 	var hanglePattern=/[a-z0-9]|[ \[\]{}()<>?|`~!@#$%^&*-_+=,.;:\"'\\]/g;
+	if(document.getElementById('gmjuserphone')!=null){
+		document.getElementById('gmjuserphone').addEventListener('keyup',adddash);
+	}
+		
 	
-	gmjuserphone.addEventListener('keyup',adddash);
+	
 
 	
 	
@@ -213,33 +227,32 @@ var logingmjuseremail =  document.querySelector('#logingmjuseremail');
 		
 	
 		if(!gmjuseremail.value.match(emailPattern)||blankPattern.test(gmjuseremail.value)){
-			console.log('이메일을 확인하세요.');
-			console.log('공백이 포함되어 있습니다.');
+			alert('이메일을 확인하세요.');
 			return;
 		}
-		console.log(gmjuserpwd.value);
+		
 		
 		if(gmjuserpwd.value.length<8||gmjuserpwd.value.length>16||blankPattern.test(gmjuserpwd.value)){
-			console.log('비밀번호 조건은 8자 ~16자이고, 영문(대소문자 구분),숫자,특수문자(!,@,#,$,%,^,&,*,?,_,~,-만 허용)를 혼용해주세요..');
+			alert('비밀번호 조건은 8자 ~16자이고, 영문(대소문자 구분),숫자,특수문자(!,@,#,$,%,^,&,*,?,_,~,-만 허용)를 혼용해주세요..');
 			return;
 		}
 		if(!gmjuserpwd.value.trim().match(pwdPattern)){	
-			console.log('비밀번호 조건은 8자 ~16자이고, 영문(대소문자 구분),숫자,특수문자(!,@,#,$,%,^,&,*,?,_,~,-만 허용)를 혼용해주세요..');
+			alert('비밀번호 조건은 8자 ~16자이고, 영문(대소문자 구분),숫자,특수문자(!,@,#,$,%,^,&,*,?,_,~,-만 허용)를 혼용해주세요..');
 			return;
 		}
 		if(gmjuserpwd.value!=gmjuserpwdchk.value){
-			console.log(gmjuserpwdchk.value);
-			console.log('비밀번호가 서로 다릅니다.');
+			
+			alert('비밀번호가 서로 다릅니다.');
 			return;
 		}
-		console.log(gmjusername.value);
+		
 		if(gmjusername.value.match(hanglePattern)&&gmjusername.value.length<2){
-			console.log('이름은 한글로 쓰셔야합니다.');
+			alert('이름은 한글로 쓰셔야합니다.');
 			return;
 			
 		}
 		if(!gmjuserphone.value.match(/^[0-9]{3}[-]{1}[0-9]{3,4}[-]{1}[0-9]{4}$/g)){
-			console.log('핸드폰 번호를 확인해주세요. 10자리 또는 11자리를 기입해야 합니다.')
+			alert('핸드폰 번호를 확인해주세요. 10자리 또는 11자리를 기입해야 합니다.')
 			return;
 		}
 		if(gmjuserbirth.value.substring(0,4)>d.getFullYear()){
@@ -311,6 +324,43 @@ var logingmjuseremail =  document.querySelector('#logingmjuseremail');
 		}
 		au.send(conf);
 	}
+	
+	////////////엔터키 되도록하는 곳. 
+	window.addEventListener('click',detect);
+	function detect(){
+		//로그인 엔터키 인지
+		if(document.querySelector('#login').style.display=='block'){
+			window.addEventListener("keydown", onKeyDown);
+		}else{
+			
+			window.removeEventListener("keydown", onKeyDown);
+		}
+		//회원가입 엔터키 인지
+		
+		if(document.querySelector('#signup').style.display=='block'){
+			window.addEventListener("keydown", onKeyDown1);
+		}else{
+			window.removeEventListener("keydown", onKeyDown1);
+		}
+		
+		
+	}
+	function onKeyDown(e){
+		
+	      if(e.keyCode==13){
+	      document.querySelector('#lg').click();
+	     
+	    }
+	}
+	
+	
+	function onKeyDown1(e){
+	
+	      if(e.keyCode==13){
+	      document.querySelector('#sb').click();
+	     
+	    }
+	}	
 	
 	
 	

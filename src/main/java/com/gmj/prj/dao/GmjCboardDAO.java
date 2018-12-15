@@ -14,8 +14,11 @@ public interface GmjCboardDAO {
 	public List<GmjCboard> getList(HttpServletRequest req);
 	public int insertCboard(GmjCboard gc);
 	public GmjCboard getOne(int gmjcboardno);
+	public List<GmjCboard> searchList(String searchWord);
 	public GmjCboard getLatestOne();
 	public int updateCboardList(List<GmjCboard> gc);
+	public int deletecboard(int gmjcboardno);
+	public int updateGmjCBoard(GmjCboard gc);
 	
 	
 	public int insertReply(HashMap<String, String> reply);

@@ -78,16 +78,15 @@
 								</span>
 							</div> <!-- /input-group -->
 						</li>
-						<li><a href="/uri/prj/admin/home"><i class="fa fa-dashboard fa-fw"></i>대쉬보드</a>
+						<li><a href="/uri/prj/admin/home"><i class="fa fa-dashboard fa-fw"></i>홈</a>
 						</li>
 						<li><a href="/uri/prj/admin/map"><i class="fa fa-edit fa-fw"></i> 지도 관리</a></li>
 						<li><a href="/uri/prj/admin/userList"><i class="fa fa-edit fa-fw"></i> 회원 관리</a></li>
-						<li><a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>
-								게시판 관리<span class="fa arrow"></span></a>
-							<ul class="nav nav-second-level">
+						
+							
 								<li><a href="/uri/prj/admin/adboard">게시물 관리</a></li>
 								<li><a href="/uri/prj/admin/commentboard">댓글 관리</a></li>
-							</ul> <!-- /.nav-second-level --></li>
+					
 						<li><a href="/uri/prj/admin/Bboard"><i class="fa fa-table fa-fw"></i>추천글
 								관리</a></li>
 						<li><a href="/uri/prj/admin/Vboard"><i class="fa fa-table fa-fw"></i>영상게시판
@@ -96,7 +95,6 @@
 								관리</a></li>
 						<li><a href="/uri/prj/admin/Book"><i class="fa fa-table fa-fw"></i>책
 								관리</a></li>
-
 
 
 						
@@ -227,7 +225,7 @@
 		}
 		function findFactor(target) {
 			keys = new Array();
-			for (var i = 0; i < 10; i++) { //i<3의 3은 이미지 앞에 있는 항목 개수.
+			for (var i = 0; i < 6; i++) { //i<3의 3은 이미지 앞에 있는 항목 개수.
 			//	console.log(target.path[2].childNodes[i].innerHTML);//target:누르는 그림, path[2]:target을 기준으로 tr전체영역,
 				keys[i] = target.path[2].childNodes[i].innerHTML;
 			}
@@ -238,12 +236,12 @@
 		function findFactor2(target) {
 			alert('눌렀다.');
 			keys = new Array();
-			for (var i = 0; i < 10; i++) { //i<3의 3은 이미지 앞에 있는 항목 개수.
+			for (var i = 0; i < 1; i++) { //i<3의 3은 이미지 앞에 있는 항목 개수.
 			//	console.log(target.path[2].childNodes[i].innerHTML);//target:누르는 그림, path[2]:target을 기준으로 tr전체영역,
 				keys[i] = target.path[2].childNodes[i].innerHTML;
 			}
-			uinum = keys[0];
-			deleterow(uinum);
+			reno = keys[0];
+			deleterow(reno);
 		}
 
 		function checkvalue(keys) {
@@ -257,19 +255,19 @@
 					}
 				}
 			} */
-			if (keys[3].match(hanglePattern)) {
+			/* if (keys[3].match(hanglePattern)) {
 				
 				alert('이름은 한글로 써야합니다.');
 				return;
-			}
+			} */
 			
 
 			sendingToServer(keys);
 		}
 		
-		function deleterow(uinum){
+		function deleterow(reno){
 			var conf={
-					url:'/gmjclient/'+uinum+'',
+					url:'/gmjCommentDelete/'+reno+'',
 					method:'DELETE',
 					success:function(res){
 						res=JSON.parse(res);
@@ -284,9 +282,9 @@
 		function sendingToServer(keys){
 			alert('보내기전');
 			conf={
-					url:'/gmjclient',
+					url:'/gmjCommentUpdate',
 					method:'PUT',
-					param :JSON.stringify({gmjuserno:keys[0],gmjuserpwd:keys[2],gmjusername:keys[3],gmjuserphone:keys[4],gmjuserbirth:keys[5],gmjusersex:keys[6]}),
+					param :JSON.stringify({gmjreplyno:keys[0],gmjreplydesc:keys[3]}),
 					success:function(res){
 						res=JSON.parse(res);
 						alert('바꼈다');

@@ -76,22 +76,20 @@
 								</span>
 							</div> <!-- /input-group -->
 						</li>
-						<li><a href="/uri/prj/admin/home"><i class="fa fa-dashboard fa-fw"></i>대쉬보드</a>
+						<li><a href="/uri/prj/admin/home"><i class="fa fa-dashboard fa-fw"></i>홈</a>
 						</li>
 						<li><a href="/uri/prj/admin/map"><i class="fa fa-edit fa-fw"></i> 지도 관리</a></li>
 						<li><a href="/uri/prj/admin/userList"><i class="fa fa-edit fa-fw"></i> 회원 관리</a></li>
-						<li><a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>
-								게시판 관리<span class="fa arrow"></span></a>
-							<ul class="nav nav-second-level">
+						
+							
 								<li><a href="/uri/prj/admin/adboard">게시물 관리</a></li>
 								<li><a href="/uri/prj/admin/commentboard">댓글 관리</a></li>
-							</ul> <!-- /.nav-second-level --></li>
+					
 						<li><a href="/uri/prj/admin/Bboard"><i class="fa fa-table fa-fw"></i>추천글
 								관리</a></li>
 						<li><a href="/uri/prj/admin/Vboard"><i class="fa fa-table fa-fw"></i>영상게시판
 								관리</a></li>
-						<li><a href="tables.html"><i class="fa fa-table fa-fw"></i>트위터배너
-								관리</a></li>
+					
 						<li><a href="/uri/prj/admin/Book"><i class="fa fa-table fa-fw"></i>책
 								관리</a></li>
 

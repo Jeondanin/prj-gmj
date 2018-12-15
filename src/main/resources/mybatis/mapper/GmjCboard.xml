@@ -24,9 +24,15 @@
 		where gmjcboardno order by gmjcboardno desc limit 1;
 	
 		</select>
+		<select id="searchList" resultType="com.gmj.prj.vo.GmjCboard">
+		select gmjcboardno, gmjcboardtitle,gmjusername,date_format(gmjcboard.credat,"%Y-%m-%d") as credat,gmjcboardcnt from gmjcboard,gmjclient
+			 where gmjcboard.gmjclientno=gmjclient.gmjUserNo and gmjcboard.gmjcboardtitle  like concat('%',#{searchWord},'%') order by gmjcboard.credat desc, gmjcboardno desc 
+		</select>
+		
+		
 		<insert id="insertCboard" >
 			insert into gmjcboard(gmjcboardtitle,gmjcboarddesc,gmjclientno,credat,moddat,gmjcboardcnt)
-			values(#{gmjcboardtitle},#{gmjcboarddesc},#{gmjcboardno},now(),now(),0);
+			values(#{gmjcboardtitle},#{gmjcboarddesc},#{gmjclientno},now(),now(),0);
 		</insert>
 		
 		<update id="pluscnt">
@@ -49,13 +55,14 @@
 		
 		
 		<insert id="insertReply" >
-			INSERT INTO `bdi`.`gmjreply` (`gmjcboardno`, `gmjuserno`, `gmjreplydesc`, `credat`, `moddat`) 
-			VALUES (#{gmjcboardno}, #{gmjuserno}, #{gmjreplydesc}, now(), now());
+			INSERT INTO `bdi`.`gmjreply` (`gmjcboardno`, `gmjuserno`, `gmjreplydesc`, `credat`, `moddat`,`gmjbboardno`) 
+			VALUES (#{gmjcboardno}, #{gmjuserno}, #{gmjreplydesc}, now(), now(),#{gmjbboardno});
 		</insert>
 		<select id="selectReply" resultType="com.gmj.prj.vo.GmjReply" >
 			select distinct gmjreply.*,gmjclient.gmjUserName from gmjreply,gmjclient,gmjcboard 
 			where gmjreply.gmjcboardno=#{gmjcboardno} and gmjreply.gmjuserno=gmjclient.gmjuserno;
 		</select>
+		
 			<select id="selectReplyadmin" resultType="com.gmj.prj.vo.GmjReply" >
 			select distinct gmjreply.*,gmjclient.gmjUserName from gmjreply,gmjclient
 			where gmjreply.gmjuserno=gmjclient.gmjuserno;
@@ -69,6 +76,20 @@
 			call p_find_order(#{gmjcboardno},@_row);
 			
 		</select>
+		<delete id="deletecboard">
+			delete from gmjcboard
+			where gmjcboardno = #{gmjcboardno}
+		</delete>
+		<update id="updatecboard">
+		update gmjcboard
+		<set>
+			<if test="gmjcboardtitle!=null">gmjcboardtitle=#{gmjcboardtitle},</if>
+			<if test="gmjcboarddesc!=null">gmjcboarddesc=#{gmjcboarddesc},</if>
+			<if test="gmjcboardcnt!=null">gmjcboardcnt=#{gmjcboardcnt},</if>
+			moddat=now()
+		</set>
+		where gmjcboardno=#{gmjcboardno}
+		</update>
 		
 		
 	</mapper>

@@ -6,5 +6,8 @@
 		<select id="getTotalCnt" resultType="int">
 			select count(*) from ${value}
 		</select>
+		<select id="lastNum" resultType="int">
+			select gmjcboardno from gmjcboard order by gmjcboardno desc,credat desc limit 1; 
+		</select>
 		
 	</mapper>

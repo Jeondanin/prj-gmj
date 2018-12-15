@@ -11,7 +11,14 @@ public class GmjPageInfo {
 	private Integer totalBlock;
 	private Integer sBlock;
 	private Integer eBlock;
+	private Integer lastnum;
 	
+	public Integer getLastnum() {
+		return lastnum;
+	}
+	public void setLastnum(Integer lastnum) {
+		this.lastnum = lastnum;
+	}
 	public Integer getRowCnt() {
 		return rowCnt;
 	}

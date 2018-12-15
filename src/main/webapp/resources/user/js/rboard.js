@@ -157,7 +157,10 @@ var pagination = document.querySelector('#paginationz');
 	}
 	
 	///아래부터 삽입
-	document.querySelector('#insertbtn').addEventListener('click',insertContent);
+	if(document.querySelector('#insertbtn')!=null){
+		document.querySelector('#insertbtn').addEventListener('click',insertContent);
+	}
+	
 	function insertContent(){
 		location.href="/uri/prj/user/community/insert";
 	}

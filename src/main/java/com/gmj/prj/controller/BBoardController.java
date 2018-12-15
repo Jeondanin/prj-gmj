@@ -19,6 +19,7 @@ import com.gmj.prj.service.GmjBboardService;
 import com.gmj.prj.vo.GmjBboard;
 
 import com.gmj.prj.vo.GmjPageInfo;
+import com.gmj.prj.vo.GmjReply;
 
 @Controller
 public class BBoardController {
@@ -55,6 +56,10 @@ public class BBoardController {
 	@GetMapping(value="/gmjbboardorder/{gmjbboardno}")
 	public @ResponseBody int getOrder(@PathVariable int gmjbboardno) {
 		return gbs.getOrder(gmjbboardno);
+	}
+	@GetMapping(value="/gmjbreply/{gmjbboardno}")
+	public @ResponseBody List<GmjReply> getreply(@PathVariable int gmjbboardno){
+		return gbs.getreply(gmjbboardno);
 	}
 
 }

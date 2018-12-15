@@ -86,27 +86,23 @@ div.gridbox {
 								</span>
 							</div> <!-- /input-group -->
 						</li>
-						<li><a href="/uri/prj/admin/home"><i
-								class="fa fa-dashboard fa-fw"></i>대쉬보드</a></li>
-						<li><a href="/uri/prj/admin/map"><i
-								class="fa fa-edit fa-fw"></i> 지도 관리</a></li>
-						<li><a href="/uri/prj/admin/userList"><i
-								class="fa fa-edit fa-fw"></i> 회원 관리</a></li>
-						<li><a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>
-								게시판 관리<span class="fa arrow"></span></a>
-							<ul class="nav nav-second-level">
+						<li><a href="/uri/prj/admin/home"><i class="fa fa-dashboard fa-fw"></i>홈</a>
+						</li>
+						<li><a href="/uri/prj/admin/map"><i class="fa fa-edit fa-fw"></i> 지도 관리</a></li>
+						<li><a href="/uri/prj/admin/userList"><i class="fa fa-edit fa-fw"></i> 회원 관리</a></li>
+						
+							
 								<li><a href="/uri/prj/admin/adboard">게시물 관리</a></li>
 								<li><a href="/uri/prj/admin/commentboard">댓글 관리</a></li>
-							</ul> <!-- /.nav-second-level --></li>
-						<li><a href="/uri/prj/admin/Bboard"><i
-								class="fa fa-table fa-fw"></i>추천글 관리</a></li>
-						<li><a href="/uri/prj/admin/Vboard"><i
-								class="fa fa-table fa-fw"></i>영상게시판 관리</a></li>
+					
+						<li><a href="/uri/prj/admin/Bboard"><i class="fa fa-table fa-fw"></i>추천글
+								관리</a></li>
+						<li><a href="/uri/prj/admin/Vboard"><i class="fa fa-table fa-fw"></i>영상게시판
+								관리</a></li>
 						<li><a href="tables.html"><i class="fa fa-table fa-fw"></i>트위터배너
 								관리</a></li>
-						<li><a href="/uri/prj/admin/Book"><i
-								class="fa fa-table fa-fw"></i>책 관리</a></li>
-
+						<li><a href="/uri/prj/admin/Book"><i class="fa fa-table fa-fw"></i>책
+								관리</a></li>
 
 
 						
@@ -174,11 +170,11 @@ div.gridbox {
 				dxGrid = new dhtmlXGridObject('rDivMap');
 
 				dxGrid
-						.setHeader('번호,건축물번호,이름(韓),이름(日),이름(美),지역,주소1,주소2,주소3,건축물명,건축물설명,수정,삭제');
+						.setHeader('번호,건축물번호,이름(韓),이름(日),이름(美),지역,주소1,주소2,주소3,건축물명,건축물설명,이미지주소,선호도,수정,삭제');
 
 				dxGrid
-						.setColumnIds('gmjarchitectbno,gmjarchitectno,gmjarchitectkname,gmjarchitectjname,gmjarchitectename,gmjarchitectbarea,gmjarchitectbaddress1,gmjarchitectbaddress2,gmjarchitectbaddress3,gmjarchitectbtitle,gmjarchitectbdesc,edit,delete');
-				dxGrid.setColTypes('ro,ro,ed,ed,ed,ed,ed,ed,ed,ed,ed,img,img');
+						.setColumnIds('gmjarchitectbno,gmjarchitectno,gmjarchitectkname,gmjarchitectjname,gmjarchitectename,gmjarchitectbarea,gmjarchitectbaddress1,gmjarchitectbaddress2,gmjarchitectbaddress3,gmjarchitectbtitle,gmjarchitectbdesc,gmjarchitectbthumb,favoritecnt,edit,delete');
+				dxGrid.setColTypes('ro,ro,ed,ed,ed,ed,ed,ed,ed,ed,ed,ed,ed,img,img');
 				dxGrid.enableAutoWidth(true);
 				dxGrid.init();
 				au.send({
@@ -226,34 +222,6 @@ div.gridbox {
 		<script>
 			var hanglePattern = /[a-z0-9]|[ \[\]{}()<>?|`~!@#$%^&*-_+=,.;:\"'\\]/g;
 
-			var dxGrid;
-
-			function doInit() {
-
-				dxGrid = new dhtmlXGridObject('rDiv');
-
-				dxGrid.setHeader('유저번호,유저 이메일,유저비밀번호,유저이름,핸드폰번호,생일,성별,주소,생성날짜,수정날짜,수정,삭제');
-
-				dxGrid.setColumnIds('gmjuserno,gmjuseremail,gmjuserpwd,gmjusername,gmjuserphone,gmjuserbirth,gmjusersex,gmjuseraddress,credat,moddat,edit,delete');
-				dxGrid.setColTypes('ro,ro,ed,ed,ed,ed,ed,ed,ro,ro,img,img');
-
-				dxGrid.enableAutoWidth(true);
-				dxGrid.init();
-
-				au.send({
-					url : '/gmjclient',
-					method : 'GET',
-					success : function(res) {
-						res = JSON.parse(res);
-						console.log(res);
-						dxGrid.parse(res, 'js');
-						insertImg();
-					}
-				})
-
-			}
-
-			window.addEventListener('load', doInit);
 
 			function insertImg() {
 				var tnwjd = document.querySelectorAll('td img');
@@ -279,7 +247,7 @@ div.gridbox {
 			}
 			function findFactor(target) {
 				keys = new Array();
-				for (var i = 0; i < 10; i++) { //i<3의 3은 이미지 앞에 있는 항목 개수.
+				for (var i = 0; i < 13; i++) { //i<3의 3은 이미지 앞에 있는 항목 개수.
 					//	console.log(target.path[2].childNodes[i].innerHTML);//target:누르는 그림, path[2]:target을 기준으로 tr전체영역,
 					keys[i] = target.path[2].childNodes[i].innerHTML;
 				}
@@ -290,12 +258,13 @@ div.gridbox {
 			function findFactor2(target) {
 				alert('눌렀다.');
 				keys = new Array();
-				for (var i = 0; i < 10; i++) { //i<3의 3은 이미지 앞에 있는 항목 개수.
+				for (var i = 0; i < 1; i++) { //i<3의 3은 이미지 앞에 있는 항목 개수.
 					//	console.log(target.path[2].childNodes[i].innerHTML);//target:누르는 그림, path[2]:target을 기준으로 tr전체영역,
 					keys[i] = target.path[2].childNodes[i].innerHTML;
 				}
 				uinum = keys[0];
 				deleterow(uinum);
+				
 			}
 
 			function checkvalue(keys) {
@@ -309,18 +278,18 @@ div.gridbox {
 						}
 					}
 				} */
-				if (keys[3].match(hanglePattern)) {
+			/* 	if (keys[3].match(hanglePattern)) {
 
 					alert('이름은 한글로 써야합니다.');
 					return;
-				}
+				} */
 
 				sendingToServer(keys);
 			}
 
 			function deleterow(uinum) {
 				var conf = {
-					url : '/gmjclient/' + uinum + '',
+					url : '/gmjArchitectInfoDelete/'+uinum+'',
 					method : 'DELETE',
 					success : function(res) {
 						res = JSON.parse(res);
@@ -329,6 +298,7 @@ div.gridbox {
 				}
 				if (confirm('이 데이터를 삭제하시겠습니까?')) {
 					au.send(conf);
+					location.href = location.href; 
 				}
 				;
 			}
@@ -336,19 +306,26 @@ div.gridbox {
 			function sendingToServer(keys) {
 				alert('보내기전');
 				conf = {
-					url : '/gmjclient',
+					url : '/gmjArchitectInfoUpdate',
 					method : 'PUT',
 					param : JSON.stringify({
-						gmjuserno : keys[0],
-						gmjuserpwd : keys[2],
-						gmjusername : keys[3],
-						gmjuserphone : keys[4],
-						gmjuserbirth : keys[5],
-						gmjusersex : keys[6]
+						gmjarchitectbno : keys[0],
+						gmjarchitectkname : keys[2],
+						gmjarchitectuname : keys[3],
+						gmjarchitectename : keys[4],
+						gmjarchitectbarea : keys[5],
+						gmjarchitectbaddress1 : keys[6],
+						gmjarchitectbaddress2 : keys[7],
+						gmjarchitectbaddress3 : keys[8],
+						gmjarchitectbtitle : keys[9],
+						gmjarchitectbdesc : keys[10],
+						gmjarchitectbthumb : keys[11],
+						favoritecnt : keys[12]
 					}),
 					success : function(res) {
 						res = JSON.parse(res);
 						alert('바꼈다');
+					
 					}
 				}
 				au.send(conf);
@@ -359,6 +336,7 @@ div.gridbox {
 					responsive : true
 				});
 			});
+			
 		</script>
 </body>
 

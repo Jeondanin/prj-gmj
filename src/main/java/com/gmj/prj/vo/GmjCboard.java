@@ -11,6 +11,16 @@ public class GmjCboard {
 	public String moddat; 
 	public int gmjcboardcnt;
 	public String gmjuploadaddress;
+	public int gmjclientno;
+	
+	
+	
+	public int getGmjclientno() {
+		return gmjclientno;
+	}
+	public void setGmjclientno(int gmjclientno) {
+		this.gmjclientno = gmjclientno;
+	}
 	public String getGmjuploadaddress() {
 		return gmjuploadaddress;
 	}
@@ -63,7 +73,7 @@ public class GmjCboard {
 	public String toString() {
 	String oldString = "GmjCboard [gmjcboardno=" + gmjcboardno + ", gmjcboardtitle=" + gmjcboardtitle + ", gmjcboarddesc="
 			+ gmjcboarddesc + ", gmjusername=" + gmjusername + ", credat=" + credat + ", moddat=" + moddat
-			+ ", gmjcboardcnt=" + gmjcboardcnt + "]";
+			+ ", gmjcboardcnt=" + gmjcboardcnt+", gmjclientno=" + gmjclientno + "]";
 	String string;
 	try {
 		string = new String(oldString.getBytes("8859_1"),"utf-8");

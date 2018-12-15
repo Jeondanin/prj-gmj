@@ -243,9 +243,7 @@ height:180px;
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
 	<script> $(function() { $("#postcodify_search_button").postcodifyPopUp(); }); </script>
-<script>
-	
-	
-</script>
+	<script src="${resPath}/user/js/basic.js"></script>
+
 
 </html>

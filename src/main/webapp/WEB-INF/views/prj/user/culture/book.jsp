@@ -264,10 +264,10 @@ td {
 			<div class="modal-content" style="position:relative; top:100px; width:700px;">
 				<div class="modal-header">
 					
-					<h4 class="modal-title"style="letter-spacing:-1px;padding:5px;"></h4>
+					<h4 class="modal-title booktitle"style="letter-spacing:-1px;padding:5px;"></h4>
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 				</div>
-				<div class="modal-body" style="padding:15px;">
+				<div class="modal-body bookbody" style="padding:15px;">
 					<div class="bthumb"></div>
 					<p>Some text in the modal.</p>
 				</div>
@@ -289,15 +289,15 @@ td {
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
 	<script> $(function() { $("#postcodify_search_button").postcodifyPopUp(); }); </script>
-
+	<script src="${resPath}/user/js/basic.js"></script>
 
 </body>
 
 <!-- Script to highlight the active date in the hours list -->
-<script src="${resPath}/user/js/basic.js"></script>
+
 <script>
-var title = document.querySelector('.modal-title');
-var body = document.querySelector('.modal-body');
+var title = document.querySelector('.booktitle');
+var body = document.querySelector('.bookbody');
 
 
 
@@ -312,6 +312,7 @@ function popup(i){
 				title.innerHTML='';
 				body.innerHTML='';
 			}
+			console.log(res);
 			title.insertAdjacentHTML('afterbegin',res.gmjbooktitle);
 			body.insertAdjacentHTML('beforeend',res.gmjbookdesc);
 			body.insertAdjacentHTML('afterbegin','<img src="'+res.gmjbookthumb+'" style="border:1px solid grey;float:right;margin:10px;" width="200px;">');

@@ -41,19 +41,7 @@
 	<h1 class="site-heading text-center text-white d-none d-lg-block">
 		<span class="site-heading-lower">GMJ</span>
 	</h1>
-<c:if test="${empty userID}">
-	<div style="position: absolute; left: 1500px; top: 5px; width: 200px;">
-		<div style="float: left; margin-right: 5%;">
-			<button data-toggle="modal"	data-target="#login"
-				style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;">${userID}로그인</button>
-		</div>
-		<div style="float: left;">
-			<button
-				style="width: 80px; height: 30px; background-color: #e6a756; border: 0; border-radius: 5px;"
-				data-toggle="modal" data-target="#signup">회원가입</button>
-		</div>
-	</div>
-	</c:if>
+
 		<c:if test="${!empty userID}">
 	<div style="position: absolute; left: 1500px; top: 5px; width: 200px;">
 		<div style="float: left; margin-right: 5%; color:white">
@@ -76,17 +64,8 @@
 	<nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav"
 		data-spy="affix" data-offset-top="197">
 		<div class="container">
-			<div class="intro-button mx-auto">
-				<div class="input-group"
-					style="width: 250px; position: absolute; top: -74px; left: 1496px;">
-					<input type="text" class="form-control" placeholder="Search for..."
-						aria-label="Search" aria-describedby="basic-addon2">
-					<div class="input-group-append">
-						<button class="btn btn-primary" type="button">
-							<i class="fas fa-search" style="width: 500px;"></i>
-						</button>
-					</div>
-				</div>
+			<div class="intro-button mx-auto" style="margin-left: 490px;">
+				
 			</div>
 			<a
 				class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none"

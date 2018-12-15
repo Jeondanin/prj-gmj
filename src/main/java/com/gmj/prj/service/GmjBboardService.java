@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.gmj.prj.vo.GmjBboard;
 import com.gmj.prj.vo.GmjPageInfo;
+import com.gmj.prj.vo.GmjReply;
 
 public interface GmjBboardService {
 	
@@ -16,5 +17,6 @@ public interface GmjBboardService {
 	public int updateBboard(GmjBboard gb);
 	public int deleteBboard(int gmjbboardno);
 	public int getOrder(int gmjbboardno);
+	public List<GmjReply> getreply(int gmjcboardno);
 
 }

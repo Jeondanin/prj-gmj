@@ -130,18 +130,9 @@ padding:2rem 6.5rem;
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav"
 		data-spy="affix" data-offset-top="197">
-		<div class="container">
+		<div class="container" style="margin-left: 490px;">
 			<div class="intro-button mx-auto">
-				<div class="input-group"
-					style="width: 250px; position: absolute; top: -74px; left: 1496px;">
-					<input type="text" class="form-control" placeholder="Search for..."
-						aria-label="Search" aria-describedby="basic-addon2">
-					<div class="input-group-append">
-						<button class="btn btn-primary" type="button">
-							<i class="fas fa-search" style="width: 500px;"></i>
-						</button>
-					</div>
-				</div>
+				
 			</div>
 			<a
 				class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none"
@@ -266,7 +257,6 @@ padding:2rem 6.5rem;
 						 </div>
 						<div id="tabletools" style="position: relative; text-align:left;"  >
 							<span></span>
-							<button type="button" id="insertbtn" class="btn btn-default" style="boarder-radius:0.5rem;padding:1px;top: -.5rem;bottom: -.5rem;left: -.5rem;right: -.5rem;border:.2rem solid rgba(230,167,86,.9);"><div style="width:100%;background-color:rgba(230,167,86,.9);border-radius: .25rem;">글쓰기</div></button>
 							
 						</div>
 						<div id="paging"
@@ -285,124 +275,7 @@ padding:2rem 6.5rem;
 		</div>
 	</footer>
 	
-	<div class="modal fade" id="login" role="dialog">
-			<div class="modal-dialog">
-
-				<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-header">
-						<h4 class="modal-title">Modal Header</h4>
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-					</div>
-					<div class="modal-body">
-						<form>
-							<div class="input-group">
-								<span class="input-group-addon"><i
-									class="glyphicon glyphicon-user"></i></span> <input id="logingmjuseremail"
-									type="email" class="form-control" name="gmjuseremail"
-									placeholder="이메일" required>
-							</div>
-							<div class="input-group">
-								<span class="input-group-addon"><i
-									class="glyphicon glyphicon-lock"></i></span> <input id="logingmjuserpwd"
-									type="password" class="form-control" name="gmjuserpwd"
-									placeholder="비밀번호">
-							</div>					
-						</form>
-					</div>
-					<div class="modal-footer">
-						<button id="sb" class="btn btn-default" onclick="login()">로그인</button>
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					</div>
-				</div>
-
-			</div>
-		</div>
-		<div class="modal fade" id="signup" role="dialog">
-			<div class="modal-dialog">
-
-				<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-header">
-						<h4 class="modal-title">Modal Header</h4>
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-					</div>
-					<div class="modal-body">
-						<form>
-							<div class="input-group">
-								<span class="input-group-addon"><i
-									class="glyphicon glyphicon-user"></i></span> <input id="gmjuseremail"
-									type="email" class="form-control" name="gmjuseremail"
-									placeholder="이메일" required>
-							</div>
-							<div class="input-group">
-								<span class="input-group-addon"><i
-									class="glyphicon glyphicon-lock"></i></span> <input id="gmjuserpwd"
-									type="password" class="form-control" name="gmjuserpwd"
-									placeholder="비밀번호">
-							</div>
-							<div class="input-group">
-								<span class="input-group-addon"><i
-									class="glyphicon glyphicon-lock"></i></span> <input id="gmjuserpwdchk"
-									type="password" class="form-control" name="gmjuserpwdchk"
-									placeholder="비밀번호 확인">
-							</div>
-							<div class="input-group">
-								<span class="input-group-addon"><i
-									class="glyphicon glyphicon-pencil"></i></span> <input id="gmjusername"
-									type="text" class="form-control" name="gmjusername"
-									placeholder="이름">
-							</div>
-							<div class="input-group">
-								<span class="input-group-addon"><i
-									class="glyphicon glyphicon-phone"></i></span> <input id="gmjuserphone"
-									type="text" class="form-control" name="gmjuserphone"
-									placeholder="핸드폰 번호">
-							</div>
-							<div class="input-group">
-								<span class="input-group-addon"><i
-									class="glyphicon glyphicon-calendar"></i></span> <input
-									id="gmjuserbirth" type="date" class="form-control"
-									name="gmjuserbirth" placeholder="생년월일 8자 ex)900213">
-							</div>
-							<div class="input-group">
-								<span class="input-group-addon"><i
-									class="glyphicon glyphicon-heart"></i></span> 
-									<div id="gmjusersex" style="padding: 6px 12px; font-size: 14px;height: 34px;border: 1px solid #ced4da;border-radius: .25rem;">
-									<label class="radio-inline" >
-									<input type="radio" name="optradio" value="남자">남
-									</label> 
-									<label class="radio-inline"> 
-									<input type="radio" name="optradio" value="여자">녀
-									</label>
-									</div> 
-									
-							</div>
-							<div class="input-group">
-								<span class="input-group-addon"><i
-									class="glyphicon glyphicon-stats"></i></span> <input
-									id="gmjuseraddress" type="text" class="form-control"
-									name="gmjuseraddress" placeholder="주소">
-							</div>
-
-							<br>
-						
-							
-						</form>
-
-
-
-
-
-					</div>
-					<div class="modal-footer">
-						<button id="sb" class="btn btn-default" onclick="submit()">제출</button>
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					</div>
-				</div>
-
-			</div>
-		</div>
+	
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="${resPath}/user/vendor/jquery/jquery.min.js"></script>
@@ -440,7 +313,7 @@ function insertreply(){
 	
 	 au.send({url:'/gmjreply',
 		method:'POST',
-		param:JSON.stringify({"gmjcboardno":no,"gmjuserno":userno,"gmjreplydesc":replydesc}),
+		param:JSON.stringify({"gmjbboardno":no,"gmjuserno":userno,"gmjreplydesc":replydesc}),
 		success : function(res){
 			res=JSON.parse(res);
 			location.href=location.href;
@@ -453,7 +326,7 @@ function viewreply(){
 	var replylisthtml;
 	if(replylist.innerHTML==''){
 			var replylisthtml=''
-			au.send({url:'/gmjreply/'+no,
+			au.send({url:'/gmjbreply/'+no,
 				method:'GET',
 				success : function(res){			
 					res=JSON.parse(res);

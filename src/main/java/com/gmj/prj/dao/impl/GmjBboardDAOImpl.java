@@ -11,7 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.gmj.prj.dao.GmjBboardDAO;
+
 import com.gmj.prj.vo.GmjBboard;
+import com.gmj.prj.vo.GmjReply;
 @Repository
 public class GmjBboardDAOImpl implements GmjBboardDAO {
 
@@ -52,6 +54,11 @@ public class GmjBboardDAOImpl implements GmjBboardDAO {
 	public int getOrder(int gmjbboardno) {
 		// TODO Auto-generated method stub
 		return ss.selectOne("com.gmj.prj.vo.GmjBboard.getOrder",gmjbboardno);
+	}
+	@Override
+	public List<GmjReply> getReply(int gmjbboardno) {
+		
+		return ss.selectList("com.gmj.prj.vo.GmjBboard.selectReply",gmjbboardno);
 	}
 	
 

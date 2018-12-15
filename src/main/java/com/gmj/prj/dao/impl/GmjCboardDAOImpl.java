@@ -25,6 +25,7 @@ public class GmjCboardDAOImpl implements GmjCboardDAO {
 	@Override
 	public int insertCboard(GmjCboard gc) {
 		
+		
 		return ss.insert("com.gmj.prj.vo.GmjCboard.insertCboard",gc);
 	}
 	@Override
@@ -46,6 +47,14 @@ public class GmjCboardDAOImpl implements GmjCboardDAO {
 		}
 		return  result;	
 	}
+	@Override
+	public List<GmjCboard> searchList(String searchWord) {
+	
+		return ss.selectList("com.gmj.prj.vo.GmjCboard.searchList",searchWord);
+	}
+	
+	
+	
 	@Override
 	public GmjCboard getLatestOne() {	
 		return ss.selectOne("com.gmj.prj.vo.GmjCboard.selectLatestCboard");
@@ -83,6 +92,15 @@ public class GmjCboardDAOImpl implements GmjCboardDAO {
 		
 		return ss.selectOne("com.gmj.prj.vo.GmjCboard.getOrder",gmjcboardno);
 	}
+	@Override
+	public int deletecboard(int gmjcboardno) {
+		return ss.delete("com.gmj.prj.vo.GmjCboard.deletecboard",gmjcboardno);
+	}
+	@Override
+	public int updateGmjCBoard(GmjCboard gc) {
+		return ss.update("com.gmj.prj.vo.GmjCboard.updatecboard",gc);
+	}
+	
 	
 	
 	

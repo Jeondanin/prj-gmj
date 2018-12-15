@@ -48,7 +48,7 @@ public class CBoardController {
 	public String insertCboard(@ModelAttribute GmjCboard gc,HttpServletRequest req){
 		System.out.println(gc);
 		int a = gcs.insertCboard(gc,req);
-		return "redirect:/uri/prj/user/community";
+		return "redirect:/uri/prj/user/community/usercommunity";
 	}
 	@PutMapping(value="/gmjcboardAll")
 	public @ResponseBody int updateCboardList(@RequestBody List<GmjCboard> listcb) {
@@ -76,6 +76,12 @@ public class CBoardController {
 		return gcs.getOne(gmjcboardno);
 	}
 	
+	@GetMapping(value="/gmjcboardsearch/{searchWord}")
+	public @ResponseBody List<GmjCboard> searchOne(@PathVariable String searchWord){
+		System.out.println("되면안될까?");
+		return gcs.searchList(searchWord);
+	}
+	
 	//댓글
 	@PostMapping(value="/gmjreply")
 	public @ResponseBody int insertReply(@RequestBody HashMap<String, String> reply) {
@@ -99,6 +105,15 @@ public class CBoardController {
 	public @ResponseBody int getOrder(@PathVariable int gmjcboardno){
 		return gcs.getOrder(gmjcboardno);
 	}
+	@DeleteMapping(value="/gmjcboard/{gmjcboardno}")
+	public @ResponseBody int deletecboard(@PathVariable int gmjcboardno) {
+		return gcs.deletecboard(gmjcboardno);
+	}
+	@PutMapping(value="/gmjcboard")
+	public @ResponseBody int updateGmjCBoard(@RequestBody GmjCboard gc) {
+		return gcs.updateGmjCBoard(gc);
+	}
+
 	
 }
 
