@@ -164,10 +164,10 @@
 					</li>
 					<li class="nav-item px-lg-4"><a
 						class="nav-link text-uppercase text-expanded" href="academy.html"
-						data-toggle="dropdown">Commnuity</a>
+						data-toggle="dropdown">Community</a>
 						<ul class="dropdown-menu" style="position:absolute; left:861px;background:rgba(47, 23, 15, 0.9);">
-							<li onmouseover="{document.querySelectorAll('.fontblack')[0].style.color='rgba(47, 23, 15, 0.9)';}"onmouseleave="{document.querySelectorAll('.fontblacka')[0].style.color='rgba(255,255,255,.7)';}"><a class="fontblacka" href="/uri/prj/user/community/recommend" style="font-size:3rem;color: rgba(255,255,255,.7);" >Recommend</a></li>
-							<li onmouseover="{document.querySelectorAll('.fontblack')[1].style.color='rgba(47, 23, 15, 0.9)';}"onmouseleave="{document.querySelectorAll('.fontblacka')[1].style.color='rgba(255,255,255,.7)';}"><a class="fontblacka" href="/uri/prj/user/community/usercommunity" style="font-size:3rem;color: rgba(255,255,255,.7);" >User Community</a></li>
+							<li onmouseover="{document.querySelectorAll('.fontblacka')[0].style.color='rgba(47, 23, 15, 0.9)';}"onmouseleave="{document.querySelectorAll('.fontblacka')[0].style.color='rgba(255,255,255,.7)';}"><a class="fontblacka" href="/uri/prj/user/community/recommend" style="font-size:3rem;color: rgba(255,255,255,.7);" >Recommend</a></li>
+							<li onmouseover="{document.querySelectorAll('.fontblacka')[1].style.color='rgba(47, 23, 15, 0.9)';}"onmouseleave="{document.querySelectorAll('.fontblacka')[1].style.color='rgba(255,255,255,.7)';}"><a class="fontblacka" href="/uri/prj/user/community/usercommunity" style="font-size:3rem;color: rgba(255,255,255,.7);" >User Communityity</a></li>
 
 						</ul>
 					</li>
@@ -260,8 +260,8 @@
 							<div>
 								<time>김중업의 건축물 더보기</time>
 								<h5>
-									<a href="https://namu.wiki/w/%EA%B9%80%EC%A4%91%EC%97%85"
-										target="_blank">더보기</a>
+									<a style="color:black; text-decoration:none;" href="https://namu.wiki/w/%EA%B9%80%EC%A4%91%EC%97%85"
+										target="_blank">더보기1</a>
 
 
 								</h5>

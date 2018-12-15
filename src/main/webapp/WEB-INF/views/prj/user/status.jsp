@@ -104,11 +104,11 @@
 									<p style="font-size:10pt; color:gray;">이름이 변경된 경우 본인 확인을 통해 정보를 수정하실 수 있습니다.</p>
 									<p class="btn_area_btm">
 										<button id="btn" type="button" class="btn btn-info"
-											data-toggle="collapse" data-target="#demo0" style="margin-top:20px; background-color:white; color:black; border:0.5px solid lightgray;">수정</button>
+											data-toggle="collapse" data-target="#demo0"  style="margin-top:20px; background-color:white; color:black; border:0.5px solid lightgray;">수정</button>
 									<div id="demo0" class="collapse">
 										<input id="gmjname" type="text" style="margin-top:15px; height:40px; width:300px;" placeholder="성과 이름을 붙여서 입력해주세요."><br>
 										<div style="margin-top:40px;"> 
-											<button style="color:black; background-color:white; border-radius:5px; border:1px solid lightgray; width:90px; height:40px;">수정취소</button>
+											<button class="cancel"data-toggle="collapse" data-target="#demo0" style="color:black; background-color:white; border-radius:5px; border:1px solid lightgray; width:90px; height:40px;">수정취소1</button>
 											<button onclick="updateusername()" style="color:#ffc985; background-color:white; border-radius:5px; border:1px solid lightgray; width:90px; height:40px;">수정완료</button>
 										</div>
 									</div>
@@ -131,7 +131,7 @@
 										새로운 비밀번호<input type="password" id="gmjpwd" style="margin-left:45px; margin-top:15px; height:30px; width:300px" placeholder="비밀번호를 입력하세요."><br>
 										새로운 비밀번호 확인<input type="password" id="gmjcheckpwd" style="margin-left:10px; margin-top:15px; height:30px; width:300px" placeholder="비밀번호를 다시 입력하세요."><br> 
 										<div style="margin-top:40px;"> 
-											<button style="color:black; background-color:white; border-radius:5px; border:1px solid lightgray; width:90px; height:40px;">수정취소</button>
+											<button class="cancel" data-toggle="collapse" data-target="#demo1"  style="color:black; background-color:white; border-radius:5px; border:1px solid lightgray; width:90px; height:40px;">수정취소</button>
 											<button onclick="updateuserpwd()" style="color:#ffc985; background-color:white; border-radius:5px; border:1px solid lightgray; width:90px; height:40px;">수정완료</button>
 										</div>
 									</div>
@@ -152,7 +152,7 @@
 									<div id="demo2" class="collapse">
 										<input id="gmjphone" type="text" style="margin-top:15px; height:40px;" placeholder="+82 대한민국"><br>
 										<div style="margin-top:40px;"> 
-											<button style="color:black; background-color:white; border-radius:5px; border:1px solid lightgray; width:90px; height:40px;">수정취소</button>
+											<button class="cancel" data-toggle="collapse" data-target="#demo2" style="color:black; background-color:white; border-radius:5px; border:1px solid lightgray; width:90px; height:40px;">수정취소</button>
 											<button onclick="updateuserphone()" style="color:#ffc985; background-color:white; border-radius:5px; border:1px solid lightgray; width:90px; height:40px;">수정완료</button>
 										</div>
 									</div>
@@ -181,7 +181,7 @@
 										</div>
 									<br>
 										<div style="margin-top:40px;"> 
-											<button style="color:black; background-color:white; border-radius:5px; border:1px solid lightgray; width:90px; height:40px;">수정취소</button>
+											<button class="cancel" data-toggle="collapse" data-target="#demo4" style="color:black; background-color:white; border-radius:5px; border:1px solid lightgray; width:90px; height:40px;">수정취소</button>
 											<button onclick="updateusersex()" style="color:#ffc985; background-color:white; border-radius:5px; border:1px solid lightgray; width:90px; height:40px;">수정완료</button>
 										</div>
 									</div>
@@ -216,7 +216,7 @@
 									<script> $(function() { $("#postcodify_search_button").postcodifyPopUp(); }); </script><br>
 									
 										<div style="margin-top:40px;"> 
-											<button style="color:black; background-color:white; border-radius:5px; border:1px solid lightgray; width:90px; height:40px;">수정취소</button>
+											<button class="cancel"  data-toggle="collapse" data-target="#demo5"style="color:black; background-color:white; border-radius:5px; border:1px solid lightgray; width:90px; height:40px;">수정취소</button>
 											<button onclick="updateuseraddress()" style="color:#ffc985; background-color:white; border-radius:5px; border:1px solid lightgray; width:90px; height:40px;">수정완료</button>
 										</div>
 									</div>
@@ -450,6 +450,24 @@
 				}
 			}) 
 		}
+		//버튼 안보이게하는 곳. 
+		for(var i =0;i<document.querySelectorAll('.btn').length;i++){
+			document.querySelectorAll('.btn')[i].addEventListener('click',hiddenb)
+			document.querySelectorAll('.cancel')[i].addEventListener('click',showb)
+		}
+		
+		
+		function hiddenb(e){
+			console.log(e.target);
+			e.target.style.visibility ="hidden";
+		}
+		function showb(e){
+			
+			for(var i =0;i<document.querySelectorAll('.btn').length;i++){
+			document.querySelectorAll('.btn')[i].style.visibility="visible";
+			}
+		}
+		
 	</script>
 </body>
 </html>

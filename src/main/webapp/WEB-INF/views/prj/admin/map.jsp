@@ -99,8 +99,7 @@ div.gridbox {
 								관리</a></li>
 						<li><a href="/uri/prj/admin/Vboard"><i class="fa fa-table fa-fw"></i>영상게시판
 								관리</a></li>
-						<li><a href="tables.html"><i class="fa fa-table fa-fw"></i>트위터배너
-								관리</a></li>
+				
 						<li><a href="/uri/prj/admin/Book"><i class="fa fa-table fa-fw"></i>책
 								관리</a></li>
 

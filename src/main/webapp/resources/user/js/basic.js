@@ -4,7 +4,7 @@
 	'<div class="modal-dialog">'+
 	'<div class="modal-content">'+
 	'<div class="modal-header">'+
-	'<h4 class="modal-title">노구인</h4>'+
+	'<h4 class="modal-title">로그인</h4>'+
 	'<button type="button" class="close" data-dismiss="modal">&times;</button>'+
 		'</div>'+
 		'<div class="modal-body">'+
@@ -318,7 +318,7 @@ var logingmjuseremail =  document.querySelector('#logingmjuseremail');
 				method:'POST',
 				param : JSON.stringify(signupdata),
 				success : function(res){
-					alert(res);	
+					alert('회원가입이 성공했습니다.');	
 					location.href=location.href;
 				}
 		}

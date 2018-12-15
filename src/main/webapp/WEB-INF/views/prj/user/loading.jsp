@@ -15,7 +15,7 @@
 
 body {
   display: flex;
-  cursor: crosshair;
+  cursor: default;
 }
 
 canvas {
@@ -39,7 +39,7 @@ inputs {
   padding: 5px;
 }
 inputs input {
-  display: block;
+  display: none;
 }
 inputs:hover {
   opacity: 1;
@@ -47,7 +47,7 @@ inputs:hover {
 </style></head><body>
 
 <canvas width="500" height="300"></canvas>
-<inputs>
+<inputs style="visibility:hidden">
   <label for="move">move (0.5)</label>
   <input id="move" type="range" value="0.5" min="0" max="1" step="0.01">
   <label for="pull">pull (0.15)</label>
