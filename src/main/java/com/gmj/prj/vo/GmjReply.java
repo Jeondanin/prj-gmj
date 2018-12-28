@@ -9,6 +9,7 @@ public class GmjReply {
 	public String moddat;
 	public String gmjusername;
 	public int gmjbboardno;
+	public int gmjvboardno;
 	
 	public int getGmjbboardno() {
 		return gmjbboardno;

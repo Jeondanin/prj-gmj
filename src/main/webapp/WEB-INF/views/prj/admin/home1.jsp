@@ -14,7 +14,7 @@
 <title>건문지 - 관리자용 페이지</title>
 <!--dhtmlx-->
 <link href="${resPath}/vendor/codebase/dhtmlx.css" rel="stylesheet">
-<link href="${resPath}/vendor/skins/autumn/dhtmlx.css" rel="stylesheet">
+<link href="${resPath}/vendor/skins/skyblue/dhtmlx.css" rel="stylesheet">
 
 
 <!-- Bootstrap Core CSS -->
@@ -42,14 +42,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-<style>
-div.gridbox {
-  -webkit-box-sizing: content-box;
-     -moz-box-sizing: content-box;
-          box-sizing: content-box;
-}
 
-</style>
 </head>
 
 <body>
@@ -70,8 +63,7 @@ div.gridbox {
 			</div>
 			<!-- /.navbar-header -->
 
-			
-			<!-- /.navbar-top-links -->
+		
 
 			<div class="navbar-default sidebar" role="navigation">
 				<div class="sidebar-nav navbar-collapse">
@@ -86,22 +78,27 @@ div.gridbox {
 								</span>
 							</div> <!-- /input-group -->
 						</li>
-						<li><a href="/uri/prj/admin/home"><i class="fa fa-dashboard fa-fw"></i>대쉬보드</a>
+						<li><a href="/uri/prj/admin/home"><i class="fa fa-dashboard fa-fw"></i>홈</a>
 						</li>
 						<li><a href="/uri/prj/admin/map"><i class="fa fa-edit fa-fw"></i> 지도 관리</a></li>
 						<li><a href="/uri/prj/admin/userList"><i class="fa fa-edit fa-fw"></i> 회원 관리</a></li>
-						<li><a href="/uri/prj/admin/adboard"><i class="fa fa-table fa-fw"></i>게시물 관리</a></li>
-						<li><a href="/uri/prj/admin/commentboard"><i class="fa fa-table fa-fw"></i>댓글 관리</a></li>
+						
+							
+								<li><a href="/uri/prj/admin/adboard">게시물 관리</a></li>
+								<li><a href="/uri/prj/admin/commentboard">댓글 관리</a></li>
+					
 						<li><a href="/uri/prj/admin/Bboard"><i class="fa fa-table fa-fw"></i>추천글
 								관리</a></li>
 						<li><a href="/uri/prj/admin/Vboard"><i class="fa fa-table fa-fw"></i>영상게시판
+								관리</a></li>
+						<li><a href="tables.html"><i class="fa fa-table fa-fw"></i>트위터배너
 								관리</a></li>
 						<li><a href="/uri/prj/admin/Book"><i class="fa fa-table fa-fw"></i>책
 								관리</a></li>
 
 
 
-						
+					</ul>
 				</div>
 				<!-- /.sidebar-collapse -->
 			</div>
@@ -124,16 +121,16 @@ div.gridbox {
 							style="height: 200px; padding: 15px; border-bottom: none;">
 							<li class="active" href="#blank"></li>
 							<!--초기화면 없이 -->
-							<li style="width: 380px; height: 100px; bo"><a
+							<li style="width: 380px; height: 100px;"><a
 								data-toggle="tab" href="#home" style="padding: 0;">
-									<div class="panel panel-blue" style="width: 90%; border:1px solid #2388b8;">
+									<div class="panel panel-blue" style="width: 90%;">
 										<div class="panel-heading">
 											<div class="row">
 												<div class="col-xs-3">
-													<i class="fa fa-comments fa-5x"></i>	
+													<i class="fa fa-comments fa-5x"></i>
 												</div>
 												<div class="col-xs-9 text-right">
-													<div class="huge list1"></div>
+													<div class="huge">26</div>
 													<div>등록된 게시물</div>
 												</div>
 											</div>
@@ -158,7 +155,7 @@ div.gridbox {
 													<i class="fa fa-comments fa-5x"></i>
 												</div>
 												<div class="col-xs-9 text-right">
-													<div class="huge list2"></div>
+													<div class="huge">26</div>
 													<div>등록된 댓글</div>
 												</div>
 											</div>
@@ -183,7 +180,7 @@ div.gridbox {
 													<i class="fa fa-comments fa-5x"></i>
 												</div>
 												<div class="col-xs-9 text-right">
-													<div class="huge list3"></div>
+													<div class="huge">26</div>
 													<div>소중한 우리의 새로운 가족</div>
 												</div>
 											</div>
@@ -207,7 +204,7 @@ div.gridbox {
 													<i class="fa fa-comments fa-5x"></i>
 												</div>
 												<div class="col-xs-9 text-right">
-													<div class="huge list4"></div>
+													<div class="huge">26</div>
 													<div>배신자</div>
 												</div>
 											</div>
@@ -226,6 +223,7 @@ div.gridbox {
 						<div class="tab-content">
 							<div id="blank" class="tab-pane fade in active"></div>
 							<div id="home" class="tab-pane fade" style="padding-left: 15px">
+							121213
 							<h1>등록된 게시물</h1>
 							<div id="rDivboard" style="width: 70vw; height: 45vh"></div>
 							<div id="pagingbox"></div>
@@ -234,10 +232,9 @@ div.gridbox {
 
 							</div>
 							<div id="menu1" class="tab-pane fade" style="padding-left: 15px;">
-								<h3>등록된 댓글</h3>
-								<div id="replyboard" style="width: 70vw; height: 45vh"></div>
-								<div id="pagingbox"></div>
-								<div id="recInfoArea"></div>
+								<h3>Menu 1</h3>
+								<p>Ut enim ad minim veniam, quis nostrud exercitation
+									ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 							</div>
 							<div id="menu2" class="tab-pane fade" style="padding-left: 15px;">
 								<h1>회원</h1> 
@@ -246,10 +243,9 @@ div.gridbox {
 								<div id="recInfoArea"></div>
 							</div>
 							<div id="menu3" class="tab-pane fade" style="padding-left: 15px;">
-								<h3>탈퇴한 회원</h3>
-								<div id="rDivbclient" style="width: 70vw; height: 45vh"></div>
-								<div id="pagingbox"></div>
-								<div id="recInfoArea"></div>
+								<h3>Menu 3</h3>
+								<p>Eaque ipsa quae ab illo inventore veritatis et quasi
+									architecto beatae vitae dicta sunt explicabo.</p>
 							</div>
 						</div>
 
@@ -263,7 +259,7 @@ div.gridbox {
 	</div>
 	<!-- /#page-wrapper -->
 
-
+	</div>
 	<!-- /#wrapper -->
 
 	<!-- jQuery -->
@@ -279,7 +275,7 @@ div.gridbox {
 	<script src="${resPath}/dist/js/sb-admin-2.js"></script>
 	<!--dhtmlx-->
 	<script src="${resPath}/vendor/codebase/dhtmlx.js"></script>
-	<script scr="${resPath}/vendor/codebase/dhtmlx.d.tx"></script>
+	<script src="${resPath}/vendor/codebase/dhtmlx.d.ts"></script>
 
 	<!-- DataTables JavaScript -->
 	<script src="${resPath}/vendor/datatables/js/jquery.dataTables.min.js"></script>
@@ -294,13 +290,12 @@ div.gridbox {
 	<!--이게 있어야 들어가는..-->
 	<script>
 	var dxGrid;
-	var listcnt;
 
-	function doInit1() {
+	function doInit() {
 
 		dxGrid = new dhtmlXGridObject('rDivboard');
 
-		dxGrid.setHeader('게시물번호,게시글제목,게시글내용,회원번호,생성날짜,수정날짜,조회수,수정,삭제');
+		dxGrid.setHeader('번호,게시글제목,게시글내용,회원번호,생성날짜,수정날짜,조회수,수정,삭제');
 
 		dxGrid.setColumnIds('gmjcboardno,gmjcboardtitle,gmjcboarddesc,gmjclientno,credat,moddat,gmjcboardcnt,edit,delete');
 		
@@ -313,56 +308,22 @@ div.gridbox {
 			success : function(res) {
 				res = JSON.parse(res);
 				console.log(res);
-				listcnt = res.length;
-				console.log('뭐지');
-				document.querySelector('.list1').insertAdjacentHTML('afterbegin',listcnt);
 				dxGrid.parse(res, 'js');
 				insertImg();
-				doInit2();
 			}
 		})
 
 	}
 
-	window.addEventListener('load', doInit1);
-	
+	window.addEventListener('load', doInit);
+	</script>
+	<script>
 	var hanglePattern=/[a-z0-9]|[ \[\]{}()<>?|`~!@#$%^&*-_+=,.;:\"'\\]/g;
-	
-	
-	
-	function doInit2() {
-
-		dxGrid = new dhtmlXGridObject('replyboard');
-
-		dxGrid
-				.setHeader('번호,유저번호,게시물번호,댓글내용,생성날짜,수정날짜,수정,삭제');
-
-		dxGrid
-				.setColumnIds('gmjcommentno,gmjuserno,gmjcboardno,gmjcommenttext,gmjcommentcredat,gmjcommentmoddat,edit,delete');
-		dxGrid.setColTypes('ro,ro,ro,ed,ro,ro,img,img');
-		dxGrid.enableAutoWidth(true);
-		dxGrid.init();
-		au.send({
-			url : '/gmjComment',
-			method : 'GET',
-			success : function(res) {
-				res = JSON.parse(res);
-				console.log(res);
-				listcnt = res.length;
-				document.querySelector('.list2').insertAdjacentHTML('afterbegin',listcnt);
-				dxGrid.parse(res, 'js');
-				insertImg();
-				doInit3();
-			}
-		})
-
-	}
-	
 	
 	
 		var dxGrid;
 
-		function doInit3() {
+		function doInit() {
 
 			dxGrid = new dhtmlXGridObject('rDiv');
 
@@ -382,17 +343,14 @@ div.gridbox {
 				success : function(res) {
 					res = JSON.parse(res);
 					console.log(res);
-					listcnt = res.length;
-					document.querySelector('.list3').insertAdjacentHTML('afterbegin',listcnt);
 					dxGrid.parse(res, 'js');
 					insertImg();
-					doInit4();
 				}
 			})
 
 		}
 
-
+		window.addEventListener('load', doInit);
 
 		function insertImg() {
 			var tnwjd = document.querySelectorAll('td img');
@@ -429,22 +387,12 @@ div.gridbox {
 		function findFactor2(target) {
 			alert('눌렀다.');
 			keys = new Array();
-			for (var i = 0; i < 1; i++) { //i<3의 3은 이미지 앞에 있는 항목 개수.
+			for (var i = 0; i < 10; i++) { //i<3의 3은 이미지 앞에 있는 항목 개수.
 			//	console.log(target.path[2].childNodes[i].innerHTML);//target:누르는 그림, path[2]:target을 기준으로 tr전체영역,
 				keys[i] = target.path[2].childNodes[i].innerHTML;
 			}
 			uinum = keys[0];
-			//console.log(target.path[2].childNodes.length); 콜럼 갯수 판단.
-			var colnum = target.path[2].childNodes.length
-			console.log(colnum);
-			console.log(433);
-			switch(colnum){
-			case 9 :deleterow(uinum,'gmjcboarddelete'); break;
-			case 8 :deleterow(uinum,'gmjCommentDelete'); break;
-			case 12 :deleterow(uinum,'gmjclient'); break;
-			case 13 :deleterow(uinum,'gmjbclient'); break;
-			}
-			
+			deleterow(uinum);
 		}
 
 		function checkvalue(keys) {
@@ -452,7 +400,7 @@ div.gridbox {
 			/* for (var i = 1; i < keys.length; i++) {
 
 				if (keys[i].match(pattern) || keys[i].length < 2) {
-					if (i != 5 || i != 0) {	
+					if (i != 5 || i != 0) {
 						alert(keys[i] + '가 공백패턴또는 2글자 미만입니다.');
 						return;
 					}
@@ -468,21 +416,17 @@ div.gridbox {
 			sendingToServer(keys);
 		}
 		
-		function deleterow(uinum,deleteurl){
-			console.log(463);
-			console.log(deleteurl);
-			
+		function deleterow(uinum){
 			var conf={
-					url:'/'+deleteurl+'/'+uinum+'',
-					method:'DELETE'	,
+					url:'/gmjclient/'+uinum+'',
+					method:'DELETE',
 					success:function(res){
 						res=JSON.parse(res);
 						alert(res);
 					}
 				}
 				if(confirm('이 데이터를 삭제하시겠습니까?')){
-					au.send(conf);
-					location.href = location.href; 
+					au.send(conf);	
 				};
 		}
 		
@@ -498,7 +442,6 @@ div.gridbox {
 					}
 				}	
 				au.send(conf);
-			location.href = location.href; 
 		}
 		
 		
@@ -514,51 +457,6 @@ div.gridbox {
 			});
 		});
 	</script>
-	<script>
-	var dxGrid;
-
-	function doInit4() {
-
-		dxGrid = new dhtmlXGridObject('rDivbclient');
-
-		dxGrid.setHeader('탈퇴번호,유저번호,아이디,비밀번호,이름,전화번호,생년월일,성별,주소,가입날짜,탈퇴날짜,복원,삭제');
-
-		dxGrid.setColumnIds('gmjbuserno,gmjuserno,gmjuseremail,gmjuserpwd,gmjusername,gmjuserphone,gmjuserbirth,gmjusersex,gmjuseraddress,credat,deldat,edit,delete');
-		
-		dxGrid.setColTypes('ro,ro,ed,ed,ed,ed,ed,ed,ed,ed,ed,img,img');
-		dxGrid.enableAutoWidth(true);
-		dxGrid.init();
-		au.send({
-			url : '/gmjbclient',
-			method : 'GET',
-			success : function(res) {
-				res = JSON.parse(res);
-				console.log(res);
-				listcnt = res.length;
-				document.querySelector('.list4').insertAdjacentHTML('afterbegin',listcnt);
-				dxGrid.parse(res, 'js');
-				insertImg();
-			}
-		})
-
-	}
-	
-	function countList(){
-		au.send({
-			url : '/gmjbclient',
-			method : 'GET',
-			success : function(res) {
-				res = JSON.parse(res);
-				console.log(res);
-				dxGrid.parse(res, 'js');
-				insertImg();
-			}
-		})
-	}
-
-	
-	</script>
-	
 
 </body>
 

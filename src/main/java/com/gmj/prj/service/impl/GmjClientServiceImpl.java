@@ -43,6 +43,13 @@ public class GmjClientServiceImpl implements GmjClientService {
 		// TODO Auto-generated method stub
 		return gcdi.deleteClient(gmjclientno);
 	}
+	
+	
+	@Override
+	public int dupcheck(String gmjuserEmail) {
+		
+		return gcdi.dupcheck(gmjuserEmail);
+	}
 	@Override
 	public int login(GmjClient gc) {
 		HttpServletRequest req = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes())
@@ -79,6 +86,7 @@ public class GmjClientServiceImpl implements GmjClientService {
 	public GmjClient getClientUser(int userno) {
 		return gcdi.getClientUser(userno);
 	}
+	
 	
 
 }

@@ -39,9 +39,10 @@
 		'<div class="modal-body">'+
 			'<form>'+
 				'<div class="input-group">'+
-					'<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span> <input id="gmjuseremail"'+
+					'<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span> <input style="width:350px;" id="gmjuseremail"'+
 						'type="email" class="form-control" name="gmjuseremail"'+
 						'placeholder="이메일" required>'+
+						'<span onclick="dupcheck()" class="btn btn-default" style="width:70px; margin-left:6px; padding:3px 6px;  height:30px;" >중복확인</span>'+
 				'</div>'+
 				'<div class="input-group">'+
 					'<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span> <input id="gmjuserpwd"'+
@@ -86,20 +87,21 @@
 				'</div>'+
 				'<div class="input-group">'+
 					'<span class="input-group-addon"><i '+
-						'class="glyphicon glyphicon-stats"></i></span> <input class="postcodify_address" '+ 
+						'class="glyphicon glyphicon-stats"></i></span>' +
+						'<div id="demo5" style="height:20px">'+										
+						'<input type="hidden" class="postcodify_postcode5" style="width:50px; margin-left:30px; margin-top:20px;" disabled="disabled"/>'+
+						'<div id="postcodify_search_button" style="background-color:#ffc985; cursor:pointer; border:1px solid lightgray; font-weight:600;">검색</div><br/>'+
+						'</div>'+
+						'<input class="postcodify_address" '+ 
 						'id="gmjuseraddress" type="text" class="form-control"'+
 						'name="gmjuseraddress" placeholder="주소" style="width:100%;">'+
-						'<div id="demo5">'+										
-							'<input type="hidden" class="postcodify_postcode5" style="width:50px; margin-left:30px; margin-top:20px;" disabled="disabled"/>'+
-							'<div id="postcodify_search_button" style="background-color:#ffc985; cursor:pointer; border:1px solid lightgray; font-weight:600;">검색</div><br/>'+
-							
-						'</div>'+
+						
 					'</div>'+
 					'<br>'+
 			'</form>'+
 		'</div>'+
 		'<div class="modal-footer">'+
-			'<button id="sb" class="btn btn-default" onclick="submit()">제출</button>'+
+			'<button id="sb" class="btn btn-default" onclick="submit()" disabled>제출</button>'+
 			'<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
 		'</div>'+
 	'</div>'+
@@ -173,8 +175,9 @@ var logingmjuseremail =  document.querySelector('#logingmjuseremail');
 		au.send(conf);
 	}
 	
-	//회원가입용//
+	//중복처리, 회원가입용//
 	var gmjuseremail =  document.querySelector('#gmjuseremail');
+	var tmpEmail;
 	var gmjuserpwd = document.querySelector('#gmjuserpwd');
 	var gmjuserpwdchk = document.querySelector('#gmjuserpwdchk')
 	var gmjusername =  document.querySelector('#gmjusername');
@@ -192,7 +195,31 @@ var logingmjuseremail =  document.querySelector('#logingmjuseremail');
 	if(document.getElementById('gmjuserphone')!=null){
 		document.getElementById('gmjuserphone').addEventListener('keyup',adddash);
 	}
-		
+	//중복체크만//
+	function dupcheck(){
+		if(!gmjuseremail.value.match(emailPattern)||blankPattern.test(gmjuseremail.value)){
+			alert('이메일을 확인하세요.');
+			return;
+		}
+		au.send({url:'/gmjclient/dupcheck',
+			      method:'POST',
+			      param:gmjuseremail.value,
+			      success:function(res){
+			    	  if(res==0){
+			    		  alert('사용할 수 있는 아이디입니다.');
+			    		  buttonabled();
+			    		  tmpEmail=gmjuseremail.value;
+			    	  }else{
+			    		  alert('중복된 이메일입니다. 다른 것을 넣어주세요.');
+			    		  return;
+			    	  }
+			      }	 	
+		});
+	}
+	
+	
+	
+	//중복체크 끝//
 	
 	
 
@@ -221,7 +248,11 @@ var logingmjuseremail =  document.querySelector('#logingmjuseremail');
 	}
 	
 	function checkValidate(){
-		
+		if(tmpEmail!=gmjuseremail.value){
+			alert('아이디 중복확인을 하셔야합니다.');
+			buttondisabled();
+			return;
+		}
 		
 		var d = new Date();
 		
@@ -360,8 +391,13 @@ var logingmjuseremail =  document.querySelector('#logingmjuseremail');
 	      document.querySelector('#sb').click();
 	     
 	    }
-	}	
-	
+	};	
+	function buttonabled(){
+		 document.querySelector('#sb').disabled=false;
+	}
+	function buttondisabled(){
+		 document.querySelector('#sb').disabled=true;
+	}
 	
 	
 	

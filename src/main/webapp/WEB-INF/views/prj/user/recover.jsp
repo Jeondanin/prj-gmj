@@ -82,9 +82,10 @@
 		style="margin-left: 5%; padding-top: 5%; padding-left: 20%; padding-right: 20%;">
 		<div class="c_header">
 			<p class="contxt">
-				<strong style="color: #e6a756;">${userID}</strong>님의 회원정보입니다.<br>
+				<strong style="color: #e6a756;">${userID}</strong>님의 복구페이지입니다.<br>
 				회원정보는 개인정보처리방침에 따라 안전하게 보호되며, 회원님의 명백한 동의 없이 공개 또는 제 3자에게 제공되지 않습니다.
 			</p>
+			
 		</div>
 
 
@@ -97,42 +98,35 @@
 					</colgroup>
 					<tbody>
 						<tr>
-							<th style="background-color:#ffc985; text-align:center;">사용자 이름</th>
+							<th style="background-color:#ffc985; text-align:center;">사용자 아이디 </th>
 							<td>
 								<div class="tdcell" style="margin-left:5%;">
 									<p class="contxt_tit" style="font-size:17pt; margin-top:13px;"><span id="userNAME"></span></p>
-									<p style="font-size:10pt; color:gray;">이름이 변경된 경우 본인 확인을 통해 정보를 수정하실 수 있습니다.</p>
-									<p class="btn_area_btm">
-										<button id="btn" type="button" class="btn btn-info"
-											data-toggle="collapse" data-target="#demo0"  style="margin-top:20px; background-color:white; color:black; border:0.5px solid lightgray;">수정</button>
-									<div id="demo0" class="collapse">
-										<input id="gmjname" type="text" style="margin-top:15px; height:40px; width:300px;" placeholder="성과 이름을 붙여서 입력해주세요."><br>
-										<div style="margin-top:40px;"> 
-											<button class="cancel"data-toggle="collapse" data-target="#demo0" style="color:black; background-color:white; border-radius:5px; border:1px solid lightgray; width:90px; height:40px;">수정취소1</button>
-											<button onclick="updateusername()" style="color:#ffc985; background-color:white; border-radius:5px; border:1px solid lightgray; width:90px; height:40px;">수정완료</button>
-										</div>
-									</div>
+									<p style="font-size:10pt; color:gray;">
+									<strong style="color: #e6a756;">${userID}</strong>
+									</p>
+					
 									
 								</div>
 								<hr style="border: .5px solid lightgray;">
 							</td>
+							<br>
+							<br>
 						</tr>
 
 						<tr>
-							<th style="background-color:#ffc985; text-align:center;">사용자 비밀번호</th>
+							<th style="background-color:#ffc985; text-align:center;">복구하기 </th>
 							<td>
 								<div class="tdcell" style="margin-left:5%;">
-									<p style="font-size:10pt; color:gray;">GMJ 계정의 비밀번호입니다.</p>
+									<p style="font-size:10pt; color:gray;">계정을 복구하실 수 있습니다. </p>
 									<p class="btn_area_btm">
 										<button type="button" class="btn btn-info"
-											data-toggle="collapse" data-target="#demo1" style="margin-top:20px; background-color:white; color:black; border:0.5px solid lightgray;">수정</button>
+											data-toggle="collapse" data-target="#demo1" style="margin-top:20px; background-color:white; color:black; border:0.5px solid lightgray;">복구신청</button>
 									<div id="demo1" class="collapse">
 										현재 비밀번호<input type="password" id="gmjnowpwd" style="margin-left:60px; margin-top:15px; height:30px; width:300px" placeholder="비밀번호를 입력하세요."><br>
-										새로운 비밀번호<input type="password" id="gmjpwd" style="margin-left:45px; margin-top:15px; height:30px; width:300px" placeholder="비밀번호를 입력하세요."><br>
-										새로운 비밀번호 확인<input type="password" id="gmjcheckpwd" style="margin-left:10px; margin-top:15px; height:30px; width:300px" placeholder="비밀번호를 다시 입력하세요."><br> 
 										<div style="margin-top:40px;"> 
-											<button class="cancel" data-toggle="collapse" data-target="#demo1"  style="color:black; background-color:white; border-radius:5px; border:1px solid lightgray; width:90px; height:40px;">수정취소</button>
-											<button onclick="updateuserpwd()" style="color:#ffc985; background-color:white; border-radius:5px; border:1px solid lightgray; width:90px; height:40px;">수정완료</button>
+											<button class="cancel" data-toggle="collapse" data-target="#demo1"  style="color:black; background-color:white; border-radius:5px; border:1px solid lightgray; width:90px; height:40px;">취소</button>
+											<button onclick="recoverBClient()" style="color:#ffc985; background-color:white; border-radius:5px; border:1px solid lightgray; width:90px; height:40px;">복구 신청</button>
 										</div>
 									</div>
 									
@@ -140,113 +134,10 @@
 								<hr style="border: .5px solid lightgray;">
 							</td>
 						</tr>
-						<tr>
-							<th style="background-color:#ffc985; text-align:center;">사용자 핸드폰번호</th>
-							<td>
-								<div class="tdcell" style="margin-left:5%;">
-									<p class="contxt_tit" style="font-size:17pt;"><span id="userPHONE"></span></p>
-									<p style="font-size:10pt; color:gray;">아이디, 비밀번호 찾기 등 본인확인이 필요한 경우 GMJ로부터 알림을 받을 때 사용할 휴대전화입니다.</p>
-									<p class="btn_area_btm">
-										<button id="update" type="button" class="btn btn-info"
-											data-toggle="collapse" data-target="#demo2" style="margin-top:20px; background-color:white; color:black; border:0.5px solid lightgray;">수정</button>
-									<div id="demo2" class="collapse">
-										<input id="gmjphone" type="text" style="margin-top:15px; height:40px;" placeholder="+82 대한민국"><br>
-										<div style="margin-top:40px;"> 
-											<button class="cancel" data-toggle="collapse" data-target="#demo2" style="color:black; background-color:white; border-radius:5px; border:1px solid lightgray; width:90px; height:40px;">수정취소</button>
-											<button onclick="updateuserphone()" style="color:#ffc985; background-color:white; border-radius:5px; border:1px solid lightgray; width:90px; height:40px;">수정완료</button>
-										</div>
-									</div>
-								
-								</div>
-								<hr style="border: .5px solid lightgray;">
-							</td>
-						</tr>
-						<tr>
-							<th style="background-color:#ffc985; text-align:center;">사용자 성별</th>
-							<td>
-								<div class="tdcell" style="margin-left:5%;">
-									<p class="contxt_tit" style="font-size:17pt;"><span id="userSEX"></span></p>
-									<p style="font-size:10pt; color:gray;" >사용자가 등록한 성별입니다. 남자와 여자로 구분됩니다.</p>
-									<p class="btn_area_btm">
-										<button type="button" class="btn btn-info"
-											data-toggle="collapse" data-target="#demo4" style="margin-top:20px; background-color:white; color:black; border:0.5px solid lightgray;">수정</button>
-									<div id="demo4" class="collapse">
-										<div id="gmjsex">	
-											<label class="radio-inline" >
-												<input type="radio" name="optradio" value="남자">남자
-											</label> 
-											<label class="radio-inline"> 
-												<input type="radio" name="optradio" value="여자">여자
-											</label>
-										</div>
-									<br>
-										<div style="margin-top:40px;"> 
-											<button class="cancel" data-toggle="collapse" data-target="#demo4" style="color:black; background-color:white; border-radius:5px; border:1px solid lightgray; width:90px; height:40px;">수정취소</button>
-											<button onclick="updateusersex()" style="color:#ffc985; background-color:white; border-radius:5px; border:1px solid lightgray; width:90px; height:40px;">수정완료</button>
-										</div>
-									</div>
-									
-								</div>
-								<hr style="border: .5px solid lightgray;">
-							</td>
-						</tr>
-						<tr>
-							<th style="background-color:#ffc985; text-align:center;">사용자 주소</th>
-							<td>
-								<div class="tdcell" style="margin-left:5%;">
-									<p class="contxt_tit" style="font-size:17pt;"><span id="userADDRESS"></span></p>
-									<p style="font-size:10pt; color:gray;">사용자님의 주소는 다른 용도로 사용하지 않습니다.</p>
-									<p class="btn_area_btm">
-										<button type="button" class="btn btn-info"
-											data-toggle="collapse" data-target="#demo5" style="margin-top:20px; background-color:white; color:black; border:0.5px solid lightgray;">수정</button>
-									<div id="demo5" class="collapse">
-									
-										<!-- 주소와 우편번호를 입력할 <input>들을 생성하고 적당한 name과 class를 부여한다 -->
-									우편번호<input type="text" class="postcodify_postcode5" style="width:50px; margin-left:30px; margin-top:20px;" disabled="disabled"/>
-									<button id="postcodify_search_button" style="background-color:#ffc985; border:1px solid lightgray; font-weight:600;">검색</button><br />
-									도로명주소<input id="gmjaddress1" type="text" class="postcodify_address" style="width:300px; margin-left:14px; margin-top:10px;" placeholder="도로명주소"/><br />
-									상세주소<input id="gmjaddress2" type="text" class="postcodify_details" style="width:300px; margin-left:30px; margin-top:10px;" placeholder="상세주소"/><br />
-									참고항목<input id="gmjaddress3" type="text" class="postcodify_extra_info" style="width:300px; margin-left:30px; margin-top:10px;" placeholder="참고항목"/><br />
-
-									<!-- jQuery와 Postcodify를 로딩한다 -->
-									<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-									<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
-
-									<!-- "검색" 단추를 누르면 팝업 레이어가 열리도록 설정한다 -->
-									<script> $(function() { $("#postcodify_search_button").postcodifyPopUp(); }); </script><br>
-									
-										<div style="margin-top:40px;"> 
-											<button class="cancel"  data-toggle="collapse" data-target="#demo5"style="color:black; background-color:white; border-radius:5px; border:1px solid lightgray; width:90px; height:40px;">수정취소</button>
-											<button onclick="updateuseraddress()" style="color:#ffc985; background-color:white; border-radius:5px; border:1px solid lightgray; width:90px; height:40px;">수정완료</button>
-										</div>
-									</div>
-									
-								</div>
-								<hr style="border: .5px solid lightgray;">
-							</td>
-						</tr>
-						<tr>
-							<th style="background-color:#ffc985; text-align:center;">회원 탈퇴</th>
-							<td>
-								<div class="tdcell" style="margin-left:5%;">
-									<p class="contxt_tit" style="font-size:17pt;"><span id="userSEX"></span></p>
-									<p style="font-size:10pt; color:gray;" >사용자는 회원 탈퇴 신청 하신 뒤 1개월 안에 복구하실 수 있습니다. 그 이후에는 모든 데이터가 삭제 됩니다.  </p>
-									<p class="btn_area_btm">
-										<button type="button" class="btn btn-info"
-											data-toggle="collapse" data-target="#demo6" style="margin-top:20px; background-color:white; color:black; border:0.5px solid lightgray;">수정</button>
-									<div id="demo6" class="collapse">
-										<div style="margin-top:40px;"> 
-											<button class="cancel" data-toggle="collapse" data-target="#demo6" style="color:black; background-color:white; border-radius:5px; border:1px solid lightgray; width:90px; height:40px;">취소</button>
-											<button onclick="bclient()" style="color:#ffc985; background-color:white; border-radius:5px; border:1px solid lightgray; width:90px; height:40px;">회원탈퇴</button>
-										</div>
-									
-										
-									</div>
-									
-								</div>
-							<!-- 	<hr style="border: .5px solid lightgray;"> -->
-							</td>
-						</tr>
+					
+						
+						
+						
 					</tbody>
 				</table>
 			</fieldset>
@@ -313,201 +204,45 @@
 			<p class="m-0 small">Copyright © GMJ 2018</p>
 		</div>
 	</footer>
+	<input type="hidden" id="userid" value=${userID}>
 	<script>
-		var userno = ${userNO};
-		var username = document.querySelector('#userNAME');
-		var userphone = document.querySelector('#userPHONE');
-		var usersex = document.querySelector('#userSEX');
-		var useraddress = document.querySelector('#userADDRESS');
-		var userupdatename = document.querySelector('#gmjname');
-		var userupdatepwd = document.querySelector('#gmjpwd');
-		var userupdatephone = document.querySelector('#gmjphone');
-		var userupdatesex = document.querySelector('#gmjsex');
-		var userupdatesextest = document.querySelectorAll('input[name="optradio"]');
-		var userupdateaddress1 = document.querySelector('#gmjaddress1');
-		var userupdateaddress2 = document.querySelector('#gmjaddress2');
-		var userupdateaddress3 = document.querySelector('#gmjaddress3');
-		var gmjnowpwd = document.getElementById('gmjnowpwd');
-		var gmjpwd = document.getElementById('gmjpwd');
-		var gmjcheckpwd = document.getElementById('gmjcheckpwd');
-		var pfc;
-		var blankPattern = /[\s]/g;
-		var pwdPattern =/([a-zA-Z0-9].*[!,@,#,$,%,^,&,*,?,_,~,-])|([!,@,#,$,%,^,&,*,?,_,~,-].*[a-zA-Z0-9])/;
-		var hanglePattern=/[a-z0-9ㄱ-ㅎㅏ-ㅣ]|[ \[\]{}()<>?|`~!@#$%^&*-_+=,.;:\"'\\]/g;
-		var phonenumber = /^[0-9]{3,3}-[0-9]{3,4}-[0-9]{4,4}/;
-		
-		userupdatephone.addEventListener('keyup',adddash);
-		var timeout = null;
-		function adddash(e) {
-			clearTimeout(timeout);
-			timeout = setTimeout(function() {
-				if(e.keyCode==46||e.keyCode==8) {
-					
-				} else {
-					if(e.target.value.length==3) {
-						e.target.value = e.target.value + '-';
-					}
-					if(e.target.value.length==8) {
-						e.target.value = e.target.value + '-';
-					}
+	var userEmail = document.getElementById('userid').value+'';
+	var gmjpwd = document.getElementById('gmjnowpwd');
+	function recoverBClient(){
+		au.send({
+			url : "/gmjbclientrecover",
+			method : "POST",
+			param : JSON.stringify({"gmjuseremail":userEmail,"gmjuserpwd":gmjpwd.value} ),
+			success : function(res) {
+				res = JSON.parse(res);
+				if(res==0){
+					alert("복구신청하는데 오류가 발생했습니다. 다시 시도해주세요.");
+				}else if(res==-1){
+					alert('비밀번호가 올바르지 않습니다.비밀번호를 다시 입력해주세요.');
+				}else{
+					alert("복구신청이 완료되었습니다.");
+					location.href = "/uri/prj/user/home";
 				}
-			},0);
-		}
+			}
+		});
+	}
+	for(var i =0;i<document.querySelectorAll('.btn').length;i++){
+		document.querySelectorAll('.btn')[i].addEventListener('click',hiddenb)
+		document.querySelectorAll('.cancel')[i].addEventListener('click',showb)
+	}
+	
+	
+	function hiddenb(e){
+		console.log(e.target);
+		e.target.style.visibility ="hidden";
+	}
+	function showb(e){
 		
-		function user() {
-			au.send({
-				url : "/gmjclient/"+userno,
-				method : "GET",
-				success : function(res) {
-					res = JSON.parse(res);
-					username.insertAdjacentHTML('afterbegin',res.gmjusername);
-					userphone.insertAdjacentHTML('afterbegin',res.gmjuserphone);
-					usersex.insertAdjacentHTML('afterbegin',res.gmjusersex);
-					useraddress.insertAdjacentHTML('afterbegin',res.gmjuseraddress);
-					pfc= res.gmjuserpwd;
-				}
-			})
-		}
-		user();
-		
-		function updateusername() {
-			console.log(userupdatename.value);
-			if(blankPattern.test(userupdatename.value)||userupdatename.value==''){
-				alert("공백 또는 빈칸은 불가능합니다.");
-				return;
-			}
-			if(hanglePattern.test(userupdatename.value)){
-				alert("한글만 가능합니다.");
-				return;
-			}
-			 au.send({
-				url : "/gmjclient",
-				method : "PUT",
-				param : JSON.stringify({gmjuserno:userno,gmjusername:userupdatename.value}),
-				success : function(res) {
-					res = JSON.parse(res);
-					alert("이름 수정이 완료되었습니다.");
-					location.href = "/uri/prj/user/status";
-				}
-			}) 
-		}
-		
-		function updateuserpwd() {
-			console.log(pfc);
-			console.log(gmjnowpwd.value);
-			if(gmjnowpwd.value!=pfc){
-				alert('현재 비밀번호를 다시 입력해주십시오.');
-				return;
-			}
-			if(gmjpwd.value.length<8||gmjpwd.value.length>16||blankPattern.test(gmjpwd.value)){
-				console.log('비밀번호 조건은 8자 ~16자이고, 영문(대소문자 구분),숫자,특수문자(!,@,#,$,%,^,&,*,?,_,~,-만 허용)를 혼용해주세요..');
-				return;
-			}
-			if(!gmjpwd.value.trim().match(pwdPattern)){	
-				console.log('비밀번호 조건은 8자 ~16자이고, 영문(대소문자 구분),숫자,특수문자(!,@,#,$,%,^,&,*,?,_,~,-만 허용)를 혼용해주세요..');
-				return;
-			}
-			if(gmjpwd.value!=gmjcheckpwd.value){
-				alert('비밀번호가 서로 다릅니다.');
-				return;
-			}
-			 au.send({
-				url : "/gmjclient",
-				method : "PUT",
-				param : JSON.stringify({gmjuserno:userno,gmjuserpwd:userupdatepwd.value}),
-				success : function(res) {
-					res = JSON.parse(res);
-					alert("비밀번호 수정이 완료되었습니다.");
-					location.href = "/uri/prj/user/status";
-				}
-			}) 
-		}
-		
-		function updateuserphone() {
-			if(!phonenumber.test(userupdatephone.value)) {
-				alert("전화번호를 정확히 입력해주세요");
-				return;
-			}
-			 au.send({
-				url : "/gmjclient",
-				method : "PUT",
-				param : JSON.stringify({gmjuserno:userno,gmjuserphone:userupdatephone.value}),
-				success : function(res) {
-					res = JSON.parse(res);
-					alert("전화번호 수정이 완료되었습니다.");
-					location.href = "/uri/prj/user/status";
-				}
-			}) 
-		}
-		
-		function updateusersex() {
-			console.log(userupdatesex);
-			
-			for(var i=0; i<2; i++) {
-				if(userupdatesextest[i].checked) {
-					userupdatesex = userupdatesextest[i];
-				};
-			}
-			console.log(userupdatesex.value);
-				au.send({
-				url : "/gmjclient",
-				method : "PUT",
-				param : JSON.stringify({gmjuserno:userno,gmjusersex:userupdatesex.value}),
-				success : function(res) {
-					res = JSON.parse(res);
-					alert("성별 수정이 완료되었습니다.");
-					location.href = "/uri/prj/user/status";
-				}
-			}) 
-		}
-		
-		function updateuseraddress() {
-			 au.send({
-				url : "/gmjclient",
-				method : "PUT",
-				param : JSON.stringify({gmjuserno:userno,gmjuseraddress:userupdateaddress1.value + userupdateaddress2.value + userupdateaddress3.value}),
-				success : function(res) {
-					res = JSON.parse(res);
-					alert("주소 수정이 완료되었습니다.");
-					location.href = "/uri/prj/user/status";
-				}
-			}) 
-		}
-		//버튼 안보이게하는 곳. 
 		for(var i =0;i<document.querySelectorAll('.btn').length;i++){
-			document.querySelectorAll('.btn')[i].addEventListener('click',hiddenb)
-			document.querySelectorAll('.cancel')[i].addEventListener('click',showb)
+		document.querySelectorAll('.btn')[i].style.visibility="visible";
 		}
-		
-		
-		function hiddenb(e){
-			console.log(e.target);
-			e.target.style.visibility ="hidden";
-		}
-		function showb(e){
-			
-			for(var i =0;i<document.querySelectorAll('.btn').length;i++){
-			document.querySelectorAll('.btn')[i].style.visibility="visible";
-			}
-		}
-		function bclient(){
-			if(confirm('정말로 건문지를 탈퇴하시겠습니까?')){
-				au.send({
-					url : "/gmjbclient",
-					method : "POST",
-					param : JSON.stringify({gmjuserno:userno}),
-					success : function(res) {
-						res = JSON.parse(res);
-						alert('회원탈퇴요청 되었습니다.');
-						if(res=='0'){
-							location.href='/uri/prj/user/home';
-						}
-						
-					}
-				}) 	
-			}
-		}
-
+	}
+	
 	</script>
 </body>
 </html>

@@ -18,7 +18,10 @@
 		<update id="pluscnt">
 		update gmjvboard set gmjvboardcnt=gmjvboardcnt+1 where gmjvboardno=#{gmjvboardno};
 		</update>
-		
+		<select id="selectReply" resultType="com.gmj.prj.vo.GmjReply" >
+			select distinct gmjreply.*,gmjclient.gmjUserName from gmjreply,gmjclient,gmjvboard 
+			where gmjreply.gmjvboardno=#{gmjvboardno} and gmjreply.gmjuserno=gmjclient.gmjuserno;
+		</select>
 		
 		
 	</mapper>

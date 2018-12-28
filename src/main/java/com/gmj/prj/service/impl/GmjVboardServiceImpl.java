@@ -11,6 +11,7 @@ import com.gmj.prj.dao.GmjPageInfoDAO;
 import com.gmj.prj.dao.GmjVboardDAO;
 import com.gmj.prj.service.GmjVboardService;
 import com.gmj.prj.vo.GmjPageInfo;
+import com.gmj.prj.vo.GmjReply;
 import com.gmj.prj.vo.GmjVboard;
 @Service
 public class GmjVboardServiceImpl implements GmjVboardService {
@@ -37,6 +38,11 @@ public class GmjVboardServiceImpl implements GmjVboardService {
 	public GmjVboard getOne(int gmjvboardno) {
 		// TODO Auto-generated method stub
 		return gvd.getOne(gmjvboardno);
+	}
+	@Override
+	public List<GmjReply> getreply(int gmjvboardno) {
+		
+		return gvd.getReply(gmjvboardno);
 	}
 
 }

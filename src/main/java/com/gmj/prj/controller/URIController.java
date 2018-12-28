@@ -28,13 +28,14 @@ public class URIController {
 		String uri = req.getRequestURI();
 		String uricheck = uri.substring(uri.lastIndexOf("/")+1, uri.length());
 		logger.debug("너의 뒷주소는 이것이다. {}",uricheck);
-		if(uricheck.equals("status")) {
+		if(uricheck.equals("status")||uricheck.equals("recover")) {
 			if(hs.getAttribute("userNO")!=null) {
 				return req.getRequestURI().replace(rootPath+"/uri/","");
 			}else {
 				return "redirect:../user/home";
 			}
 		}
+		
 		
 		return req.getRequestURI().replace(rootPath+"/uri/","");
 	}
@@ -63,8 +64,6 @@ public class URIController {
 	
 	@RequestMapping(value="/uri/**",method=RequestMethod.POST)
 	public String goPage3(HttpServletRequest req) throws UnsupportedEncodingException {
-		
-		
 		 
 		try {
 			String name = new String(req.getParameter("title").getBytes("8859_1"),"utf-8");

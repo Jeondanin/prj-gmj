@@ -15,6 +15,14 @@
 
 <title>GMJ</title>
 
+<style>
+.sch{
+border-right:1px solid grey;
+}
+
+</style>
+
+
 <!-- Bootstrap core CSS -->
 <link href="${resPath}/user/vendor/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -276,15 +284,23 @@
 		</div>
 	</section>
 	<!-- //회전목마 끝  -->
+						<div style="margin:auto;width: 500px; border-top:1px solid grey;border-bottom:1px solid grey;padding:5px;"> 
+						<table>
+						<tr><th class="col-sm-3 sch">기간</th><td class="col-sm-9">2018.08.30 ~ 2018.12.16</td></tr>
+						<tr><th class="col-sm-3 sch">장소</th><td class="col-sm-9">국립 현대 미술관 과천 2전시실 및 중앙홀</td></tr>
+						<tr><th class="col-sm-3 sch">작가</th><td class="col-sm-9">김중업</td></tr>
+						<tr><th class="col-sm-3 sch">작품수</th><td class="col-sm-9">도서, 드로잉, 사진, 필름 등 3,000여점</td></tr>
+						<tr><th class="col-sm-3 sch">관람료</th><td class="col-sm-9">2,000원</td></tr>
+						<tr><th class="col-sm-3 sch">주최/후원</th><td class="col-sm-9">국립현대미술관, 김중업건축박물관</td></tr>
+						</table>
+						 </div>
 						 
 						 
 						 
 						 
 						 
-						 
-						 
-						 
-						<p>전시회 개요 </p>
+						<h2>전시회 개요 </h2>
+						<br>
 						<p style="text-align:left;">《김중업 다이얼로그》전은 한국 현대 건축의 신화적 인물인 건축가 김중업을 조망한다. 하지만 이 전시는 그동안 김중업에 관한 피상적인 진단과 신화화된 측면과는 거리를 두고, 예술과 건축의 관계를 매개로 그동안 논의되지 않았던 다양한 맥락 속에서 작가와 그가 남긴 유산을 살펴보는 전시다. 김중업의 타계 30주기를 기념하기 위해 마련된 이 전시는 한국 현대 건축 전시를 꾸준히 기획해온 국립현대미술관이 김중업건축박물관과 공동으로 준비했다. 건축가 김중업의 생애 전반을 조망하는 첫 대규모 전시로서, 김중업건축박물관의 소장품과 국립현대미술관의 아카이브, 그리고 건물주로부터 대여한 자료들과 사진 및 영상 신작으로 구성했다.</p>
 						<br>
 						<p style="text-align:left;">1922년 평양에서 출생한 김중업은 르코르뷔지에 아틀리에에서 실무를 한 뒤 한국전쟁 이후 초토화된 한국 땅에서 한국적 모더니즘을 구현하고자 한 건축가다. 그는 임시수도 부산에서 만난 예술가들과의 네트워크를 기반으로 한국 문화예술계 중심에서 활동하며 예술가 들을 후원하고, 그들과의 협업을 오랜 기간 진행했다. 한국에서 최초의 건축 전시회를 열기도 한 김중업은 전시라는 문화양식을 일찍부터 이해하고 실천한 사람이다. 그는 건축을 건물로 한정하지 않고 담론의 문제로 보고 예술매체에 대한 깊이 있는 탐구를 진행했다. 그러한 사유의 흔적은 그가 남긴 이미지 아카이브에서 발견할 수 있다.</p>
@@ -302,124 +318,8 @@
 		</div>
 	</footer>
 
-	<div class="modal fade" id="login" role="dialog">
-		<div class="modal-dialog">
 
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title">Modal Header</h4>
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-				</div>
-				<div class="modal-body">
-					<form>
-						<div class="input-group">
-							<span class="input-group-addon"><i
-								class="glyphicon glyphicon-user"></i></span> <input
-								id="logingmjuseremail" type="email" class="form-control"
-								name="gmjuseremail" placeholder="이메일" required>
-						</div>
-						<div class="input-group">
-							<span class="input-group-addon"><i
-								class="glyphicon glyphicon-lock"></i></span> <input
-								id="logingmjuserpwd" type="password" class="form-control"
-								name="gmjuserpwd" placeholder="비밀번호">
-						</div>
-					</form>
-				</div>
-				<div class="modal-footer">
-					<button id="sb" class="btn btn-default" onclick="login()">로그인</button>
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-
-		</div>
-	</div>
-	<div class="modal fade" id="signup" role="dialog">
-		<div class="modal-dialog">
-
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title">Modal Header</h4>
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-				</div>
-				<div class="modal-body">
-					<form>
-						<div class="input-group">
-							<span class="input-group-addon"><i
-								class="glyphicon glyphicon-user"></i></span> <input id="gmjuseremail"
-								type="email" class="form-control" name="gmjuseremail"
-								placeholder="이메일" required>
-						</div>
-						<div class="input-group">
-							<span class="input-group-addon"><i
-								class="glyphicon glyphicon-lock"></i></span> <input id="gmjuserpwd"
-								type="password" class="form-control" name="gmjuserpwd"
-								placeholder="비밀번호">
-						</div>
-						<div class="input-group">
-							<span class="input-group-addon"><i
-								class="glyphicon glyphicon-lock"></i></span> <input id="gmjuserpwdchk"
-								type="password" class="form-control" name="gmjuserpwdchk"
-								placeholder="비밀번호 확인">
-						</div>
-						<div class="input-group">
-							<span class="input-group-addon"><i
-								class="glyphicon glyphicon-pencil"></i></span> <input id="gmjusername"
-								type="text" class="form-control" name="gmjusername"
-								placeholder="이름">
-						</div>
-						<div class="input-group">
-							<span class="input-group-addon"><i
-								class="glyphicon glyphicon-phone"></i></span> <input id="gmjuserphone"
-								type="text" class="form-control" name="gmjuserphone"
-								placeholder="핸드폰 번호">
-						</div>
-						<div class="input-group">
-							<span class="input-group-addon"><i
-								class="glyphicon glyphicon-calendar"></i></span> <input
-								id="gmjuserbirth" type="date" class="form-control"
-								name="gmjuserbirth" placeholder="생년월일 8자 ex)900213">
-						</div>
-						<div class="input-group">
-							<span class="input-group-addon"><i
-								class="glyphicon glyphicon-heart"></i></span>
-							<div id="gmjusersex"
-								style="padding: 6px 12px; font-size: 14px; height: 34px; border: 1px solid #ced4da; border-radius: .25rem;">
-								<label class="radio-inline"> <input type="radio"
-									name="optradio" value="남자">남
-								</label> <label class="radio-inline"> <input type="radio"
-									name="optradio" value="여자">녀
-								</label>
-							</div>
-
-						</div>
-						<div class="input-group">
-							<span class="input-group-addon"><i
-								class="glyphicon glyphicon-stats"></i></span> <input
-								id="gmjuseraddress" type="text" class="form-control"
-								name="gmjuseraddress" placeholder="주소">
-						</div>
-
-						<br>
-
-
-					</form>
-
-
-
-
-
-				</div>
-				<div class="modal-footer">
-					<button id="sb" class="btn btn-default" onclick="submit()">제출</button>
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-
-		</div>
-	</div>
+	
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="${resPath}/user/vendor/jquery/jquery.min.js"></script>

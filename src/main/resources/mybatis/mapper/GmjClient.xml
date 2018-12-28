@@ -41,6 +41,9 @@
 		delete from gmjclient
 		where gmjuserno=#{gmjuserno}
 		</delete>
+		<select id="dupcheck" resultType="int">
+		select count(*) from gmjclient where gmjUserEmail=#{gmjuseremail}
+		</select>
 		
 		<select id="login" resultType="com.gmj.prj.vo.GmjClient">
 		select * from gmjclient where gmjUserEmail=#{gmjuseremail} and gmjUserPwd=#{gmjuserpwd}

@@ -114,6 +114,7 @@ html, body {
 	var sc= document.getElementById('selectC')
 	var fs= document.getElementById('fruits');
 	var btz= document.getElementById('btz');
+	var markers =[];
 	var data={};
 	
 	
@@ -139,7 +140,7 @@ html, body {
 								//console.log(testAd)
 							
 									geocodeAddress(geocoder,map,ads);	
-									console.log(86);
+									
 									console.log(ads);
 									addtools(ads);
 								
@@ -157,11 +158,12 @@ html, body {
 		
 		
 	}
+	///사이드 메뉴 
+	var toolbox = document.querySelector('#maptools');
+	var drawer = document.querySelector('#drawer');
+	var container = document.querySelector('#container');
 	function addtools(ads){
-		var toolbox = document.querySelector('#maptools');
-		var drawer = document.querySelector('#drawer');
-		
-		var container = document.querySelector('#container');
+		showtools()
 		toolbox.style.display="block";
 		drawer.style.display="block";
 		var baddress= ads.gmjarchitectbaddress1+' '+ads.gmjarchitectbaddress2+' '+ads.gmjarchitectbaddress3;
@@ -170,19 +172,21 @@ html, body {
 		
 	}
 	function hidetools(){
-		var toolbox = document.querySelector('#maptools');
-		var drawer = document.querySelector('#drawer');
-		if(toolbox.style.left==''||toolbox.style.left=='0px'){
+	
+		if(toolbox.style.left==''||toolbox.style.left=='0px'||container.innerHTML==''){
 			toolbox.style.left="-20%";
 			drawer.style.left="0%";
 			drawer.innerHTML='>';
 		}else{
-			toolbox.style.left="0";
-			drawer.style.left="20%";
-			drawer.innerHTML='<';
+			showtools();
 		}
 		
 		
+	}
+	function showtools(){
+		toolbox.style.left="0";
+		drawer.style.left="20%";
+		drawer.innerHTML='<';
 	}
 	function setCenter(resultsMap,ss){
 		
@@ -196,13 +200,14 @@ html, body {
 	    //resultsMap.setCenter(position);
 	}
 	function searchAddress(data,geocoder,map){
-		console.log(data.주소);
+		document.querySelector('#container').innerHTML='';
+		hidetools();
 		var conf = {
 				url:'/gmjArchitectBAddress/'+data.주소,
 				method:'GET',
 				//	param : JSON.stringify({uiid:id,uipwd:pwd,uiname:name,uiemail:email,uibirth:birth,uiaddress:address,uihobby:hobby,uidesc:desc,uitel:tel}),
 				success : function(res){
-					alert(res.length);
+					
 					if(res!=''){
 					res=JSON.parse(res);
 					geocodeAddress(geocoder,map,res);				
@@ -292,9 +297,15 @@ html, body {
 			} */
 
 		}
+		
+		
 
 		function geocodeAddress(geocoder,resultsMap,ads='없음'){
-			
+			for (var i = 0; i < markers.length; i++) {
+		          markers[i].setMap(null);
+		        }
+			markers = [];
+			     
 			var contentString;
 			var address;
 			console.log(ads);
@@ -328,8 +339,9 @@ html, body {
 							
 							
 							map : resultsMap,
-							position : ss.geometry.location,
+							position : ss.geometry.location
 						});
+						markers.push(marker);// collection화 시킴 .
 						google.maps.event.addListener(marker, 'click', function() {
 							var infowindow = new google.maps.InfoWindow({
 								maxWidth : 200,
@@ -351,6 +363,11 @@ html, body {
 			
 			
 		}
+		 function setMapOnAll(map) {
+		        for (var i = 0; i < markers.length; i++) {
+		          markers[i].setMap(map);
+		        }
+		 }
 	</script>
 	<script async defer
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtN6BEVPGOOsj_lYnOGiD2-mOG7wJbcks&callback=initMap">

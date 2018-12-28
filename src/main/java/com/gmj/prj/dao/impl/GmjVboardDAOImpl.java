@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import com.gmj.prj.dao.GmjVboardDAO;
 import com.gmj.prj.vo.GmjCboard;
+import com.gmj.prj.vo.GmjReply;
 import com.gmj.prj.vo.GmjVboard;
 @Repository
 public class GmjVboardDAOImpl implements GmjVboardDAO {
@@ -38,6 +39,11 @@ public class GmjVboardDAOImpl implements GmjVboardDAO {
 		GmjVboard result =ss.selectOne("com.gmj.prj.vo.GmjVboard.selectVboard",gmjvboardno);
 		
 		return  result;
+	}
+	@Override
+	public List<GmjReply> getReply(int gmjvboardno) {
+		
+		return ss.selectList("com.gmj.prj.vo.GmjVboard.selectReply",gmjvboardno);
 	}
 
 }

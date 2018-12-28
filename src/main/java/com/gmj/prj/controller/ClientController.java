@@ -41,6 +41,12 @@ public class ClientController {
 		System.out.println(gc);
 		return gcs.insertClient(gc);
 	}
+	@PostMapping(value="/gmjclient/dupcheck")
+	public @ResponseBody int dupcheck(@RequestBody String gmjuserEmail) {
+		return gcs.dupcheck(gmjuserEmail);
+	}
+	
+	
 	@DeleteMapping(value="/gmjclient/{gmjclientno}")
 	public @ResponseBody int deleteClient(@PathVariable int gmjclientno) {
 		return gcs.deleteClient(gmjclientno);

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.gmj.prj.service.GmjVboardService;
 import com.gmj.prj.vo.GmjPageInfo;
+import com.gmj.prj.vo.GmjReply;
 import com.gmj.prj.vo.GmjVboard;
 
 
@@ -34,6 +35,10 @@ public class VBoardController {
 	@GetMapping(value="/gmjvboard/{gmjvboardno}")
 	public @ResponseBody GmjVboard getOne(@PathVariable int gmjvboardno){
 		return gvs.getOne(gmjvboardno);
+	}
+	@GetMapping(value="/gmjvreply/{gmjvboardno}")
+	public @ResponseBody List<GmjReply> getreply(@PathVariable int gmjvboardno){
+		return gvs.getreply(gmjvboardno);
 	}
 
 }

@@ -10,6 +10,8 @@ public interface GmjClientDAO {
 	public int updateClient(GmjClient gc);
 	public int updateClientList(List<GmjClient> listgc);
 	public int deleteClient(int gmjClientno);
+	
+	public int dupcheck(String gmjuserEmail);
 	public GmjClient login(GmjClient gc);
 	public GmjClient getClientUser(int gc);
 	

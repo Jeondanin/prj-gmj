@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gmj.prj.vo.GmjBClient">
+	<select id="BClientselectList" resultType="com.gmj.prj.vo.GmjBClient">
+		call p_bclient()
+		
+	</select> 
+	<select id="BClientselect" resultType="com.gmj.prj.vo.GmjBClient">
+		select * from GmjBClient
+		where gmjUserEmail=#{gmjuseremail} and gmjUserPwd=#{gmjuserpwd}
+	</select>
+	<select id="checkBClient" resultType="int">
+		select gmjuserno from GmjBClient
+		where gmjUserEmail=#{gmjuseremail} and gmjUserPwd=#{gmjuserpwd}
+	</select>
+	
+	
+	<insert id="BClientinsert">
+		insert into
+		gmjbclient(gmjUserNo,gmjUserEmail,gmjUserPwd,gmjUserName,gmjUserPhone,gmjUserBirth,gmjUserSex,gmjUserAddress,credat,deldat)
+		select b.gmjUserNo,b.gmjUserEmail,b.gmjUserPwd,b.gmjUserName,b.gmjUserPhone,b.gmjUserBirth,b.gmjUserSex,b.gmjUserAddress,b.credat,now()
+		from gmjclient as b where b.gmjUserNo=#{gmjuserno};
+		
+		delete from gmjclient
+		where gmjclient.gmjUserNo=#{gmjuserno};
+	</insert>
+	<insert id="recoverBClient">
+		insert into
+		gmjclient(gmjUserNo,gmjUserEmail,gmjUserPwd,gmjUserName,gmjUserPhone,gmjUserBirth,gmjUserSex,gmjUserAddress,credat,moddat)
+		select b.gmjUserNo,b.gmjUserEmail,b.gmjUserPwd,b.gmjUserName,b.gmjUserPhone,b.gmjUserBirth,b.gmjUserSex,b.gmjUserAddress,b.credat,now()
+		from gmjbclient as b where b.gmjUserNo=#{gmjuserno};
+		
+		delete from gmjbclient
+		where gmjbclient.gmjUserNo=#{gmjuserno};
+	</insert>
+	<delete id="BClientdelete">
+		delete from gmjbclient
+		where gmjbuserno=#{gmjbuserno}
+	</delete>
+</mapper>
