@@ -89,16 +89,15 @@ public class GmjCboardServiceImpl implements GmjCboardService {
 					System.out.println("Origanalname"+orginname);
 					System.out.println("확장자: "+fEndName);
 					System.out.println("size"+mf.getSize());
-					//파일 경로 찾기.입니다.
+					//파일 경로 찾기.
 					String utstr = this.getClass().getResource("").getPath();
 					
-				
+					utstr = utstr.substring(0, utstr.indexOf("workspace")+10);
 					System.out.println(utstr);
-					String path =utstr+"\\prj-gmj\\src\\main\\webapp\\resources\\uploadfiles\\newimage1"+System.currentTimeMillis()+fEndName;
-					
+					String path ="/tomcat8.5/webapps/resources"+"\\uploadfiles\\newimage1"+System.currentTimeMillis()+fEndName;
 		            File file = new File(path);
 		            
-		            String adjusted = path.substring(path.lastIndexOf("/")+1, path.length());
+		            String adjusted = path.substring(path.lastIndexOf("\\")+1, path.length());
 		            gu.setGmjuploadaddress(adjusted);
 		            gu.setGmjcboardno(forUpload.getGmjcboardno());
 		            System.out.println(gu);
