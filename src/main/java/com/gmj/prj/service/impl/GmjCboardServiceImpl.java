@@ -94,7 +94,7 @@ public class GmjCboardServiceImpl implements GmjCboardService {
 					
 					//utstr = utstr.substring(0, utstr.indexOf("workspace")+10);
 					System.out.println(utstr);
-					String path ="/usr/tomcat8.5/webapp/resources\\uploadfiles\\newimage1"+System.currentTimeMillis()+fEndName;
+					String path ="/usr/tomcat8.5/webapp/resources/uploadfiles\\newimage1"+System.currentTimeMillis()+fEndName;
 		            File file = new File(path);
 		            
 		            String adjusted = path.substring(path.lastIndexOf("\\")+1, path.length());
