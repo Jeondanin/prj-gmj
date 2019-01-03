@@ -209,7 +209,7 @@ var pagination = document.querySelector('#paginationz');
 						viewSectionhtml += '</div></div>';
 						if(res.gmjuploadaddress){
 							viewSectionhtml +='<div class="row"><div class="col-sm-12 viewonline">';
-							viewSectionhtml += '<img  src="/resources/uploadfiles/'+res.gmjuploadaddress+'">';
+							viewSectionhtml += '<img style="max-width:100%" src="/resources/uploadfiles/'+res.gmjuploadaddress+'">';
 						viewSectionhtml +='</div></div>';
 						}
 					viewSectionhtml += '</div>';
