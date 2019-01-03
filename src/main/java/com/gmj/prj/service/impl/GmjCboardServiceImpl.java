@@ -94,7 +94,7 @@ public class GmjCboardServiceImpl implements GmjCboardService {
 					
 					utstr = utstr.substring(0, utstr.indexOf("workspace")+10);
 					System.out.println(utstr);
-					String path =utstr+"newimage1"+System.currentTimeMillis()+fEndName;
+					String path =utstr+"at8.5/webapps/gmj/resources/newimage"+System.currentTimeMillis()+fEndName;
 		            File file = new File(path);
 		            
 		            String adjusted = path.substring(path.lastIndexOf("\\")+1, path.length());
