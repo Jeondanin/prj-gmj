@@ -92,9 +92,9 @@ public class GmjCboardServiceImpl implements GmjCboardService {
 					//파일 경로 찾기.입니다.
 					String utstr = this.getClass().getResource("").getPath();
 					
-					utstr = utstr.substring(0, utstr.indexOf("workspace")+10);
+				
 					System.out.println(utstr);
-					String path =utstr+"\\prj-gmj\\src\\main\\webapp/resources\\uploadfiles\\newimage1"+System.currentTimeMillis()+fEndName;
+					String path =utstr+"\\prj-gmj\\src\\main\\webapp\\resources\\uploadfiles\\newimage1"+System.currentTimeMillis()+fEndName;
 		            File file = new File(path);
 		            
 		            String adjusted = path.substring(path.lastIndexOf("\\")+1, path.length());
