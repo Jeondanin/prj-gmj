@@ -97,7 +97,7 @@ public class GmjCboardServiceImpl implements GmjCboardService {
 					String path =utstr+"at8.5/webapps/gmj/resources/uploadfiles/newimage"+System.currentTimeMillis()+fEndName;
 		            File file = new File(path);
 		            
-		            String adjusted = path.substring(path.lastIndexOf("\\")+1, path.length());
+		            String adjusted = path.substring(26, path.length());
 		            gu.setGmjuploadaddress(adjusted);
 		            gu.setGmjcboardno(forUpload.getGmjcboardno());
 		            System.out.println(gu);
