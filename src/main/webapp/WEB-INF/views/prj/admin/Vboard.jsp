@@ -154,9 +154,9 @@
 				.setHeader('번호,영상제목,영상내용,영상주소,생성날짜,수정날짜,조회수,수정,삭제');
 
 		dxGrid
-				.setColumnIds('gmjvboardno,gmjvboardtitle,gmjvboarddesc,gmjvboardurl,gmjvboardcreddat,gmjvboardmoddat,gmjvboardcnt,edit,delete');
-		dxGrid.setColTypes('ro,ed,ed,ed,ro,ro,ed,img,img');
-		dxGrid.enableAutoWidth(true);
+				.setColumnIds('gmjvboardno,gmjvboardtitle,gmjvboardthumb,gmjvboarddesc,gmjclientno,credat,moddat,gmjvboardcnt,edit,delete');
+		dxGrid.setColTypes('ro,ed,ed,ed,ed,ro,ro,ro,img,img');
+		dxGrid.enableAutoWidth(true);	
 		dxGrid.init();
 		au.send({
 			url : '/gmjvboard',

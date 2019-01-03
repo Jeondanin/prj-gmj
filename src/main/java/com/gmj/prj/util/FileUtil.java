@@ -15,8 +15,8 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 @Component
 public class FileUtil {
-	 private static final String filePath = "C:\\bdi_study\\workspace\\prj-gmj\\src\\main\\webapp\\resources\\uploadfiles";
-     
+	 private static final String filePath = "~\\usr\\tomcat8.5\\webapps\\resources\\uploadfiles";
+     //"C:\\bdi_study\\workspace\\prj-gmj\\src\\main\\webapp\\resources\\uploadfiles";
 	    public List<Map<String,Object>> parseInsertFileInfo(Map<String,Object> map, HttpServletRequest request) throws Exception{
 	        MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
 	        Iterator<String> iterator = multipartHttpServletRequest.getFileNames();
