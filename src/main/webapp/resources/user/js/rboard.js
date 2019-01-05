@@ -183,6 +183,7 @@ var pagination = document.querySelector('#paginationz');
 				viewSectionhtml += res.gmjbboardtitle+'</div><div>'+res.credat+'&nbsp;  |  &nbsp;</div>';
 				viewSectionhtml += '</div></div>'
 			viewSectionhtml += '<div class="row viewcontentrow"><div class="col-sm-12 viewcontent">'
+				viewSectionhtml +='<img style="width:900px;height:700px" src="https://user-images.githubusercontent.com/39483767/50719180-d3466900-10db-11e9-9d91-367fe74d3c8b.jpg">'
 				viewSectionhtml += res.gmjbboarddesc;
 				viewSectionhtml += '</div></div>';
 				if(res.gmjuploadaddress){

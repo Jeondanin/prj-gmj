@@ -269,7 +269,7 @@ margin-top:5px;
 						</div>
 
 					
-						<button class="Card-button">view more</button>
+						<button class="Card-button"><a href="/uri/prj/user/community/recommend/view?no=1">view more</a></button>
 
 					</div>
 					
@@ -282,7 +282,7 @@ margin-top:5px;
 								style="background-size:435px 150px;background-image: url(${resPath}/img/home/exhibition1.jpg);"></div>
 						</div>
 						<div class="Card-title">
-							<span><h4 style="color: white;">안양 김중업박물관</h4> </span>
+							<span><h4 style="color: white;"><a href="/uri/prj/user/community/recommend/view?no=2">안양 김중업박물관</h4> </span>
 						</div>
 					
 						<button class="Card-button">view more</button>
