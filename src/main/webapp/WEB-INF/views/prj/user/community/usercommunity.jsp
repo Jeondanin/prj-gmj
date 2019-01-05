@@ -216,7 +216,7 @@ cursor:pointer;}
 
 						</table>
 						<div id="paginationz" class="row">
-						<
+						
 						 </div>
 						<div id="tabletools" style="position: relative; text-align:left;"  >
 							<span></span>
