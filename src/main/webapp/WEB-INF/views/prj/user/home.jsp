@@ -265,7 +265,7 @@ margin-top:5px;
 								style="background-size:435px 150px;background-image: url(${resPath}/img/home/seogangUniversity.jpg); "></div>
 						</div>
 						<div class="Card-title">
-							<span><h4 style="color: white;">서강대 본관입니다.</h4> </span>
+							<span><h4 style="color: white;">서강대</h4> </span>
 						</div>
 
 					
