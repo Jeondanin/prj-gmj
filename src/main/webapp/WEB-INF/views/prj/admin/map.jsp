@@ -92,8 +92,8 @@ div.gridbox {
 						<li><a href="/uri/prj/admin/userList"><i class="fa fa-edit fa-fw"></i> 회원 관리</a></li>
 						
 							
-								<li><a href="/uri/prj/admin/adboard">게시물 관리</a></li>
-								<li><a href="/uri/prj/admin/commentboard">댓글 관리</a></li>
+								<li><a href="/uri/prj/admin/adboard"><i class="fa fa-edit fa-fw"></i>게시물 관리</a></li>
+								<li><a href="/uri/prj/admin/commentboard"><i class="fa fa-edit fa-fw"></i>댓글 관리</a></li>
 					
 						<li><a href="/uri/prj/admin/Bboard"><i class="fa fa-table fa-fw"></i>추천글
 								관리</a></li>
@@ -121,7 +121,7 @@ div.gridbox {
 
 			<ul class="nav nav-tabs">
 				<li class="active"><a data-toggle="tab" href="#home">기본</a></li>
-				<li><a data-toggle="tab" href="#menu1">[유료] 스프레드시트</a></li>
+				
 		
 			</ul>
 
@@ -133,10 +133,7 @@ div.gridbox {
 
 	
 				</div>
-				<div id="menu1" class="tab-pane fade">
-					<h3>Menu 1</h3>
-					<p>Some content in menu 1.</p>
-				</div>
+			
 			</div>
 
 

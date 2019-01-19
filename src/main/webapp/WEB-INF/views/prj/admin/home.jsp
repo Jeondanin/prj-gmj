@@ -86,7 +86,7 @@ div.gridbox {
 								</span>
 							</div> <!-- /input-group -->
 						</li>
-						<li><a href="/uri/prj/admin/home"><i class="fa fa-dashboard fa-fw"></i>대쉬보드</a>
+						<li><a href="/uri/prj/admin/home"><i class="fa fa-dashboard fa-fw"></i>홈</a>
 						</li>
 						<li><a href="/uri/prj/admin/map"><i class="fa fa-edit fa-fw"></i> 지도 관리</a></li>
 						<li><a href="/uri/prj/admin/userList"><i class="fa fa-edit fa-fw"></i> 회원 관리</a></li>
